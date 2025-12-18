@@ -14,6 +14,29 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.6-swap-integration-to-sender - 🟢 Completed
+Migrate newsletter signup integration from Mailchimp to Sender.net. The user has deleted their Mailchimp account and is now using Sender.net as their email marketing platform. This version removes all Mailchimp dependencies and code, replaces it with Sender.net API integration, and maintains all existing functionality (form validation, rate limiting, Resend email notifications).
+
+**Key Changes:**
+- Remove Mailchimp API dependency (`@mailchimp/mailchimp_marketing` package)
+- Implement Sender.net API integration for adding newsletter subscribers
+- Update environment variables from `MAILCHIMP_*` to `SENDER_*`
+- Delete legacy Mailchimp documentation (`MAILCHIMP_SETUP.md`)
+- Update README with new Sender.net environment variables
+- Maintain existing form functionality, validation, and rate limiting
+- Keep Resend email notifications unchanged
+- Test directly in production (no local testing phase)
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 14.1 | Research Sender.net API | Review api.sender.net documentation to verify endpoint and payload structure | High | 🟢 Completed |
+| 14.2 | Remove Mailchimp dependency | Remove `@mailchimp/mailchimp_marketing` from package.json and run npm install | High | 🟢 Completed |
+| 14.3 | Update newsletter function | Replace Mailchimp API code with Sender.net API integration in newsletter-signup.js | High | 🟢 Completed |
+| 14.4 | Update environment variables | Change from MAILCHIMP_* to SENDER_* env vars with proper error handling | High | 🟢 Completed |
+| 14.5 | Update documentation | Update README.md and delete MAILCHIMP_SETUP.md legacy documentation | Medium | 🟢 Completed |
+| 14.6 | Deploy to production | Deploy changes and update Netlify environment variables | High | 🔴 Not Started |
+| 14.7 | Production testing | Test newsletter signup in production and verify Sender.net integration | High | 🔴 Not Started |
+
 ## v1.8.5-new-video-page - 🟢 Completed
 Create a new "Videos" section for on-demand video content under the "Learn" menu. This will be similar to the Events section but focused exclusively on video content with YouTube embeds, ordered by latest first, with multi-presenter support.
 

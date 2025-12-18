@@ -12,7 +12,6 @@ To run the backend functions (Contact Form, Newsletter), you need to set the fol
 ### Resend (Email Sending)
 *   `RESEND_API_KEY`: API Key for Resend.
 
-### Mailchimp (Newsletter)
-*   `MAILCHIMP_API_KEY`: API Key for Mailchimp.
-*   `MAILCHIMP_SERVER_PREFIX`: The server prefix for your Mailchimp account (e.g., `us1`, `us20`).
-*   `MAILCHIMP_LIST_ID`: The Audience ID (List ID) where subscribers should be added.
+### Sender.net (Newsletter)
+*   `SENDER_API_TOKEN`: API Access Token for Sender.net.
+*   `SENDER_GROUP_ID`: The Group ID where subscribers should be added.
