@@ -14,4 +14,3 @@ To run the backend functions (Contact Form, Newsletter), you need to set the fol
 
 ### Sender.net (Newsletter)
 *   `SENDER_API_TOKEN`: API Access Token for Sender.net.
-*   `SENDER_GROUP_ID`: The Group ID where subscribers should be added.

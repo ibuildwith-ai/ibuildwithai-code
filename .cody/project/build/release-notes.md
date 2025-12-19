@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.6-swap-integration-to-sender - December 18, 2025](#v186-swap-integration-to-sender---december-18-2025)
 - [v1.8.5-new-video-page - December 4, 2025](#v185-new-video-page---december-4-2025)
 - [v1.8.2-rename-presentations-to-events - December 2, 2025](#v182-rename-presentations-to-events---december-2-2025)
 - [v1.8.1-updates-to-presentation-and-podcast-pages - December 2, 2025](#v181-updates-to-presentation-and-podcast-pages---december-2-2025)
@@ -13,6 +14,205 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.6-swap-integration-to-sender - December 18, 2025
+
+## Overview
+
+Successfully migrated newsletter signup integration from Mailchimp to Sender.net email marketing platform. This version removes all Mailchimp dependencies and code, implements Sender.net API integration, and significantly improves error handling with detailed operator notifications. The migration maintains 100% of existing form functionality while reducing dependencies and improving resilience.
+
+## Key Features
+
+**Sender.net Integration**
+- Direct API integration using native Node.js `fetch` (no SDK required)
+- Simple subscriber addition to Sender.net contact list
+- Automatic subscriber creation with firstname, lastname, and email
+- 5-second timeout on API calls to prevent hanging
+- Graceful handling of duplicate subscribers (Sender.net auto-updates existing records)
+
+**Enhanced Error Handling**
+- **Multi-Layered Error Handling**: Sender.net errors caught → Resend notification errors caught → outer catch for catastrophic failures
+- **Status Tracking System**: Comprehensive status tracking (`success`, `already_exists`, `failed`, `skipped`)
+- **Detailed Operator Notifications**: Email alerts include specific error codes, status codes, and actionable messages
+- **Alert Priority Indicators**: ⚠️ emoji in subject line for failed status requiring manual action
+- **User Experience Protection**: Users always see "Successfully subscribed" regardless of backend failures
+
+**Error Notification Email Features**
+- **Success Status**: Standard notification with subscriber details
+- **Already Exists Status**: Note indicating subscriber already in Sender.net (informational)
+- **Failed Status**:
+  - Subject: `⚠️ Newsletter Signup - MANUAL ADD REQUIRED - {Name}`
+  - Body includes specific error details (HTTP status code + error message)
+  - Clear action required message for operator to manually add subscriber
+  - Example: `Status: 401, Message: Unauthenticated.`
+
+**Simplified Architecture**
+- Removed group management functionality (not needed for use case)
+- Single environment variable: `SENDER_API_TOKEN` (vs. 3 Mailchimp variables)
+- No SDK dependencies (native fetch vs. @mailchimp/mailchimp_marketing + 47 transitive dependencies)
+- Cleaner, more maintainable code
+
+## Code Changes
+
+**Backend Files Modified** (2 files)
+- `backend/netlify/functions/newsletter-signup.js` - Complete Sender.net rewrite with enhanced error handling
+  - Removed Mailchimp import and API calls
+  - Added Sender.net fetch-based integration
+  - Reorganized flow: Sender.net call → track status → Resend notification with status
+  - Wrapped Resend call in try-catch for graceful degradation
+  - Enhanced email content with conditional status information
+- `backend/package.json` - Removed `@mailchimp/mailchimp_marketing` dependency
+
+**Documentation Files Modified** (2 files)
+- `README.md` - Updated environment variables section (removed `SENDER_GROUP_ID` after simplification)
+- `.cody/project/build/feature-backlog.md` - Added v1.8.6 completion entry
+
+**Documentation Files Created** (3 files)
+- `.cody/project/build/v1.8.6-swap-integration-to-sender/design.md` - Technical architecture and API specifications
+- `.cody/project/build/v1.8.6-swap-integration-to-sender/tasklist.md` - 27 tasks across 7 phases
+- `.cody/project/build/v1.8.6-swap-integration-to-sender/retrospective.md` - Lessons learned and recommendations
+
+## Environment Variables
+
+**Removed Variables** (3 Mailchimp variables)
+- `MAILCHIMP_API_KEY`
+- `MAILCHIMP_SERVER_PREFIX`
+- `MAILCHIMP_LIST_ID`
+
+**Added Variables** (1 Sender.net variable)
+- `SENDER_API_TOKEN` - API access token from Sender.net dashboard
+
+**Unchanged Variables** (2 Resend variables)
+- `RESEND_API_KEY` - For sending email notifications
+- `RECIPIENT_EMAIL` - Operator email address for notifications
+
+## Bug Fixes
+
+**Netlify Function Cache Issue**
+- **Issue**: Environment variable changes in Netlify weren't taking effect even after updates
+- **Root Cause**: Netlify serves cached function code; env var changes don't auto-trigger redeployment
+- **Fix**: Used "Clear cache and deploy site" option to force fresh function deployment
+- **Impact**: All env var updates now require cache clearing for Netlify Functions
+
+**Missing Error Handling for Resend**
+- **Issue**: When Sender.net failed, entire request failed and user saw error instead of success message
+- **Root Cause**: Resend notification wasn't wrapped in try-catch; failures propagated to user
+- **Fix**: Wrapped Resend email send in try-catch block with error logging
+- **Impact**: Users now always see success even if both Sender.net and Resend fail
+
+## Technical Implementation
+
+**API Integration Details**
+- **Endpoint**: `POST https://api.sender.net/v2/subscribers`
+- **Authentication**: Bearer token in Authorization header
+- **Request Body**: JSON with `email`, `firstname`, `lastname` fields
+- **Timeout**: 5-second abort signal prevents hanging requests
+- **Error Handling**: HTTP status code checking + JSON error parsing
+
+**Sender.net API Behavior**
+- **New Subscribers**: Returns `200 OK` with subscriber ID
+- **Existing Subscribers (Exact Match)**: Returns `200 OK` (idempotent, no error)
+- **Existing Subscribers (Different Data)**: Returns `200 OK` and updates record
+- **Invalid Token**: Returns `401 Unauthorized`
+- **Invalid Data**: Returns appropriate 4xx error with message
+
+**Code Flow**
+1. Validate form input (existing validation maintained)
+2. Try to add subscriber to Sender.net
+3. Track status (`success`, `already_exists`, `failed`, `skipped`)
+4. Capture error details if failed
+5. Send notification email via Resend with status information
+6. Return 200 success to user regardless of backend status
+
+## Testing
+
+**Comprehensive Testing Completed**
+- ✅ New subscriber submission (success status, appears in Sender.net)
+- ✅ Duplicate subscriber with same data (success status, no changes)
+- ✅ Duplicate subscriber with different data (success status, record updated)
+- ✅ Invalid API token (failed status, error email sent, user sees success)
+- ✅ Netlify cache clearing (verified fresh deployment picks up env var changes)
+- ✅ Resend notification delivery with all status types
+- ✅ User experience (always sees "Successfully subscribed")
+- ✅ Operator notifications (receives detailed error information)
+- ✅ Production deployment and validation
+
+## Performance & Metrics
+
+**Dependency Reduction**
+- Removed Packages: 48 total (1 direct + 47 transitive dependencies)
+- Package.json Size: Reduced from 2 dependencies to 1 (`resend` only)
+- Build Impact: No negative impact, faster npm installs
+
+**Development Timeline**
+- Estimated Time: 3-4 hours
+- Actual Time: ~4-5 hours
+- Planning & Research: 30 min
+- Code Implementation: 1.5 hours
+- Troubleshooting: 1.5 hours (cache issue, endpoint fixes, error handling)
+- Testing: 1 hour
+- Documentation: 30 min
+
+**Task Completion**
+- Total Tasks: 27
+- AGENT Tasks: 14/14 (100%)
+- USER Tasks: 13/13 (100%)
+- Phases: 7 (all completed)
+
+## Impact
+
+**User Experience**
+- Seamless migration with zero downtime
+- No changes to newsletter signup form or user workflow
+- Always see success message for better experience
+- Form validation and rate limiting unchanged
+
+**Operator Experience**
+- Detailed error notifications with actionable information
+- Clear distinction between success, duplicates, and failures
+- Priority indicators (⚠️) for items requiring attention
+- Error details include HTTP status codes and API messages for troubleshooting
+
+**Technical Benefits**
+- Simpler architecture (no group management complexity)
+- Fewer dependencies (48 packages removed)
+- Better error resilience (multi-layered error handling)
+- Improved maintainability (native fetch, no SDK)
+- Better operator visibility (comprehensive status notifications)
+
+## Future Enhancements
+
+**Potential Improvements**
+1. Add uptime monitoring for Sender.net API endpoint availability
+2. Track success/failure rates in logs for metrics visibility
+3. Implement secondary notification method if Resend fails
+4. Add periodic SENDER_API_TOKEN rotation for security
+5. Create dashboard for subscriber management
+6. Add subscriber import/export functionality
+
+**Monitoring Recommendations**
+1. Watch for ⚠️ error emails indicating manual additions needed
+2. Check SENDER_API_TOKEN validity if errors persist
+3. Monitor Sender.net subscriber list growth
+4. Verify Resend notification delivery rates
+
+## Other Notes
+
+**Mailchimp Account**: User deleted Mailchimp account before migration, making rollback impossible. This forced commitment to Sender.net worked in favor of clean migration.
+
+**Sender.net Advantages**:
+- Simpler API with fewer required parameters
+- Idempotent operations (duplicate submissions handled gracefully)
+- Auto-updates existing subscribers with new data
+- More forgiving error handling
+
+**Development Process**: Followed Cody Framework with comprehensive planning (design.md), task tracking (tasklist.md), and retrospective analysis. The spec-driven approach caught several edge cases during planning phase.
+
+**Cache Learning**: Discovered that Netlify environment variable changes don't auto-trigger function redeployment. Always clear cache when updating env vars for Netlify Functions.
+
+**Error Handling Philosophy**: Users should never see backend failures for non-critical operations. The enhanced error handling ensures users always feel successful while operators get detailed information for follow-up.
 
 ---
 
