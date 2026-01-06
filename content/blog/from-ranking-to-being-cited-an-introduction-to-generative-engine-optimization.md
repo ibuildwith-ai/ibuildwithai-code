@@ -32,7 +32,7 @@ With SEO, success means ranking high in search results so people click through t
 
 Here's a quick comparison:
 
-| | SEO | GEO |
+| | **SEO** | **GEO** |
 |---|-----|-----|
 | **Goal** | Rank high in search results | Get cited in AI-generated answers |
 | **Target** | Search engine algorithms | Large language models |
@@ -76,7 +76,7 @@ Based on the current research, here is how it seems each of the major platforms 
 
 Here's a simplified comparison:
 
-| Platform | Citation Behavior | What It Favors |
+|  | **Citation Behavior** | **What It Favors** |
 |----------|-------------------|----------------|
 | **ChatGPT** | Concentrates on a few authoritative sources | Wikipedia, Reddit, top Bing results |
 | **Perplexity** | Real-time search, cites widely | Structured content, community discussions, niche expertise |
@@ -133,6 +133,8 @@ Some practical changes:
 - Keep paragraphs short, ideally focused on a single idea.
 - Avoid burying important information in the middle of long blocks of text.
 
+{{< space "1.5rem" >}}
+
 If you have content that answers a specific question, make sure the answer is easy to find. Don't make the AI dig for it.
 
 **3. Add substance that AI can use**
@@ -176,6 +178,8 @@ The good news is that AI systems want what you're probably already doing: writin
 - Research shows that adding statistics, quotations, and citations to your content can improve AI visibility by 30-40%. Keyword stuffing hurts.
 - Start by auditing your current visibility across AI platforms. Then focus on structuring your content so AI can easily extract and cite it.
 - The llms.txt standard is worth watching, but not urgent yet.
+
+{{< space "1.5rem" >}}
 
 I'm still learning this alongside you. But the direction seems clear: the content that gets cited tomorrow is the content we're creating today. And keep this in mind: some of what I've written here may have changed by the time you read it. This space is evolving fast, and there are no firm standards yet. That's part of what makes it so fun to follow.
 

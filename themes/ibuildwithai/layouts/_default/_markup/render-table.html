@@ -1,0 +1,46 @@
+{{- /*
+  Hugo Render Hook for Tables
+  Automatically wraps all markdown tables with responsive CSS classes and accessibility attributes.
+
+  Output Structure:
+  - Wrapper div with class "responsive-table-wrapper"
+  - Table with class "responsive-table" and ARIA attributes
+  - Data-label attributes on all <td> elements for mobile card layout
+*/ -}}
+
+{{- /* Extract header labels from first THead row for mobile data-label attributes */ -}}
+{{- $headerLabels := slice -}}
+{{- if .THead -}}
+  {{- range index .THead 0 -}}
+    {{- $headerLabels = $headerLabels | append .Text -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="responsive-table-wrapper">
+  <table class="responsive-table" role="table" aria-label="Data table">
+    {{- if .THead -}}
+    <thead>
+      {{- range .THead -}}
+      <tr>
+        {{- range . -}}
+        <th align="{{ .Alignment }}">{{ .Text }}</th>
+        {{- end -}}
+      </tr>
+      {{- end -}}
+    </thead>
+    {{- end -}}
+    {{- if .TBody -}}
+    <tbody>
+      {{- range .TBody -}}
+      <tr>
+        {{- $cellIndex := 0 -}}
+        {{- range . -}}
+        <td data-label="{{ index $headerLabels $cellIndex }}" align="{{ .Alignment }}">{{ .Text }}</td>
+        {{- $cellIndex = add $cellIndex 1 -}}
+        {{- end -}}
+      </tr>
+      {{- end -}}
+    </tbody>
+    {{- end -}}
+  </table>
+</div>

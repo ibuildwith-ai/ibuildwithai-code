@@ -14,26 +14,28 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
-## v1.8.7-responsive-tables - 🔴 Not Started
+## v1.8.7-responsive-tables - 🟢 Completed
 Implement automatic responsive table styling for all markdown tables in blog posts. Tables will display as traditional tables on desktop (> 1050px) with enhanced styling (header row, zebra striping, centered text), and convert to card-based layout on mobile/tablet (≤ 1050px) where each row becomes a card with the first column as the heading.
 
 **Key Features:**
 - Automatic conversion via Hugo render hook (no shortcode required)
-- Desktop: Enhanced table styling with header row, alternating row colors, borders, centered text
+- Desktop: Enhanced table styling with alternating row colors, borders, centered text
 - Mobile: Card-based layout with first column as card title, other columns as label-value pairs
 - CSS-only solution (no JavaScript)
 - Dark theme using existing color variables ($neutral-800, $neutral-700, $primary-500)
 - All cards visible (no accordion/collapse)
 - Accessible with proper ARIA labels
 - Zero changes needed to existing markdown content
+- **Bonus Feature**: Cells with `**bold**` markdown automatically display in green ($primary-500) for flexible header styling
 
 | ID  | Feature                 | Description                              | Priority | Status |
 |-----|-------------------------|------------------------------------------|----------|--------|
-| 15.1 | Hugo render hook | Create layouts/_default/_markup/render-table.html for automatic table wrapping | High | 🔴 Not Started |
-| 15.2 | Desktop table CSS | Add enhanced table styling with header row, zebra striping, borders, centered text | High | 🔴 Not Started |
-| 15.3 | Mobile card CSS | Create card-based responsive layout for mobile/tablet breakpoint | High | 🔴 Not Started |
-| 15.4 | Accessibility features | Add ARIA labels and screen reader support | Medium | 🔴 Not Started |
-| 15.5 | Testing | Test with existing blog tables on desktop, tablet, and mobile | High | 🔴 Not Started |
+| 15.1 | Hugo render hook | Create layouts/_default/_markup/render-table.html for automatic table wrapping | High | 🟢 Completed |
+| 15.2 | Desktop table CSS | Add enhanced table styling with header row, zebra striping, borders, centered text | High | 🟢 Completed |
+| 15.3 | Mobile card CSS | Create card-based responsive layout for mobile/tablet breakpoint | High | 🟢 Completed |
+| 15.4 | Accessibility features | Add ARIA labels and screen reader support | Medium | 🟢 Completed |
+| 15.5 | Bold text green styling | Style cells containing `**bold**` text with green color for flexible headers | Medium | 🟢 Completed |
+| 15.6 | Testing | Test with existing blog tables on desktop, tablet, and mobile | High | 🟢 Completed |
 
 ## v1.8.6-swap-integration-to-sender - 🟢 Completed
 Migrate newsletter signup integration from Mailchimp to Sender.net. The user has deleted their Mailchimp account and is now using Sender.net as their email marketing platform. This version removes all Mailchimp dependencies and code, replaces it with Sender.net API integration, and maintains all existing functionality (form validation, rate limiting, Resend email notifications).

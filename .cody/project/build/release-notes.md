@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.7-responsive-tables - January 6, 2026](#v187-responsive-tables---january-6-2026)
 - [v1.8.6-swap-integration-to-sender - December 18, 2025](#v186-swap-integration-to-sender---december-18-2025)
 - [v1.8.5-new-video-page - December 4, 2025](#v185-new-video-page---december-4-2025)
 - [v1.8.2-rename-presentations-to-events - December 2, 2025](#v182-rename-presentations-to-events---december-2-2025)
@@ -14,6 +15,173 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.7-responsive-tables - January 6, 2026
+
+## Overview
+
+Successfully implemented automatic responsive table styling for all markdown tables throughout the site. Tables now display with enhanced styling on desktop (> 1050px) and convert to mobile-friendly card layouts on smaller screens (≤ 1050px). The implementation uses a Hugo render hook for zero-config automatic conversion and pure CSS for transformations, requiring no changes to existing markdown content.
+
+## Key Features
+
+**Automatic Hugo Render Hook**
+- Created `themes/ibuildwithai/layouts/_default/_markup/render-table.html`
+- Intercepts all markdown table rendering automatically
+- Wraps tables with responsive CSS classes and accessibility attributes
+- Adds data-label attributes to cells for mobile card labels
+- Zero configuration required - works on all existing and future markdown tables
+
+**Desktop Table Styling**
+- Enhanced table presentation with professional dark theme
+- Header row with distinct background (`$neutral-800`)
+- Zebra striping: alternating row colors for improved readability
+- Clean borders between rows and columns (`$neutral-700`)
+- Centered text alignment for better visual consistency
+- Hover effect on rows with green accent (`$primary-500`)
+- Proper border-radius and shadow for depth
+
+**Mobile Card Layout**
+- Responsive breakpoint at 1050px (`$breakpoint-tablet`)
+- Each table row becomes an individual card
+- First column value serves as card title/header
+- Remaining columns display as label-value pairs
+- Visual header hidden but preserved in DOM for screen readers
+- All cards visible (no accordion/collapse interaction)
+- Vertical stacking with comfortable spacing
+
+**Flexible Header Styling (Bonus Feature)**
+- Cells containing `**bold**` markdown automatically display in green (`$primary-500`)
+- Works in both header (`<th>`) and body (`<td>`) cells
+- Enables flexible 2-axis table headers (top row + first column)
+- Applies to both desktop and mobile views
+- Scoped only to tables - no impact on bold text elsewhere on site
+- Perfect for comparison tables with row and column headers
+
+**Accessibility**
+- Semantic HTML structure maintained (`<table>`, `<thead>`, `<tbody>`)
+- ARIA attributes: `role="table"` and `aria-label="Data table"`
+- Screen reader support with proper header associations
+- Keyboard navigation preserved
+- Visual header hidden on mobile but accessible to assistive technology
+
+**Performance**
+- CSS-only solution with zero JavaScript overhead
+- No runtime DOM manipulation or transformations
+- Minimal CSS footprint (~170 lines)
+- Hugo Pipes automatically minifies and fingerprints CSS
+- No additional dependencies or libraries required
+
+## Code Changes
+
+**Hugo Template Files Created** (1 file)
+- `themes/ibuildwithai/layouts/_default/_markup/render-table.html` - Render hook for automatic table interception and wrapping
+
+**SCSS Files Modified** (1 file)
+- `themes/ibuildwithai/assets/scss/_components.scss` - Added 170 lines of responsive table styles
+  - Lines 2841-2930: Desktop table styling with wrapper, base styles, headers, cells, zebra striping
+  - Lines 2932-3020: Mobile media query with card layout, hidden headers, and cell transformations
+  - Includes bold text green styling for flexible headers
+
+**Project Documentation Created** (3 files)
+- `.cody/project/build/v1.8.7-responsive-tables/design.md` - Technical architecture and Hugo context structure
+- `.cody/project/build/v1.8.7-responsive-tables/tasklist.md` - 39 tasks across 5 phases
+- `.cody/project/build/v1.8.7-responsive-tables/retrospective.md` - Lessons learned and action items
+
+**Project Documentation Modified** (1 file)
+- `.cody/project/build/feature-backlog.md` - Added v1.8.7 completion entry
+
+## SCSS Variables Used
+
+**Colors**
+- `$neutral-900` - Primary background for table body
+- `$neutral-800` - Card and header row backgrounds
+- `$neutral-700` - Borders throughout
+- `$neutral-400` - Default text color for cells
+- `$neutral-100` - Enhanced text color for mobile values
+- `$primary-500` - Green accent for hover effects and bold text
+
+**Spacing**
+- `$spacing-lg` - Wrapper margins and card spacing
+- `$spacing-md` - Cell padding
+- `$spacing-sm` - Reduced padding on mobile
+- `$spacing-2xs` - Label margin on mobile
+
+**Other**
+- `$breakpoint-tablet` - 1050px responsive breakpoint
+- `$transition-fast` - Hover effect transitions
+- `$font-weight-bold` - Header and bold text weight
+- `$font-size-lg` - Mobile card title size
+- `$font-size-base` - Standard text size
+- `$font-size-sm` - Mobile label size
+- `$border-radius-base` - Table and card corners
+
+## Usage Examples
+
+**Basic Table** (works automatically)
+```markdown
+| Name | Role | Status |
+|------|------|--------|
+| Alice | Developer | Active |
+| Bob | Designer | Active |
+```
+
+**Two-Axis Comparison Table** (with bold headers)
+```markdown
+| | **SEO** | **GEO** |
+|---|-----|-----|
+| **Goal** | Rank high in search results | Get cited in AI-generated answers |
+| **Target** | Search engine algorithms | Large language models |
+```
+
+**Any Table with Custom Green Cells**
+```markdown
+| Feature | **Premium** | Basic |
+|---------|-------------|-------|
+| Storage | Unlimited | 10GB |
+| **Support** | 24/7 | Email only |
+```
+
+## Breaking Changes
+
+None. All existing markdown tables continue to work exactly as before, now with enhanced styling.
+
+## Migration Notes
+
+**For Content Creators**
+- No changes required to existing markdown tables
+- Use `**bold**` markdown in cells you want displayed in green
+- Tables automatically responsive - test on mobile to verify card layout
+
+**For Developers**
+- New render hook at `themes/ibuildwithai/layouts/_default/_markup/render-table.html`
+- Responsive table styles at end of `_components.scss` file
+- Green styling scoped to `.responsive-table` only - no site-wide impact
+
+## Technical Notes
+
+**Hugo Table Context Structure**
+- `.THead` and `.TBody` are arrays of ROWS (not cells)
+- Each row is itself an array of cells
+- Each cell has `.Text` (content) and `.Alignment` properties
+- No `.Inner` or `.Cells` properties exist
+- Nested `range` loops required: outer for rows, inner for cells
+
+**CSS Transformation Strategy**
+- Desktop: Traditional table layout with enhancements
+- Mobile: Block-level cards using `display: block` on tr/td
+- `::before` pseudo-elements display column labels via `attr(data-label)`
+- First cell styled as card header, remaining as label-value pairs
+
+## Future Enhancements
+
+Potential improvements identified but not in scope for v1.8.7:
+- Optional horizontal scroll fallback for extremely wide tables
+- Sortable columns (would require JavaScript)
+- Collapsible/expandable mobile cards (would require JavaScript)
+- Custom styling per table via frontmatter parameters
+- Export table data as CSV/JSON
 
 ---
 
