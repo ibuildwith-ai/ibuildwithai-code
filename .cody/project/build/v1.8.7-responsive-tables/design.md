@@ -75,9 +75,66 @@ _Shared technical considerations across all features in this version._
 **Hugo Render Hook Details:**
 - Render hooks in Hugo intercept markdown rendering
 - Located at `layouts/_default/_markup/render-table.html`
-- Has access to `.Inner` (table content), `.Page`, and table attributes
+- Documentation: https://gohugo.io/render-hooks/tables/
 - Must output valid HTML
 - Automatically applies to all markdown tables (pipe tables)
+
+**CRITICAL - Hugo Table Context Structure:**
+```
+.THead  // Slice of ROWS (each row is a slice of cells)
+.TBody  // Slice of ROWS (each row is a slice of cells)
+```
+
+**Each Cell Object Has:**
+- `.Text` (template.HTML) - The cell content
+- `.Alignment` (string) - Text alignment: "left", "center", or "right"
+
+**Correct Implementation Pattern:**
+```go
+{{- range .THead -}}          // Each iteration = ONE ROW
+  <tr>
+  {{- range . -}}             // Each iteration = ONE CELL in that row
+    <th align="{{ .Alignment }}">{{ .Text }}</th>
+  {{- end -}}
+  </tr>
+{{- end -}}
+
+{{- range .TBody -}}          // Each iteration = ONE ROW
+  <tr>
+  {{- range . -}}             // Each iteration = ONE CELL in that row
+    <td align="{{ .Alignment }}">{{ .Text }}</td>
+  {{- end -}}
+  </tr>
+{{- end -}}
+```
+
+**For data-label Attributes (Mobile Cards):**
+Extract header text from first THead row:
+```go
+{{- $headerLabels := slice -}}
+{{- range index .THead 0 -}}  // First row of THead = header cells
+  {{- $headerLabels = $headerLabels | append .Text -}}
+{{- end -}}
+```
+
+Then apply to tbody cells:
+```go
+{{- range .TBody -}}
+  <tr>
+  {{- $cellIndex := 0 -}}
+  {{- range . -}}
+    <td data-label="{{ index $headerLabels $cellIndex }}">{{ .Text }}</td>
+    {{- $cellIndex = add $cellIndex 1 -}}
+  {{- end -}}
+  </tr>
+{{- end -}}
+```
+
+**IMPORTANT NOTES:**
+- NO `.Inner` property exists for table render hooks
+- NO `.Cells` property on rows - range directly over the row itself
+- `.THead` and `.TBody` are arrays of ROWS, not arrays of cells
+- When ranging over a row, you get cells directly
 
 **CSS Transformation Strategy:**
 
