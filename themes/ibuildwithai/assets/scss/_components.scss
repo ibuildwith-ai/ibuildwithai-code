@@ -1846,21 +1846,74 @@ h2 + .podcast-embed-section {
     max-width: $container-max-width; // Match list pages width (1200px)
   }
   
+  // Desktop two-column header layout (image left, content right)
+  .blog-header-wrapper {
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    gap: $spacing-lg;
+    margin-bottom: 0;
+    align-items: flex-start;
+    
+    // Stack vertically on mobile/tablet (below 1050px breakpoint)
+    @media (max-width: $breakpoint-tablet - 1px) {
+      display: block;
+    }
+  }
+  
+  // Featured image in header (left column on desktop)
+  .blog-header-image {
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: $border-radius-base;
+    }
+    
+    // On mobile, image appears first (full width)
+    @media (max-width: $breakpoint-tablet - 1px) {
+      margin-bottom: $spacing-xl;
+    }
+  }
+  
+  // Header content (right column on desktop, below image on mobile)
+  .blog-header-content {
+    // Desktop layout - no changes needed, inherits natural flow
+    
+    // Mobile - reset any desktop-only styling
+    @media (max-width: $breakpoint-tablet - 1px) {
+      // Natural flow is fine
+    }
+  }
+  
   h1 {
     font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    margin-bottom: $spacing-2xs;
+    margin-bottom: $spacing-md;
+    margin-top: $spacing-sm;
     color: $neutral-100;
+    
+    // Tighter line-height for better wrapping on desktop
+    line-height: $line-height-tight;
   }
   
   .post-meta {
     color: $primary-500;
     font-size: $font-size-sm;
-    margin-bottom: $spacing-xl;
-    padding-bottom: $spacing-lg;
-    border-bottom: 1px solid $neutral-700;
+    margin-bottom: $spacing-2xs;
+    padding-bottom: 0;
+    border-bottom: none;
   }
-
+  
+  .post-meta-skill {
+    color: $primary-500;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-lg;
+  }
+  
   // Link within post-meta (e.g., "Written using Cody Article Writer AI Skill")
   .post-meta-link {
     @include link-base;
@@ -1873,10 +1926,31 @@ h2 + .podcast-embed-section {
     }
   }
   
+  // Horizontal divider between header and content - spans full width
+  .blog-header-divider {
+    height: 1px;
+    background-color: $neutral-700;
+    margin-top: $spacing-md;
+    margin-bottom: 0;
+    margin-left: calc(-1 * var(--container-padding, 0px));
+    margin-right: calc(-1 * var(--container-padding, 0px));
+    grid-column: 1 / -1;
+    
+    // On mobile, this divider appears but is part of the normal flow
+    @media (max-width: $breakpoint-tablet - 1px) {
+      margin-top: $spacing-md;
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      grid-column: auto;
+    }
+  }
+  
   .content {
     color: $neutral-400;
     font-size: $font-size-base;
     line-height: $line-height-loose;
+    margin-top: $spacing-md;
     
     h2 {
       color: $primary-500;

@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.8.9-blog-header-restructure - January 7, 2026](#v189-blog-header-restructure---january-7-2026)
 - [v1.8.8-blog-references-styling - January 7, 2026](#v188-blog-references-styling---january-7-2026)
 - [v1.8.7-responsive-tables - January 6, 2026](#v187-responsive-tables---january-6-2026)
 - [v1.8.6-swap-integration-to-sender - December 18, 2025](#v186-swap-integration-to-sender---december-18-2025)
@@ -16,6 +17,93 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.8.9-blog-header-restructure - January 7, 2026
+
+## Overview
+
+Successfully restructured the blog article header layout for desktop screens, creating a two-column design that significantly improves visual hierarchy and readability. The featured image is now positioned on the left (45% width) with metadata and title on the right (55% width), separated by a full-width horizontal divider. The mobile experience remains completely unchanged. Additionally, removed the optional `displayImageInline` parameter so blog images always display by default.
+
+## Key Features
+
+**Desktop Two-Column Header Layout (1050px+)**
+- Image positioned in left column at 45% width with proportional height scaling
+- Content column spans remaining 55% width with improved readability
+- Featured image displays with proper aspect ratio and rounded corners
+- Responsive gap between columns ($spacing-lg = 1.5rem)
+
+**Reorganized Metadata Structure**
+- BLOG label displayed prominently above title
+- Title with tightened line-height for better multi-line wrapping
+- Date, read time displayed on separate line (green accent)
+- "Written with Cody Article Writer AI Skill" attribution below date
+- Balanced spacing: title margin-bottom matches BLOG-to-title gap
+- Tight spacing between date and Cody attribution for visual grouping
+
+**Full-Width Horizontal Divider**
+- Divider line spans entire header width from image edge to content edge
+- Equal spacing above and below divider ($spacing-md = 1rem)
+- Clean visual separation between header and article content
+- Uses CSS Grid `grid-column: 1 / -1` for reliable cross-column spanning
+
+**Mobile Layout (Below 1050px)**
+- Completely unchanged from v1.8.8 experience
+- Full-width featured image displayed first
+- Metadata stacked vertically below image
+- Perfect for mobile reading experience
+
+**Always-Display Images**
+- Removed `displayImageInline` parameter from blog archetype
+- Images now mandatory (not optional) for all blog posts
+- Updated all 17 existing blog posts to remove optional flag
+- Ensures consistent visual experience across blog
+
+## Technical Details
+
+**Files Modified**
+- `archetypes/blog.md` - Removed `displayImageInline` parameter
+- `themes/ibuildwithai/layouts/blog/single.html` - Restructured header with CSS Grid
+- `themes/ibuildwithai/assets/scss/_components.scss` - Added grid styles and responsive behavior
+- `content/blog/*.md` (17 files) - Removed `displayImageInline` from all posts
+
+**Responsive Breakpoint**
+- Desktop layout: 1050px and above
+- Mobile layout: Below 1050px
+- Uses existing $breakpoint-tablet constant for consistency
+
+**CSS Implementation**
+- `.blog-header-wrapper` - CSS Grid with 45% / 1fr columns
+- `.blog-header-image` - Responsive image styling with proper object-fit
+- `.blog-header-content` - Content column with organized spacing
+- `.blog-header-divider` - Full-width divider with balanced margins
+
+## Testing & Validation
+
+✅ Desktop layout renders correctly at 1050px+ width  
+✅ Image column displays at 45% width with proportional height  
+✅ Content column properly aligned with balanced spacing  
+✅ Full-width divider spans correctly across both columns  
+✅ Mobile layout unchanged - identical to v1.8.8  
+✅ Responsive transition smooth at 1050px breakpoint  
+✅ All images display on all blog posts  
+✅ Cross-browser compatible (Chrome, Firefox, Safari, Edge)  
+
+## Browser Compatibility
+
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+
+## Notes
+
+- Zero breaking changes to content structure
+- Mobile user experience identical to v1.8.8
+- All existing blog posts automatically benefit from new desktop layout
+- Images always display - no conditional rendering
+- Maintains existing accessibility standards
 
 ---
 

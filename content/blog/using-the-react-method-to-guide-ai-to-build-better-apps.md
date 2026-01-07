@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Learn how the ReAct (Reason + Act) method works and how you can use it to guide AI into building better apps, workflows, or prototypes."
 image = "/images/blog/using-the-react-method-to-guide-ai-to-build-better-apps.png"
-displayImageInline = true
 +++
 
 > **Note:** This isn't about *React* (the JavaScript framework).  The **ReAct Method** (short for *Reason + Act*) is a way to guide AI so it thinks, acts, and learns iteratively, a skill every Product Builder and Vibe Coder should master.

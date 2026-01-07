@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Learn what AI guardrails are, some terminology, the types of guardrails available and where they can be applied to in the AI lifecycle."
 image = "/images/blog/default.png"
-displayImageInline = false
 +++
 
 This article, along with [A Non-Technical Guide to Managing AI Risks with Guardrails](https://www.youtube.com/watch?v=o_SYAN6KMGI), offers a practical overview of AI guardrails, the key terms you should know, the different types available, and how they can be applied across the AI lifecycle to mitigate risk within your organization.

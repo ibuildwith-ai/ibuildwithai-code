@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Discover how to combine your domain expertise with AI in a structured way so you can build real products, not just demos."
 image = "/images/blog/from-vibe-coder-to-product-builder.png"
-displayImageInline = true
 +++
 
 AI coding assistants have given rise to a new breed of creators who can build software by simply "vibing" with AI, describing what they want and letting the AI generate code. This approach, dubbed vibe coding, was popularized by AI expert Andrej Karpathy as a way to "convert natural language instructions into working code" while you "fully give into the vibes... and forget the code even exists". It's an exciting shift that enables non-programmers to prototype apps rapidly using tools like ChatGPT, Claude, or Cursor. However, being a "vibe coder" isn't a formal profession, it's a technique. And as many have learned, vibe coding without proper structure can lead to messy results (often called "AI slop") and serious pitfalls in real-world projects. 

@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Discover how vibe coding and AI-assisted development are reshaping traditional dev teams, workflows, and roles in the era of human–AI collaboration."
 image = "/images/blog/vibe-coding-traditional-dev-teams.png"
-displayImageInline = true
 +++
 
 Traditional development teams are standing at a crossroads. On one side is the familiar rhythm of sprints, tickets, and handoffs. On the other, a new wave of AI-assisted creativity is changing how software gets built.

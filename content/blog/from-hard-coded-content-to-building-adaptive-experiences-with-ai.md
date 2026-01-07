@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "As product builders, we must move away from hard-coded content and create adaptive experiences that serve both humans and AI, enabling personalized, dynamic user interactions."
 image = "/images/blog/from-hard-coded-content-building-adaptive-experiences-with-ai.png"
-displayImageInline = true
 +++
 
 Most content today is written **deterministically**, static articles, tutorials, and documentation published directly to users through a CMS like Contentful or Drupal. But as AI agents become part of user experiences, that model is changing. Content authors will soon need to write not just *for users*, but *for AI systems* that personalize content for those users.

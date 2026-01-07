@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Learn what slopsquatting attacks are, how they target AI development tools and essential practices for verifying legitimate AI agent installations."
 image = "/images/blog/slopsquatting.png"
-displayImageInline = true
 +++
 
 As dev AI agents, such as Claude Code, Cursor, GitHub Copilot or others that generate, execute, or suggest code become central to modern workflows, they've also become prime targets for sophisticated cyberattacks. One growing threat developers need to watch for is slopsquatting, a tactic that exploits how quickly we install tools without verifying their authenticity. Understanding this threat and implementing proper verification practices is crucial for maintaining a secure development environment.

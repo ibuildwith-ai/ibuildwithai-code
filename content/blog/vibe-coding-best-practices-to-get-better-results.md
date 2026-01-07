@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "A practical guide with actionable best practices to help you plan, run, and refine successful vibe coding sessions, combining AI speed with structure and good development habits."
 image = "/images/blog/vibe-coding-best-practices.png"
-displayImageInline = true
 +++
 
 ## Introduction

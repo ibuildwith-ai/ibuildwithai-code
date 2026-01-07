@@ -2,22 +2,35 @@
     <main>
         <article class="blog-single">
             <div class="container">
-                <span class="content-type-header">Blog</span>
-                <h1>{{ .Title }}</h1>
-                <div class="post-meta">
-                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read • Written with <a href="{{ .Site.Params.cody_article_writer }}" class="post-meta-link" target="_blank" rel="noopener noreferrer">Cody Article Writer AI Skill</a>
-                </div>
-                
-                {{ if and .Params.image .Params.displayImageInline }}
-                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                    {{ $blogImg := resources.Get $imagePath }}
-                    {{ if $blogImg }}
-                        {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
-                        <div class="blog-single-image">
-                            <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                        </div>
+                <!-- Blog Header: Desktop Two-Column Layout / Mobile Stacked -->
+                <div class="blog-header-wrapper">
+                    <!-- Left Column: Featured Image (Desktop Only) -->
+                    {{ if .Params.image }}
+                        {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                        {{ $blogImg := resources.Get $imagePath }}
+                        {{ if $blogImg }}
+                            {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
+                            <div class="blog-header-image">
+                                <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
+                        {{ end }}
                     {{ end }}
-                {{ end }}
+                    
+                    <!-- Right Column: Metadata and Title -->
+                    <div class="blog-header-content">
+                        <span class="content-type-header">Blog</span>
+                        <h1>{{ .Title }}</h1>
+                        <div class="post-meta">
+                            {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                        </div>
+                        <div class="post-meta-skill">
+                            Written with <a href="{{ .Site.Params.cody_article_writer }}" class="post-meta-link" target="_blank" rel="noopener noreferrer">Cody Article Writer AI Skill</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Horizontal Divider: Full Width -->
+                    <div class="blog-header-divider"></div>
+                </div>
                 
                 <div class="content">
                     {{ .Content }}

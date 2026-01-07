@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Outcome Based Context Engineering is a shift from traditional prompt engineering toward designing AI interactions that start with the desired result and work backwards. Instead of micromanaging steps, this approach focuses on defining outcomes."
 image = "/images/blog/outcome-based-context-engineering.jpg"
-displayImageInline = true
 +++
 
 ## Introduction

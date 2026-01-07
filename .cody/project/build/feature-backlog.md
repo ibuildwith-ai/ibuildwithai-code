@@ -14,6 +14,39 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.9-blog-header-restructure - 🟢 Completed
+Restructure the blog article header layout for desktop screens using a two-column design with featured image on the left and metadata/title on the right. Remove the optional `displayImageInline` parameter so all images display by default. Mobile layout remains unchanged.
+
+**Key Features:**
+- Desktop two-column header layout (45% image, 55% content) at 1050px+ width
+- Featured image resized and positioned in left column with proportional height scaling
+- Metadata reorganized on right column: BLOG label, title, date/read time, Cody skill attribution
+- Full-width horizontal divider spanning entire header width
+- Balanced spacing above and below divider ($spacing-md on both sides)
+- Gap between columns reduced to 50% ($spacing-lg)
+- Title line-height tightened for better wrapping on multi-line titles
+- Date/read time spacing brought closer to "Written with Cody" line
+- Mobile layout (<1050px) stacked vertically as before (unchanged)
+- `displayImageInline` parameter removed from blog archetype (optional → always display)
+- All 17 existing blog posts updated to remove `displayImageInline` parameter
+- Responsive design with clean transition at existing 1050px tablet breakpoint
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 17.1 | Update blog archetype | Remove displayImageInline from archetypes/blog.md | High | 🟢 Completed |
+| 17.2 | Restructure blog template | Create two-column header layout with CSS Grid in blog/single.html | High | 🟢 Completed |
+| 17.3 | Implement header wrapper grid | Add .blog-header-wrapper with 45/55 column split | High | 🟢 Completed |
+| 17.4 | Style image column | Configure .blog-header-image for proper sizing and spacing | High | 🟢 Completed |
+| 17.5 | Style content column | Configure .blog-header-content typography and spacing | High | 🟢 Completed |
+| 17.6 | Implement full-width divider | Create .blog-header-divider spanning both columns | High | 🟢 Completed |
+| 17.7 | Balance vertical spacing | Set equal margins above/below divider ($spacing-md) | High | 🟢 Completed |
+| 17.8 | Configure responsive behavior | Add mobile stacking layout at 1050px breakpoint | High | 🟢 Completed |
+| 17.9 | Update all blog posts | Remove displayImageInline from all 17 blog post files | High | 🟢 Completed |
+| 17.10 | Verify image display | Confirm images render without optional toggle on all posts | Medium | 🟢 Completed |
+| 17.11 | Desktop layout testing | Test two-column layout at 1050px+ width | High | 🟢 Completed |
+| 17.12 | Mobile layout testing | Verify stacked layout at <1050px width | High | 🟢 Completed |
+| 17.13 | Cross-browser testing | Test in Chrome, Firefox, Safari on desktop/mobile | Medium | 🟢 Completed |
+
 ## v1.8.8-blog-references-styling - 🟢 Completed
 Redesign how blog article references/footnotes are displayed by implementing a collapsible accordion component. The references section will be closed by default to reduce visual clutter, with automatic expansion when users click citation links in the article body. This version reuses the existing FAQ accordion styling and behavior while preserving all Hugo footnote functionality.
 

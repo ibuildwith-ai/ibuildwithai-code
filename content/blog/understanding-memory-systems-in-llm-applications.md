@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Learn about six memory systems that can be implemented in your LLM-powered applications."
 image = "/images/blog/default.png"
-displayImageInline = false
 +++
 
 Understanding how to effectively implement memory in Large Language Model (LLM)-powered applications is key to building intelligent, responsive, and user-centered systems. Memory plays a central role in maintaining context, personalizing experiences, and supporting complex, multi-turn workflows. By designing thoughtful memory strategies, developers can improve both the accuracy and usefulness of their AI applications.

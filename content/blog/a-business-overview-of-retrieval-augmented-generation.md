@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Get a good overview of what Retrieval Augmented Generation (RAG) is and how your company can use it to generate accurate insights from your enterprise content."
 image = "/images/blog/default.png"
-displayImageInline = false
 +++
 
 Retrieval-Augmented Generation (RAG) is a powerful technique that enables AI systems to deliver more accurate, personalized, and context-aware responses. By combining information retrieval with generative AI, RAG allows businesses to unlock insights from their enterprise content in real time. This approach enhances the quality of AI-generated outputs by grounding them in trusted, up-to-date data sources.

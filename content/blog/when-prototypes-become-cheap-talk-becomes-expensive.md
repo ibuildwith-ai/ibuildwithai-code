@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "We have moved from a world where ideas advanced through persuasion, decks, and approvals to a world where ideas advance through proof, working prototypes, and fast experimentation powered by AI."
 image = "/images/blog/prototype-cheap-talk-expensive.png"
-displayImageInline = true
 +++
 
 For decades, ideas in an enterprise moved forward through conversations. You scheduled meetings, built a deck, gathered stakeholders, refined your pitch, and walked everyone through the business case. If the room aligned, the idea advanced. If not, you went back to revising slides, adding data, and trying to convince people again.

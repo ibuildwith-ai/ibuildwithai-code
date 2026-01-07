@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Get an overview the various types of bias that can affect AI models, what they are and where they can manifest in the AI lifecycle."
 image = "/images/blog/default.png"
-displayImageInline = false
 +++
 
 Bias in AI systems can significantly affect fairness, accuracy, and trust. Whether it's through the data we collect, the way we label it, or how algorithms are trained and deployed, bias can creep into every stage of the AI lifecycle. Understanding the different types of AI bias is essential for anyone involved in designing or deploying AI systems—especially those concerned with ethics, fairness, and transparency.

@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "We need a design system for Dev AI chat. A small, shared set of text-first components; cards, tables, alerts, diagrams, so no matter which agent you're using, outputs look and feel the same."
 image = "/images/blog/design-systems-for-dev-ai-agents.png"
-displayImageInline = true
 +++
 
 ## Introduction

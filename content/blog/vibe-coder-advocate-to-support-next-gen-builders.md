@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "Vibe coders are reshaping how software gets built and now its time we support them with a new kind of advocate."
 image = "/images/blog/vide-coder-relations.png"
-displayImageInline = true
 +++
 
 *Vibe coders are reshaping how software gets built. Now is the time we support them with a new kind of advocate, focused on their needs.*

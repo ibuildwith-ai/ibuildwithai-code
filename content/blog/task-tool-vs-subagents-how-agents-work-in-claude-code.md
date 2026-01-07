@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "As Claude Code continues to evolve, vibe coders are discovering powerful ways to orchestrate AI-driven workflows. Two key features that often cause confusion are the Task tool and the newer Subagent system."
 image = "/images/blog/claude-code-agents-vs-task-tool.png"
-displayImageInline = true
 +++
 
 As Claude Code continues to evolve, vibe coders are discovering powerful ways to orchestrate AI-driven workflows. Two key features that often cause confusion are the **Task tool** and the newer **Subagent system**. While they appear different on the surface, understanding their relationship reveals some interesting insights about how Claude Code's architecture works under the hood.

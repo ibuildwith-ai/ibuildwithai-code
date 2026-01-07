@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = true
 summary = ""
 image = "/images/blog/default.png"
-displayImageInline = true
 +++
 
 <!-- Blog Content Here -->

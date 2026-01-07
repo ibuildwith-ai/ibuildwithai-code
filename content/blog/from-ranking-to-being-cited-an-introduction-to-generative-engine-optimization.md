@@ -5,7 +5,6 @@ author = "marcelo-lewin"
 draft = false
 summary = "AI tools like ChatGPT and Perplexity are changing how people find information. Learn what Generative Engine Optimization (GEO) is, why it matters for Product Builders and website owners, and practical steps to make your content citable by AI systems."
 image = "/images/blog/from-ranking-to-being-cited.png"
-displayImageInline = true
 +++
 
 ## Why I Started Paying Attention to GEO
