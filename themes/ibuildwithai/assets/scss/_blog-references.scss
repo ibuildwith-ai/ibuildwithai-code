@@ -22,6 +22,12 @@
   .faq-header[aria-expanded="true"] .faq-question {
     color: $primary-500;
   }
+
+  // Override FAQ accordion max-height for longer reference lists
+  // Blog posts can have 20+ references which exceed the FAQ's 1000px limit
+  .faq-content:not([hidden]) {
+    max-height: 5000px; // Accommodate long reference lists on mobile
+  }
 }
 
 // Hide Hugo's Default Horizontal Rule
