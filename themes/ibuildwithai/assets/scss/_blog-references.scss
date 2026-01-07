@@ -1,0 +1,130 @@
+// =============================================================================
+// BLOG REFERENCES ACCORDION
+// =============================================================================
+// Styling for Hugo footnotes wrapped in accordion component
+// Reuses FAQ accordion structure with references-specific customizations
+
+// References Accordion Wrapper
+.references-accordion {
+  margin: $spacing-xl 0;
+
+  // The accordion reuses .faq-accordion, .faq-item, .faq-header, .faq-content classes
+  // These styles are already defined in _components.scss
+  // This file adds references-specific overrides and footnote styling
+
+  // Make "References (count)" text green
+  .faq-question {
+    color: $primary-500;
+  }
+
+  // Keep green color on hover and expanded states
+  .faq-header:hover .faq-question,
+  .faq-header[aria-expanded="true"] .faq-question {
+    color: $primary-500;
+  }
+}
+
+// Hide Hugo's Default Horizontal Rule
+.footnotes hr {
+  display: none !important;
+}
+
+// Footnotes Container Styling
+.references-accordion .footnotes {
+  // Reset any default margins from Hugo
+  margin: 0;
+  padding: 0;
+
+  // Ordered list styling
+  ol {
+    list-style-position: outside;
+    padding-left: $spacing-lg;
+    margin: 0;
+    color: $neutral-400;
+
+    li {
+      margin-bottom: $spacing-sm; // Reduced spacing between footnotes
+      line-height: $line-height-relaxed;
+      color: $neutral-400;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      // Footnote marker (number)
+      &::marker {
+        color: $primary-500;
+        font-weight: $font-weight-medium;
+      }
+
+      // Footnote content
+      p {
+        margin: 0;
+        display: inline;
+        color: $neutral-400;
+      }
+
+      // Links within footnotes
+      a {
+        @include link-base;
+        @include link-underline;
+        color: $primary-500;
+
+        &:hover {
+          @include link-hover;
+        }
+      }
+
+      // Backlink (↩︎) styling
+      .footnote-backref {
+        margin-left: $spacing-xs;
+        color: $primary-500;
+        text-decoration: none;
+        font-weight: $font-weight-medium;
+        transition: $transition-fast;
+
+        &:hover {
+          color: $primary-400;
+          transform: translateX(-2px);
+        }
+      }
+    }
+  }
+}
+
+// Footnote Highlight Animation
+// Applied when user clicks citation in body and scrolls to footnote
+@keyframes footnote-highlight {
+  0% {
+    background-color: rgba($primary-500, 0.3);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.footnote-highlight {
+  animation: footnote-highlight 2s ease-out;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs;
+  margin-left: -$spacing-xs;
+  transition: background-color 2s ease-out;
+}
+
+// Responsive Adjustments
+@include tablet-down {
+  .references-accordion .footnotes {
+    ol {
+      padding-left: $spacing-md;
+
+      li {
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-xs;
+      }
+    }
+  }
+}
+
+// Ensure accordion styling matches FAQ component
+// The .faq-accordion, .faq-item, .faq-header, etc. classes are already styled in _components.scss
+// This ensures consistent look and behavior between FAQ and References accordions

@@ -30,8 +30,6 @@ The distinction from traditional SEO is simple. **SEO is about getting found. GE
 
 With SEO, success means ranking high in search results so people click through to your site. With GEO, success means becoming the source that AI references when it synthesizes an answer. You might not get the click, but you get the citation, the credibility, and the brand association.
 
-Here's a quick comparison:
-
 | | **SEO** | **GEO** |
 |---|-----|-----|
 | **Goal** | Rank high in search results | Get cited in AI-generated answers |
@@ -73,8 +71,6 @@ Based on the current research, here is how it seems each of the major platforms 
 **Perplexity** behaves more like a research engine. It actively searches the web in real time and cites sources directly in its responses. It tends to pull from a wider range of sources, including niche and specialized content, and favors community platforms like Reddit.[^12] If you have deep, well-structured content on a specific topic, Perplexity is more likely to surface it.
 
 **Google AI Overviews** draws from Google's existing search index, which means traditional SEO still matters here. It tends to favor established, high-authority sites and presents a more distributed spread of sources compared to ChatGPT's concentration on Wikipedia.[^13]
-
-Here's a simplified comparison:
 
 |  | **Citation Behavior** | **What It Favors** |
 |----------|-------------------|----------------|
@@ -183,7 +179,7 @@ The good news is that AI systems want what you're probably already doing: writin
 
 I'm still learning this alongside you. But the direction seems clear: the content that gets cited tomorrow is the content we're creating today. And keep this in mind: some of what I've written here may have changed by the time you read it. This space is evolving fast, and there are no firm standards yet. That's part of what makes it so fun to follow.
 
-### References
+<!-- References -->
 
 [^1]: Built In, ["Generative Engine Optimization: Is It the New SEO?"](https://builtin.com/articles/generative-engine-optimization-new-seo)
 

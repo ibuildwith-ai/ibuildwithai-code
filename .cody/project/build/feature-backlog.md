@@ -14,6 +14,41 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.8.8-blog-references-styling - 🟢 Completed
+Redesign how blog article references/footnotes are displayed by implementing a collapsible accordion component. The references section will be closed by default to reduce visual clutter, with automatic expansion when users click citation links in the article body. This version reuses the existing FAQ accordion styling and behavior while preserving all Hugo footnote functionality.
+
+**Key Features:**
+- Collapsible accordion wrapping Hugo's auto-generated `.footnotes` div
+- Closed by default with "References (count)" header showing total citation count (green text)
+- Reuses existing FAQ accordion component (styling, JavaScript, chevron animation)
+- Click citation `[^1]` in body → opens accordion and scrolls to specific reference
+- Click `↩︎` backlink → scrolls to citation with header offset (no overlap)
+- Remove Hugo's default `<hr>` horizontal line above footnotes
+- Reduce vertical spacing between individual footnotes
+- Replace `### Knowledge Sources` heading with HTML comment `<!-- References -->`
+- Zero changes to Hugo's footnote rendering - enhancement via CSS/JS only
+- Responsive design matching existing breakpoints
+- Only affects blog posts with footnotes (other posts unaffected)
+- SEO-safe: content remains in HTML, fully crawlable by search engines and AI
+- Preserves Hugo's `↩︎` backlink functionality with smooth scroll and highlight
+- Keyboard accessible (Enter/Space to toggle accordion)
+
+**Implementation Approach:**
+- JavaScript: Detect `.footnotes` div, wrap in accordion structure, add count badge, handle click-to-expand, backlink offset scrolling
+- CSS: Target `.footnotes`, remove `<hr>`, reduce spacing, apply dark theme styling, green "References" text
+- Content Update: Replace `### Knowledge Sources` with `<!-- References -->` comment in markdown files
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 16.1 | Research FAQ accordion code | Review existing FAQ component JavaScript and CSS for reuse | High | 🟢 Completed |
+| 16.2 | JavaScript enhancement | Create script to wrap `.footnotes` in accordion, add "References (count)" header, handle expand/collapse | High | 🟢 Completed |
+| 16.3 | CSS styling updates | Remove `<hr>` line, reduce footnote spacing, apply dark theme to references accordion | High | 🟢 Completed |
+| 16.4 | Click-to-expand behavior | Implement click handler for body citations to open accordion and scroll to reference | High | 🟢 Completed |
+| 16.5 | Update markdown heading | Replace `### Knowledge Sources` with `<!-- References -->` in blog post markdown | Medium | 🟢 Completed |
+| 16.6 | Responsive testing | Test accordion behavior on desktop, tablet, and mobile at all breakpoints | High | 🟢 Completed |
+| 16.7 | SEO validation | Verify footnotes remain crawlable and accessible when accordion is closed | Medium | 🟢 Completed |
+| 16.8 | Accessibility check | Ensure screen readers and keyboard navigation work with accordion | Medium | 🟢 Completed |
+
 ## v1.8.7-responsive-tables - 🟢 Completed
 Implement automatic responsive table styling for all markdown tables in blog posts. Tables will display as traditional tables on desktop (> 1050px) with enhanced styling (header row, zebra striping, centered text), and convert to card-based layout on mobile/tablet (≤ 1050px) where each row becomes a card with the first column as the heading.
 

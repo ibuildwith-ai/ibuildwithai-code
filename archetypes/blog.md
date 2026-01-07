@@ -8,4 +8,6 @@ image = "/images/blog/default.png"
 displayImageInline = true
 +++
 
-Write your blog post content here...
+<!-- Blog Content Here -->
+
+<!-- References Here (If any) -->

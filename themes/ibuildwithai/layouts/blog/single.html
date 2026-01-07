@@ -58,4 +58,10 @@
             </div>
         </article>
     </main>
+
+    <!-- Blog References Accordion Script -->
+    {{ $blogReferencesJS := resources.Get "js/blog-references.js" | resources.Minify | resources.Fingerprint }}
+    {{ if $blogReferencesJS }}
+    <script src="{{ $blogReferencesJS.RelPermalink }}"></script>
+    {{ end }}
 {{ end }}
