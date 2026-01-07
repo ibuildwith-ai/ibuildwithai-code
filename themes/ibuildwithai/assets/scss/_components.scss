@@ -1860,6 +1860,18 @@ h2 + .podcast-embed-section {
     padding-bottom: $spacing-lg;
     border-bottom: 1px solid $neutral-700;
   }
+
+  // Link within post-meta (e.g., "Written using Cody Article Writer AI Skill")
+  .post-meta-link {
+    @include link-base;
+    @include link-underline;
+    color: $primary-500;
+    font-size: 16px; // Specific size for inline post-meta links
+
+    &:hover {
+      @include link-hover;
+    }
+  }
   
   .content {
     color: $neutral-400;

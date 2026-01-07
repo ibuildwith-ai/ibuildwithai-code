@@ -53,4 +53,5 @@ enableRobotsTXT = true
   # Developer Site Links
   github = "https://github.com/ibuildwith-ai"
   cody = "https://github.com/ibuildwith-ai/cody-framework"
+  cody_article_writer = "https://github.com/ibuildwith-ai/cody-article-writer"
   npm = "https://www.npmjs.com/~bymarcelolewin"

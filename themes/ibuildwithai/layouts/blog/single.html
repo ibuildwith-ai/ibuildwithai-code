@@ -5,7 +5,7 @@
                 <span class="content-type-header">Blog</span>
                 <h1>{{ .Title }}</h1>
                 <div class="post-meta">
-                    Published on {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
+                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read • Written with <a href="{{ .Site.Params.cody_article_writer }}" class="post-meta-link" target="_blank" rel="noopener noreferrer">Cody Article Writer AI Skill</a>
                 </div>
                 
                 {{ if and .Params.image .Params.displayImageInline }}
