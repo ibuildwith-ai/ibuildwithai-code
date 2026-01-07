@@ -25,8 +25,10 @@
 
   // Override FAQ accordion max-height for longer reference lists
   // Blog posts can have 20+ references which exceed the FAQ's 1000px limit
+  // Remove max-height constraint entirely to prevent cutoff
   .faq-content:not([hidden]) {
-    max-height: 5000px; // Accommodate long reference lists on mobile
+    max-height: none !important;
+    overflow: visible !important;
   }
 }
 
