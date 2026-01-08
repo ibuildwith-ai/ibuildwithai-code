@@ -1,0 +1,194 @@
+{
+  "id": "geo-introduction-2026-01-06",
+  "created_at": "2026-01-06T00:00:00Z",
+  "updated_at": "2026-01-06T18:00:00Z",
+  "phase": "exported",
+  "topic": {
+    "initial_idea": "Blog article about generative engine optimization that many say is replacing SEO",
+    "refined_topic": "An introduction to Generative Engine Optimization (GEO) for Product Builders and website creators — what it is, why it matters now that AI is becoming the primary way people find information, and practical steps to make your content citable by AI systems.",
+    "exploratory_research": {
+      "searches_performed": [
+        "generative engine optimization GEO replacing SEO 2024 2025",
+        "GEO tactics statistics addition quotation structured content AI citation",
+        "ChatGPT Perplexity Claude citation sources differences how AI selects content",
+        "llms.txt standard specification website AI crawlers 2025"
+      ],
+      "sources_reviewed": [
+        "https://www.epublishing.com/news/2025/apr/04/seo-vs-geo-generative-engine-optimization/",
+        "https://builtin.com/articles/generative-engine-optimization-new-seo",
+        "https://www.walkersands.com/about/blog/generative-engine-optimization-geo-what-to-know-in-2025/",
+        "https://a16z.com/geo-over-seo/",
+        "https://arxiv.org/pdf/2311.09735",
+        "https://seshes.ai/geo/the-state-of-generative-engine-optimization-in-2025/",
+        "https://www.onimodglobal.com/seo-is-out-geo-is-in-why-generative-engine-optimization-is-the-future/",
+        "https://www.jasper.ai/blog/geo-aeo",
+        "https://www.mindbees.com/blog/geo-vs-seo-future-strategies-2025/",
+        "https://www.wordstream.com/blog/generative-engine-optimization",
+        "https://jakobnielsenphd.substack.com/p/geo",
+        "https://zadroweb.com/blog/how-to-get-cited-by-ai-engines-geo/",
+        "https://www.maximuslabs.ai/generative-engine-optimization/geo-experimental-techniques",
+        "https://totheweb.com/blog/beyond-seo-your-geo-checklist-mastering-content-creation-for-ai-search-engines/",
+        "https://www.withdaydream.com/library/make-ai-engines-trust-and-cite-your-content",
+        "https://backlinko.com/generative-engine-optimization-geo",
+        "https://www.frase.io/blog/what-is-generative-engine-optimization-geo",
+        "https://www.tryprofound.com/blog/ai-platform-citation-patterns",
+        "https://www.atakinteractive.com/blog/perplexity-vs-chatgpt-vs-claude",
+        "https://medium.com/@shuimuzhisou/how-ai-engines-cite-sources-patterns-across-chatgpt-claude-perplexity-and-sge-8c317777c71d",
+        "https://llmstxt.org/",
+        "https://www.semrush.com/blog/llms-txt/",
+        "https://searchengineland.com/llms-txt-proposed-standard-453676"
+      ],
+      "date": "2026-01-06T00:00:00Z"
+    }
+  },
+  "research": {
+    "depth": "medium",
+    "include_citations_in_export": true,
+    "citation_style": "footnotes",
+    "approved_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2311.09735",
+        "title": "GEO: Generative Engine Optimization (Princeton Study)",
+        "domain": "arxiv.org",
+        "required": false,
+        "relevance": "Foundational academic research on GEO tactics",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://a16z.com/geo-over-seo/",
+        "title": "How Generative Engine Optimization (GEO) Rewrites the Rules of Search",
+        "domain": "a16z.com",
+        "required": false,
+        "relevance": "Strategic VC perspective on SEO market shift",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.epublishing.com/news/2025/apr/04/seo-vs-geo-generative-engine-optimization/",
+        "title": "SEO vs GEO: What Is Generative Engine Optimization",
+        "domain": "epublishing.com",
+        "required": false,
+        "relevance": "Core distinction: SEO is getting found, GEO is getting featured",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://jakobnielsenphd.substack.com/p/geo",
+        "title": "GEO Guidelines: How to Get Quoted by AI",
+        "domain": "jakobnielsenphd.substack.com",
+        "required": false,
+        "relevance": "Platform-specific citation patterns",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.tryprofound.com/blog/ai-platform-citation-patterns",
+        "title": "AI Platform Citation Patterns",
+        "domain": "tryprofound.com",
+        "required": false,
+        "relevance": "680M citation analysis across platforms",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.frase.io/blog/what-is-generative-engine-optimization-geo",
+        "title": "What is Generative Engine Optimization (GEO)?",
+        "domain": "frase.io",
+        "required": false,
+        "relevance": "Tactical specifics on content structure",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.onimodglobal.com/seo-is-out-geo-is-in-why-generative-engine-optimization-is-the-future/",
+        "title": "SEO is Out. GEO is In",
+        "domain": "onimodglobal.com",
+        "required": false,
+        "relevance": "AI search adoption statistics",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.jasper.ai/blog/geo-aeo",
+        "title": "What is Generative Engine Optimization? GEO vs AEO vs SEO Guide",
+        "domain": "jasper.ai",
+        "required": false,
+        "relevance": "AI referral traffic growth data",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.wordstream.com/blog/generative-engine-optimization",
+        "title": "GEO vs SEO: Everything to Know in 2025",
+        "domain": "wordstream.com",
+        "required": false,
+        "relevance": "Gen Z AI usage statistics",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://seshes.ai/geo/the-state-of-generative-engine-optimization-in-2025/",
+        "title": "The State of Generative Engine Optimization in 2025",
+        "domain": "seshes.ai",
+        "required": false,
+        "relevance": "LLM traffic projections",
+        "accessed": "2026-01-06T00:00:00Z"
+      },
+      {
+        "url": "https://www.semrush.com/blog/llms-txt/",
+        "title": "What Is LLMs.txt & Should You Use It?",
+        "domain": "semrush.com",
+        "required": false,
+        "relevance": "Current state of llms.txt adoption",
+        "accessed": "2026-01-06T00:00:00Z"
+      }
+    ],
+    "citations_used": [
+      { "index": 1, "source_url": "https://builtin.com/articles/generative-engine-optimization-new-seo" },
+      { "index": 2, "source_url": "https://www.epublishing.com/news/2025/apr/04/seo-vs-geo-generative-engine-optimization/" },
+      { "index": 3, "source_url": "https://a16z.com/geo-over-seo/" },
+      { "index": 4, "source_url": "https://www.onimodglobal.com/seo-is-out-geo-is-in-why-generative-engine-optimization-is-the-future/" },
+      { "index": 5, "source_url": "https://www.onimodglobal.com/seo-is-out-geo-is-in-why-generative-engine-optimization-is-the-future/" },
+      { "index": 6, "source_url": "https://www.wordstream.com/blog/generative-engine-optimization" },
+      { "index": 7, "source_url": "https://www.jasper.ai/blog/geo-aeo" },
+      { "index": 8, "source_url": "https://www.walkersands.com/about/blog/generative-engine-optimization-geo-what-to-know-in-2025/" },
+      { "index": 9, "source_url": "https://seshes.ai/geo/the-state-of-generative-engine-optimization-in-2025/" },
+      { "index": 10, "source_url": "https://jakobnielsenphd.substack.com/p/geo" },
+      { "index": 11, "source_url": "https://jakobnielsenphd.substack.com/p/geo" },
+      { "index": 12, "source_url": "https://www.tryprofound.com/blog/ai-platform-citation-patterns" },
+      { "index": 13, "source_url": "https://www.tryprofound.com/blog/ai-platform-citation-patterns" },
+      { "index": 14, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 15, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 16, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 17, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 18, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 19, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 20, "source_url": "https://arxiv.org/pdf/2311.09735" },
+      { "index": 21, "source_url": "https://backlinko.com/generative-engine-optimization-geo" },
+      { "index": 22, "source_url": "https://www.frase.io/blog/what-is-generative-engine-optimization-geo" },
+      { "index": 23, "source_url": "https://llmstxt.org/" },
+      { "index": 24, "source_url": "https://www.semrush.com/blog/llms-txt/" }
+    ]
+  },
+  "style_guide": "builder-peer.json",
+  "title": "From Ranking to Being Cited: An Introduction to Generative Engine Optimization",
+  "thesis": "I've been digging into GEO because I realized my own content might be invisible to the AI tools my audience uses daily. Here's what I've learned so far, and what I think Product Builders and website owners should understand about this shift.",
+  "outline": [
+    { "heading": "Opening: Why I Started Paying Attention to GEO", "type": "opening", "status": "complete" },
+    { "heading": "What Is Generative Engine Optimization?", "type": null, "status": "complete" },
+    { "heading": "Why This Matters Now", "type": null, "status": "complete" },
+    { "heading": "How AI Platforms Choose What to Cite", "type": null, "status": "complete" },
+    { "heading": "What Makes Content Citable", "type": null, "status": "complete" },
+    { "heading": "What You Can Do Today", "type": null, "status": "complete" },
+    { "heading": "Closing: Summary + Key Takeaways", "type": "closing", "status": "complete" }
+  ],
+  "writing_mode": "section",
+  "sections": {
+    "opening": "I recently asked Claude a question about a topic I've written about extensively. The answer was good. The sources it cited were not mine.\n\nThat got me thinking. I've spent years creating content, building resources, and publishing guides for Product Builders. But if the AI tools my audience uses every day don't know my content exists, does it matter how good it is?\n\nThis isn't a hypothetical concern. People are changing how they find information. Instead of typing keywords into Google and clicking through results, they're asking ChatGPT, Perplexity, and Claude direct questions and getting synthesized answers. The shift is happening faster than most of us realized.\n\nSo I started digging into something called Generative Engine Optimization, or GEO. It's the practice of making your content visible to AI systems, not just search engines. And honestly, I'm still learning with you.\n\nThis article is what I've found so far. We'll cover what GEO actually is, why it matters now, how different AI platforms decide what to cite, and what you can do today if you're a Product Builder or website owner who wants your content to show up when AI answers questions.\n\nLet's figure this out together.",
+    "what-is-geo": "Generative Engine Optimization is the practice of structuring your content so that AI platforms like ChatGPT, Perplexity, Claude, and Google's AI Overviews are more likely to cite it when generating answers.[^1]\n\nThe distinction from traditional SEO is simple. **SEO is about getting found. GEO is about getting featured.**[^2]\n\nWith SEO, success means ranking high in search results so people click through to your site. With GEO, success means becoming the source that AI references when it synthesizes an answer. You might not get the click, but you get the citation, the credibility, and the brand association.\n\nHere's a quick comparison:\n\n| | SEO | GEO |\n|---|-----|-----|\n| **Goal** | Rank high in search results | Get cited in AI-generated answers |\n| **Target** | Search engine algorithms | Large language models |\n| **Success metric** | Clicks and traffic | Citations and mentions |\n| **Optimization focus** | Keywords, backlinks, meta tags | Structure, clarity, authority signals |\n| **User behavior** | User clicks a link, visits your site | User sees your content synthesized in an answer |\n\nOne thing worth clarifying: GEO is not replacing SEO.[^3] Traditional SEO still matters because AI systems often pull from the same sources that rank well in search. Good SEO creates the foundation. GEO adds a new layer on top.\n\nThink of it this way. If SEO is about getting into the library, GEO is about becoming the book the librarian recommends when someone asks a question.\n\nThe challenge is that AI platforms don't just want content that matches keywords. They want content they can trust, understand, and cite with confidence. That requires a different approach to how we structure and present information.",
+    "why-this-matters-now": "The shift to AI-powered search is not a future trend. It's already happening, and the numbers are striking.\n\nIn 2024, around 15 million adults in the United States used generative AI as their primary tool for online search. By 2028, that number is projected to reach 36 million.[^4] Gartner predicts traditional search traffic will drop by 25% by 2026.[^5]\n\nThe generational split is even more telling. According to one study, 35% of Gen Z already uses AI tools as their first stop for research questions, compared to just 7% of Gen X.[^6] If your audience skews younger, this shift is already affecting how they find you.\n\nThe traffic patterns are changing fast. AI referrals to top websites increased 357% year-over-year between June 2024 and June 2025.[^7] ChatGPT alone surpassed Bing in daily visitor volume in 2024, handling more than 10 million queries per day.[^8] Some researchers project that LLM traffic will overtake Google search by the end of 2027.[^9]\n\nHere's the business reality: if your content doesn't get cited by AI, you become invisible to a growing segment of your audience. They're not ignoring you on purpose. They're just not seeing you because the AI they asked didn't know you existed.\n\nThis matters whether you're building a product, running a business, or publishing content. If someone asks an AI assistant for recommendations in your space and your product doesn't come up, you've lost that opportunity before you even knew it existed. If someone asks for guidance on a topic you've written about extensively and the AI cites your competitor instead, that's a credibility gap you didn't create but now have to deal with.\n\nThe good news is that we're still early. Most businesses haven't started thinking about GEO yet. If you start paying attention now, you're ahead of the curve.",
+    "how-ai-platforms-choose": "There doesn't seem to be a single \"AI algorithm\" to optimize GEO for. Different platforms have different citation behaviors, and what works for one might not work for another.\n\nBased on the current research, here is how it seems each of the major platforms source their answers:\n\n**ChatGPT** leans heavily on a small number of authoritative sources. In one analysis of 30 million AI citations, nearly 48% of ChatGPT's top cited sources were Wikipedia, with Reddit a distant second at around 11%.[^10] When ChatGPT's web browsing is enabled, about 87% of its cited content comes from Bing's top 10 search results.[^11] If you're not ranking well in traditional search, ChatGPT is less likely to find you.\n\n**Perplexity** behaves more like a research engine. It actively searches the web in real time and cites sources directly in its responses. It tends to pull from a wider range of sources, including niche and specialized content, and favors community platforms like Reddit.[^12] If you have deep, well-structured content on a specific topic, Perplexity is more likely to surface it.\n\n**Google AI Overviews** draws from Google's existing search index, which means traditional SEO still matters here. It tends to favor established, high-authority sites and presents a more distributed spread of sources compared to ChatGPT's concentration on Wikipedia.[^13]\n\nHere's a simplified comparison:\n\n| Platform | Citation Behavior | What It Favors |\n|----------|-------------------|----------------|\n| **ChatGPT** | Concentrates on a few authoritative sources | Wikipedia, Reddit, top Bing results |\n| **Perplexity** | Real-time search, cites widely | Structured content, community discussions, niche expertise |\n| **Google AI Overviews** | Pulls from Google's search index | High-authority sites, existing top-ranking content |\n\nThe takeaway is that optimizing for AI visibility isn't a one-size-fits-all strategy. If your audience primarily uses ChatGPT, your traditional SEO and presence on major platforms matters most. If they use Perplexity, having deep, well-organized content on specific topics gives you an edge.\n\nThe common thread across all platforms is that they reward content that is clear, structured, trustworthy, and easy for a language model to parse and cite. The next section digs into exactly what that looks like.",
+    "what-makes-content-citable": "So what actually makes AI more likely to cite our content?\n\nA study from Princeton introduced the GEO framework and tested nine different optimization methods to see which ones improved visibility in AI-generated responses.[^14] Let's review some of those findings.\n\n**What works:**\n\n**Adding statistics** to your content increased AI citation visibility by up to 40%. AI systems favor concrete, quantifiable information because it gives them something defensible to reference. Saying \"our clients see significant improvements\" is weak. Saying \"our clients average a 73% increase in qualified leads within 90 days\" gives the AI something it can actually use.[^15]\n\n**Adding quotations** from credible sources boosted visibility by about 40% as well. When you include expert quotes or cite authoritative voices, you're modeling the exact behavior AI systems use when generating responses. You're making it easy for them to trust and reference your content.[^16]\n\n**Including citations** to external sources improved visibility by 30-40%. When your content references studies, experts, or authoritative sources, it signals to AI that your work is well-researched and trustworthy.[^17]\n\n**Fluency optimization**, meaning clear, readable prose, also helped. AI systems prefer content that is easy to parse. Short sentences, logical structure, and plain language all make it easier for a model to extract and synthesize your information.[^18]\n\n**What doesn't work:**\n\n**Keyword stuffing**, the classic SEO tactic of repeating target keywords throughout your content, actually decreased AI visibility by about 10%.[^19] It seems that the tactics that worked for traditional search engines can actively hurt you with AI systems.\n\n**The combination effect:**\n\nThe researchers also found that combining tactics amplified results. The best-performing combination, fluency optimization plus statistics addition, outperformed any single method by more than 5%.[^20] This suggests that GEO isn't about picking one tactic. It's about layering multiple approaches together.\n\nThe pattern across all of this seems to be that AI systems want content that is clear, factual, well-sourced, and easy to understand. If you're writing content that a knowledgeable human would find credible and useful, you're already on the right track.",
+    "what-you-can-do-today": "Understanding GEO is useful. But what can you actually do about it? Here are some practical steps, starting with the simplest.\n\n**1. Audit your current visibility**\n\nBefore changing anything, find out where you stand. Pick 10 to 15 questions that your target audience might ask about topics you cover. Then ask those questions across ChatGPT, Perplexity, Claude, and Google's AI Overview. Take screenshots. Note which sources get cited. See if your content shows up anywhere.[^21]\n\nThis is manual and a bit tedious, but it gives you a baseline. If you're not being cited at all, you know you have work to do. If you're showing up for some queries but not others, you can start to see patterns in what's working. You could even build an agent that automates this checking for you, but that's outside the scope of this article.\n\n**2. Structure your content for extraction**\n\nAI systems don't read your content the way humans do. They scan, extract, and synthesize. Making your content easier to parse increases the chances it gets cited.\n\nSome practical changes:\n\n- Lead with your main point in the first 40 to 60 words of any section.[^22]\n- Use clear, descriptive headings that mirror the questions people might ask.\n- Keep paragraphs short, ideally focused on a single idea.\n- Avoid burying important information in the middle of long blocks of text.\n\nIf you have content that answers a specific question, make sure the answer is easy to find. Don't make the AI dig for it.\n\n**3. Add substance that AI can use**\n\nBased on the research we covered earlier, there are specific elements that increase your chances of being cited:\n\nInclude statistics and concrete data whenever you can. If you have original research, case studies, or specific numbers, surface them clearly.\n\nQuote experts or authoritative sources. This adds credibility and gives AI something concrete to reference.\n\nCite your own sources. Link to studies, reports, and original research. It signals that your content is well-grounded.\n\n**4. Think about long-term authority**\n\nGEO isn't just about optimizing individual pages. AI systems are more likely to cite sources they recognize as authoritative. That means building your overall presence matters.\n\nGet mentioned on other reputable sites. Participate in communities where your audience spends time. Publish consistently on topics you want to be known for. Over time, this builds the kind of authority signals that AI systems learn to trust.\n\n**5. Keep an eye on llms.txt**\n\nThere's a proposed standard called llms.txt that aims to help AI systems better understand your site's content. It's a simple markdown file you place at your domain root that tells AI which pages are most important and how your content is structured.[^23]\n\nIt seems that as of now, the major AI providers like OpenAI, Google, and Anthropic have not confirmed they're using these files. One analysis of server logs found zero visits to llms.txt files from major AI crawlers.[^24] So this is not an urgent priority.\n\nThat said, it's worth knowing about. Some companies are starting to adopt it, and if it becomes a standard, early adopters will have a head start.",
+    "closing": "The way people find information is changing. AI tools like ChatGPT, Perplexity, and Claude are becoming the first stop for questions that used to go to Google. And when AI answers a question, it doesn't show a list of links. It synthesizes information and cites its sources.\n\nThat's the shift from SEO to GEO. It's not about ranking anymore. It's about being cited.\n\nFor Product Builders and website owners, this matters because visibility is no longer just about search engines. If the AI tools your audience uses don't know your content exists, you're invisible to a growing number of people who might otherwise find you.\n\nThe good news is that AI systems want what you're probably already doing: writing content that is clear, well-structured, backed by data, and easy to trust. If you're not doing that now, it's a good time to start.\n\n**Key Takeaways:**\n\n- GEO (Generative Engine Optimization) is about making your content citable by AI, not just rankable by search engines.\n- Different AI platforms have different citation behaviors. ChatGPT leans on Wikipedia and top search results. Perplexity favors real-time, niche content. Google AI Overviews pull from existing search rankings.\n- Research shows that adding statistics, quotations, and citations to your content can improve AI visibility by 30-40%. Keyword stuffing hurts.\n- Start by auditing your current visibility across AI platforms. Then focus on structuring your content so AI can easily extract and cite it.\n- The llms.txt standard is worth watching, but not urgent yet.\n\nI'm still learning this alongside you. But the direction seems clear: the content that gets cited tomorrow is the content we're creating today. And keep this in mind: some of what I've written here may have changed by the time you read it. This space is evolving fast, and there are no firm standards yet. That's part of what makes it so fun to follow."
+  },
+  "metadata": {
+    "title": "From Ranking to Being Cited: An Introduction to Generative Engine Optimization",
+    "description": "AI tools like ChatGPT and Perplexity are changing how people find information. Learn what Generative Engine Optimization (GEO) is, why it matters for Product Builders and website owners, and practical steps to make your content citable by AI systems.",
+    "keywords": ["Generative Engine Optimization", "GEO", "AI search", "SEO vs GEO", "content optimization", "AI citations", "ChatGPT", "Perplexity", "llms.txt", "Product Builders"],
+    "author": "AI Educator, Product Builder"
+  },
+  "filename": "geo-introduction-2026-01-06.md"
+}

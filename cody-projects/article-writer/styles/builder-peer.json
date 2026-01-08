@@ -1,0 +1,29 @@
+{
+  "name": "Builder Peer",
+  "description": "Educational content where the author is two chapters ahead, not ten. We're figuring this out together.",
+  "voice": {
+    "tone": 5,
+    "humor": 5,
+    "opinion": 5,
+    "technical": 4
+  },
+  "formatting": {
+    "emojis": 0,
+    "em_dashes": 0,
+    "blockquotes": "occasional"
+  },
+  "structure": {
+    "opening": ["direct", "contextual"],
+    "closing": ["summary", "key_takeaways"],
+    "visual_breaks": "moderate",
+    "examples": "some",
+    "example_types": ["tables", "quotes", "case_studies"]
+  },
+  "context": {
+    "author_role": "AI Educator, Product Builder",
+    "author_topic_knowledge": 5,
+    "audience_role": "Product and website builders, content creators, marketing professionals, product managers, project managers",
+    "audience_topic_knowledge": 4,
+    "author_audience_relationship": 2
+  }
+}
