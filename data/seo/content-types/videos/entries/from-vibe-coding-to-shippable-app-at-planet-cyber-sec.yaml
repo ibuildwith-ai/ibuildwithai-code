@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this video
+title: "From Vibe Coding to Shippable App at Planet Cyber Sec | iBuildWith.ai"
+description: "In this online presentation at the Planet Cyber Security Conference, I focus on how to vibe code in a structured way using Spec Driven Development to deliver a scalable and maintainable app."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "images/seo/content-types/videos/ai-at-work-planet-cyber-sec.png"
+social_image_alt: "From Vibe Coding to Shippable App at Planet Cyber Sec | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"

@@ -12,7 +12,6 @@
             <div class="container">
                 
                 {{ $upcomingEvents := where .Pages ".Params.status" "upcoming" }}
-                {{ $onDemandEvents := where .Pages ".Params.status" "on-demand" }}
                 {{ $completedEvents := where .Pages ".Params.status" "completed" }}
                 
                 {{ if $upcomingEvents }}
@@ -66,59 +65,8 @@
                 </div>
                 {{ end }}
 
-                {{ if $onDemandEvents }}
-                <h2>On-Demand</h2>
-                <div class="event-cards">
-                    {{ range sort $onDemandEvents ".Params.date_time" "desc" }}
-                        <a href="{{ .Permalink }}" class="app-card-link">
-                            <article class="app-card">
-                                {{ if .Params.image }}
-                                    {{ $eventImgPath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $eventImg := resources.Get $eventImgPath }}
-                                    {{ if $eventImg }}
-                                    <div class="event-card-thumbnail">
-                                        {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
-                                        <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                    </div>
-                                    {{ end }}
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                {{ if .Params.presenter }}
-                                    {{ $presenterKeys := split .Params.presenter "," }}
-                                    {{ $presenterNames := slice }}
-                                    {{ range $presenterKeys }}
-                                        {{ $key := trim . " " }}
-                                        {{ $presenterData := index $.Site.Data.people $key }}
-                                        {{ if $presenterData }}
-                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
-                                        {{ end }}
-                                    {{ end }}
-                                    {{ if $presenterNames }}
-                                        <div class="post-author">Presented by
-                                        {{ if eq (len $presenterNames) 1 }}
-                                            {{ index $presenterNames 0 }}
-                                        {{ else if eq (len $presenterNames) 2 }}
-                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
-                                        {{ else }}
-                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
-                                            {{ range $i, $name := $presenterNames }}
-                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
-                                            {{ end }}
-                                        {{ end }}</div>
-                                    {{ end }}
-                                {{ end }}
-                                <div class="app-meta">
-                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
-                                </div>
-                                <span class="card-link">Learn more →</span>
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
-                {{ end }}
-
                 {{ if $completedEvents }}
-                <h2>Completed</h2>
+                {{ if $upcomingEvents }}<h2>Completed</h2>{{ end }}
                 <div class="event-cards">
                     {{ range sort $completedEvents ".Params.date_time" "desc" }}
                         <a href="{{ .Permalink }}" class="app-card-link">
@@ -161,13 +109,13 @@
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
-                                <span class="card-link">Learn more →</span>
+                                <span class="card-link">View archive →</span>
                             </article>
                         </a>
                     {{ end }}
                 </div>
                 {{ end }}
-                
+
                 {{ if and (eq (len $upcomingEvents) 0) (eq (len $completedEvents) 0) }}
                     <div class="app-card">
                         <h3>No events yet</h3>
