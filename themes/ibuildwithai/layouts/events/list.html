@@ -69,7 +69,7 @@
                 {{ if $upcomingEvents }}<h2>Completed</h2>{{ end }}
                 <div class="event-cards">
                     {{ range sort $completedEvents ".Params.date_time" "desc" }}
-                        <a href="{{ .Permalink }}" class="app-card-link">
+                        <a href="{{ if .Params.on_demand_url }}{{ .Params.on_demand_url }}{{ else }}{{ .Permalink }}{{ end }}" class="app-card-link" {{ if .Params.on_demand_url }}target="_blank" rel="noopener noreferrer"{{ end }}>
                             <article class="app-card">
                                 {{ if .Params.image }}
                                     {{ $eventImgPath := strings.TrimPrefix "/" .Params.image }}
@@ -93,7 +93,7 @@
                                         {{ end }}
                                     {{ end }}
                                     {{ if $presenterNames }}
-                                        <div class="post-author">Presented by 
+                                        <div class="post-author">Presented by
                                         {{ if eq (len $presenterNames) 1 }}
                                             {{ index $presenterNames 0 }}
                                         {{ else if eq (len $presenterNames) 2 }}
@@ -109,7 +109,7 @@
                                 <div class="app-meta">
                                     {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
                                 </div>
-                                <span class="card-link">View archive →</span>
+                                <span class="card-link">{{ if .Params.on_demand_url }}Watch on-demand →{{ else }}View archive →{{ end }}</span>
                             </article>
                         </a>
                     {{ end }}

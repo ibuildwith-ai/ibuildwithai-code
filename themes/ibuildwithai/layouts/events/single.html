@@ -33,6 +33,7 @@
                     {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
                     <br>
                     {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} event.{{ end }}
+                    {{ if eq .Params.status "completed" }}<span class="text-error">It's now completed.</span>{{ end }}
                 </div>
 
                 {{ if and .Params.image .Params.displayImageInline }}
@@ -111,11 +112,6 @@
                         {{ if .Params.learn_more_url }}
                         <a href="{{ .Params.learn_more_url }}" target="_blank" class="btn-secondary">
                             Learn More
-                        </a>
-                        {{ end }}
-                        {{ if .Params.on_demand_url }}
-                        <a href="{{ .Params.on_demand_url }}" target="_blank" class="btn-primary">
-                            Watch On-Demand
                         </a>
                         {{ end }}
                     </div>
