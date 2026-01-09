@@ -27,7 +27,7 @@ That same principle applies to Dev AI agents. Right now, they don't have a desig
 
 ## Why we need a Design System.
 
-I spend a lot of time on context engineering, writing lots of markdown files that shape how AI dev agents behave. With my product, [Cody Framework](https://github.com/ibuildwith-ai/cody-framework), I quickly ran into a problem: the outputs (presentation) of my carefully engineered context varied dramatically between different agents.
+I spend a lot of time on context engineering, writing lots of markdown files that shape how AI dev agents behave. With my product, [Cody Product Builder](https://github.com/ibuildwith-ai/cody-product-builder), I quickly ran into a problem: the outputs (presentation) of my carefully engineered context varied dramatically between different agents.
 
 Take a simple command like:
 
@@ -45,7 +45,7 @@ And it's important to clarify, what I'm talking about here is not standardizing 
 
 ## The problem.
 
-To see the problem in action, let's look at a simple command from Cody Framework:
+To see the problem in action, let's look at a simple command from Cody Product Builder:
 
 ```
 :cody assets list
@@ -167,7 +167,7 @@ For example, in my agents.md file, I have:
 ```
 ## Design System Components
   - When you execute commands in the {{cfCommands}} folder, you will encounter XML tags.
-  - Only tags that begin with <cf:...> must be executed as a Cody Framework component.
+  - Only tags that begin with <cf:...> must be executed as a Cody Product Builder component.
   - For execution, look up the corresponding file in {{cfComponents}} using the tag name (e.g., <cf:table> → table.md, <cf:card> → card.md).
   - **CRITICAL**: When you encounter a <cf:...> tag, you MUST:
     1. Read the corresponding component file from {{cfComponents}}
@@ -181,7 +181,7 @@ For example, in my agents.md file, I have:
 ```
 
 ### Using the Component
-My `xxxcommand.md` files are how users can control the [Cody Framework](https://github.com/ibuildwith-ai/cody-framework).  In the command file, there is where I actually use the design component:
+My `xxxcommand.md` files are how users can control the [Cody Product Builder](https://github.com/ibuildwith-ai/cody-product-builder).  In the command file, there is where I actually use the design component:
 
 ```
 ---

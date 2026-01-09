@@ -53,9 +53,9 @@ Outcome based context engineering isn't about telling the AI how to respond. It'
 5. _Acknowledge trade-offs_ : If you don't provide enough context, results may look fine on the surface but miss critical details. A good system should flag this: "Based on limited information, outcomes may not be optimal."
 6. _Use templates as scaffolding, not cages_ : Standardized templates can provide consistency across projects — like ensuring every PRD covers project overview, must-have features, and risks. But they should act as scaffolding, not rigid cages. Templates guide the AI toward complete outcomes without stripping away the flexibility to adapt to each project's unique context.
 
-## Real-World Example: Cody Framework
+## Real-World Example: Cody Product Builder
 
-When I first designed agents in the Cody Framework, I leaned on standardized questions to collect requirements. For example:
+When I first designed agents in the Cody Product Builder, I leaned on standardized questions to collect requirements. For example:
 
 1. Who is this app for?
 2. What problem does it solve?
@@ -79,7 +79,7 @@ In the outcome-based flow, it adapts:
 
 By the end, the agent has enough to generate a PRD draft that the dev team can actually use, not just a document shaped by arbitrary rules.
 
-Below is exactly how I'm using outcome based context engineering along with some scafolding to guide the AI Agent in my [Cody Framework](https://github.com/ibuildwith-ai/cody-framework).
+Below is exactly how I'm using outcome based context engineering along with some scafolding to guide the AI Agent in my [Cody Product Builder](https://github.com/ibuildwith-ai/cody-product-builder).
 
 ```
 
