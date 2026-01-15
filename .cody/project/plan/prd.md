@@ -17,7 +17,7 @@ This document formalizes the idea and defines the what and the why of the produc
 ## Summary
 _A 1–2 sentence high-level description of the product or feature._
 
-**iCodeWith.ai is an educational platform that teaches developers how to use Spec Driven Development (SDD) and AI tools to build production-ready, maintainable applications. The platform combines content delivery (blog, podcast, presentations) with practical resources and community building to help developers transition from "vibe coding" to systematic development approaches.**
+**iBuildWith.ai is an educational platform that teaches developers how to use Spec Driven Development (SDD) and AI tools to build production-ready, maintainable applications. The platform combines content delivery (blog, podcast, events, videos) with practical resources and community building to help developers transition from "vibe coding" to systematic development approaches.**
 
 ## Goals
 _What are we trying to achieve? List the key objectives or outcomes._
@@ -36,13 +36,16 @@ _Who is this for? Briefly describe the audience._
 ## Key Features
 _What core features are required to meet the goals?_
 
-- **Content Management System**: Blog posts, podcast episodes, presentations, and Show & Tell tutorials
-- **Multi-presenter Support**: System for handling multiple presenters in presentations and podcasts
-- **Responsive Design**: Mobile-first Hugo static site with optimized performance
+- **Content Management System**: Blog posts, podcast episodes, events (presentations/meetups), and videos
+- **Multi-presenter Support**: System for handling multiple presenters in events and podcasts
+- **Responsive Header Layouts**: Two-column desktop layouts (45/55 split) with mobile stacking for blog posts and events
+- **Responsive Design**: Mobile-first Hugo static site with optimized performance and responsive tables
+- **Component Library**: FAQ accordion, scrolling carousel, collapsible references, responsive tables
 - **SEO Optimization**: Comprehensive search engine optimization and social media integration
-- **Community Integration**: Discord community links and engagement features
+- **Community Integration**: Discord community links, engagement features, and meetup events
 - **Resource Showcase**: Apps gallery demonstrating real-world implementations
-- **Multi-environment Deployment**: Staging (next.icodewith.ai) and production (www.icodewith.ai) environments
+- **Multi-environment Deployment**: Staging (next.ibuildwith.ai) and production (www.ibuildwith.ai) environments
+- **Newsletter Integration**: Newsletter signup with Sender.net email marketing platform
 
 ## Success Criteria
 _How do we know it worked?_

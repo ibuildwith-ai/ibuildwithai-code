@@ -17,13 +17,13 @@ This document defines how the product will be built and when.
 ## Overview
 _A quick summary of what this plan is for and what product it's implementing._
 
-**This plan implements the iCodeWith.ai educational platform, a Hugo-based static site that teaches Spec Driven Development and AI-assisted coding through multiple content formats. The platform is currently at version 1.4.3 with completed multi-presenter support and a mature content management system. This plan focuses on maintaining and evolving the existing production platform.**
+**This plan implements the iBuildWith.ai educational platform, a Hugo-based static site that teaches Spec Driven Development and AI-assisted coding through multiple content formats. The platform is currently at version 1.9.0 with completed responsive header layouts across content types, mature content management system, and comprehensive component library. This plan focuses on maintaining and evolving the existing production platform.**
 
 ## Architecture
 _High-level structure and major technical decisions. Include how the system is organized (e.g., client-server, monolith, microservices) and the proposed tech stack (frameworks, languages, storage, deployment)._
 
 **Static Site Architecture with Serverless Backend:**
-- **Frontend**: Hugo static site generator with custom icodewithai theme
+- **Frontend**: Hugo static site generator with custom ibuildwithai theme
 - **Backend**: Netlify Functions for form processing and API integrations
 - **Deployment**: Multi-repository architecture (dev → staging → production)
 - **Hosting**: GitHub Pages for static content, Netlify for serverless functions
@@ -34,21 +34,23 @@ _High-level structure and major technical decisions. Include how the system is o
 ## Components
 _What are the key parts/modules of the system and what do they do?_
 
-- **Content Management**: Hugo-based system with blog, podcast, presentations, and Show & Tell sections
-- **Theme System**: Custom icodewithai theme with responsive design and component library
-- **Multi-Presenter System**: Support for multiple presenters in presentations and podcasts
+- **Content Management**: Hugo-based system with blog, podcast, events, and videos sections
+- **Theme System**: Custom ibuildwithai theme with responsive design and component library
+- **Multi-Presenter System**: Support for multiple presenters in events and podcasts
+- **Responsive Header System**: Two-column desktop layout (45/55 split) for blog posts and events with mobile stacking
 - **Photo Gallery Component**: Interactive image galleries for app showcases
 - **Navigation System**: Responsive header/footer with mobile menu and dropdown components
 - **SEO System**: Comprehensive meta tags, Open Graph, and search engine optimization
-- **Form Processing**: Netlify Functions for contact forms and newsletter subscriptions
+- **Form Processing**: Netlify Functions for contact forms and newsletter subscriptions (Sender.net integration)
 - **Asset Pipeline**: Hugo Pipes for SCSS compilation, JavaScript minification, and image processing
 - **People Management**: JSON-based profiles for presenters, guests, and contributors
 - **Deployment System**: Multi-environment CI/CD with automated testing and deployment
+- **Component Library**: FAQ accordion, scrolling carousel, responsive tables, collapsible references
 
 ## Data Model
 _What are the main types of data or objects the system will manage?_
 
-- **Content Types**: Blog posts, podcast episodes, presentations, Show & Tell entries, app showcases
+- **Content Types**: Blog posts, podcast episodes, events (presentations/meetups), videos, app showcases
 - **People Profiles**: JSON files with presenter/guest information, photos, and biographical data
 - **App Data**: Page bundles with metadata, thumbnails, and photo galleries
 - **SEO Metadata**: YAML files for search engine optimization and social media integration
