@@ -7,8 +7,9 @@ draft = false
 status = "published"
 description = "Is code becoming obsolete—or just evolving? In this kickoff episode, Marcelo is joined by Eric Provencher, founder of Repo Prompt, to explore what vibe coding really means?"
 image = "/images/podcast/e001.png"
-video_id = "gz7sfGW8N1g"
 audio_id = "4KIlft4ymnm2IUxv49fIes"
+spotify_episode_link = "https://open.spotify.com/episode/4KIlft4ymnm2IUxv49fIes"
+apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/is-code-a-thing-of-the-past-in-vibe-coding/id1832010884?i=1000721199627"
 host = "marcelo-lewin"
 guest = "eric-provencher"
 +++

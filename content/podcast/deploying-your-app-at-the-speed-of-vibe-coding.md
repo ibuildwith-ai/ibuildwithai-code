@@ -7,8 +7,9 @@ draft = false
 status = "published"
 description = "Join Marcelo and his guest, Josh Thornes, Director of AI and Software Engineering at e360, as they cover the best platforms for deployment, setting up seamless CI/CD pipelines, overcoming common deployment hurdles, and ensuring your vibe-coded apps are secure, reliable, and ready to scale."
 image = "/images/podcast/e003.png"
-video_id = "eD19fkPujIU"
 audio_id = "65npceasRghM4oCI4TSJtz"
+spotify_episode_link = "https://open.spotify.com/episode/65npceasRghM4oCI4TSJtz"
+apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/deploying-your-app-at-the-speed-of-vibe-coding/id1832010884?i=1000725158950"
 host = "marcelo-lewin"
 guest = "josh-thornes"
 +++

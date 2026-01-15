@@ -7,8 +7,9 @@ draft = false
 status = "published"
 description = "In this episode, Marcelo sits down with Jonathan Hrovat, Engagement Coordinator at ChurchWest Insurance, to explore whether Vibe Coding can truly provide businesses with a competitive advantage."
 image = "/images/podcast/e007.png"
-video_id = "Y3HW0oQS3hI"
 audio_id = "3skGSFHdx8ABcakHHI4jmT"
+spotify_episode_link = "https://open.spotify.com/episode/3skGSFHdx8ABcakHHI4jmT"
+apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/exploring-vibe-coding-as-a-competitive-advantage/id1832010884?i=1000737866353"
 host = "marcelo-lewin"
 guest = "jonathan-hrovat"
 +++

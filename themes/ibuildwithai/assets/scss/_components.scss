@@ -1482,17 +1482,17 @@
   align-items: center;
   gap: $spacing-lg;
   margin-top: $spacing-xl;
-  
+
   @include tablet-down {
     gap: $spacing-md;
     margin-top: $spacing-lg;
   }
-  
+
   // Smaller spacing when inside blog single pages
   .blog-single & {
     margin-top: $spacing-lg;
     margin-bottom: $spacing-lg;
-    
+
     @include tablet-down {
       margin-top: $spacing-md;
       margin-bottom: $spacing-md;
@@ -1509,7 +1509,7 @@
   background: $neutral-800;
   border: 1px solid $neutral-700;
   transition: $transition-base;
-  
+
   &:hover {
     background: $neutral-700;
     border-color: $primary-500;
@@ -1523,13 +1523,57 @@
   height: 40px;
   transition: $transition-base;
   filter: brightness(0.8);
-  
+
   @include tablet-down {
     width: 32px;
     height: 32px;
   }
-  
+
   .podcast-icon-link:hover & {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+  }
+}
+
+// Inline podcast icons (smaller boxes, smaller size)
+.podcast-icons-inline {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: $spacing-xs;
+  margin: $spacing-md 0;
+}
+
+.podcast-icon-link-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xs;
+  border-radius: $border-radius-base;
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  transition: $transition-base;
+
+  &:hover {
+    background: $neutral-700;
+    border-color: $primary-500;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, $opacity-shadow);
+  }
+}
+
+.podcast-icon-inline {
+  width: 32px;
+  height: 32px;
+  transition: $transition-base;
+  filter: brightness(0.8);
+
+  @include tablet-down {
+    width: 28px;
+    height: 28px;
+  }
+
+  .podcast-icon-link-inline:hover & {
     filter: brightness(1.2);
     transform: scale(1.1);
   }
@@ -1537,28 +1581,6 @@
 
 .podcast-embed-section {
   margin: $spacing-xl 0;
-  padding: $spacing-lg;
-  background: $neutral-800;
-  border-radius: $border-radius-base;
-  border: 1px solid $neutral-700;
-}
-
-.video-embed-responsive {
-  position: relative;
-  padding-bottom: 56.25%; // 16:9 aspect ratio
-  height: 0;
-  overflow: hidden;
-  background: $neutral-900;
-  border-radius: $border-radius-sm;
-  
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: $border-radius-sm;
-  }
 }
 
 .audio-embed-responsive {

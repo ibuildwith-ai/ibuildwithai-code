@@ -7,8 +7,9 @@ draft = false
 status = "upcoming | published"
 description = ""
 image = "/images/podcast/episode.png"
-video_id = ""
 audio_id = ""
+spotify_episode_link = ""
+apple_podcast_episode_link = ""
 host = "first-last"
 guest = "first-last"
 +++
