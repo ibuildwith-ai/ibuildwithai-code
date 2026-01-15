@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person | online"
 draft = true
-displayImageInline = true
 +++
 
 Write a detailed description of your event here.

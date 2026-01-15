@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 Vibe coding is fast, intuitive, and incredibly fun—but if you’ve ever ended a session with scattered files, unclear goals, or code that doesn’t quite work, you’re not alone. In this presentation, we’ll explore what vibe coding really is and how it differs from traditional AI-assisted software development. It’s more than just prompting an AI and hoping for the best—it’s a new way of building that blends creativity, iteration, and rapid prototyping.

@@ -13,7 +13,6 @@ on_demand_url = "/videos/an-overview-of-ai-dev-agents-for-non-developers/"
 register_url = ""
 meeting_type = "online"
 draft = false
-displayImageInline = true
 +++
 
 Get a deep-dive into AI development agents designed for professionals who work alongside development teams but don't write code daily. This session explains how specialized AI agents are changing software development workflows and what technical leaders need to know about this emerging technology. 

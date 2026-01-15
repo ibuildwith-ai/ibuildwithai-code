@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 You’ve built your app, now it’s time to share it with the world! In this session, we’ll break down the publishing process for vibe-coded apps into simple, practical steps. From choosing the right hosting platform and automating deployments to handling secrets, testing in staging, and shipping your first version, you’ll learn how to go live with confidence. We’ll cover common pitfalls, pro tips, and mindset shifts that make publishing smoother and less intimidating—plus why every launch, big or small, deserves a celebration.

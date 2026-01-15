@@ -2,51 +2,61 @@
     <main>
         <article class="blog-single">
             <div class="container">
-                <span class="content-type-header">Event</span>
-                <h1>{{ .Title }}</h1>
-                <div class="post-meta">
-                    {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
-                    <br>
-                    {{ if .Params.presenter }}
-                    {{ $presenterKeys := split .Params.presenter "," }}
-                    {{ $presenterNames := slice }}
-                    {{ range $presenterKeys }}
-                        {{ $key := trim . " " }}
-                        {{ $presenterData := index $.Site.Data.people $key }}
-                        {{ if $presenterData }}
-                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                <!-- Event Header: Desktop Two-Column Layout / Mobile Stacked -->
+                <div class="blog-header-wrapper">
+                    <!-- Left Column: Featured Image (Desktop Only) -->
+                    {{ if .Params.image }}
+                        {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                        {{ $eventImg := resources.Get $imagePath }}
+                        {{ if $eventImg }}
+                            {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
+                            <div class="blog-header-image">
+                                <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
                         {{ end }}
                     {{ end }}
-                    {{ if $presenterNames }}
-                        Presented by 
-                        {{ if eq (len $presenterNames) 1 }}
-                            {{ index $presenterNames 0 }}
-                        {{ else if eq (len $presenterNames) 2 }}
-                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
-                        {{ else }}
-                            {{ $lastIndex := sub (len $presenterNames) 1 }}
-                            {{ range $i, $name := $presenterNames }}
-                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+
+                    <!-- Right Column: Metadata and Title -->
+                    <div class="blog-header-content">
+                        <span class="content-type-header">Event</span>
+                        <h1>{{ .Title }}</h1>
+                        <div class="post-meta">
+                            {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                            <br>
+                            {{ if .Params.presenter }}
+                            {{ $presenterKeys := split .Params.presenter "," }}
+                            {{ $presenterNames := slice }}
+                            {{ range $presenterKeys }}
+                                {{ $key := trim . " " }}
+                                {{ $presenterData := index $.Site.Data.people $key }}
+                                {{ if $presenterData }}
+                                    {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                {{ end }}
                             {{ end }}
-                        {{ end }}
-                    {{ end }}
-                    {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
-                    <br>
-                    {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} event.{{ end }}
-                    {{ if eq .Params.status "completed" }}<span class="text-error">It's now completed.</span>{{ end }}
+                            {{ if $presenterNames }}
+                                Presented by
+                                {{ if eq (len $presenterNames) 1 }}
+                                    {{ index $presenterNames 0 }}
+                                {{ else if eq (len $presenterNames) 2 }}
+                                    {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                {{ else }}
+                                    {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                    {{ range $i, $name := $presenterNames }}
+                                        {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
+                            <br>
+                            {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} event.{{ end }}
+                            {{ if eq .Params.status "completed" }}<span class="text-error">It's now completed.</span>{{ end }}
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Divider: Full Width -->
+                    <div class="blog-header-divider"></div>
                 </div>
 
-                {{ if and .Params.image .Params.displayImageInline }}
-                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                    {{ $eventImg := resources.Get $imagePath }}
-                    {{ if $eventImg }}
-                        {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
-                        <div class="blog-single-image">
-                            <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                        </div>
-                    {{ end }}
-                {{ end }}
-                
                 <div class="content">
                     <h3 class="project-links-title">About the Event</h3>
                     {{ .Content }}

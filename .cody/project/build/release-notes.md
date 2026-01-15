@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.9.0-event-header-restructure - January 15, 2026](#v190-event-header-restructure---january-15-2026)
 - [v1.8.9-blog-header-restructure - January 7, 2026](#v189-blog-header-restructure---january-7-2026)
 - [v1.8.8-blog-references-styling - January 7, 2026](#v188-blog-references-styling---january-7-2026)
 - [v1.8.7-responsive-tables - January 6, 2026](#v187-responsive-tables---january-6-2026)
@@ -17,6 +18,93 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.9.0-event-header-restructure - January 15, 2026
+
+## Overview
+
+Successfully applied the same two-column header layout from blog posts (v1.8.9) to event detail pages, creating visual consistency across content types. The featured image is now positioned on the left (45% width) with event metadata and title on the right (55% width), separated by a full-width horizontal divider. The mobile experience remains completely unchanged. This implementation reused existing `.blog-header-*` CSS classes, requiring zero new CSS and only template modifications.
+
+## Key Features
+
+**Desktop Two-Column Header Layout (1050px+)**
+- Image positioned in left column at 45% width with proportional height scaling
+- Content column spans remaining 55% width with improved event metadata organization
+- Event-specific metadata displays clearly: date/time, timezone, presenter(s), location, meeting type, status
+- Responsive gap between columns ($spacing-lg = 1.5rem)
+- Reuses proven CSS Grid structure from blog header implementation
+
+**Reorganized Event Metadata Structure**
+- EVENT label displayed prominently above title
+- Title with proper line-height for readability
+- Date/time with timezone on first line
+- "Presented by [names]" with Oxford comma formatting for multiple presenters
+- Location information (if applicable)
+- Meeting type (in-person/online) and event status (upcoming/completed)
+- Status messages styled appropriately (completed events marked clearly)
+
+**Full-Width Horizontal Divider**
+- Divider line spans entire header width from image edge to content edge
+- Equal spacing above and below divider ($spacing-md = 1rem)
+- Clean visual separation between header and event details
+- Uses CSS Grid `grid-column: 1 / -1` for reliable cross-column spanning
+
+**Mobile Layout (Below 1050px)**
+- Completely unchanged from previous version
+- Full-width featured image displayed first
+- Metadata stacked vertically below image
+- Perfect for mobile reading experience
+
+**Always-Display Images**
+- Removed `displayImageInline` parameter from events archetype
+- Images now display by default for all event pages
+- Updated all 12 existing event entries to remove optional flag
+- Ensures consistent visual experience across events
+
+## Technical Details
+
+**Files Modified**
+- `archetypes/events.md` - Removed `displayImageInline` parameter
+- `themes/ibuildwithai/layouts/events/single.html` - Restructured header with CSS Grid
+- `content/events/*.md` (12 files) - Removed `displayImageInline` from all events
+- **CSS Changes**: None - reused existing `.blog-header-*` classes
+
+**Responsive Breakpoint**
+- Desktop layout: 1050px and above
+- Mobile layout: Below 1050px
+- Uses existing $breakpoint-tablet constant for consistency with blog
+
+**CSS Implementation (Reused from v1.8.9)**
+- `.blog-header-wrapper` - CSS Grid with 45% / 1fr columns
+- `.blog-header-image` - Responsive image styling with proper object-fit
+- `.blog-header-content` - Content column with organized spacing
+- `.blog-header-divider` - Full-width divider with balanced margins
+
+## Testing & Validation
+
+✅ Desktop layout renders correctly at 1050px+ width
+✅ Image column displays at 45% width with proportional height
+✅ Event metadata properly aligned with balanced spacing
+✅ Multi-presenter events display with Oxford comma formatting
+✅ Event status messages ("completed" vs "upcoming") display correctly
+✅ Full-width divider spans correctly across both columns
+✅ Mobile layout unchanged - identical to previous version
+✅ Responsive transition smooth at 1050px breakpoint
+✅ All images display on all event pages
+✅ Cross-browser compatible (Chrome, Firefox, Safari, Edge)
+
+## Browser Compatibility
+
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+
+## Notes
+
+This version demonstrates the power of code reuse - by leveraging the CSS Grid structure from v1.8.9's blog header, the implementation required only template changes with zero new CSS. The same visual pattern now applies to both blog posts and events, creating a cohesive reading experience across content types. Future consideration: if this pattern extends to videos or podcasts, refactor CSS class names from `.blog-header-*` to `.content-header-*` for semantic clarity.
 
 ---
 

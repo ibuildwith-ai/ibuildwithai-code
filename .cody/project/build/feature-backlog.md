@@ -14,6 +14,38 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.9.0-event-header-restructure - 🟢 Completed
+Restructure the event detail page header layout for desktop screens using the same two-column design as blog posts (v1.8.9). Display featured image on the left with event metadata and title on the right. Remove the optional `displayImageInline` parameter so all event images display by default. Mobile layout remains unchanged.
+
+**Key Features:**
+- Desktop two-column header layout (45% image, 55% content) at 1050px+ width
+- Featured image resized and positioned in left column with proportional height scaling
+- Event metadata reorganized on right column: EVENT label, title, date/time/timezone, presenter(s), location, meeting type, status
+- Full-width horizontal divider spanning entire header width
+- Balanced spacing above and below divider ($spacing-md on both sides)
+- Gap between columns using existing $spacing-lg
+- Reuse existing `.blog-header-*` CSS classes (no new CSS needed)
+- Mobile layout (<1050px) stacked vertically as before (unchanged)
+- `displayImageInline` parameter removed from events archetype (optional → always display)
+- All 12 existing event entries updated to remove `displayImageInline` parameter
+- Responsive design with clean transition at existing 1050px tablet breakpoint
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 18.1 | Update events archetype | Remove displayImageInline from archetypes/events.md | High | 🟢 Completed |
+| 18.2 | Restructure events template | Create two-column header layout with CSS Grid in events/single.html | High | 🟢 Completed |
+| 18.3 | Implement header wrapper | Wrap header elements in .blog-header-wrapper with 45/55 column split | High | 🟢 Completed |
+| 18.4 | Configure image column | Move image into .blog-header-image for proper sizing and spacing | High | 🟢 Completed |
+| 18.5 | Configure content column | Reorganize metadata in .blog-header-content with proper typography and spacing | High | 🟢 Completed |
+| 18.6 | Implement full-width divider | Add .blog-header-divider spanning both columns | High | 🟢 Completed |
+| 18.7 | Balance vertical spacing | Ensure equal margins above/below divider ($spacing-md) | High | 🟢 Completed |
+| 18.8 | Configure responsive behavior | Add mobile stacking layout at 1050px breakpoint | High | 🟢 Completed |
+| 18.9 | Update all event entries | Remove displayImageInline from all 12 event entry files | High | 🟢 Completed |
+| 18.10 | Verify image display | Confirm images render without optional toggle on all events | Medium | 🟢 Completed |
+| 18.11 | Desktop layout testing | Test two-column layout at 1050px+ width | High | 🟢 Completed |
+| 18.12 | Mobile layout testing | Verify stacked layout at <1050px width | High | 🟢 Completed |
+| 18.13 | Cross-browser testing | Test in Chrome, Firefox, Safari on desktop/mobile | Medium | 🟢 Completed |
+
 ## v1.8.9-blog-header-restructure - 🟢 Completed
 Restructure the blog article header layout for desktop screens using a two-column design with featured image on the left and metadata/title on the right. Remove the optional `displayImageInline` parameter so all images display by default. Mobile layout remains unchanged.
 

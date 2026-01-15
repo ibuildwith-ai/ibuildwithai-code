@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 Marketing doesn't stand still and neither should the tools marketers rely on. In this session, Erin Carpenter, Sr. Digital Marketing Director at e360, will share how she applies Vibe Coding techniques with platforms like Lovable to rapidly prototype and launch marketing apps. She'll walk us through her process of turning campaign ideas into functional apps, automation workflows, and interactive tools, all without the overhead of traditional development cycles.

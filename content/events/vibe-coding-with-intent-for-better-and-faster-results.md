@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 In today’s fast-paced solo-dev world, vibe coding lets you brainstorm, prototype, and spin up MVPs or

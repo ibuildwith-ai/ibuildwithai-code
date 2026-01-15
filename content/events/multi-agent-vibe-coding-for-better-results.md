@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 Traditional coding assistants like Claude Code or Cursor rely on a single, general-purpose agent. But what happens when you split that workload into multiple specialized agents? In this session, we'll explain the fundamentals of agents and subagents, explore how they work in both serialized and parallel setups, and show why these structures matter for vibe coding. Through real-time demos, you'll see how multi-agent systems reduce hallucinations, improve efficiency, and produce better coding outcomes.

@@ -13,7 +13,6 @@ on_demand_url = "/videos/from-vibe-coding-to-shippable-app-at-planet-cyber-sec/"
 register_url = ""
 meeting_type = "online"
 draft = false
-displayImageInline = true
 +++
 
 In this online presentation, I'll be focused on how to vibe code in a structured way using Spec Driven Development to deliver a scalable and maintainable app.  I'll cover:

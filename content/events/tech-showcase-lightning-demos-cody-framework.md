@@ -13,7 +13,6 @@ on_demand_url = "/videos/tech-showcase-lightning-demos-cody-framework/"
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 Share what you're building + Learn from fellow creators

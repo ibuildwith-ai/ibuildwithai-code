@@ -13,7 +13,6 @@ on_demand_url = ""
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 In this session, we’ll explore how AI-assisted vibe coding turns UX designs into fully functional apps. You’ll see how modern tools like Figma MCP, Microsoft Copilot, and structured design systems work together to bridge the gap between user experience and implementation.

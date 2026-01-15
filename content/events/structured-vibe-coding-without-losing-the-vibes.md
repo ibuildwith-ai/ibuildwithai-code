@@ -13,7 +13,6 @@ on_demand_url = "/videos/structured-vibe-coding-without-losing-the-vibes/"
 register_url = ""
 meeting_type = "in-person"
 draft = false
-displayImageInline = true
 +++
 
 ​In today's fast-paced solo-dev world, vibe coding lets you brainstorm, prototype, and spin up MVPs or proofs of concept in minutes with no heavy processes required.
