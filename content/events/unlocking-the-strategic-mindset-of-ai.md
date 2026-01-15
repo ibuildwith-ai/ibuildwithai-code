@@ -16,4 +16,4 @@ draft = false
 displayImageInline = true
 +++
 
-Write a detailed description of your event here.d
+In this session, Sharad breaks down how non-technical professionals can think strategically about AI, without needing to code. Sharad shares how organizations actually adopt AI at scale, where most teams get stuck, and how business leaders, domain experts, and knowledge workers can stay relevant and impactful in an AI-driven world. If you work with ideas, decisions, strategy, or product building, this event will help you rethink how AI fits into your role and how to stay ahead as expectations continue to shift.
