@@ -1,10 +1,10 @@
 {{/* Reminder Widget Partial Template */}}
-{{/* Usage: {{ partial "reminder-widget.html" (dict "title" "Never Miss an Episode" "description" "Sign up to get a reminder when this episode goes live." "buttonLabel" "Remind Me") }} */}}
+{{/* Usage: {{ partial "reminder-widget.html" (dict "title" "Never Miss an Episode" "description" "Sign up to get a reminder when this episode releases." "buttonLabel" "Remind Me") }} */}}
 
 {{/* Generate unique ID for this reminder widget */}}
 {{ $uniqueId := printf "reminder-%d" now.Unix }}
 {{ $title := .title | default "Never Miss an Episode" }}
-{{ $description := .description | default "Sign up to get a reminder when this goes live." }}
+{{ $description := .description | default "Sign up to get a reminder when this episode releases." }}
 {{ $buttonLabel := .buttonLabel | default "Remind Me" }}
 {{ $thankYouMessage := .thankYouMessage | default "An email reminder was sent to you." }}
 

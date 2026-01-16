@@ -2,7 +2,6 @@
 title = ""
 slug = ""
 date = "yyyy-mm-dd"
-time = "1:00 PM PT"
 draft = false
 status = "upcoming | published"
 description = ""

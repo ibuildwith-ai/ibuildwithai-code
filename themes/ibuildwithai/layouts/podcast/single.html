@@ -30,7 +30,7 @@
                             {{ end }}
                         </h3>
                         <div class="post-meta">
-                            {{ if eq .Params.status "upcoming" }} Airs {{ end }}{{ .Date.Format "January 2, 2006" }}  {{ if eq .Params.status "upcoming" }}  at {{ .Params.time }} {{ end }}
+                            {{ if eq .Params.status "upcoming" }}Releases {{ end }}{{ .Date.Format "January 2, 2006" }}
                         </div>
 
                         <!-- Podcast Platform Icons -->
@@ -79,7 +79,7 @@
 
                 <!-- Reminder Widget (For Upcoming Episodes) -->
                 {{ if eq .Params.status "upcoming" }}
-                    {{ partial "reminder-widget.html" (dict "title" "Don't Miss This Episode" "description" "Sign up to get a reminder when this episode goes live." "buttonLabel" "Remind Me" "thankYouMessage" "An email reminder was sent to you.") }}
+                    {{ partial "reminder-widget.html" (dict "title" "Don't Miss This Episode" "description" "Sign up to get a reminder when this episode releases." "buttonLabel" "Remind Me" "thankYouMessage" "An email reminder was sent to you.") }}
                 {{ end }}
                 
                 <div class="content">
