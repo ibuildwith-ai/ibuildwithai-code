@@ -55,9 +55,6 @@
                                             </div>
                                             {{ end }}
                                         {{ end }}
-                                        <div class="podcast-date">
-                                            {{ .Date.Format "January 2, 2006" }} at {{ .Params.time }}
-                                        </div>
                                         <h3>{{ .Title }}</h3>
                                         {{ if .Params.guest }}
                                             {{ $guestData := index .Site.Data.people .Params.guest }}
@@ -65,8 +62,6 @@
                                                 <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
                                             {{ end }}
                                         {{ end }}
-                                        <!-- <p>{{ .Params.description }}</p> -->
-                                        <br /><span class="card-link">Get More Details and Register →</span>
                                     </article>
                                 </a>
                     {{ end }}
@@ -89,9 +84,6 @@
                                     </div>
                                     {{ end }}
                                 {{ end }}
-                                <div class="podcast-date">
-                                    {{ .Date.Format "January 2, 2006" }}
-                                </div>
                                 <h3>{{ .Title }}</h3>
                                 {{ if .Params.guest }}
                                     {{ $guestData := index .Site.Data.people .Params.guest }}
@@ -99,8 +91,6 @@
                                         <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
                                     {{ end }}
                                 {{ end }}
-                                <!-- <p>{{ .Params.description }}</p> -->
-                                <br /><span class="card-link">Listen →</span>
                             </article>
                         </a>
                     {{ end }}
