@@ -2,42 +2,64 @@
     <main>
         <article class="blog-single">
             <div class="container">
-                {{/* {{ if eq .Params.status "upcoming" }}<div class="upcoming-pill-container"><span class="upcoming-pill">Upcoming</span></div>{{ end }} */}}
-                <span class="content-type-header">Podcast</span>
-                <h1>{{ .Title }}</h1>
-                <h3>
+                <!-- Podcast Header: Desktop Two-Column Layout / Mobile Stacked -->
+                <div class="blog-header-wrapper">
+                    <!-- Left Column: Guest Image (Desktop Only) -->
                     {{ if .Params.guest }}
                         {{ $guestData := index .Site.Data.people .Params.guest }}
-                        {{ if $guestData }}A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}{{ end }}
+                        {{ if $guestData }}
+                            {{ $guestImgPath := strings.TrimPrefix "/" $guestData.image }}
+                            {{ $guestImg := resources.Get $guestImgPath }}
+                            {{ if $guestImg }}
+                                {{ $guestImgFingerprint := $guestImg | resources.Fingerprint }}
+                                <div class="blog-header-image podcast-guest-image">
+                                    <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ $guestData.fullName }}" loading="lazy">
+                                </div>
+                            {{ end }}
+                        {{ end }}
                     {{ end }}
-                </h3>
 
-                <div class="post-meta">
-                    {{ if eq .Params.status "upcoming" }} Airs {{ end }}{{ .Date.Format "January 2, 2006" }}  {{ if eq .Params.status "upcoming" }}  at {{ .Params.time }} {{ end }}
+                    <!-- Right Column: Metadata and Title -->
+                    <div class="blog-header-content">
+                        <span class="content-type-header">Podcast</span>
+                        <h1>{{ .Title }}</h1>
+                        <h3>
+                            {{ if .Params.guest }}
+                                {{ $guestData := index .Site.Data.people .Params.guest }}
+                                {{ if $guestData }}A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}{{ end }}
+                            {{ end }}
+                        </h3>
+                        <div class="post-meta">
+                            {{ if eq .Params.status "upcoming" }} Airs {{ end }}{{ .Date.Format "January 2, 2006" }}  {{ if eq .Params.status "upcoming" }}  at {{ .Params.time }} {{ end }}
+                        </div>
+
+                        <!-- Podcast Platform Icons -->
+                        <div class="podcast-icons-inline">
+                            {{ $appleLink := .Params.apple_podcast_episode_link | default .Site.Params.podcast_apple }}
+                            <a href="{{ $appleLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
+                                {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+                                {{ if $appleIcon }}
+                                {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
+                                <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon-inline">
+                                {{ end }}
+                            </a>
+                            {{ $spotifyLink := .Params.spotify_episode_link | default .Site.Params.podcast_spotify }}
+                            <a href="{{ $spotifyLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
+                                {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
+                                {{ if $spotifyIcon }}
+                                {{ $spotifyIconFingerprint := $spotifyIcon | resources.Fingerprint }}
+                                <img src="{{ $spotifyIconFingerprint.RelPermalink }}" alt="Listen on Spotify" class="podcast-icon-inline">
+                                {{ end }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Divider: Full Width -->
+                    <div class="blog-header-divider"></div>
                 </div>
 
-                <!-- Podcast Platform Icons -->
-                <div class="podcast-icons-inline">
-                    {{ $appleLink := .Params.apple_podcast_episode_link | default .Site.Params.podcast_apple }}
-                    <a href="{{ $appleLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
-                        {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
-                        {{ if $appleIcon }}
-                        {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
-                        <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon-inline">
-                        {{ end }}
-                    </a>
-                    {{ $spotifyLink := .Params.spotify_episode_link | default .Site.Params.podcast_spotify }}
-                    <a href="{{ $spotifyLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
-                        {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
-                        {{ if $spotifyIcon }}
-                        {{ $spotifyIconFingerprint := $spotifyIcon | resources.Fingerprint }}
-                        <img src="{{ $spotifyIconFingerprint.RelPermalink }}" alt="Listen on Spotify" class="podcast-icon-inline">
-                        {{ end }}
-                    </a>
-                </div>
-
-                <!-- Spotify Audio Embed -->
-                {{ if and .Params.audio_id (ne .Params.audio_id "") }}
+                <!-- Spotify Audio Embed (Below Header) -->
+                {{ if and .Params.audio_id (ne .Params.audio_id "") (ne .Params.status "upcoming") }}
                 <div class="podcast-embed-section">
                     <div class="audio-embed-responsive">
                         <iframe
@@ -55,6 +77,7 @@
                 </div>
                 {{ end }}
 
+                <!-- Reminder Widget (For Upcoming Episodes) -->
                 {{ if eq .Params.status "upcoming" }}
                     {{ partial "reminder-widget.html" (dict "title" "Don't Miss This Episode" "description" "Sign up to get a reminder when this episode goes live." "buttonLabel" "Remind Me" "thankYouMessage" "An email reminder was sent to you.") }}
                 {{ end }}

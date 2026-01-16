@@ -1871,7 +1871,7 @@ h2 + .podcast-embed-section {
   // Desktop two-column header layout (image left, content right)
   .blog-header-wrapper {
     display: grid;
-    grid-template-columns: 45% 1fr;
+    grid-template-columns: 30% 1fr;
     gap: $spacing-lg;
     margin-bottom: 0;
     align-items: flex-start;
@@ -1886,7 +1886,7 @@ h2 + .podcast-embed-section {
   .blog-header-image {
     border-radius: $border-radius-base;
     overflow: hidden;
-    
+
     img {
       width: 100%;
       height: auto;
@@ -1894,10 +1894,17 @@ h2 + .podcast-embed-section {
       object-fit: cover;
       border-radius: $border-radius-base;
     }
-    
+
     // On mobile, image appears first (full width)
     @media (max-width: $breakpoint-tablet - 1px) {
       margin-bottom: $spacing-xl;
+    }
+
+    // Hide podcast guest image on mobile only
+    &.podcast-guest-image {
+      @media (max-width: $breakpoint-tablet - 1px) {
+        display: none;
+      }
     }
   }
   

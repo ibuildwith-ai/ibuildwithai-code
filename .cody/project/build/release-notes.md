@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.9.1-podcast-header-restructure - January 15, 2026](#v191-podcast-header-restructure---january-15-2026)
 - [v1.9.0-event-header-restructure - January 15, 2026](#v190-event-header-restructure---january-15-2026)
 - [v1.8.9-blog-header-restructure - January 7, 2026](#v189-blog-header-restructure---january-7-2026)
 - [v1.8.8-blog-references-styling - January 7, 2026](#v188-blog-references-styling---january-7-2026)
@@ -18,6 +19,141 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.9.1-podcast-header-restructure - January 15, 2026
+
+## Overview
+
+Successfully applied the two-column header layout to podcast detail pages, following the established pattern from blog posts (v1.8.9) and events (v1.9.0). The guest image is now positioned on the left (30% width) with episode metadata and title on the right (70% width), separated by a full-width horizontal divider. Unlike blog and events, the mobile experience hides the guest image for a cleaner presentation. This implementation reused existing `.blog-header-*` CSS classes with minimal podcast-specific customization.
+
+## Key Features
+
+**Desktop Two-Column Header Layout (1050px+)**
+- Guest image positioned in left column at 30% width with rounded corners
+- Content column spans remaining 70% width with organized podcast metadata
+- Episode-specific metadata displays clearly: PODCAST label, title, guest info, date/time, platform icons
+- Responsive gap between columns ($spacing-lg = 1.5rem)
+- Reuses proven CSS Grid structure from blog and event headers
+- Optimized 30/70 split better suited for portrait-oriented guest photos (vs 45/55 for landscape images)
+
+**Reorganized Podcast Metadata Structure**
+- PODCAST label displayed prominently above title
+- Episode title with proper line-height for readability
+- Guest information: "A conversation with [Name], [Title] @ [Company]"
+- Episode date with "Airs [date] at [time]" for upcoming episodes
+- Apple Podcast and Spotify icons displayed inline/horizontal with episode-specific or fallback links
+- All metadata contained in right column for clean, organized presentation
+
+**Full-Width Horizontal Divider**
+- Divider line spans entire header width from image edge to content edge
+- Equal spacing above and below divider ($spacing-md = 1rem)
+- Clean visual separation between header and audio embed/content
+- Uses CSS Grid `grid-column: 1 / -1` for reliable cross-column spanning
+
+**Content Positioning Below Header**
+- Spotify audio embed displays below header divider (only for published episodes with audio_id)
+- Reminder widget displays for upcoming episodes (no audio embed shown)
+- Guest and host bio sections display below all header content
+- Logical content flow from header → audio → content → bios
+
+**Mobile Layout (Below 1050px)**
+- Guest image completely hidden on mobile for cleaner presentation
+- Portrait-oriented guest photos too large on mobile, hiding improves UX
+- Podcast-specific behavior via `.podcast-guest-image` CSS class
+- Metadata stacks vertically with full-width layout
+- Perfect mobile reading experience without oversized imagery
+
+**Guest Image Integration**
+- Uses guest data from site data files (matching "About the Guest" section)
+- Displays same guest photo in header and guest bio section for consistency
+- Rounded corners applied via existing `.blog-header-image` styling
+- Conditional logic prevents errors if guest data missing
+
+## Technical Details
+
+**Files Modified**
+- `themes/ibuildwithai/layouts/podcast/single.html` - Restructured header with CSS Grid, guest image logic
+- `themes/ibuildwithai/assets/scss/_components.scss` - Changed grid columns 45% → 30%, added podcast mobile hide rule
+- **CSS Changes**: Minimal - column width adjustment and one podcast-specific mobile rule
+
+**Responsive Breakpoint**
+- Desktop layout: 1050px and above
+- Mobile layout: Below 1050px (guest image hidden)
+- Uses existing $breakpoint-tablet constant for consistency
+
+**CSS Implementation**
+- `.blog-header-wrapper` - CSS Grid updated to 30% / 1fr columns (from 45% / 1fr)
+- `.blog-header-image` - Reused existing responsive image styling
+- `.blog-header-image.podcast-guest-image` - New mobile hide rule (display: none below 1050px)
+- `.blog-header-content` - Reused existing content column styling
+- `.blog-header-divider` - Reused full-width divider styling
+
+**Conditional Audio/Reminder Logic**
+- Audio embed: `{{ if and .Params.audio_id (ne .Params.audio_id "") (ne .Params.status "upcoming") }}`
+- Reminder widget: `{{ if eq .Params.status "upcoming" }}`
+- Prevents audio player from showing on upcoming episodes
+- Shows reminder signup for upcoming episodes only
+
+## Testing & Validation
+
+✅ Desktop layout renders correctly at 1050px+ width
+✅ Guest image displays at 30% width with rounded corners
+✅ Podcast metadata properly aligned with balanced spacing
+✅ Guest info "A conversation with..." displays correctly in right column
+✅ Apple Podcast and Spotify icons display inline with correct links
+✅ Full-width divider spans correctly across both columns
+✅ Spotify audio embed displays below header for published episodes only
+✅ Reminder widget displays correctly for upcoming episodes (no audio embed)
+✅ Mobile layout hides guest image completely (clean presentation)
+✅ Responsive transition smooth at 1050px breakpoint
+✅ Guest and host bio sections display correctly below all content
+✅ Cross-browser compatible (Chrome, Firefox, Safari, Edge)
+
+## Browser Compatibility
+
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ Mobile Safari (iOS 14+)
+- ✅ Chrome Mobile (Android 10+)
+
+## Migration Notes
+
+**No Content Updates Required**
+- Unlike blog (v1.8.9) and events (v1.9.0), no archetype parameter removal needed
+- Podcast archetype never had `displayImageInline` parameter
+- No bulk content file updates required
+- Zero migration impact on existing podcast episodes
+
+**Global Column Width Change**
+- Column split changed from 45/55 to 30/70 globally (affects blog, events, podcast)
+- Tested across all three content types - works well for all
+- Blog and event landscape images still look good at 30% width
+- Podcast portrait guest photos look excellent at 30% width
+
+## User-Driven Refinements
+
+This version benefited from real-time user feedback during implementation:
+1. **Image Source**: Changed from podcast episode image to guest image for better header context
+2. **Column Width**: Adjusted from 45/55 to 30/70 based on portrait guest photo dimensions
+3. **Mobile Behavior**: Added guest image hide on mobile after user testing revealed oversized imagery
+
+## Performance Impact
+
+- No negative performance impact
+- Reused existing CSS classes minimizes stylesheet size
+- One additional CSS rule (7 lines) for mobile hide behavior
+- No JavaScript changes
+- Hugo build time unchanged
+
+## Known Limitations
+
+- Guest image must exist in site data for display (graceful fallback if missing)
+- Platform icons link to episode-specific URLs or fallback to show-level URLs
+- Audio embed requires `audio_id` parameter (episodes without ID won't display player)
 
 ---
 

@@ -14,6 +14,38 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.9.1-podcast-header-restructure - 🟢 Completed
+Restructure the podcast detail page header layout for desktop screens using the same two-column design as blog posts (v1.8.9) and events (v1.9.0). Display guest image on the left with episode metadata and title on the right. Mobile layout hides guest image for cleaner presentation.
+
+**Key Features:**
+- Desktop two-column header layout (30% image, 70% content) at 1050px+ width
+- Guest image positioned in left column with rounded corners
+- Episode metadata reorganized on right column: PODCAST label, title, guest info ("A conversation with..."), date/time, Apple Podcast and Spotify icons (inline/horizontal)
+- Full-width horizontal divider spanning entire header width
+- Balanced spacing above and below divider ($spacing-md on both sides)
+- Gap between columns using existing $spacing-lg
+- Reuse existing `.blog-header-*` CSS classes (minimal new CSS)
+- Spotify audio embed player displayed below the header divider (when audio_id exists)
+- Reminder widget displayed below audio embed for upcoming episodes (status = "upcoming")
+- No audio embed for upcoming episodes (only published episodes with audio_id)
+- Mobile layout (<1050px) hides guest image, content stacks vertically
+- Responsive design with clean transition at existing 1050px tablet breakpoint
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 19.1 | Restructure podcast template | Create two-column header layout with CSS Grid in podcast/single.html | High | 🟢 Completed |
+| 19.2 | Implement header wrapper | Wrap header elements in .blog-header-wrapper with 30/70 column split | High | 🟢 Completed |
+| 19.3 | Configure image column | Move guest image into .blog-header-image for proper sizing and spacing | High | 🟢 Completed |
+| 19.4 | Configure content column | Reorganize metadata in .blog-header-content: PODCAST label, title, guest info, date/time, podcast icons | High | 🟢 Completed |
+| 19.5 | Implement full-width divider | Add .blog-header-divider spanning both columns | High | 🟢 Completed |
+| 19.6 | Balance vertical spacing | Ensure equal margins above/below divider ($spacing-md) | High | 🟢 Completed |
+| 19.7 | Position audio embed | Move Spotify audio embed below header divider (conditional on audio_id and status) | High | 🟢 Completed |
+| 19.8 | Position reminder widget | Keep reminder widget below audio embed section for upcoming episodes | High | 🟢 Completed |
+| 19.9 | Configure responsive behavior | Add mobile layout - hide guest image at 1050px breakpoint | High | 🟢 Completed |
+| 19.10 | Desktop layout testing | Test two-column layout at 1050px+ width | High | 🟢 Completed |
+| 19.11 | Mobile layout testing | Verify stacked layout at <1050px width with hidden guest image | High | 🟢 Completed |
+| 19.12 | Cross-browser testing | Test in Chrome, Firefox, Safari on desktop/mobile | Medium | 🟢 Completed |
+
 ## v1.9.0-event-header-restructure - 🟢 Completed
 Restructure the event detail page header layout for desktop screens using the same two-column design as blog posts (v1.8.9). Display featured image on the left with event metadata and title on the right. Remove the optional `displayImageInline` parameter so all event images display by default. Mobile layout remains unchanged.
 
