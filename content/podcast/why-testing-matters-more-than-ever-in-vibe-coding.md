@@ -2,7 +2,6 @@
 title = "Why Testing Matters More Than Ever in Vibe Coding"
 slug = "why-testing-matters-more-than-ever-in-vibe-coding"
 date = "2025-08-21"
-time = "11:30 AM PT"
 draft = false
 status = "published"
 description = "Join Marcelo and Debbie O’Brien, Principal Technical Program Manager at Microsoft and Program Manager for the Playwright project, as they explore the critical role of testing in vibe coding—and how AI can supercharge it."

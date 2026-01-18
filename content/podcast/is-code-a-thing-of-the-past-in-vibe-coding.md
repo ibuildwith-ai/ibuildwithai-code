@@ -2,7 +2,6 @@
 title = "Is Code a Thing of the Past in Vibe Coding?"
 slug = "is-code-a-thing-of-the-past-in-vibe-coding"
 date = "2025-08-07"
-time = "3:00 PM PT"
 draft = false
 status = "published"
 description = "Is code becoming obsolete—or just evolving? In this kickoff episode, Marcelo is joined by Eric Provencher, founder of Repo Prompt, to explore what vibe coding really means?"

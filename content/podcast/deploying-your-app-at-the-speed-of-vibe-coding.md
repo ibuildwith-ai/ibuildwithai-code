@@ -2,7 +2,6 @@
 title = "Deploying Your App at the Speed of Vibe Coding"
 slug = "deploying-your-app-at-the-speed-of-vibe-coding"
 date = "2025-09-04"
-time = "2:30 PM PT"
 draft = false
 status = "published"
 description = "Join Marcelo and his guest, Josh Thornes, Director of AI and Software Engineering at e360, as they cover the best platforms for deployment, setting up seamless CI/CD pipelines, overcoming common deployment hurdles, and ensuring your vibe-coded apps are secure, reliable, and ready to scale."

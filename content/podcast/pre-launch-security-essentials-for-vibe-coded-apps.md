@@ -2,7 +2,6 @@
 title = "Pre-Launch Security Essentials for Vibe Coded Apps"
 slug = "pre-launch-security-essentials-for-vibe-coded-apps"
 date = "2025-10-29"
-time = "9:00 AM PT"
 draft = false
 status = "published"
 description = "In this episode of I Build with AI, Marcelo sits down with Josh Grossman, CTO and Application Security Specialist at Bounce Security, to chat about what vibe coders must know about security before shipping any product. "

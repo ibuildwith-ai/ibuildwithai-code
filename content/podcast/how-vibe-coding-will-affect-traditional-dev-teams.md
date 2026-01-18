@@ -2,7 +2,6 @@
 title = "How Vibe Coding Will Affect Traditional Dev Teams"
 slug = "how-vibe-coding-will-affect-traditional-dev-teams"
 date = "2025-10-15"
-time = "10:00 AM PT"
 draft = false
 status = "published"
 description = "In this episode of I Build with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development."

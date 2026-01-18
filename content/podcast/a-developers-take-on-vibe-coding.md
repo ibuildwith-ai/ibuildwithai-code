@@ -2,7 +2,6 @@
 title = "A Developer's Take on Vibe Coding"
 slug = "a-developers-take-on-vibe-coding"
 date = "2025-09-18"
-time = "10:00 AM PT"
 draft = false
 status = "published"
 description = "Tim is Developer Experience Lead at Contentstack with a focus on developer relations, community building, and content creation. He’s active in the developer community through speaking engagements at conferences and creation of YouTube videos on modern technologies. Tim collaborates regularly with startups like Cloudinary, Supabase, Algolia, HeyGen, and NuxtJS, and is a member of the MACH Alliance Tech Council. It's all about quality, community, and development of great websites."

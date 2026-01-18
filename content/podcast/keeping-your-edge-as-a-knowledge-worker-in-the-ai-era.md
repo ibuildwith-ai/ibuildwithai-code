@@ -1,8 +1,7 @@
 +++
 title = "Keeping Your Edge as a Knowledge Worker in the AI Era"
 slug = "keeping-your-edge-as-a-knowledge-worker-in-the-ai-era"
-date = "2026-01-28"
-time = "3:00 PM PT"
+date = "2026-01-27"
 draft = false
 status = "upcoming"
 description = "A practical conversation on how business professionals, domain experts, and knowledge workers can use AI to stay relevant, work faster, and maintain their edge in the AI era."

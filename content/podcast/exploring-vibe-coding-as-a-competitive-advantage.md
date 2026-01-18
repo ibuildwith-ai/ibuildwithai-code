@@ -2,7 +2,6 @@
 title = "Exploring Vibe Coding as a Competitive Advantage"
 slug = "exploring-vibe-coding-as-a-competitive-advantage"
 date = "2025-11-21"
-time = "2:00 PM PT"
 draft = false
 status = "published"
 description = "In this episode, Marcelo sits down with Jonathan Hrovat, Engagement Coordinator at ChurchWest Insurance, to explore whether Vibe Coding can truly provide businesses with a competitive advantage."
