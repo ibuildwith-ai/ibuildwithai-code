@@ -62,6 +62,9 @@
                                                 <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
                                             {{ end }}
                                         {{ end }}
+                                        {{ if .Date }}
+                                            <div><br>Releases {{ .Date.Format "January 2, 2006" }}</div>
+                                        {{ end }}
                                     </article>
                                 </a>
                     {{ end }}
