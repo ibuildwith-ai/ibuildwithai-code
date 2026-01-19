@@ -1,7 +1,6 @@
 +++
 title = "Multi-Agent Vibe Coding for Better Results"
 summary = "Learn the essentials of multi-agent vibe coding, what agents and subagents are, how parallel vs. serialized setups work, and why this approach delivers smarter, more reliable results."
-audience = "Technical architects, DevOps engineers, engineering managers, product managers, technical project managers, and IT leaders who need to understand and evaluate AI development tools. Developers looking to learn how to create development agents are welcomed to attend as well."
 image = "/images/events/i-build-with-ai-meetup.png"
 date_time = "2025-10-23T18:30:00-08:00"
 location = "I Build with AI Meetup"

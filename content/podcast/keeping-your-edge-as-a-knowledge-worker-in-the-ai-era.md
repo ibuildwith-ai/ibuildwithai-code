@@ -20,7 +20,7 @@ We explore why AI is no longer just a competitive advantage but a baseline skill
 If you build, work with ideas, decisions, strategy, or expertise, this episode will help you rethink your role in a world where speed and leverage matter more than ever.
 
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. How AI is changing the economics and expectations of knowledge work  
 2. Using AI as a force multiplier rather than a replacement  
@@ -28,7 +28,7 @@ If you build, work with ideas, decisions, strategy, or expertise, this episode w
 4. The mindset shifts business professionals and domain experts need to make  
 5. Practical steps to build and work smarter with AI
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [Google AI](https://ai.google/)
 - [Vibe Code with Gemini](https://aistudio.google.com/vibe-code)

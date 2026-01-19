@@ -1,7 +1,6 @@
 +++
 title = "An Overview of AI Dev Agents for Non-Developers"
 summary = "Get a deep-dive into AI development agents designed for professionals who work alongside development teams but don't write code daily."
-audience = "Technical architects, DevOps engineers, engineering managers, product managers, technical project managers, and IT leaders who need to understand and evaluate AI development tools. Developers looking to learn how to create development agents are welcomed to attend as well."
 image="/images/events/ai-dev-agents-overview.jpg"
 date_time = "2025-08-29T09:30:07-08:00"
 location = "Konabos"

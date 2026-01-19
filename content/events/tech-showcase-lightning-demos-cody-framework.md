@@ -1,7 +1,6 @@
 +++
 title = "Tech Showcase Lightning Demos - Cody Framework"
 summary = "10 minute tech talks given by attendees. Marcelo will be presenting what Spec Driven Development is, how it works and demoing the Cody SDD Framework."
-audience = "Technical folks including Software Engineers, UI/UX designers, Managers, Business Owners and others."
 image = "/images/events/tech-showcase-2025.jpg"
 date_time = "2025-10-08T18:00:00-07:00"
 location = "OC Tech Link Up"

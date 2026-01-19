@@ -61,12 +61,7 @@
                     <h3 class="project-links-title">About the Event</h3>
                     {{ .Content }}
                 </div>
-                
-                <div class="content">
-                    <h3 class="project-links-title">Audience</h3>
-                    {{ .Params.audience }}
-                </div>
-                
+
                 <!-- About the Presenter(s) Section -->
                 {{ if .Params.presenter }}
                 {{ $presenterKeys := split .Params.presenter "," }}

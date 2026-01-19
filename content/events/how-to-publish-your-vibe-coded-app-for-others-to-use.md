@@ -1,7 +1,6 @@
 +++
 title = "How to Publish your Vibe Coded App for Others To Use"
 summary = "Explore how to take your vibe-coded app from your laptop to the real world. You’ll learn the key steps for publishing with confidence—choosing the right hosting, and more."
-audience = "Whether you’re a developer, a product owner, or just curious about AI-assisted creation, this session will help you code with confidence and get better results from your AI tools."
 image = "/images/events/i-build-with-ai-meetup.png"
 date_time = "2025-09-24T18:30:00-08:00"
 location = "I Build with AI Meetup"

@@ -15,7 +15,7 @@ guest = "eleanor-berger"
 
 In this episode, I’m joined by Eleanor Berger, AI Leadership Expert and Founder at Agentic Ventures, for a practical overview of Context Engineering and why it matters for knowledge workers. We break down what context engineering really is, how it differs from prompt engineering, and how business professionals, domain experts, and team leaders can use it to get more reliable, repeatable, and higher-quality results from AI systems. Drawing on Eleanor’s experience advising hundreds of organizations and leading AI transformation efforts, this conversation focuses on moving from clever experiments to AI workflows that actually support real work and real decisions.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. What context engineering is and why it matters for knowledge workers
 2. Context engineering vs prompt engineering
@@ -23,6 +23,6 @@ In this episode, I’m joined by Eleanor Berger, AI Leadership Expert and Founde
 4. Using context to support real business decisions and workflows
 5. Moving from AI experiments to repeatable, production-ready practices
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [Agentic Ventures](https://agentic-ventures.com/)

@@ -13,13 +13,15 @@ host = "first-last"
 guest = "first-last"
 +++
 
-[About Episode]
+Your description here.
 
-## Key Topics
+### Key Topics Covered
 
-1. Topic 1
-2. Topic 2
+1. Topic
+2. Topic
+3. Topic
 
-## Resources to Check Out
+### Resources to Check Out
 
-- [Resource](link)
+- [Name](https://yoururl/)
+- [Name](https://yoururl/)

@@ -1,7 +1,6 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 summary = ""
-audience = ""
 image = "/images/events/default.png"
 date_time = "{{ .Date }}"
 location = "online | actual location"
@@ -15,4 +14,10 @@ meeting_type = "in-person | online"
 draft = true
 +++
 
-Write a detailed description of your event here.
+Description
+
+### Key Topics Covered
+
+1. Topic
+2. Topic
+3. Topic

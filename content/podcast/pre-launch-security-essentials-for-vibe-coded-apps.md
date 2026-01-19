@@ -15,7 +15,7 @@ guest = "josh-grossman"
 
 In this episode of I Build with AI, Marcelo sits down with Josh Grossman, CTO and Application Security Specialist at Bounce Security, to chat about what vibe coders must know about security before shipping any product. They dig into practical guardrails, best practices and tips to help keep your app secure before and after launch day.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. What a fast, lightweight threat model looks like for vibe-coded apps.
 2. How to secure secrets, auth, and third-party APIs without killing speed.
@@ -25,7 +25,7 @@ In this episode of I Build with AI, Marcelo sits down with Josh Grossman, CTO an
 6. When to add a security expert, regardless if you are vibe coding or coding with humans
 7. Security Best practices you should be aware of.
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [Adam Shostack's 4 question framework](https://github.com/adamshostack/4QuestionFrame)
 - [OpenSSF scorecard](https://openssf.org/projects/scorecard/)

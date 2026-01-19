@@ -15,7 +15,7 @@ guest = "erin-carpenter"
 
 In this episode, I’m joined by Erin Carpenter, Sr. Digital Marketing Director at e360, to explore vibe coding from a marketer’s point of view. Erin shares how marketing teams are starting to build and iterate on temporary, purpose-built tools using AI, without becoming engineers, and how this shift is changing the way marketers collaborate with developers. We talk about when vibe coding makes sense, where human judgment still matters most, and why this new way of working is unlocking faster experimentation, smarter problem-solving, and solutions that previously didn’t make economic or time sense.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. How marketers are using AI to build temporary, purpose-built tools
 2. What vibe coding means from a marketing and business perspective
@@ -23,6 +23,6 @@ In this episode, I’m joined by Erin Carpenter, Sr. Digital Marketing Director 
 4. The role of human judgment in AI-assisted workflows
 5. How vibe coding enables faster experimentation and problem-solving
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [e360](https://www.e360.com/)

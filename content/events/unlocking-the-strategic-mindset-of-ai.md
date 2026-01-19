@@ -1,7 +1,6 @@
 +++
 title = "Unlocking the Strategic Mindset of AI + Quick Intro to Agent Skills"
 summary = "In this session, Sharad Aggarwal, Global Head of Strategy & AI Solutions at Google Cloud, breaks down how non-technical professionals can think strategically about AI, without needing to code."
-audience = "Ideal for knowledge workers, business professionals, domain experts and anyone else involved in enterprise projects."
 image = "/images/events/i-build-with-ai-meetup.png"
 date_time = "2026-01-29T18:30:00-07:00"
 location = "I Build with AI Meetup"

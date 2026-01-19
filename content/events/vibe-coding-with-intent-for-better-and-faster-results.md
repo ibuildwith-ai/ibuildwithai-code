@@ -1,7 +1,6 @@
 +++
 title = "Vibe Coding with Intent for Better and Faster Results"
 summary = "Learn how to express intent in your vibe coding through structured documentation frameworks."
-audience = "This session is geared toward non-developers (though having a technical background will help); if you’re a developer curious about vibe coding, you’ll find it a great intro as well."
 image = "/images/events/socal-socal-tech-forum-vibe-coding-presentation.png"
 date_time = "2025-07-05T14:00:00-08:00"
 location = "SoCal Tech Forum"

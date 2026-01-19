@@ -15,7 +15,7 @@ guest = "brian-madison"
 
 In this episode of I Build with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development. They discuss what agentic frameworks mean for coders, creatives, and cross-functional teams, and how these new approaches challenge the traditional dev team model.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. What is Spec Driven Development and why it matters.
 2. How vibe coding changes collaboration between developers and non-developers.
@@ -23,7 +23,7 @@ In this episode of I Build with AI, Marcelo sits down with Brian Madison, creato
 4. Challenges traditional dev teams face adapting to vibe coding.
 5. Practical steps for teams to start experimenting with agentic frameworks.
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [BMad Method GitHub](https://github.com/bmad-code-org/BMAD-METHOD)
 - [BMad Method YouTube](http://youtube.com/@bmadcode)

@@ -1,7 +1,6 @@
 +++
 title = "Turning UX into Apps at the Speed of Vibes"
 summary = "Discover how AI-assisted vibe coding turns UX designs into functional apps at lightning speed using tools like Figma MCP, design systems, and Microsoft Copilot."
-audience = "Ideal for designers, product managers, and developers interested in using AI to accelerate the journey from user experience to working app."
 image = "/images/events/i-build-with-ai-meetup.png"
 date_time = "2025-12-16T18:30:00-07:00"
 location = "I Build with AI Meetup"

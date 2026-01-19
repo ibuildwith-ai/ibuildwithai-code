@@ -15,7 +15,7 @@ guest = "jonathan-hrovat"
 
 In this episode, Marcelo sits down with Jonathan Hrovat, Engagement Coordinator at ChurchWest Insurance, to explore whether Vibe Coding can truly provide businesses with a competitive advantage. They discuss how this emerging approach, combining AI assistance with human creativity, might reshape how organizations innovate, collaborate, and deliver value. The conversation takes a balanced look at both the potential and the pitfalls of adopting Vibe Coding in real-world business environments.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. **Understanding Vibe Coding in a Business Setting** — How AI driven development is bringing software engineering to non-traditional teams.
 2. **Making Agentic Work** — How Vibe Coding and modern platforms can help convert existing business logic into AI driven applications.
@@ -23,6 +23,6 @@ In this episode, Marcelo sits down with Jonathan Hrovat, Engagement Coordinator 
 4. **The Vibe Gap** — Why current business leadership is holding back AI and why demand for developers will explode in the coming years.
 5. **The Super Power of Vibe Coding** – Why every company must become a software company and the role today's Vibe Coders will play in this economic shift.
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [ChurchWest](https://www.churchwest.com/)

@@ -15,7 +15,7 @@ guest = "tim-benniks"
 
 In this episode, my guest Tim Benniks, Developer Experience Lead at Contentstack, and I explore vibe coding from a developer’s perspective. We’ll talk about what works, what doesn’t, and how it compares to traditional development. We’ll cover when to vibe code, the benefits and challenges, lessons learned from building apps with AI-assisted coding tools, and practical tips for making the most of this emerging approach.
 
-## Key Topics Covered
+### Key Topics Covered
 
 1. How vibe coding differs from traditional coding and why it matters to developers.
 2. When it makes sense to use vibe coding and when it’s better to stick with conventional approaches.
@@ -23,6 +23,6 @@ In this episode, my guest Tim Benniks, Developer Experience Lead at Contentstack
 4. Lessons learned from real-world projects using AI-assisted coding tools.
 5. Practical tips for getting consistent, high-quality results with vibe coding.
 
-## Resources to Check Out
+### Resources to Check Out
 
 - [Coming Soon](https://ibuildwith.ai/)
