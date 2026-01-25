@@ -1,13 +1,13 @@
 +++
 title = "Keeping Your Edge as a Knowledge Worker in the AI Era"
 slug = "keeping-your-edge-as-a-knowledge-worker-in-the-ai-era"
-date = "2026-01-27"
+date = "2026-01-13"
 draft = false
-status = "upcoming"
+status = "published"
 description = "A practical conversation on how business professionals, domain experts, and knowledge workers can use AI to stay relevant, work faster, and maintain their edge in the AI era."
 image = "/images/podcast/e008.jpg"
 audio_id = "2jTMtgx3VbQIJxoB8fV3n4"
-spotify_episode_link = ""
+spotify_episode_link = "https://open.spotify.com/episode/2jTMtgx3VbQIJxoB8fV3n4"
 apple_podcast_episode_link = ""
 host = "marcelo-lewin"
 guest = "sharad-aggarwal"

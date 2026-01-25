@@ -1,7 +1,7 @@
 +++
 title = "Why the New Baseline Is Domain Expertise Plus Product Building"
 slug = "why-the-new-baseline-is-domain-expertise-plus-product-building"
-date = "2026-03-10"
+date = "2026-02-24"
 draft = false
 status = "upcoming"
 description = "In this episode, Marcelo Lewin talks with Dustin Lehr, co-founder of Katilyst, about why the new baseline for knowledge workers is domain expertise plus product building. They explore how vibe coding enables experts to become builders and why future teams will expect both deep knowledge and the ability to build with AI."

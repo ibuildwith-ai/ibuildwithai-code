@@ -1,7 +1,7 @@
 +++
 title = "An Overview of Context Engineering for Knowledge Workers"
 slug = "an-overview-of-context-engineering-for-knowledge-workers"
-date = "2026-02-10"
+date = "2026-01-27"
 draft = false
 status = "upcoming"
 description = "An overview of context engineering for knowledge workers, featuring Eleanor Berger, AI Leadership Expert and Founder at Agentic Ventures, exploring how structured context helps teams get more consistent, reliable results from AI beyond prompt engineering."
