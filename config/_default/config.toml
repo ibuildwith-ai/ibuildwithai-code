@@ -1,4 +1,4 @@
-title = 'iBuildWith.ai | From Vibe Coder to Product Builder'
+title = 'iBuildWith.ai | Domain Expertise + AI is the New Baseline'
 theme = 'ibuildwithai'
 languageCode = 'en-us'
 
@@ -21,9 +21,9 @@ enableRobotsTXT = true
   version = "v1.9.1"
   last_updated = "2026-01-23"
   author = "Marcelo Lewin"
-  description = "Learn the skills and mindset you need to build production-ready apps with AI, without becoming a developer."
-  short_description = "Learn the skills and mindset you need to build production-ready apps with AI, without becoming a developer."
-  footer_description = "Learn the skills and mindset you need to build production-ready apps with AI, without becoming a developer."
+  description = "Learn how to combine your domain expertise with AI to build workflows, tools, and prototypes without becoming a developer."
+  short_description = "Learn how to combine your domain expertise with AI to build workflows, tools, and prototypes without becoming a developer."
+  footer_description = "Learn how to combine your domain expertise with AI to build workflows, tools, and prototypes without becoming a developer."
   
 
   # Page Slugs
