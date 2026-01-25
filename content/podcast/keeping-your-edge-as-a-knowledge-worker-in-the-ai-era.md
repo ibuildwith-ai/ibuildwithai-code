@@ -8,7 +8,7 @@ description = "A practical conversation on how business professionals, domain ex
 image = "/images/podcast/e008.jpg"
 audio_id = "2jTMtgx3VbQIJxoB8fV3n4"
 spotify_episode_link = "https://open.spotify.com/episode/2jTMtgx3VbQIJxoB8fV3n4"
-apple_podcast_episode_link = ""
+apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/keeping-your-edge-as-a-knowledge-worker-in-the-ai-era/id1832010884?i=1000746611949"
 host = "marcelo-lewin"
 guest = "sharad-aggarwal"
 +++
