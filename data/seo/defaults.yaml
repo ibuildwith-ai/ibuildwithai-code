@@ -3,12 +3,12 @@ site_name: "iBuildWith.ai"
 
 # Basic SEO
 title: "Domain Expertise + AI is the New Baseline | iBuildWith.ai"
-description: "Learn how to combine your domain expertise with AI to build workflows, tools, and prototypes without becoming a developer."
+description: "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer."
 author: "Marcelo Lewin"
 
 # Social Media
 social_image: "images/seo/default-social.png"
-social_image_alt: "Learn how to combine your domain expertise with AI to build workflows, tools, and prototypes without becoming a developer. | iBuildWith.ai"
+social_image_alt: "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer. | iBuildWith.ai"
 twitter_card_type: "summary_large_image"
 twitter_site: "@ibuildwith_ai"
 twitter_creator: "@ibuildwith_ai"

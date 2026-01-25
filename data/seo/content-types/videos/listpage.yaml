@@ -1,19 +1,24 @@
-# Basic SEO
-title: "Videos - I Build With AI"
-description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building with AI."
-keywords: "ai development videos, vibe coding videos, spec driven development tutorials, ai coding tutorials, product building videos"
+# Basic SEO - Custom videos listing content
+title: "Videos | iBuildWith.ai"
+description: "Watch on-demand tutorials, talks, presentations and other videos focused on building prototypes, tools, and workflows with AI."
+author: "defaults.author"
 
-# Open Graph
-og_title: "Videos - I Build With AI"
-og_description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building."
-og_image: "/images/seo/content-types/videos/default.png"
-og_type: "website"
+# Social Media - Use default image with custom alt text
+social_image: "defaults.social_image"
+social_image_alt: "Videos | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
 
-# Twitter Card
-twitter_card: "summary_large_image"
-twitter_title: "Videos - I Build With AI"
-twitter_description: "Watch on-demand tutorials, talks, presentations and other videos focused on vibe coding and product building."
-twitter_image: "/images/seo/content-types/videos/default.png"
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
 
-# Schema.org
-schema_type: "CollectionPage"
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"
