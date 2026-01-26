@@ -21,9 +21,9 @@ enableRobotsTXT = true
   version = "v1.9.1"
   last_updated = "2026-01-26"
   author = "Marcelo Lewin"
-  description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer"
-  short_description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer"
-  footer_description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer"
+  description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer."
+  short_description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer."
+  footer_description = "Combine your expertise with AI to build prototypes, tools, and workflows without becoming a developer."
   
 
   # Page Slugs
