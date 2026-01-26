@@ -5,7 +5,7 @@ date = "2025-10-29"
 draft = false
 status = "published"
 description = "In this episode of I Build with AI, Marcelo sits down with Josh Grossman, CTO and Application Security Specialist at Bounce Security, to chat about what vibe coders must know about security before shipping any product. "
-image = "/images/podcast/e006.jpg"
+image = "/images/podcast/s1e06.jpg"
 audio_id = "2Unk4hjTGY1fiXRlRe4xQm"
 spotify_episode_link = "https://open.spotify.com/episode/2Unk4hjTGY1fiXRlRe4xQm"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/pre-launch-security-essentials-for-vibe-coded-apps/id1832010884?i=1000734126669"

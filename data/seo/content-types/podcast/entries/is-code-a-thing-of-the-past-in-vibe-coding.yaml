@@ -4,7 +4,7 @@ description: "Is code becoming obsolete—or just evolving? In this kickoff epis
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "defaults.social_image"
+social_image: "images/seo/default-social-podcast.png"
 social_image_alt: "Is Code a Thing of the Past in Vibe Coding? | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

@@ -5,7 +5,7 @@ date = "2026-01-13"
 draft = false
 status = "published"
 description = "A practical conversation on how business professionals, domain experts, and knowledge workers can use AI to stay relevant, work faster, and maintain their edge in the AI era."
-image = "/images/podcast/e008.jpg"
+image = "/images/podcast/s2e02.jpg"
 audio_id = "2jTMtgx3VbQIJxoB8fV3n4"
 spotify_episode_link = "https://open.spotify.com/episode/2jTMtgx3VbQIJxoB8fV3n4"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/keeping-your-edge-as-a-knowledge-worker-in-the-ai-era/id1832010884?i=1000746611949"

@@ -4,7 +4,7 @@ description: "Join Marcelo and Microsoft's Debbie O'Brien to explore why testing
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "defaults.social_image"
+social_image: "images/seo/default-social-podcast.png"
 social_image_alt: "Why Testing Matters More Than Ever in Vibe Coding | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

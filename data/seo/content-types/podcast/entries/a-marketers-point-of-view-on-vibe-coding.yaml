@@ -4,7 +4,7 @@ description: "A conversation with Erin Carpenter about how marketing teams can u
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "defaults.social_image"
+social_image: "images/seo/default-social-podcast.png"
 social_image_alt: "A Marketer's Point of View on Vibe Coding | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

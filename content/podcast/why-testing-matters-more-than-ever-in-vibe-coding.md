@@ -5,7 +5,7 @@ date = "2025-08-21"
 draft = false
 status = "published"
 description = "Join Marcelo and Debbie O’Brien, Principal Technical Program Manager at Microsoft and Program Manager for the Playwright project, as they explore the critical role of testing in vibe coding—and how AI can supercharge it."
-image = "/images/podcast/e002.jpg"
+image = "/images/podcast/s1e02.jpg"
 audio_id = "1EUz8pLuRLmp95DLZol391"
 spotify_episode_link = "https://open.spotify.com/episode/1EUz8pLuRLmp95DLZol391"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/why-testing-matters-more-than-ever-in-vibe-coding/id1832010884?i=1000723380667"

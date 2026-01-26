@@ -4,7 +4,7 @@ description: "Discover how to quickly deploy your AI-powered, vibe-coded apps. L
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "defaults.social_image"
+social_image: "images/seo/default-social-podcast.png"
 social_image_alt: "Deploying Your App at the Speed of Vibe Coding | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

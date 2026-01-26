@@ -4,7 +4,7 @@ description: "In this episode of I Build with AI, Marcelo sits down with Brian M
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "defaults.social_image"
+social_image: "images/seo/default-social-podcast.png"
 social_image_alt: "How Vibe Coding Will Affect Traditional Dev Teams | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

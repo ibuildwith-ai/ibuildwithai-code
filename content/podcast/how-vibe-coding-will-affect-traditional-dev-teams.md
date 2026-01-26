@@ -5,7 +5,7 @@ date = "2025-10-15"
 draft = false
 status = "published"
 description = "In this episode of I Build with AI, Marcelo sits down with Brian Madison, creator of the BMAD Method, to explore how vibe coding is reshaping the future of software development."
-image = "/images/podcast/e005.jpg"
+image = "/images/podcast/s1e05.jpg"
 audio_id = "2CuE1jd9nj9pNukI5OT36y"
 spotify_episode_link = "https://open.spotify.com/episode/2CuE1jd9nj9pNukI5OT36y"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/how-vibe-coding-will-affect-traditional-dev-teams/id1832010884?i=1000732034044"
