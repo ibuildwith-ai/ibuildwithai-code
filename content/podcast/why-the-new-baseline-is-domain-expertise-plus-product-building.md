@@ -26,3 +26,5 @@ In this episode, I sit down with Dustin Lehr, AppSec Advocate @ Security Journey
 ### Resources to Check Out
 
 - [Katilyst](https://www.katilyst.com/)
+- [Security Champion Program Success Guide](https://securitychampionsuccessguide.org/)
+- [The League of Cyber Defense Champions](https://www.linkedin.com/company/league-of-cyber-defense-champions-lc-dc/)
