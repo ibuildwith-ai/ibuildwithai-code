@@ -1,11 +1,11 @@
 +++
 title = "A Marketer's Point of View on Vibe Coding"
 slug = "a-marketers-point-of-view-on-vibe-coding"
-date = "2026-02-10"
+date = "2026-02-24"
 draft = false
 status = "upcoming"
 description = "A conversation with Erin Carpenter about how marketing teams can use AI to prototype and iterate on internal tools, collaborate more effectively with developers, and move faster without becoming engineers."
-image = "/images/podcast/s2e03.jpg"
+image = "/images/podcast/s2e04.jpg"
 audio_id = ""
 spotify_episode_link = ""
 apple_podcast_episode_link = ""
