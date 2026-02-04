@@ -2166,6 +2166,12 @@ h2 + .podcast-embed-section {
   }
   
   .footer-logo {
+    margin-right: 100px;
+
+    @include tablet-down {
+      margin-right: 0;
+    }
+
     .footer-logo-container {
       display: flex;
       align-items: center;
@@ -2201,7 +2207,7 @@ h2 + .podcast-embed-section {
     
     .footer-tagline {
       color: $neutral-400;
-      font-size: $font-size-base;
+      font-size: $font-size-xs;
       margin: 0;
       white-space: normal;       // Allow wrapping
       max-width: 300px;          // Adjust as needed
