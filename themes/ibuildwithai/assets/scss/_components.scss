@@ -270,7 +270,7 @@
 
 .nav-dropdown-item {
   margin: 0;
-  
+
   a {
     @include link-base;
     @include link-underline;
@@ -283,7 +283,8 @@
     text-decoration: none;
     border-radius: $border-radius-sm;
     margin: 0 $spacing-xs;
-    
+    white-space: nowrap;
+
     &:hover {
       @include link-hover;
     }
@@ -2221,9 +2222,18 @@ h2 + .podcast-embed-section {
     gap: clamp($spacing-lg, 4rem, 60px); // Responsive spacing
     justify-content: center;
   }
-  
+
   .footer-desktop {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: auto 1.3fr 1fr 1fr;
+
+    // Pull second column closer to first
+    > :nth-child(2) {
+      margin-left: -3.0rem;
+    }
+
+    > :nth-child(3) {
+      margin-left: -1.5rem;
+    }
   }
   
   .footer-mobile {
