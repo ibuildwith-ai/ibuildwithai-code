@@ -6,10 +6,10 @@ date_time = "2026-02-11T15:40:00-07:00"
 location = "Planet Cyber Sec Conference"
 timezone = "PST"
 presenter = "marcelo-lewin"
-status = "upcoming"
+status = "completed"
 learn_more_url = "https://planetcybersec.com/021126-conference/"
 on_demand_url = ""
-register_url = "https://www.eventbrite.com/e/planet-cyber-sec-conference-hilton-orange-county-costa-mesa-feb-11th-2026-tickets-1968830713664?"
+register_url = ""
 meeting_type = "in-person"
 draft = false
 +++
