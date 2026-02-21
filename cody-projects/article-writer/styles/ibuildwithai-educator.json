@@ -1,0 +1,29 @@
+{
+  "name": "iBuildwith.ai Educator",
+  "description": "Approachable, educational style for explaining AI/tech concepts to knowledge workers and non-developers",
+  "voice": {
+    "tone": 4,
+    "humor": 7,
+    "opinion": 2,
+    "technical": 5
+  },
+  "formatting": {
+    "emojis": 0,
+    "em_dashes": 0,
+    "blockquotes": "rare"
+  },
+  "structure": {
+    "opening": ["direct", "contextual"],
+    "closing": ["key_takeaways"],
+    "visual_breaks": "generous",
+    "examples": "many",
+    "example_types": ["code_snippets", "tables", "lists"]
+  },
+  "context": {
+    "author_role": "AI/Tech Educator, Founder of iBuildwith.ai",
+    "author_topic_knowledge": 7,
+    "audience_role": "Knowledge Workers, Domain Experts, Those New to Building Products with AI, Non-Developers",
+    "audience_topic_knowledge": 3,
+    "author_relationship_to_audience": 7
+  }
+}

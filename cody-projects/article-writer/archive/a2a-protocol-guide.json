@@ -1,0 +1,44 @@
+{
+  "id": "a2a-protocol-guide",
+  "created_at": "2026-02-21T00:00:00Z",
+  "updated_at": "2026-02-21T00:00:00Z",
+  "phase": "export",
+  "topic": {
+    "initial_idea": "A2A (Agent-to-Agent) Protocol - Key Concepts",
+    "refined_topic": "An educational guide to the A2A protocol's key concepts, explaining how AI agents discover, communicate, and collaborate through a shared open standard",
+    "exploratory_research": {
+      "searches_performed": [],
+      "sources_reviewed": [],
+      "date": "2026-02-21T00:00:00Z"
+    }
+  },
+  "research": {
+    "depth": "none",
+    "include_citations_in_export": false,
+    "citation_style": "footnotes",
+    "approved_sources": [],
+    "citations_used": []
+  },
+  "style_guide": "ibuildwithai-educator",
+  "title": "How AI Agents Will Work Together: A Guide to the A2A Protocol",
+  "thesis": "As AI moves from single-agent tools to multi-agent ecosystems, agents need a shared standard for discovering each other and collaborating. The A2A protocol provides that foundation through a small set of building blocks — Agent Cards, Tasks, Messages, and Execution Modes — that any agent can implement regardless of who built it.",
+  "outline": [
+    { "heading": "Introduction", "type": "opening", "status": "complete" },
+    { "heading": "Agent Cards", "type": null, "status": "complete" },
+    { "heading": "Skills", "type": null, "status": "complete" },
+    { "heading": "Tasks", "type": null, "status": "complete" },
+    { "heading": "Messages and Parts", "type": null, "status": "complete" },
+    { "heading": "Real-Time Communication", "type": null, "status": "complete" },
+    { "heading": "Authentication", "type": null, "status": "complete" },
+    { "heading": "Execution Modes", "type": null, "status": "complete" },
+    { "heading": "Key Takeaways", "type": "closing", "status": "complete" }
+  ],
+  "writing_mode": "full",
+  "sections": {},
+  "metadata": {
+    "title": "How AI Agents Will Work Together: A Guide to the A2A Protocol",
+    "description": "A practical guide to Google's A2A protocol, explaining how AI agents discover, communicate, and collaborate through Agent Cards, Tasks, Messages, and Execution Modes.",
+    "keywords": ["A2A", "Agent-to-Agent Protocol", "AI agents", "multi-agent systems", "Agent Cards", "Google A2A", "agent interoperability", "agentic AI"]
+  },
+  "filename": "how-ai-agents-will-work-together-a-guide-to-the-a2a-protocol"
+}
