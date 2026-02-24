@@ -53,7 +53,7 @@
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ $authorData.fullName }}, {{ $authorData.title }} @ {{ $authorData.company }}</h3>
+                            <h3>{{ partial "person-title-company.html" $authorData }}</h3>
                             <p>{{ $authorData.bio }}</p>
                             {{ if and $authorData.learnMoreLink (ne $authorData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">

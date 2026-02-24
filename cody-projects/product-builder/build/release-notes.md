@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v1.9.2-support-no-company-for-people - February 23, 2026](#v192-support-no-company-for-people---february-23-2026)
 - [v1.9.1-podcast-header-restructure - January 15, 2026](#v191-podcast-header-restructure---january-15-2026)
 - [v1.9.0-event-header-restructure - January 15, 2026](#v190-event-header-restructure---january-15-2026)
 - [v1.8.9-blog-header-restructure - January 7, 2026](#v189-blog-header-restructure---january-7-2026)
@@ -19,6 +20,37 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v1.9.2-support-no-company-for-people - February 23, 2026
+
+## Overview
+
+Made the `title` and `company` fields optional when displaying people (guests, hosts, authors, presenters) across all content types. Previously, all templates unconditionally rendered `[name], [title] @ [company]`, which broke when a person had no company affiliation. A reusable Hugo partial now handles conditional display logic, gracefully omitting missing fields.
+
+## Key Features
+
+**Reusable Person Display Partial**
+- New `partials/person-title-company.html` encapsulates all conditional logic in one place
+- Checks for null, empty string, and "N/A" (case-insensitive) values
+- Four display paths: name+title+company, name+title, name+company, name only
+- Whitespace-trimmed output using Hugo's `{{- -}}` delimiters
+
+**Template Updates (7 locations across 5 files)**
+- Podcast list page: 2 locations (upcoming + on-demand episode cards)
+- Podcast single page: 3 locations (header subtitle, guest bio, host bio)
+- Blog single page: 1 location (author bio section)
+- Videos single page: 1 location (presenter bio section)
+- Events single page: 1 location (presenter bio section)
+
+## Bug Fixes
+- Fixed display of people without a company — no longer shows trailing ` @ ` or empty company name
+
+## Other Changes
+- No changes to people JSON schema — existing data files remain untouched
+- No CSS changes — purely template logic
+- Fully backward compatible with all existing people data
 
 ---
 

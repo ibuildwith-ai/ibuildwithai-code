@@ -59,7 +59,7 @@
                                         {{ if .Params.guest }}
                                             {{ $guestData := index .Site.Data.people .Params.guest }}
                                             {{ if $guestData }}
-                                                <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
+                                                <div>A conversation with {{ partial "person-title-company.html" $guestData }}</div>
                                             {{ end }}
                                         {{ end }}
                                         {{ if .Date }}
@@ -91,7 +91,7 @@
                                 {{ if .Params.guest }}
                                     {{ $guestData := index .Site.Data.people .Params.guest }}
                                     {{ if $guestData }}
-                                        <div>A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</div>
+                                        <div>A conversation with {{ partial "person-title-company.html" $guestData }}</div>
                                     {{ end }}
                                 {{ end }}
                             </article>

@@ -89,7 +89,7 @@
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ .fullName }}, {{ .title }} @ {{ .company }}</h3>
+                            <h3>{{ partial "person-title-company.html" . }}</h3>
                             <p>{{ .bio }}</p>
                             {{ if and .learnMoreLink (ne .learnMoreLink "") }}
                             <div class="guest-link-wrapper">

@@ -1,0 +1,11 @@
+{{- $hasTitle := and .title (ne .title "") (ne (lower .title) "n/a") -}}
+{{- $hasCompany := and .company (ne .company "") (ne (lower .company) "n/a") -}}
+{{- if and $hasTitle $hasCompany -}}
+    {{- .fullName }}, {{ .title }} @ {{ .company -}}
+{{- else if $hasTitle -}}
+    {{- .fullName }}, {{ .title -}}
+{{- else if $hasCompany -}}
+    {{- .fullName }} @ {{ .company -}}
+{{- else -}}
+    {{- .fullName -}}
+{{- end -}}

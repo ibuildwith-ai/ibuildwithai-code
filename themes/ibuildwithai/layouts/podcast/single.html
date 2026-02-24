@@ -26,7 +26,7 @@
                         <h3>
                             {{ if .Params.guest }}
                                 {{ $guestData := index .Site.Data.people .Params.guest }}
-                                {{ if $guestData }}A conversation with {{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}{{ end }}
+                                {{ if $guestData }}A conversation with {{ partial "person-title-company.html" $guestData }}{{ end }}
                             {{ end }}
                         </h3>
                         <div class="post-meta">
@@ -104,7 +104,7 @@
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ $guestData.fullName }}, {{ $guestData.title }} @ {{ $guestData.company }}</h3>
+                            <h3>{{ partial "person-title-company.html" $guestData }}</h3>
                             <p>{{ $guestData.bio }}</p>
                             {{ if and $guestData.learnMoreLink (ne $guestData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">
@@ -134,7 +134,7 @@
                             {{ end }}
                         </div>
                         <div class="guest-info">
-                            <h3>{{ $hostData.fullName }}, {{ $hostData.title }} @ {{ $hostData.company }}</h3>
+                            <h3>{{ partial "person-title-company.html" $hostData }}</h3>
                             <p>{{ $hostData.bio }}</p>
                             {{ if and $hostData.learnMoreLink (ne $hostData.learnMoreLink "") }}
                             <div class="guest-link-wrapper">

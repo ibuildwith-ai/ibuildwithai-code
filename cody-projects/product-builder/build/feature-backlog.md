@@ -14,6 +14,35 @@ This document lists features and enhancements derived from the plan. It is a liv
 |-----|---------------------|-------------------------------------------|----------|--------|
 | B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
 
+## v1.9.2-support-no-company-for-people - 🟢 Completed
+Make the company and title fields optional when displaying people across all content types. Currently, all templates render the pattern `[name], [title] @ [company]` unconditionally. When company or title is null, empty, or "N/A" (case-insensitive), the display should gracefully omit the missing parts.
+
+**Key Features:**
+- Treat company and title as optional fields (null, empty, or "N/A" case-insensitive = skip)
+- Display logic: Name + Title + Company → `Jane Doe, Developer @ Acme`
+- Display logic: Name + Title only → `Jane Doe, Developer`
+- Display logic: Name + Company only → `Jane Doe @ Acme`
+- Display logic: Name only → `Jane Doe`
+- Podcast list page: update 2 locations (upcoming + on-demand cards) with "A conversation with..." pattern
+- Podcast single page: update 3 locations (header subtitle, guest bio, host bio)
+- Blog single page: update 1 location (author bio section)
+- Videos single page: update 1 location (presenter bio section)
+- Events single page: update 1 location (presenter bio section)
+- No changes to list pages for blog, videos, or events (company not shown there)
+- No changes to people JSON schema — fields remain as-is, just handled gracefully in templates
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 20.1 | Create Hugo partial for person display | Create a reusable partial that handles the conditional title/company logic | High | 🟢 Completed |
+| 20.2 | Update podcast list template | Update 2 locations in podcast/list.html for "A conversation with..." pattern | High | 🟢 Completed |
+| 20.3 | Update podcast single template | Update 3 locations in podcast/single.html (header, guest bio, host bio) | High | 🟢 Completed |
+| 20.4 | Update blog single template | Update 1 location in blog/single.html (author bio section) | High | 🟢 Completed |
+| 20.5 | Update videos single template | Update 1 location in videos/single.html (presenter bio section) | High | 🟢 Completed |
+| 20.6 | Update events single template | Update 1 location in events/single.html (presenter bio section) | High | 🟢 Completed |
+| 20.7 | Test with complete people data | Verify existing people with title + company still display correctly | High | 🟢 Completed |
+| 20.8 | Test with missing company | Verify people with no company display name + title only | High | 🟢 Completed |
+| 20.9 | Test with missing title and company | Verify people with neither display name only | Medium | 🟢 Completed |
+
 ## v1.9.1-podcast-header-restructure - 🟢 Completed
 Restructure the podcast detail page header layout for desktop screens using the same two-column design as blog posts (v1.8.9) and events (v1.9.0). Display guest image on the left with episode metadata and title on the right. Mobile layout hides guest image for cleaner presentation.
 
