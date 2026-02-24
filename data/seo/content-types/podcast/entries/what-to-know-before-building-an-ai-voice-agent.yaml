@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this podcast
+title: "What to Know Before Building an AI Voice Agent | iBuildWith.ai"
+description: "Before you build an AI voice agent, there’s a lot more to consider than just choosing a model. In this episode, Nadaa Taiyab shares practical lessons from building real-world, HIPAA-compliant voice agents, including model architecture, conversation design, prompt engineering, voice quality, personality, accents, and why even “simple” workflows like form filling can be surprisingly hard. A must-listen for anyone working on our building AI powered voice agents."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "images/seo/default-social-podcast.png"
+social_image_alt: "What to Know Before Building an AI Voice Agent | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"
