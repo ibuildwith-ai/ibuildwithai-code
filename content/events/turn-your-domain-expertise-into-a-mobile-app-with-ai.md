@@ -6,10 +6,10 @@ date_time = "2026-02-26T18:30:00-08:00"
 location = "I Build with AI Meetup"
 timezone = "PST"
 presenter = "mark-warrick"
-status = "upcoming"
+status = "completed"
 learn_more_url = "https://www.meetup.com/i-build-with-ai/events/312965439/"
 on_demand_url = ""
-register_url = "https://www.meetup.com/i-build-with-ai/events/312965439/"
+register_url = ""
 meeting_type = "in-person"
 draft = false
 +++
