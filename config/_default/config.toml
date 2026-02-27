@@ -19,7 +19,7 @@ enableRobotsTXT = true
 
   # About the Site
   version = "1.9.2"
-  last_updated = "2026-02-24"
+  last_updated = "2026-02-27"
   author = "Marcelo Lewin"
   description = "Learn how to combine your domain expertise with AI to build prototypes, tools, and workflows without becoming a developer."
   short_description = "Learn how to combine your domain expertise with AI to build prototypes, tools, and workflows without becoming a developer."
