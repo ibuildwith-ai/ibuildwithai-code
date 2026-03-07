@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this blog
+title: "Structured Content in the Age of LLMs: When and Where It Fits | iBuildWith.ai"
+description: "An evidence-based examination of how large language models have changed the value proposition of structured content, with benchmarks on retrieval accuracy, hallucination rates, and a practical framework for content architecture decisions."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "images/seo/content-types/blog/structured-content-in-the-age-of-llms.png"
+social_image_alt: "Structured Content in the Age of LLMs: When and Where It Fits | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"

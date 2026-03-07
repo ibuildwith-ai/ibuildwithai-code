@@ -1,0 +1,38 @@
+{
+  "name": "Executive Leadership",
+  "description": "Fact-driven, authoritative style for VP and C-level audiences. Professional tone, low opinion, evidence-first. No fluff, no persuasion -- just clear analysis and actionable frameworks.",
+  "voice": {
+    "tone": 8,
+    "humor": 1,
+    "opinion": 2,
+    "technical": 5
+  },
+  "formatting": {
+    "emojis": 0,
+    "em_dashes": 0,
+    "blockquotes": "rare"
+  },
+  "structure": {
+    "opening_types": [
+      "context-setting"
+    ],
+    "closing_types": [
+      "framework",
+      "decision-tool"
+    ],
+    "visual_breaks": "moderate",
+    "examples": "some",
+    "example_types": [
+      "data-tables",
+      "benchmark-comparisons",
+      "scenario-based"
+    ]
+  },
+  "context": {
+    "author_role": "Content strategist and technical leader",
+    "author_topic_knowledge": "Deep familiarity with both content architecture and AI/LLM capabilities",
+    "audience_role": "VP and C-level leaders in content delivery, UX, and digital strategy",
+    "audience_topic_knowledge": "Strong conceptual understanding but not hands-on implementers. Familiar with content platforms and AI trends at a strategic level.",
+    "author_relationship_to_audience": "Peer. Speaks as an equal presenting evidence, not as a consultant selling a conclusion."
+  }
+}
