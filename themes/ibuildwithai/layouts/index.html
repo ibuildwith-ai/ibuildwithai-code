@@ -13,7 +13,7 @@
         <section class="section">
             <div class="container">
  
-                <div class="homepage-features-grid-4col">
+                <div class="homepage-features-grid">
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $blogIcon := resources.Get "images/icons/icon-blog.png" }}
@@ -27,6 +27,7 @@
                             </div>
                         </div>
                     </div>
+                    {{/* Podcast card hidden - content still available at /podcast/
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $podcastIcon := resources.Get "images/icons/icon-podcast.png" }}
@@ -40,6 +41,7 @@
                             </div>
                         </div>
                     </div>
+                    */}}
                     <div class="split-card split-card--icon-top">
                         <div class="split-card-icon-section">
                             {{ $videosIcon := resources.Get "images/icons/icon-videos.png" }}
