@@ -3,7 +3,7 @@
   "description": "Fact-driven, authoritative style for VP and C-level audiences. Professional tone, low opinion, evidence-first. No fluff, no persuasion -- just clear analysis and actionable frameworks.",
   "voice": {
     "tone": 8,
-    "humor": 1,
+    "humor": 2,
     "opinion": 2,
     "technical": 5
   },

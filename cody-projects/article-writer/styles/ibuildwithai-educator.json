@@ -3,7 +3,7 @@
   "description": "Approachable, educational style for explaining AI/tech concepts to knowledge workers and non-developers",
   "voice": {
     "tone": 4,
-    "humor": 7,
+    "humor": 3,
     "opinion": 2,
     "technical": 5
   },
