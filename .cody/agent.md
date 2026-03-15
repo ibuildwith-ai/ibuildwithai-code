@@ -43,6 +43,24 @@ This phase guides USERS through the iterative development cycle by creating docu
 | `tasklist.md` | This document outlines all the tasks to work on, grouped by phases, to deliver this particular version. |
 | `retrospective.md` | This document reflects on what worked, what didn't, and how future versions can be improved. |
 
+> Patches are lightweight fixes or small enhancements that skip the full version build cycle. They live in the {{cfWorkPhase}} folder alongside versions.
+
+| Document | Description |
+|----------|-------------|
+| `patch.md` | This document captures a quick fix or small enhancement — the problem, the plan, the solution, and files changed. It does not require a design doc, tasklist, or retrospective. |
+
+> Project-level settings file, stored at `{{cfProject}}/project.json`:
+
+| Field | Description |
+|-------|-------------|
+| `project.json` | Tracks project metadata: name, description, current version, creation/update dates (YYYY-MM-DD format), and current phase (plan or build). Created during `:cody plan` or brownfield setup. Updated after version/patch completion and phase transitions. Auto-created on older projects that don't have it yet. |
+
+> Ideas tracker, stored at `{{cfProject}}/ideas.md`:
+
+| Document | Description |
+|----------|-------------|
+| `ideas.md` | A simple table tracking ideas captured during development. Each idea has an ID, date, description, and status (Open, Closed). Ideas can be picked up when starting a new version or patch. |
+
 ## Version Naming Convention
 - Version numbers follow the format v[major.minor.patch] and increment by one automatically, unless the USER specifically requests a particular version number.
 - Version folders inside the {{cfWorkPhase}} folder are named "v[major.minor.patch]-[name]" (e.g. v1.0.3-refactor-code)
@@ -65,28 +83,19 @@ These placeholders are a pointer to actual values. They are created here and use
 ## Executing Commands
 
 - If the **USER** types any of the commands listed below, follow the instructions inside the files for each command listed below.
-- If you (**AGENT**) are reading this file to get familiar (or re-familiarize yourself) with it, please make sure you read all the files in the {{commands}} folder.
+- If you (**AGENT**) are reading this file to get familiar (or re-familiarize yourself) with it, please make sure you read all the files in the {{cfCommands}} folder.
 
-> ### `:cody build`
-**[AGENT TODO: Read and execute {{cfCommands}}/build.md]** 
-
-> ###  `:cody help` 
-**[AGENT TODO: Read and execute {{cfCommands}}/help.md ]** 
+> ### `:cody help`
+**[AGENT TODO: Read and execute {{cfCommands}}/help.md]**
 
 > ### `:cody plan`
-**[AGENT TODO: Read and execute {{cfCommands}}/plan.md]** 
+**[AGENT TODO: Read and execute {{cfCommands}}/plan.md]**
 
-> ### `:cody refresh update`
-**[AGENT TODO: Read and execute {{cfCommands}}/refresh-update.md]**
+> ### `:cody build`
+**[AGENT TODO: Read and execute {{cfCommands}}/build.md]**
+
+> ### `:cody idea`
+**[AGENT TODO: Read and execute {{cfCommands}}/idea.md]**
 
 > ### `:cody refresh`
-**[AGENT TODO: Read and execute {{cfCommands}}/refresh.md]** 
-
-> ### `:cody relearn`
-**[AGENT TODO: Read and execute {{cfCommands}}/relearn.md]** 
-
-> ### `:cody version add`
-**[AGENT TODO: Read and execute {{cfCommands}}/version-add.md]**
-
-> ### `:cody version build`
-**[AGENT TODO: Read and execute {{cfCommands}}/version-build.md]** 
+**[AGENT TODO: Read and execute {{cfCommands}}/refresh.md]**

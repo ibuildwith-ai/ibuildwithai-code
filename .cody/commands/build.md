@@ -1,29 +1,55 @@
 ---
 command: ":cody build"
-description: Starts the BUILD phase and creates the feature backlog.
+description: Guided build phase — creates the feature backlog if needed, then offers options to create a new version, work on an existing version, or work on a patch.
 ---
 
-- **AGENT** show the **USER** the following first: 
+# BUILD
 
+- **AGENT** show the **USER** the following:
 ```
-+---------------+
-Build Phase Start
-+---------------+
++---------------------+
+BUILD PHASE : START
++---------------------+
 ```
 
-### CREATE FEATURE BACKLOG 
-Check that {{cfTemplates}}/build/feature-backlog.md does not exist.  
+### CHECK PREREQUISITES
+- Check if {{cfPlanPhase}} folder exists and has plan phase documents (prd.md or plan.md).
+  - If it does NOT exist, tell the **USER** they need to complete the plan phase first (`:cody plan`). Stop here.
+- If {{cfWorkPhase}} folder does not exist, create it.
 
-If it does not exist:
+### CHECK PROJECT SETTINGS
+- Check if `{{cfProject}}/project.json` exists.
+  - If it does NOT exist, tell the **USER**: "This version of Cody Product Builder uses a project settings file. Let me set that up."
+    - Read the PRD or plan docs to determine the project name and description.
+    - Scan version and patch folders in {{cfWorkPhase}} to find the latest completed version (default to `"0.0.0"` if none found).
+    - Set phase to `"build"` if {{cfWorkPhase}} has version or patch folders, otherwise `"plan"`.
+    - Present all values to the **USER** for confirmation.
+    - **STOP** and wait for the **USER**.
+    - Copy `{{cfTemplates}}/project.json` to `{{cfProject}}/project.json` and fill in the confirmed values. Use `YYYY-MM-DD` format for dates.
 
-- Copy from {{cfTemplates}}/build/feature-backlog.md into {{cfWorkPhase}}
-- Review the `plan.md` document you created in the discovery phase, then generate and update the `feature-backlog.md` document.
-- When you are done, tell the **USER** to review it.  Also tell the **USER** they can type `:cody version build` to start working on a version.
-- Stop here.
+### CHECK FEATURE BACKLOG
+- Check if {{cfWorkPhase}}/feature-backlog.md exists.
+  - If it does NOT exist:
+    - Tell the **USER**: "Before we start building, I need to create a Feature Backlog. The backlog is a list of all the features, enhancements, and tasks from your plan, organized into versions. It's what we'll use to decide what gets built and in what order."
+    - **[AGENT TODO: Read and execute {{cfCommands}}/build-backlog.md]**
+    - Update `{{cfProject}}/project.json`: set **phase** to `"build"`, set **updatedAt** to today's date (use `YYYY-MM-DD` format).
+    - Tell the **USER** to review the backlog.
+    - **STOP** and wait for the **USER**.
 
-If it does exist:
+### WHAT WOULD YOU LIKE TO DO?
 
-- Tell the **USER** that the build phase has already started.
-- Tell the **USER** that the Feature Backlog already exists.
-- Tell the **USER** they can work on any version they want next.
-- Stop here.
+**AGENT ANNOUNCE**
+```
+What would you like to do?
+
+1) Create a new version
+2) Work on an existing version
+3) Work on a patch (quick fix or small enhancement)
+```
+
+- **STOP** and wait for the **USER**.
+
+### DELEGATE
+- If the **USER** chooses **option 1** (create a new version) → **[AGENT TODO: Read and execute {{cfCommands}}/build-version-new.md]**
+- If the **USER** chooses **option 2** (work on an existing version) → **[AGENT TODO: Read and execute {{cfCommands}}/build-version-existing.md]**
+- If the **USER** chooses **option 3** (work on a patch) → **[AGENT TODO: Read and execute {{cfCommands}}/patch.md]**

@@ -1,9 +1,16 @@
 ---
-command: ":cody version build"
-description: Creates a version using the feature-backlog.md file.  The USER will pick which version to build
+internal: true
+description: Builds an existing version from the feature backlog. Delegated from build.md.
 ---
 
 # BUILD VERSION
+
+- **AGENT** show the **USER** the following:
+```
++--------------------------+
+BUILD VERSION : START
++--------------------------+
+```
 
 ### CHOOSE VERSION TO BUILD
 - If the **USER** already typed the version they want to build, you can skip to the next section, 'CREATE VERSION FOLDER', otherwise:
@@ -26,7 +33,7 @@ description: Creates a version using the feature-backlog.md file.  The USER will
 - Tell the **USER** to review the tasklist.md document in the current version and when they are done, to tell you.
 - Stop and wait for the **USER**.
 
-### CHOOSE WHAT TO BUILD 
+### CHOOSE WHAT TO BUILD
 - Ask the **USER** which task or phase in the tasklist.md file they would like to start working on.
 - Stop here and wait for **USER** to tell you.
 
@@ -48,6 +55,11 @@ When you (**AGENT**) reached the end of the version, tell the **USER** this vers
 - Copy from {{cfTemplates}}/build/version/retrospective.md to the current version folder.
 - Update the retrospective.md file.
 
+### UPDATE PROJECT SETTINGS
+- Update `{{cfProject}}/project.json`:
+  - Set **version** to the version number just completed
+  - Set **updatedAt** to today's date (use `YYYY-MM-DD` format)
+
 ### CREATE / UPDATE RELEASE NOTES
 - Check to see if the {{cfWorkPhase}}/release-notes.md file exists.
     - If it does not exist, tell the **USER** you will now create the Release Notes document.
@@ -62,12 +74,11 @@ This version is now completed. If you think the PRD or PLAN files need update
 due to the changes implemented in this version, you can use the following
 command:
 
-:cody refresh update
+:cody refresh
 
-Otherwise, you can continue working on a new version with:
+Otherwise, you can continue building with:
 
-:cody version build (work on another version in the backlog)
-:cody version add (add a new version to the backlog)
+:cody build
 
 What would you like to do next?
 ```
