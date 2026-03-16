@@ -55,11 +55,7 @@ This phase guides USERS through the iterative development cycle by creating docu
 |-------|-------------|
 | `project.json` | Tracks project metadata: name, description, current version, creation/update dates (YYYY-MM-DD format), and current phase (plan or build). Created during `:cody plan` or brownfield setup. Updated after version/patch completion and phase transitions. Auto-created on older projects that don't have it yet. |
 
-> Ideas tracker, stored at `{{cfProject}}/ideas.md`:
-
-| Document | Description |
-|----------|-------------|
-| `ideas.md` | A simple table tracking ideas captured during development. Each idea has an ID, date, description, and status (Open, Closed). Ideas can be picked up when starting a new version or patch. |
+> The **Backlog** section of `feature-backlog.md` also serves as the idea capture destination. Items added via `:cody idea` are stored here with Source = `User`. Items suggested by the **AGENT** during backlog creation use Source = `Agent`. Backlog items are removed when they are picked up and written as a version or patch entry.
 
 ## Version Naming Convention
 - Version numbers follow the format v[major.minor.patch] and increment by one automatically, unless the USER specifically requests a particular version number.
@@ -80,6 +76,10 @@ These placeholders are a pointer to actual values. They are created here and use
 | {{cfProject}} | ./cody-projects/product-builder/ | Project folder for generated files. |
 | {{cfPlanPhase}} | ./cody-projects/product-builder/plan | Cody root folder for the planning phase. |
 | {{cfWorkPhase}} | ./cody-projects/product-builder/build | Cody root folder for the build phase. |
+## File System Checks
+- Always use the placeholder paths (e.g., `{{cfPlanPhase}}`, `{{cfProject}}`) when checking for files or folders. Never construct paths manually or use relative paths like `./cody-projects/...`.
+- Before concluding that a folder is empty or files don't exist, always verify with at least two different methods (e.g., a glob search AND a directory listing). Never make decisions based on a single failed search. This prevents false negatives caused by path resolution issues.
+
 ## Executing Commands
 
 - If the **USER** types any of the commands listed below, follow the instructions inside the files for each command listed below.
