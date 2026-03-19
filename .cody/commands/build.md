@@ -18,21 +18,14 @@ BUILD PHASE : START
 - If {{cfWorkPhase}} folder does not exist, create it.
 
 ### CHECK PROJECT SETTINGS
-- Check if `{{cfProject}}/project.json` exists.
-  - If it does NOT exist, tell the **USER**: "This version of Cody Product Builder uses a project settings file. Let me set that up."
-    - Read the PRD or plan docs to determine the project name and description.
-    - Scan version and patch folders in {{cfWorkPhase}} to find the latest completed version (default to `"0.0.0"` if none found).
-    - Set phase to `"build"` if {{cfWorkPhase}} has version or patch folders, otherwise `"plan"`.
-    - Present all values to the **USER** for confirmation.
-    - **STOP** and wait for the **USER**.
-    - Copy `{{cfTemplates}}/project.json` to `{{cfProject}}/project.json` and fill in the confirmed values. Use `YYYY-MM-DD` format for dates.
+**[AGENT TODO: Read and execute {{cfReferences}}/project-settings-check.md]**
 
 ### CHECK FEATURE BACKLOG
 - Check if {{cfWorkPhase}}/feature-backlog.md exists.
   - If it does NOT exist:
     - Tell the **USER**: "Before we start building, I need to create a Feature Backlog. The backlog is a list of all the features, enhancements, and tasks from your plan, organized into versions. It's what we'll use to decide what gets built and in what order."
     - **[AGENT TODO: Read and execute {{cfCommands}}/build-backlog.md]**
-    - Update `{{cfProject}}/project.json`: set **phase** to `"build"`, set **updatedAt** to today's date (use `YYYY-MM-DD` format).
+    - Update `cody.json` in the project root: in the `cody-product-builder` section, set **phase** to `"build"` and set **updatedAt** to today's date (use `YYYY-MM-DD` format).
     - Tell the **USER** to review the backlog.
     - **STOP** and wait for the **USER**.
 

@@ -33,9 +33,9 @@ You (**AGENT**) will thoroughly examine the existing codebase. Review the follow
 
 **IMPORTANT: Skip Cody Product Builder files — they are not part of the application:**
 - `.cody/` — Skip entirely (Cody Product Builder configuration)
-- `.claude/commands/cody.md` — Skip this file only (Cody activation). Other files in `.claude/` may describe the project and should be reviewed.
-- `.cursor/commands/cody.md` — Skip this file only (Cody activation). Other files in `.cursor/` may describe the project and should be reviewed.
-- `.github/prompts/cody.prompt.md` — Skip this file only (Cody activation). Other files in `.github/` may be useful and should be reviewed.
+- `.claude/commands/cody-product-builder.md` — Skip this file only (Cody activation). Other files in `.claude/` may describe the project and should be reviewed.
+- `.cursor/commands/cody-product-builder.md` — Skip this file only (Cody activation). Other files in `.cursor/` may describe the project and should be reviewed.
+- `.github/prompts/cody-product-builder.prompt.md` — Skip this file only (Cody activation). Other files in `.github/` may be useful and should be reviewed.
 
 After your analysis, tell the **USER** what you found. Provide a brief summary of the tech stack, project structure, and what the app appears to do.
 
@@ -45,36 +45,11 @@ After your analysis, tell the **USER** what you found. Provide a brief summary o
 
 After presenting your initial findings, ask the **USER** targeted questions to fill gaps in your understanding. Focus on product-level knowledge the code cannot reveal.
 
-Keep asking until all **Knowledge Criteria** are satisfied:
+**[AGENT TODO: Read {{cfReferences}}/knowledge-criteria.md and follow the Knowledge Criteria, Q&A Guidance, and Example Questions defined there.]**
 
-- **Target Users** — who the app is for
-- **Problem Being Solved** — what pain point it addresses
-- **Desired Outcome** — what the app should achieve (impact, value, or metric)
-- **Success Criteria** — how we'll know the app is successful
-- **Primary Use Case(s)** — main ways the app will be used
-- **Must-Have Features** — critical to the current state / next milestone
-- **Nice-to-Have Features** — can wait until later versions
-- **Constraints** — budget, timeline, tech stack, integrations, or compliance
-- **Existing Alternatives** — what users are doing today to solve this problem
-- **Risks & Assumptions** — anything that could block or shape success
-
-### Guidance for AI
-
+Additional brownfield-specific guidance:
 - Some criteria may already be answered by the autonomous analysis (e.g., tech stack constraints, existing features). Confirm those with the **USER** instead of re-asking.
 - Focus Q&A on what the code can't reveal (target users, goals, success criteria, etc.).
-- Generate and adapt your own questions dynamically based on the **USER's** previous answers.
-- Number each question in the format:
-  `Question {n} of {total}: [your question]`
-  Update `{total}` dynamically depending on how many more questions are required to satisfy the **Knowledge Criteria**.
-- If earlier answers already cover a new question, confirm them instead of asking again.
-- The goal is not to "get through a list" but to **reach full understanding of the project**.
-- If the **USER** types `help me` after a question, provide 5 possible ways they can answer the question based on what you already know about the project.
-- If the **USER** types `no more` (or anything equivalent):
-  - If you already have enough information to satisfy the **Knowledge Criteria**, stop and summarize your understanding.
-  - If you do **not** have enough information, explain politely that you may not be able to guide them effectively without a bit more detail, and suggest continuing with at least a few more questions.
-  - If they still choose to stop, respect their decision, but clearly warn them that without further information, they may not get exactly what they have in mind.
-- Stop only once all **Knowledge Criteria** are satisfied, or the **USER** insists on `no more`. If stopping early, include the warning:
-  *"Based on the limited information provided, outcomes may not be optimal."*
 
 ---
 
@@ -88,28 +63,31 @@ Keep asking until all **Knowledge Criteria** are satisfied:
 
 ---
 
-## CREATE PROJECT FOLDERS
+## CREATE PROJECT SETTINGS
 
-- Create folder `cody-projects/` if it doesn't exist.
-- Create folder `cody-projects/product-builder/` if it doesn't exist.
-- Create the following folder structure in the `{{cfProject}}` folder:
-```
-/build
-/plan
-```
-
-### CREATE PROJECT SETTINGS
-- Copy `{{cfTemplates}}/project.json` to `{{cfProject}}/project.json`.
-- Fill in:
+- Create `cody.json` in the project root using the `{{cfTemplates}}/cody.json` template.
+- Fill in the `cody-product-builder` section:
   - **name** and **description** from what you learned during the codebase analysis and Q&A
   - **createdAt** and **updatedAt** with today's date (use `YYYY-MM-DD` format)
   - **phase** as `"build"`
 - Ask the **USER**: `What version is your project currently at? (e.g., 1.0.0, 0.5.0)`
 - **STOP** and wait for the **USER**.
 - Fill in **version** with the USER's answer.
+- Ask the **USER**: "The default project path is `cody-projects/product-builder`. Do you want to choose a different one?"
+- **STOP** and wait for the **USER**.
+- Set **projectPath** to the chosen path (default or custom).
 - Present all values to the **USER** and ask them to confirm or change anything.
 - **STOP** and wait for the **USER**.
 - Apply any changes the USER requests, then continue.
+
+## CREATE PROJECT FOLDERS
+
+- Create the `{{cfProject}}` folder if it doesn't exist.
+- Create the following folder structure in the `{{cfProject}}` folder:
+```
+/build
+/plan
+```
 
 ---
 
