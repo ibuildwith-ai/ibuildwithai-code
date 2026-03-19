@@ -1,6 +1,6 @@
 # Feature Backlog
 
-This document lists features and enhancements derived from the plan. It is a living document that will evolve throughout the project. It is grouped by release, with the Backlog tracking all features not added to a release yet.  It is used to create releases to work on.
+This document lists features and enhancements derived from the plan. It is a living document that will evolve throughout the project. It is grouped by version, with the Backlog tracking all features not added to a version yet.  It is used to create versions to work on.
 
 | Status |  | Priority |  |
 |--------|-------------|---------|-------------|
@@ -10,9 +10,8 @@ This document lists features and enhancements derived from the plan. It is a liv
 
 ## Backlog
 
-| ID  | Feature             | Description                               | Priority | Status |
-|-----|---------------------|-------------------------------------------|----------|--------|
-| B.1 | Future enhancements | Additional features to be planned | Low | 🟢 Completed |
+| #  | Feature             | Description                               | Source |
+|----|---------------------|-------------------------------------------|--------|
 
 ## v1.9.2-support-no-company-for-people - 🟢 Completed
 Make the company and title fields optional when displaying people across all content types. Currently, all templates render the pattern `[name], [title] @ [company]` unconditionally. When company or title is null, empty, or "N/A" (case-insensitive), the display should gracefully omit the missing parts.
