@@ -6,6 +6,7 @@
     "phase": "build",
     "projectPath": "docs",
     "createdAt": "2025-10-20",
+    "releaseNotesPath": "{{projectRoot}}",
     "updatedAt": "2026-02-23"
   }
 }
