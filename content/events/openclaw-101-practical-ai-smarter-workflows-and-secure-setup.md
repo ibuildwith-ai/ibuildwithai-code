@@ -6,10 +6,10 @@ date_time = "2026-03-26T18:30:00-08:00"
 location = "I Build with AI Meetup"
 timezone = "PDT"
 presenter = "jonathan-lewin"
-status = "upcoming"
+status = "completed"
 learn_more_url = "https://www.meetup.com/i-build-with-ai/events/312965492/"
 on_demand_url = ""
-register_url = "https://www.meetup.com/i-build-with-ai/events/312965492/"
+register_url = ""
 meeting_type = "in-person"
 draft = false
 +++
