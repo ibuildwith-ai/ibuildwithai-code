@@ -1,54 +1,39 @@
 {{ define "main" }}
-    <main>
-        <!-- Blog Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1><span class="highlight">Blog</span></h1>
-                <p class="tagline">Articles with insights on how to build apps with AI. </p>
-            </div>
-        </section>
+<main>
+  {{ partial "sub-page-hero.html" (dict
+    "variant"   "listing"
+    "title"     "Blog"
+    "subtitle"  "Articles with insights on how to build apps with AI."
+  ) }}
 
-        <section class="section">
-            <div class="container">
-                
-                <div class="blog-posts">
-                    {{ range .Pages }}
-                        <a href="{{ .Permalink }}" class="blog-card-link">
-                            <article class="blog-post-card">
-                                {{ if .Params.image }}
-                                    {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $blogImg := resources.Get $imagePath }}
-                                    {{ if $blogImg }}
-                                        {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
-                                        <div class="blog-card-image">
-                                            <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                        </div>
-                                    {{ end }}
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                {{ if .Params.author }}
-                                    {{ $authorData := index .Site.Data.people .Params.author }}
-                                    {{ if $authorData }}
-                                        <div class="post-author">Written by {{ $authorData.fullName }}</div>
-                                    {{ end }}
-                                {{ end }}
-                                <div class="post-meta">
-                                    {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
-                                </div>
-                                <p>{{ .Summary }}</p>
-                                <span class="card-link">Read more →</span>
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
-                
-                {{ if eq (len .Pages) 0 }}
-                    <div class="blog-post-card">
-                        <h3>No blog posts yet</h3>
-                        <p>Check back soon for new content!</p>
-                    </div>
+  <section class="section-v2">
+    <div class="container">
+      {{ if .Pages }}
+        <div class="hp-blog-grid">
+          {{ range .Pages }}
+            <a href="{{ .Permalink }}" class="hp-blog-card">
+              {{ if .Params.image }}
+                {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                {{ $img := resources.Get $imgPath }}
+                {{ if $img }}
+                  {{ $imgFp := $img | resources.Fingerprint }}
+                  <div class="hp-card-image">
+                    <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                  </div>
                 {{ end }}
-            </div>
-        </section>
-    </main>
+              {{ end }}
+              <div class="hp-blog-body">
+                <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
+                <h3 class="hp-blog-title">{{ .Title }}</h3>
+                <span class="hp-blog-link">Read &rarr;</span>
+              </div>
+            </a>
+          {{ end }}
+        </div>
+      {{ else }}
+        <p>No blog posts yet. Check back soon!</p>
+      {{ end }}
+    </div>
+  </section>
+</main>
 {{ end }}

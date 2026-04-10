@@ -1,80 +1,65 @@
 {{ define "main" }}
-    <main>
-        <article class="blog-single">
-            <div class="container">
-                <!-- Blog Header: Desktop Two-Column Layout / Mobile Stacked -->
-                <div class="blog-header-wrapper">
-                    <!-- Left Column: Featured Image (Desktop Only) -->
-                    {{ if .Params.image }}
-                        {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
-                        {{ $blogImg := resources.Get $imagePath }}
-                        {{ if $blogImg }}
-                            {{ $blogImgFingerprint := $blogImg | resources.Fingerprint }}
-                            <div class="blog-header-image">
-                                <img src="{{ $blogImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                            </div>
-                        {{ end }}
-                    {{ end }}
-                    
-                    <!-- Right Column: Metadata and Title -->
-                    <div class="blog-header-content">
-                        <span class="content-type-header">Blog</span>
-                        <h1>{{ .Title }}</h1>
-                        <div class="post-meta">
-                            {{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read
-                        </div>
-                        <div class="post-meta-skill">
-                            Written with <a href="{{ .Site.Params.cody_article_writer }}" class="post-meta-link" target="_blank" rel="noopener noreferrer">Cody Article Writer AI Skill</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Horizontal Divider: Full Width -->
-                    <div class="blog-header-divider"></div>
-                </div>
-                
-                <div class="content">
-                    {{ .Content }}
-                </div>
-                
-                <!-- Author Photo Section -->
-                {{ $authorData := index .Site.Data.people .Params.author }}
-                {{ if $authorData }}
-                <h2>About the Author</h2>
-                <div class="guest-photo-section">
-                    <div class="guest-content">
-                        <div class="guest-photo">
-                            {{ $authorImgPath := strings.TrimPrefix "/" $authorData.image }}
-                            {{ $authorImg := resources.Get $authorImgPath }}
-                            {{ if $authorImg }}
-                                {{ $authorImgFingerprint := $authorImg | resources.Fingerprint }}
-                                <img src="{{ $authorImgFingerprint.RelPermalink }}" alt="{{ $authorData.fullName }}" loading="lazy">
-                            {{ else }}
-                                <p>Debug: Image not found at {{ $authorData.image }}</p>
-                            {{ end }}
-                        </div>
-                        <div class="guest-info">
-                            <h3>{{ partial "person-title-company.html" $authorData }}</h3>
-                            <p>{{ $authorData.bio }}</p>
-                            {{ if and $authorData.learnMoreLink (ne $authorData.learnMoreLink "") }}
-                            <div class="guest-link-wrapper">
-                                <a href="{{ $authorData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-                {{ end }}
-                
-                <div class="blog-back-section">
-                    <a href="{{ "blog/" | relURL }}" class="blog-back-link">← Back to Blog</a>
-                </div>
-            </div>
-        </article>
-    </main>
+<main>
+  {{/* Build metadata for hero */}}
+  {{ $metaDate := printf "%s &bull; %d min read" (.Date.Format "January 2, 2006") .ReadingTime }}
 
-    <!-- Blog References Accordion Script -->
-    {{ $blogReferencesJS := resources.Get "js/blog-references.js" | resources.Minify | resources.Fingerprint }}
-    {{ if $blogReferencesJS }}
-    <script src="{{ $blogReferencesJS.RelPermalink }}"></script>
-    {{ end }}
+  {{ partial "sub-page-hero.html" (dict
+    "variant"        "detail"
+    "title"          .Title
+    "label"          "Blog"
+    "image"          .Params.image
+    "image_type"     "rect"
+    "image_alt"      .Title
+    "meta"           (slice $metaDate)
+    "meta_link_text" "Cody Article Writer AI Skill"
+    "meta_link_url"  .Site.Params.cody_article_writer
+  ) }}
+
+  <article class="blog-single">
+    <div class="container">
+      <div class="content">
+        {{ .Content }}
+      </div>
+
+      {{/* Author Section */}}
+      {{ $authorData := index .Site.Data.people .Params.author }}
+      {{ if $authorData }}
+      <div class="content">
+        <h3 class="project-links-title">About the Author</h3>
+      </div>
+      <div class="guest-photo-section">
+        <div class="guest-content">
+          <div class="guest-photo">
+            {{ $authorImgPath := strings.TrimPrefix "/" $authorData.image }}
+            {{ $authorImg := resources.Get $authorImgPath }}
+            {{ if $authorImg }}
+              {{ $authorImgFp := $authorImg | resources.Fingerprint }}
+              <img src="{{ $authorImgFp.RelPermalink }}" alt="{{ $authorData.fullName }}" loading="lazy">
+            {{ end }}
+          </div>
+          <div class="guest-info">
+            <h3>{{ partial "person-title-company.html" $authorData }}</h3>
+            <p>{{ $authorData.bio }}</p>
+            {{ if and $authorData.learnMoreLink (ne $authorData.learnMoreLink "") }}
+            <div class="guest-link-wrapper">
+              <a href="{{ $authorData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+
+      <div class="blog-back-section">
+        <a href="{{ "blog/" | relURL }}" class="blog-back-link">← Back to Blog</a>
+      </div>
+    </div>
+  </article>
+
+  {{/* Blog References Accordion Script */}}
+  {{ $blogReferencesJS := resources.Get "js/blog-references.js" | resources.Minify | resources.Fingerprint }}
+  {{ if $blogReferencesJS }}
+  <script src="{{ $blogReferencesJS.RelPermalink }}"></script>
+  {{ end }}
+</main>
 {{ end }}

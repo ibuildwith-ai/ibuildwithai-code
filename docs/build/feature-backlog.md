@@ -15,6 +15,31 @@ This document lists features and enhancements derived from the plan. It is a liv
 | 22 | Migrate Site.Data to hugo.Data | `.Site.Data` is deprecated in Hugo v0.156.0 and emits a build warning. Update all templates to use `hugo.Data` instead. Affects templates that read from `/data/people/` (blog/single, podcast/single, presentations/list, presentations/single) and `/data/seo/`. | User |
 | 23 | Remove next environment | Remove the `next` (staging) environment entirely. Delete `config/next/config.toml`, remove staging password logic from `baseof.html`, remove any CI/CD workflows that deploy to next.ibuildwith.ai, update documentation. | User |
 
+## v2.1.0-sub-page-redesign - 🟢 Completed
+Continue the v2.0.0 redesign by updating all internal sub-pages (listing and detail) to match the new v2.0.0 design language. The primary change is a new gradient page header (matching the home page hero style) applied to all six pages. Listing page cards are updated to match the home page card style, and all listing pages move to a 3-column grid.
+
+**Scope:**
+
+**Reusable Page Header Partial**
+- Create `partials/sub-page-hero.html` — gradient background, grid overlay, glow animations from hero-v2, shorter than home hero (padding-based, no min-height)
+- Listing variant: title (gradient) + subtitle, no image
+- Detail variant: two-column layout — image left, label + title + metadata right
+- Blog/Presentations detail: 16:9 cover image, 420px wide, 12px border radius
+- Podcast detail: 250×250 square guest headshot, 12px border radius
+- No eyebrow pill (home page only)
+
+**Blog**
+- `blog/list.html` — new sub-page hero header, cards updated to match `.hp-blog-card` style, 3-column grid
+- `blog/single.html` — new sub-page hero header (cover image left, label + title + date + reading time + written-with right), body unchanged
+
+**Podcast**
+- `podcast/list.html` — new sub-page hero header, cards updated to match `.hp-podcast-card` style, 3-column grid
+- `podcast/single.html` — new sub-page hero header (guest photo left, label + title + guest line + date right), body unchanged
+
+**Presentations**
+- `presentations/list.html` — new sub-page hero header, cards updated to match `.hp-pres-card` style (with status badges), 3-column grid per grouping
+- `presentations/single.html` — new sub-page hero header (cover image left, label + title + presenter + date/location right), body unchanged; same header for both on-demand and event layouts
+
 ## v2.0.0-home-page-and-nav-redesign - 🟢 Completed
 Redesign the home page to be product-focused and restructure the site navigation. The three products (Blocks Builder AI, Cody Product Builder, Cody Article Writer) become front and center. Videos merge back into Events, renamed to Presentations with Upcoming/On-Demand/Completed groupings. Navigation simplifies from Learn/Build/Community to Products/Resources/About.
 

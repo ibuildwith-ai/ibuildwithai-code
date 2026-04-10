@@ -1,155 +1,192 @@
 {{ define "main" }}
-    <main>
-        <article class="blog-single">
-            <div class="container">
-                <!-- Podcast Header: Desktop Two-Column Layout / Mobile Stacked -->
-                <div class="blog-header-wrapper">
-                    <!-- Left Column: Guest Image (Desktop Only) -->
-                    {{ if .Params.guest }}
-                        {{ $guestData := index .Site.Data.people .Params.guest }}
-                        {{ if $guestData }}
-                            {{ $guestImgPath := strings.TrimPrefix "/" $guestData.image }}
-                            {{ $guestImg := resources.Get $guestImgPath }}
-                            {{ if $guestImg }}
-                                {{ $guestImgFingerprint := $guestImg | resources.Fingerprint }}
-                                <div class="blog-header-image podcast-guest-image">
-                                    <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ $guestData.fullName }}" loading="lazy">
-                                </div>
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
+<main>
+  {{/* Resolve guest data for hero */}}
+  {{ $guestData    := "" }}
+  {{ $guestImgPath := "" }}
+  {{ $guestAlt     := "" }}
+  {{ $guestSubline := "" }}
+  {{ if .Params.guest }}
+    {{ $guestData = index .Site.Data.people .Params.guest }}
+    {{ if $guestData }}
+      {{ $guestImgPath = $guestData.image }}
+      {{ $guestAlt     = $guestData.fullName }}
+      {{ $guestSubline = printf "A conversation with %s" (partial "person-title-company.html" $guestData) }}
+    {{ end }}
+  {{ end }}
 
-                    <!-- Right Column: Metadata and Title -->
-                    <div class="blog-header-content">
-                        <span class="content-type-header">Podcast</span>
-                        <h1>{{ .Title }}</h1>
-                        <h3>
-                            {{ if .Params.guest }}
-                                {{ $guestData := index .Site.Data.people .Params.guest }}
-                                {{ if $guestData }}A conversation with {{ partial "person-title-company.html" $guestData }}{{ end }}
-                            {{ end }}
-                        </h3>
-                        <div class="post-meta">
-                            {{ if eq .Params.status "upcoming" }}Releases {{ end }}{{ .Date.Format "January 2, 2006" }}
-                        </div>
+  {{/* Date line */}}
+  {{ $dateStr := .Date.Format "January 2, 2006" }}
+  {{ if eq .Params.status "upcoming" }}{{ $dateStr = printf "Releases %s" $dateStr }}{{ end }}
 
-                        <!-- Podcast Platform Icons -->
-                        <div class="podcast-icons-inline">
-                            {{ $appleLink := .Params.apple_podcast_episode_link | default .Site.Params.podcast_apple }}
-                            <a href="{{ $appleLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
-                                {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
-                                {{ if $appleIcon }}
-                                {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
-                                <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon-inline">
-                                {{ end }}
-                            </a>
-                            {{ $spotifyLink := .Params.spotify_episode_link | default .Site.Params.podcast_spotify }}
-                            <a href="{{ $spotifyLink }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link-inline">
-                                {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
-                                {{ if $spotifyIcon }}
-                                {{ $spotifyIconFingerprint := $spotifyIcon | resources.Fingerprint }}
-                                <img src="{{ $spotifyIconFingerprint.RelPermalink }}" alt="Listen on Spotify" class="podcast-icon-inline">
-                                {{ end }}
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Horizontal Divider: Full Width -->
-                    <div class="blog-header-divider"></div>
-                </div>
-
-                <!-- Spotify Audio Embed (Below Header) -->
-                {{ if and .Params.audio_id (ne .Params.audio_id "") (ne .Params.status "upcoming") }}
-                <div class="podcast-embed-section">
-                    <div class="audio-embed-responsive">
-                        <iframe
-                            data-testid="embed-iframe"
-                            style="border-radius:12px"
-                            src="https://open.spotify.com/embed/episode/{{ .Params.audio_id }}"
-                            width="100%"
-                            height="152"
-                            frameBorder="0"
-                            allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
+  {{/* Inline hero — includes platform icons below meta */}}
+  {{ $guestImgResource := "" }}
+  {{ if $guestImgPath }}
+    {{ $guestImgResource = resources.Get (strings.TrimPrefix "/" $guestImgPath) }}
+  {{ end }}
+  <section class="sub-page-hero">
+    <div class="sub-page-hero__bg"></div>
+    <div class="sub-page-hero__grid"></div>
+    <div class="container">
+      {{ if $guestImgResource }}
+        {{ $guestImgFp := $guestImgResource | resources.Fingerprint }}
+        <div class="sub-page-hero__detail sub-page-hero__detail--square">
+          <div class="sub-page-hero__img sub-page-hero__img--square">
+            <img src="{{ $guestImgFp.RelPermalink }}" alt="{{ $guestAlt }}" loading="eager">
+          </div>
+          <div class="sub-page-hero__text">
+            <div class="sub-page-hero__label">Podcast</div>
+            <h1>{{ .Title }}</h1>
+            {{ if $guestSubline }}<p class="sub-page-hero__subtitle">{{ $guestSubline }}</p>{{ end }}
+            <div class="sub-page-hero__meta">{{ $dateStr }}</div>
+            <div class="podcast-hero-icons">
+              {{ $appleLink := .Params.apple_podcast_episode_link | default .Site.Params.podcast_apple }}
+              <a href="{{ $appleLink }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+                {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+                {{ if $appleIcon }}
+                  {{ $appleIconFp := $appleIcon | resources.Fingerprint }}
+                  <img src="{{ $appleIconFp.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-hero-icon">
                 {{ end }}
-
-                <!-- Reminder Widget (For Upcoming Episodes) -->
-                {{ if eq .Params.status "upcoming" }}
-                    {{ partial "reminder-widget.html" (dict "title" "Don't Miss This Episode" "description" "Sign up to get a reminder when this episode releases." "buttonLabel" "Remind Me" "thankYouMessage" "An email reminder was sent to you.") }}
+              </a>
+              {{ $spotifyLink := .Params.spotify_episode_link | default .Site.Params.podcast_spotify }}
+              <a href="{{ $spotifyLink }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+                {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
+                {{ if $spotifyIcon }}
+                  {{ $spotifyIconFp := $spotifyIcon | resources.Fingerprint }}
+                  <img src="{{ $spotifyIconFp.RelPermalink }}" alt="Listen on Spotify" class="podcast-hero-icon">
                 {{ end }}
-                
-                <div class="content">
-                    {{ .Content }}
-                </div>
-                
-                <!-- Guest Photo Section (if available) -->
-                {{ if .Params.guest }}
-                {{ $guestData := index .Site.Data.people .Params.guest }}
-                {{ if $guestData }}
-                <h2>About the Guest</h2>
-                <div class="guest-photo-section">
-                    <div class="guest-content">
-                        <div class="guest-photo">
-                            {{ $guestImgPath := strings.TrimPrefix "/" $guestData.image }}
-                            {{ $guestImg := resources.Get $guestImgPath }}
-                            {{ if $guestImg }}
-                                {{ $guestImgFingerprint := $guestImg | resources.Fingerprint }}
-                                <img src="{{ $guestImgFingerprint.RelPermalink }}" alt="{{ $guestData.fullName }}" loading="lazy">
-                            {{ else }}
-                                <p>Debug: Image not found at {{ $guestData.image }}</p>
-                            {{ end }}
-                        </div>
-                        <div class="guest-info">
-                            <h3>{{ partial "person-title-company.html" $guestData }}</h3>
-                            <p>{{ $guestData.bio }}</p>
-                            {{ if and $guestData.learnMoreLink (ne $guestData.learnMoreLink "") }}
-                            <div class="guest-link-wrapper">
-                                <a href="{{ $guestData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-                {{ end }}
-                {{ end }}
-                
-                <!-- Host Photo Section -->
-                {{ $hostData := index .Site.Data.people "marcelo-lewin" }}
-                {{ if $hostData }}
-                <h2>About the Host</h2>
-                <div class="guest-photo-section">
-                    <div class="guest-content">
-                        <div class="guest-photo">
-                            {{ $hostImgPath := strings.TrimPrefix "/" $hostData.image }}
-                            {{ $hostImg := resources.Get $hostImgPath }}
-                            {{ if $hostImg }}
-                                {{ $hostImgFingerprint := $hostImg | resources.Fingerprint }}
-                                <img src="{{ $hostImgFingerprint.RelPermalink }}" alt="{{ $hostData.fullName }}" loading="lazy">
-                            {{ else }}
-                                <p>Debug: Image not found at {{ $hostData.image }}</p>
-                            {{ end }}
-                        </div>
-                        <div class="guest-info">
-                            <h3>{{ partial "person-title-company.html" $hostData }}</h3>
-                            <p>{{ $hostData.bio }}</p>
-                            {{ if and $hostData.learnMoreLink (ne $hostData.learnMoreLink "") }}
-                            <div class="guest-link-wrapper">
-                                <a href="{{ $hostData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                </div>
-                {{ end }}
-
-                <div class="blog-back-section">
-                    <a href="{{ "podcast/" | relURL }}" class="blog-back-link">← Back to Podcast</a>
-                </div>
+              </a>
             </div>
-        </article>
-    </main>
+          </div>
+        </div>
+      {{ else }}
+        <div class="sub-page-hero__text-only">
+          <div class="sub-page-hero__label">Podcast</div>
+          <h1>{{ .Title }}</h1>
+          {{ if $guestSubline }}<p class="sub-page-hero__subtitle">{{ $guestSubline }}</p>{{ end }}
+          <div class="sub-page-hero__meta">{{ $dateStr }}</div>
+          <div class="podcast-hero-icons">
+            {{ $appleLink := .Params.apple_podcast_episode_link | default .Site.Params.podcast_apple }}
+            <a href="{{ $appleLink }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+              {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+              {{ if $appleIcon }}
+                {{ $appleIconFp := $appleIcon | resources.Fingerprint }}
+                <img src="{{ $appleIconFp.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-hero-icon">
+              {{ end }}
+            </a>
+            {{ $spotifyLink := .Params.spotify_episode_link | default .Site.Params.podcast_spotify }}
+            <a href="{{ $spotifyLink }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+              {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
+              {{ if $spotifyIcon }}
+                {{ $spotifyIconFp := $spotifyIcon | resources.Fingerprint }}
+                <img src="{{ $spotifyIconFp.RelPermalink }}" alt="Listen on Spotify" class="podcast-hero-icon">
+              {{ end }}
+            </a>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <article class="blog-single">
+    <div class="container">
+
+      {{/* Spotify Audio Embed */}}
+      {{ if and .Params.audio_id (ne .Params.audio_id "") (ne .Params.status "upcoming") }}
+      <div class="podcast-embed-section">
+        <div class="audio-embed-responsive">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/episode/{{ .Params.audio_id }}"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      {{ end }}
+
+      {{/* Reminder Widget (upcoming episodes) */}}
+      {{ if eq .Params.status "upcoming" }}
+        {{ partial "reminder-widget.html" (dict
+          "title"         "Don't Miss This Episode"
+          "description"   "Sign up to get a reminder when this episode releases."
+          "buttonLabel"   "Remind Me"
+          "thankYouMessage" "An email reminder was sent to you."
+        ) }}
+      {{ end }}
+
+      <div class="content">
+        {{ .Content }}
+      </div>
+
+      {{/* About the Guest */}}
+      {{ if .Params.guest }}
+        {{ $guest := index .Site.Data.people .Params.guest }}
+        {{ if $guest }}
+        <div class="content">
+          <h3 class="project-links-title">About the Guest</h3>
+        </div>
+        <div class="guest-photo-section">
+          <div class="guest-content">
+            <div class="guest-photo">
+              {{ $imgPath := strings.TrimPrefix "/" $guest.image }}
+              {{ $img := resources.Get $imgPath }}
+              {{ if $img }}
+                {{ $imgFp := $img | resources.Fingerprint }}
+                <img src="{{ $imgFp.RelPermalink }}" alt="{{ $guest.fullName }}" loading="lazy">
+              {{ end }}
+            </div>
+            <div class="guest-info">
+              <h3>{{ partial "person-title-company.html" $guest }}</h3>
+              <p>{{ $guest.bio }}</p>
+              {{ if and $guest.learnMoreLink (ne $guest.learnMoreLink "") }}
+              <div class="guest-link-wrapper">
+                <a href="{{ $guest.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+              </div>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      {{ end }}
+
+      {{/* About the Host */}}
+      {{ $hostData := index .Site.Data.people "marcelo-lewin" }}
+      {{ if $hostData }}
+      <div class="content">
+        <h3 class="project-links-title">About the Host</h3>
+      </div>
+      <div class="guest-photo-section">
+        <div class="guest-content">
+          <div class="guest-photo">
+            {{ $hostImgPath := strings.TrimPrefix "/" $hostData.image }}
+            {{ $hostImg := resources.Get $hostImgPath }}
+            {{ if $hostImg }}
+              {{ $hostImgFp := $hostImg | resources.Fingerprint }}
+              <img src="{{ $hostImgFp.RelPermalink }}" alt="{{ $hostData.fullName }}" loading="lazy">
+            {{ end }}
+          </div>
+          <div class="guest-info">
+            <h3>{{ partial "person-title-company.html" $hostData }}</h3>
+            <p>{{ $hostData.bio }}</p>
+            {{ if and $hostData.learnMoreLink (ne $hostData.learnMoreLink "") }}
+            <div class="guest-link-wrapper">
+              <a href="{{ $hostData.learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+
+      <div class="blog-back-section">
+        <a href="{{ "podcast/" | relURL }}" class="blog-back-link">← Back to Podcast</a>
+      </div>
+    </div>
+  </article>
+</main>
 {{ end }}

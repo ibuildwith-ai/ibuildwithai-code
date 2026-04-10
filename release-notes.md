@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v2.1.0-sub-page-redesign - April 10, 2026](#v210-sub-page-redesign---april-10-2026)
 - [v2.0.0-home-page-and-nav-redesign - April 9, 2026](#v200-home-page-and-nav-redesign---april-9-2026)
 - [v1.9.2-support-no-company-for-people - February 23, 2026](#v192-support-no-company-for-people---february-23-2026)
 - [v1.9.1-podcast-header-restructure - January 15, 2026](#v191-podcast-header-restructure---january-15-2026)
@@ -21,6 +22,52 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v2.1.0-sub-page-redesign - April 10, 2026
+
+## Overview
+
+Continues the v2.0.0 redesign by bringing all internal sub-pages in line with the new design language. A reusable `sub-page-hero` partial provides a consistent gradient header (listing and detail variants) across all content sections. Listing pages moved to 3-column grids using the home page card styles. All old animated underline link styles removed site-wide and replaced with the v2 hover pattern. Two mobile bugs fixed (footer divider and header bleed-through when nav is open).
+
+## Key Features
+
+**Reusable Sub-Page Hero Partial**
+- New `partials/sub-page-hero.html` with listing variant (full-width gradient title + subtitle) and detail variant (two-column: image left, text + meta right)
+- Image support: `rect` (420px, 16:9) for blog and presentations; `square` (250×250px) for podcast guest headshots
+- Fallback to text-only layout when no image is available
+- Gradient glow, grid overlay, and animation styles shared with the home page hero
+
+**Blog Pages**
+- List page: new sub-page hero, 3-column `hp-blog-grid` with `hp-blog-card` cards (image, date, title)
+- Detail page: sub-page hero with rect image, date + reading time meta, "Written with Cody Article Writer" link
+- "About the Author" section heading updated to use `project-links-title` style with correct spacing wrapper
+
+**Podcast Pages**
+- List page: inline hero with Apple Podcasts, Spotify, and RSS icons below the subtitle
+- Detail page: inline hero with guest image (250×250), date meta, and platform icons (Apple + Spotify) in the header
+- "About the Guest" and "About the Host" headings updated to `project-links-title` with correct spacing
+
+**Presentations Pages**
+- List page: new sub-page hero, three grouped grids (Upcoming, On-Demand, Completed) with status badges
+- Detail page: single sub-page hero handles both on-demand and event layouts; Register/Learn More buttons updated to `btn-v2-primary` / `btn-v2-secondary`
+
+**About, Newsletter, Contact Pages**
+- All three pages updated with sub-page hero (listing variant)
+- About page: section headings updated to `section-v2-label`, certificate/interview links updated to `section-link`, Quick Facts section removed
+- Newsletter and Contact: submit buttons updated to `btn-v2-primary`
+
+**Link Style Cleanup (Site-Wide)**
+- Removed all `@include link-underline` and `@include link-base` usages from `_components.scss`
+- All link hovers now follow the v2 pattern: `color: $primary-500` → hover `$neutral-100`, no animated underline
+- Affected: `.bio-text a`, card `a` blocks, `.post-meta-link`, `.faq-answer a`, `.section-link`, `.back-link`, `.blog-back-link`, `.blog-single .content a`, references accordion links
+- Button `::after` animated underlines removed from `.btn-primary`, `.btn-primary-lg`, `.btn-secondary`
+
+## Bug Fixes
+
+- **Footer divider on mobile**: The gradient green divider between Presentations and GitHub in the footer Resources column was collapsing to zero width inside a flex container with `align-items: center`. Fixed by adding `width: 100%` to `.footer-links-divider` in the mobile context.
+- **Hamburger/X bleed-through on mobile**: The semi-transparent header (70% opacity + backdrop blur) allowed the mobile nav overlay content to show through when the menu was open. Fixed by adding a `.nav-open` class to the header on menu open that sets full opacity and removes the blur, then restores on close.
 
 ---
 

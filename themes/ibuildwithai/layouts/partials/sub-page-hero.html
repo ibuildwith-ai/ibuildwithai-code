@@ -1,0 +1,114 @@
+{{/*
+  Sub-Page Hero Partial
+
+  Reusable gradient hero header for sub-pages (blog, podcast, presentations).
+  Replaces the old .hero section with the v2.0.0 gradient aesthetic.
+
+  Parameters:
+  -----------
+  - variant (optional): "listing" | "detail" (default: "listing")
+      "listing" — title (gradient) + subtitle, full-width, no image
+      "detail"  — label + title + subtitle + meta, two-column with image
+
+  - title (required): Page/article title
+
+  - subtitle (optional): Tagline (listing) or guest/presenter line (detail)
+
+  - label (optional): Content-type label shown above title on detail pages
+      e.g. "Blog", "Podcast", "Presentation"
+
+  - image (optional): Image path for detail variant (e.g. "/images/foo.jpg")
+      If empty or resource not found, falls back to text-only layout.
+
+  - image_type (optional): "rect" | "square" (default: "rect")
+      "rect"   — 420px wide, 16:9 aspect ratio (blog, presentations)
+      "square" — 250×250px (podcast guest headshot)
+
+  - image_alt (optional): Alt text for image (defaults to title)
+
+  - meta (optional): Slice of plain-text metadata strings
+      e.g. (slice "April 5, 2026 • 7 min read")
+      Each item renders as a separate line. Use safeHTML if HTML needed.
+
+  - meta_link_text (optional): Text for a linked metadata line
+  - meta_link_url (optional): URL for the linked metadata line
+      Together these render: e.g. "Written with [Cody Article Writer AI Skill]"
+*/}}
+
+{{ $variant    := .variant      | default "listing" }}
+{{ $title      := .title        | default "" }}
+{{ $subtitle   := .subtitle     | default "" }}
+{{ $label      := .label        | default "" }}
+{{ $image      := .image        | default "" }}
+{{ $imageType  := .image_type   | default "rect" }}
+{{ $imageAlt   := .image_alt    | default $title }}
+{{ $meta       := .meta         | default slice }}
+{{ $linkText   := .meta_link_text | default "" }}
+{{ $linkUrl    := .meta_link_url  | default "" }}
+
+<section class="sub-page-hero">
+  <div class="sub-page-hero__bg"></div>
+  <div class="sub-page-hero__grid"></div>
+  <div class="container">
+
+    {{ if eq $variant "listing" }}
+
+      {{/* ── Listing variant: full-width title + subtitle ── */}}
+      <div class="sub-page-hero__listing">
+        <h1><span class="gradient-text">{{ $title }}</span></h1>
+        {{ if $subtitle }}
+          <p class="sub-page-hero__subtitle">{{ $subtitle }}</p>
+        {{ end }}
+      </div>
+
+    {{ else }}
+
+      {{/* ── Detail variant: two-column image + text ── */}}
+      {{/* Resolve image resource — fall back to text-only if not found */}}
+      {{ $imgResource := "" }}
+      {{ if $image }}
+        {{ $imgResource = resources.Get (strings.TrimPrefix "/" $image) }}
+      {{ end }}
+
+      {{ if $imgResource }}
+        {{/* Two-column layout */}}
+        {{ $imgFp := $imgResource | resources.Fingerprint }}
+        <div class="sub-page-hero__detail sub-page-hero__detail--{{ $imageType }}">
+          <div class="sub-page-hero__img sub-page-hero__img--{{ $imageType }}">
+            <img src="{{ $imgFp.RelPermalink }}" alt="{{ $imageAlt }}" loading="eager">
+          </div>
+          <div class="sub-page-hero__text">
+            {{ if $label }}<div class="sub-page-hero__label">{{ $label }}</div>{{ end }}
+            <h1>{{ $title }}</h1>
+            {{ if $subtitle }}<p class="sub-page-hero__subtitle">{{ $subtitle }}</p>{{ end }}
+            {{ range $meta }}
+              <div class="sub-page-hero__meta">{{ . | safeHTML }}</div>
+            {{ end }}
+            {{ if $linkText }}
+              <div class="sub-page-hero__meta">
+                Written with <a href="{{ $linkUrl }}" target="_blank" rel="noopener noreferrer">{{ $linkText }}</a>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ else }}
+        {{/* Text-only fallback (no image or resource not found) */}}
+        <div class="sub-page-hero__text-only">
+          {{ if $label }}<div class="sub-page-hero__label">{{ $label }}</div>{{ end }}
+          <h1>{{ $title }}</h1>
+          {{ if $subtitle }}<p class="sub-page-hero__subtitle">{{ $subtitle }}</p>{{ end }}
+          {{ range $meta }}
+            <div class="sub-page-hero__meta">{{ . | safeHTML }}</div>
+          {{ end }}
+          {{ if $linkText }}
+            <div class="sub-page-hero__meta">
+              Written with <a href="{{ $linkUrl }}" target="_blank" rel="noopener noreferrer">{{ $linkText }}</a>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+    {{ end }}
+
+  </div>
+</section>

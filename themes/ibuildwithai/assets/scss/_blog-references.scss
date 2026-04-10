@@ -17,10 +17,10 @@
     color: $primary-500;
   }
 
-  // Keep green color on hover and expanded states
+  // White on hover and when expanded
   .faq-header:hover .faq-question,
   .faq-header[aria-expanded="true"] .faq-question {
-    color: $primary-500;
+    color: $neutral-100;
   }
 
   // Override FAQ accordion max-height for longer reference lists
@@ -74,12 +74,11 @@
 
       // Links within footnotes
       a {
-        @include link-base;
-        @include link-underline;
         color: $primary-500;
+        transition: $transition-base;
 
         &:hover {
-          @include link-hover;
+          color: $neutral-100;
         }
       }
 
@@ -92,7 +91,7 @@
         transition: $transition-fast;
 
         &:hover {
-          color: $primary-400;
+          color: $neutral-100;
           transform: translateX(-2px);
         }
       }

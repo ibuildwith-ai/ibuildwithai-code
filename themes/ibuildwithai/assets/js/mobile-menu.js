@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const mobileNav = document.getElementById('mobileNav');
+  const header = document.querySelector('.header');
 
   if (!mobileMenuToggle || !mobileNav) {
     return;
@@ -24,12 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileMenuToggle.classList.add('active');
     mobileNav.classList.add('open');
     document.body.style.overflow = 'hidden';
+    if (header) header.classList.add('nav-open');
   }
 
   function closeMobileMenu() {
     mobileMenuToggle.classList.remove('active');
     mobileNav.classList.remove('open');
     document.body.style.overflow = '';
+    if (header) header.classList.remove('nav-open');
     mobileMenuToggle.focus();
   }
 

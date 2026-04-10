@@ -15,6 +15,11 @@
   position: sticky;
   top: 0;
   z-index: $z-index-header;
+
+  &.nav-open {
+    background-color: $neutral-900;
+    backdrop-filter: none;
+  }
 }
 
 .header-inner {
@@ -627,13 +632,11 @@
   }
   
   a {
-    @include link-base;
-    @include link-underline;
-    color: var(--color-primary);
-    display: inline-block;
-    
+    color: $primary-500;
+    transition: $transition-base;
+
     &:hover {
-      @include link-hover;
+      color: $neutral-100;
     }
   }
 }
@@ -686,15 +689,13 @@
   }
   
   a {
-    @include link-base;
-    @include link-underline;
-    color: var(--color-primary);
+    color: $primary-500;
     text-decoration: none;
     font-weight: $font-weight-medium;
-    transition: var(--transition-base);
-    
+    transition: $transition-base;
+
     &:hover {
-      @include link-hover;
+      color: $neutral-100;
     }
   }
 }
@@ -832,25 +833,23 @@
 }
 
 .section-link {
-  @include link-base;
-  @include link-underline;
-  color: var(--color-primary);
+  color: $primary-500;
   font-weight: $font-weight-medium;
-  font-size: var(--font-size-base);
+  font-size: $font-size-base;
+  transition: $transition-base;
 
   &:hover {
-    @include link-hover;
+    color: $neutral-100;
   }
 }
 
 .section-link-inline {
-  @include link-base;
-  @include link-underline;
-  color: var(--color-primary);
+  color: $primary-500;
   font-weight: $font-weight-medium;
+  transition: $transition-base;
 
   &:hover {
-    @include link-hover;
+    color: $neutral-100;
   }
 }
 
@@ -1353,33 +1352,14 @@
   justify-content: center;
   padding: 0 $button-padding-x;
   color: $neutral-100 !important;
-  position: relative;
   border: none; // Remove default button border
   border-radius: $border-radius-sm; // Ensure border radius is applied
   font-family: $font-family-base; // Ensure DM Sans font family
   font-weight: $font-weight-medium; // Ensure medium weight (500)
   font-size: 1rem; // 16px font size
   line-height: $line-height-base; // Consistent line height
-  
-  // Explicit transition control to prevent color flashing
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  
-  // Button-specific underline with proper spacing
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -11px; // More spacing for buttons
-    left: 0;
-    width: 0;
-    height: $underline-height;
-    background: $primary-500;
-    transition: $transition-width;
-  }
-  
-  &:hover::after {
-    width: 100%;
-  }
-  
+
   &:hover {
     background-color: $primary-500;
     transform: translateY($hover-lift-small);
@@ -1404,28 +1384,9 @@
   justify-content: center;
   padding: 0 $button-padding-x-lg;
   color: $neutral-100 !important;
-  position: relative;
   font-size: $font-size-lg;
-  
-  // Explicit transition control to prevent color flashing
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  
-  // Button-specific underline with proper spacing
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -11px; // More spacing for buttons
-    left: 0;
-    width: 0;
-    height: $underline-height;
-    background: $primary-500;
-    transition: $transition-width;
-  }
-  
-  &:hover::after {
-    width: 100%;
-  }
-  
+
   &:hover {
     background-color: $primary-500;
     transform: translateY($hover-lift-small);
@@ -1450,27 +1411,8 @@
   justify-content: center;
   padding: 0 $button-padding-x;
   color: $neutral-100 !important;
-  position: relative;
-  
-  // Explicit transition control to prevent color flashing
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  
-  // Button-specific underline with proper spacing
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -11px; // More spacing for buttons
-    left: 0;
-    width: 0;
-    height: $underline-height;
-    background: $primary-500;
-    transition: $transition-width;
-  }
-  
-  &:hover::after {
-    width: 100%;
-  }
-  
+
   &:hover {
     background-color: #2a2a2a;
     transform: translateY($hover-lift-small);
@@ -1703,10 +1645,6 @@ h2 + .podcast-embed-section {
     object-fit: cover;
     border-radius: $border-radius-base;
     transition: $transition-base;
-  }
-  
-  &:hover img {
-    transform: scale(1.05);
   }
   
   @media (max-width: 768px) {
@@ -1975,13 +1913,12 @@ h2 + .podcast-embed-section {
   
   // Link within post-meta (e.g., "Written using Cody Article Writer AI Skill")
   .post-meta-link {
-    @include link-base;
-    @include link-underline;
     color: $primary-500;
     font-size: 16px; // Specific size for inline post-meta links
+    transition: $transition-base;
 
     &:hover {
-      @include link-hover;
+      color: $neutral-100;
     }
   }
   
@@ -2094,13 +2031,11 @@ h2 + .podcast-embed-section {
     }
 
     a {
-      @include link-base;
-      @include link-underline;
-      color: var(--color-primary);
-      display: inline-block;
-      
+      color: $primary-500;
+      transition: $transition-base;
+
       &:hover {
-        @include link-hover;
+        color: $neutral-100;
       }
     }
   }
@@ -2134,13 +2069,12 @@ h2 + .podcast-embed-section {
 }
 
 .back-link {
-  @include link-base;
-  @include link-underline;
-  color: var(--color-primary);
+  color: $primary-500;
   font-weight: $font-weight-medium;
-  
+  transition: $transition-base;
+
   &:hover {
-    @include link-hover;
+    color: $neutral-100;
   }
 }
 
@@ -2246,6 +2180,10 @@ h2 + .podcast-embed-section {
       flex-direction: column;
       align-items: center;
       gap: $spacing-sm;
+
+      .footer-links-divider {
+        width: 100%;
+      }
     }
   }
   
@@ -2476,13 +2414,12 @@ h2 + .podcast-embed-section {
 }
 
 .blog-back-link {
-  @include link-base;
-  @include link-underline;
-  color: var(--color-primary);
+  color: $primary-500;
   font-weight: $font-weight-medium;
-  
+  transition: $transition-base;
+
   &:hover {
-    @include link-hover;
+    color: $neutral-100;
   }
 }
 
@@ -2953,12 +2890,11 @@ h2 + .podcast-embed-section {
   }
 
   a {
-    @include link-base;
-    @include link-underline;
     color: $primary-500;
+    transition: $transition-base;
 
     &:hover {
-      @include link-hover;
+      color: $neutral-100;
     }
   }
 
@@ -3196,4 +3132,230 @@ h2 + .podcast-embed-section {
       }
     }
   }
+}
+
+// =============================================================================
+// Sub-Page Hero (v2.1.0)
+// Reusable gradient hero header for all sub-pages
+// Keyframe animations heroGlow1 / heroGlow2 defined in _homepage.scss
+// =============================================================================
+
+.sub-page-hero {
+  position: relative;
+  padding: $spacing-xl 0 $spacing-lg;
+  overflow: hidden;
+  border-bottom: 1px solid $neutral-700;
+}
+
+.sub-page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -20%;
+    width: 80%;
+    height: 160%;
+    background: radial-gradient(ellipse at center, rgba($primary-500, 0.08) 0%, transparent 70%);
+    animation: heroGlow1 8s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60%;
+    right: -15%;
+    width: 70%;
+    height: 160%;
+    background: radial-gradient(ellipse at center, rgba($primary-400, 0.05) 0%, transparent 70%);
+    animation: heroGlow2 10s ease-in-out infinite;
+  }
+}
+
+.sub-page-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+// Listing variant — full-width title + subtitle
+.sub-page-hero__listing {
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    letter-spacing: -0.03em;
+    margin-bottom: $spacing-xs;
+    color: $neutral-100;
+
+    .gradient-text {
+      background: linear-gradient(135deg, $primary-400, $primary-500, $primary-600);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}
+
+// Detail variant — two-column: image left, text right
+.sub-page-hero__detail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+  gap: $spacing-xl;
+
+  &--rect {
+    grid-template-columns: 420px 1fr;
+  }
+
+  &--square {
+    grid-template-columns: 250px 1fr;
+  }
+}
+
+// Text-only fallback (no image)
+.sub-page-hero__text-only {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.sub-page-hero__img {
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--rect {
+    width: 420px;
+    aspect-ratio: 16 / 9;
+    border-radius: $border-radius-lg;
+  }
+
+  &--square {
+    width: 250px;
+    height: 250px;
+    border-radius: $border-radius-lg;
+  }
+}
+
+.sub-page-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xs;
+}
+
+.sub-page-hero__label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $primary-500;
+  margin-bottom: $spacing-xs;
+}
+
+.sub-page-hero__listing h1,
+.sub-page-hero__text h1,
+.sub-page-hero__text-only h1 {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: -0.02em;
+  color: $neutral-100;
+  margin-bottom: $spacing-2xs;
+}
+
+// Override size for listing h1 (larger)
+.sub-page-hero__listing h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.03em;
+}
+
+.sub-page-hero__subtitle {
+  font-size: 1.05rem;
+  color: $neutral-400;
+  line-height: $line-height-base;
+  max-width: 600px;
+}
+
+.sub-page-hero__meta {
+  font-size: 0.875rem;
+  color: $neutral-600;
+  margin-top: $spacing-2xs;
+
+  a {
+    color: $primary-500;
+    &:hover { color: $neutral-100; }
+  }
+}
+
+// Responsive
+@include tablet-down {
+  .sub-page-hero {
+    padding: $spacing-lg 0 $spacing-md;
+  }
+
+  .sub-page-hero__detail--rect,
+  .sub-page-hero__detail--square {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+
+  .sub-page-hero__img--rect {
+    width: 100%;
+    height: auto;
+  }
+
+  .sub-page-hero__img--square {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+// Podcast hero icons (listing page header)
+.podcast-hero-icons {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.podcast-hero-icon-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: $transition-base;
+
+  &:hover {
+    opacity: 1;
+    transform: translateY($hover-lift-small);
+  }
+}
+
+.podcast-hero-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }

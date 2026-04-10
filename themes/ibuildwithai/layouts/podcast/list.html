@@ -1,112 +1,104 @@
 {{ define "main" }}
-    <main>
-        <!-- Podcast Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1><span class="highlight">Podcast</span></h1>
-                <p class="tagline">Conversations with humans building apps with AI.</p>
-                
-                <!-- Podcast Icons -->
-                <div class="podcast-icons">
-                    <a href="{{ .Site.Params.podcast_apple }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
-                        {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
-                        {{ if $appleIcon }}
-                        {{ $appleIconFingerprint := $appleIcon | resources.Fingerprint }}
-                        <img src="{{ $appleIconFingerprint.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-icon">
-                        {{ end }}
-                    </a>
-                    <a href="{{ .Site.Params.podcast_spotify }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
-                        {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
-                        {{ if $spotifyIcon }}
-                        {{ $spotifyIconFingerprint := $spotifyIcon | resources.Fingerprint }}
-                        <img src="{{ $spotifyIconFingerprint.RelPermalink }}" alt="Listen on Spotify" class="podcast-icon">
-                        {{ end }}
-                    </a>
-                    <a href="{{ .Site.Params.podcast_rss }}" target="_blank" rel="noopener noreferrer" class="podcast-icon-link">
-                        {{ $rssIcon := resources.Get "images/icons/icon-rss.png" }}
-                        {{ if $rssIcon }}
-                        {{ $rssIconFingerprint := $rssIcon | resources.Fingerprint }}
-                        <img src="{{ $rssIconFingerprint.RelPermalink }}" alt="RSS Feed" class="podcast-icon">
-                        {{ end }}
-                    </a>
-                </div>
-            </div>
-        </section>
+<main>
 
-        <section class="section">
-            <div class="container">
-                
-                {{ $upcomingEpisodes := where .Pages ".Params.status" "upcoming" }}
-                {{ $publishedEpisodes := where .Pages ".Params.status" "published" }}
-                
-                {{ if $upcomingEpisodes }}
-                <h2>Upcoming</h2>
-                <div class="podcast-episodes">
-                    {{ range sort $upcomingEpisodes ".Date" "asc" }}
-                                <a href="{{ .Permalink }}" class="blog-card-link">
-                                    <article class="podcast-card">
-                                        {{ if .Params.image }}
-                                            {{ $episodeImgPath := strings.TrimPrefix "/" .Params.image }}
-                                            {{ $episodeImg := resources.Get $episodeImgPath }}
-                                            {{ if $episodeImg }}
-                                            <div class="podcast-card-thumbnail">
-                                                {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
-                                                <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                            </div>
-                                            {{ end }}
-                                        {{ end }}
-                                        <h3>{{ .Title }}</h3>
-                                        {{ if .Params.guest }}
-                                            {{ $guestData := index .Site.Data.people .Params.guest }}
-                                            {{ if $guestData }}
-                                                <div>A conversation with {{ partial "person-title-company.html" $guestData }}</div>
-                                            {{ end }}
-                                        {{ end }}
-                                        {{ if .Date }}
-                                            <div><br>Releases {{ .Date.Format "January 2, 2006" }}</div>
-                                        {{ end }}
-                                    </article>
-                                </a>
-                    {{ end }}
-                </div>
+  {{/* Inline hero — includes platform icons below subtitle */}}
+  <section class="sub-page-hero">
+    <div class="sub-page-hero__bg"></div>
+    <div class="sub-page-hero__grid"></div>
+    <div class="container">
+      <div class="sub-page-hero__listing">
+        <h1><span class="gradient-text">Podcast</span></h1>
+        <p class="sub-page-hero__subtitle">Conversations with professionals on building with AI.</p>
+        <div class="podcast-hero-icons">
+          <a href="{{ .Site.Params.podcast_apple }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+            {{ $appleIcon := resources.Get "images/icons/icon-apple-podcast.png" }}
+            {{ if $appleIcon }}
+              {{ $appleIconFp := $appleIcon | resources.Fingerprint }}
+              <img src="{{ $appleIconFp.RelPermalink }}" alt="Listen on Apple Podcasts" class="podcast-hero-icon">
+            {{ end }}
+          </a>
+          <a href="{{ .Site.Params.podcast_spotify }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+            {{ $spotifyIcon := resources.Get "images/icons/icon-spotify.png" }}
+            {{ if $spotifyIcon }}
+              {{ $spotifyIconFp := $spotifyIcon | resources.Fingerprint }}
+              <img src="{{ $spotifyIconFp.RelPermalink }}" alt="Listen on Spotify" class="podcast-hero-icon">
+            {{ end }}
+          </a>
+          <a href="{{ .Site.Params.podcast_rss }}" target="_blank" rel="noopener noreferrer" class="podcast-hero-icon-link">
+            {{ $rssIcon := resources.Get "images/icons/icon-rss.png" }}
+            {{ if $rssIcon }}
+              {{ $rssIconFp := $rssIcon | resources.Fingerprint }}
+              <img src="{{ $rssIconFp.RelPermalink }}" alt="RSS Feed" class="podcast-hero-icon">
+            {{ end }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-v2">
+    <div class="container">
+
+      {{ $upcomingEpisodes  := where .Pages ".Params.status" "upcoming" }}
+      {{ $publishedEpisodes := where .Pages ".Params.status" "published" }}
+
+      {{ if $upcomingEpisodes }}
+        <h2 class="section-v2-label" style="margin-bottom: 1.5rem;">Upcoming</h2>
+        <div class="hp-blog-grid" style="margin-bottom: 3rem;">
+          {{ range sort $upcomingEpisodes ".Date" "asc" }}
+            <a href="{{ .Permalink }}" class="hp-podcast-card">
+              {{ if .Params.image }}
+                {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                {{ $img := resources.Get $imgPath }}
+                {{ if $img }}
+                  {{ $imgFp := $img | resources.Fingerprint }}
+                  <div class="hp-podcast-image">
+                    <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                  </div>
                 {{ end }}
-                
-                {{ if $publishedEpisodes }}
-                {{ if $upcomingEpisodes }}<h2>On-Demand</h2>{{ end }}
-                <div class="podcast-episodes">
-                    {{ range sort $publishedEpisodes ".Date" "desc" }}
-                        <a href="{{ .Permalink }}" class="blog-card-link">
-                            <article class="podcast-card">
-                                {{ if .Params.image }}
-                                    {{ $episodeImgPath := strings.TrimPrefix "/" .Params.image }}
-                                    {{ $episodeImg := resources.Get $episodeImgPath }}
-                                    {{ if $episodeImg }}
-                                    <div class="podcast-card-thumbnail">
-                                        {{ $episodeImgFingerprint := $episodeImg | resources.Fingerprint }}
-                                        <img src="{{ $episodeImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
-                                    </div>
-                                    {{ end }}
-                                {{ end }}
-                                <h3>{{ .Title }}</h3>
-                                {{ if .Params.guest }}
-                                    {{ $guestData := index .Site.Data.people .Params.guest }}
-                                    {{ if $guestData }}
-                                        <div>A conversation with {{ partial "person-title-company.html" $guestData }}</div>
-                                    {{ end }}
-                                {{ end }}
-                            </article>
-                        </a>
-                    {{ end }}
-                </div>
+              {{ end }}
+              <div class="hp-podcast-body">
+                <div class="hp-blog-date">Releases {{ .Date.Format "Jan 2, 2006" }}</div>
+                <h3 class="hp-blog-title">{{ .Title }}</h3>
+                <span class="hp-blog-link">Coming soon &rarr;</span>
+              </div>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if $publishedEpisodes }}
+        {{ if $upcomingEpisodes }}
+          <h2 class="section-v2-label" style="margin-bottom: 1.5rem;">All Episodes</h2>
+        {{ end }}
+        <div class="hp-blog-grid">
+          {{ range sort $publishedEpisodes ".Date" "desc" }}
+            <a href="{{ .Permalink }}" class="hp-podcast-card">
+              {{ if .Params.image }}
+                {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                {{ $img := resources.Get $imgPath }}
+                {{ if $img }}
+                  {{ $imgFp := $img | resources.Fingerprint }}
+                  <div class="hp-podcast-image">
+                    <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                  </div>
                 {{ end }}
-                
-                {{ if and (eq (len $upcomingEpisodes) 0) (eq (len $publishedEpisodes) 0) }}
-                    <div class="podcast-card">
-                        <h3>No episodes yet</h3>
-                        <p>We're working on getting guests for more episodes, stay tuned!</p>
-                    </div>
-                {{ end }}
-            </div>
-        </section>
-    </main>
+              {{ end }}
+              <div class="hp-podcast-body">
+                <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
+                <h3 class="hp-blog-title">{{ .Title }}</h3>
+                <span class="hp-blog-link">Listen &rarr;</span>
+              </div>
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if and (eq (len $upcomingEpisodes) 0) (eq (len $publishedEpisodes) 0) }}
+        <p>No episodes yet. Stay tuned!</p>
+      {{ end }}
+
+    </div>
+  </section>
+</main>
 {{ end }}

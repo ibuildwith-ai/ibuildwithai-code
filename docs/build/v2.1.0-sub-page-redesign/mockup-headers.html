@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>v2.1.0 — Sub-Page Headers Mockup</title>
+<style>
+  :root {
+    --primary-400: #4ade80;
+    --primary-500: #22c55e;
+    --primary-600: #16a34a;
+    --neutral-900: #121212;
+    --neutral-800: #161616;
+    --neutral-700: #2a2a2a;
+    --neutral-600: #666666;
+    --neutral-400: #e2e2e2;
+    --neutral-100: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--neutral-900);
+    color: var(--neutral-100);
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── Mockup nav ───────────────────────────────────────────────── */
+  .mockup-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(18, 18, 18, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neutral-700);
+    padding: 1rem 0;
+  }
+  .mockup-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mockup-nav-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-500);
+  }
+  .mockup-nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+  }
+  .mockup-nav-links a { color: var(--neutral-400); }
+  .mockup-nav-links a:hover { color: var(--primary-500); }
+
+  /* ── Sub-page hero shell ──────────────────────────────────────── */
+  .sub-hero {
+    position: relative;
+    padding: 4rem 0 3.5rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--neutral-700);
+  }
+
+  .sub-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .sub-hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -20%;
+    width: 80%; height: 160%;
+    background: radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%);
+    animation: heroGlow1 8s ease-in-out infinite;
+  }
+  .sub-hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -60%; right: -15%;
+    width: 70%; height: 160%;
+    background: radial-gradient(ellipse at center, rgba(74,222,128,0.05) 0%, transparent 70%);
+    animation: heroGlow2 10s ease-in-out infinite;
+  }
+  @keyframes heroGlow1 {
+    0%,100% { transform: translate(0,0) scale(1); opacity: 1; }
+    50%      { transform: translate(5%,8%) scale(1.1); opacity: 0.7; }
+  }
+  @keyframes heroGlow2 {
+    0%,100% { transform: translate(0,0) scale(1); opacity: 0.6; }
+    50%      { transform: translate(-5%,-5%) scale(1.15); opacity: 1; }
+  }
+
+  .sub-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* ── Listing header: simple title + subtitle ─────────────────── */
+  .sub-hero-simple {
+    position: relative;
+    z-index: 1;
+  }
+  .sub-hero-simple h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    color: var(--neutral-100);
+  }
+  .sub-hero-simple h1 .gradient-text {
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-500), var(--primary-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sub-hero-simple .sub-hero-sub {
+    font-size: 1.1rem;
+    color: var(--neutral-400);
+    max-width: 600px;
+  }
+
+  /* ── Detail header: two-column image + content ───────────────── */
+  .sub-hero-detail {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  /* Blog / Presentations: wider landscape image */
+  .sub-hero-detail--rect {
+    grid-template-columns: 420px 1fr;
+  }
+
+  /* Podcast: narrower square image */
+  .sub-hero-detail--square {
+    grid-template-columns: 250px 1fr;
+  }
+
+  /* Image placeholders */
+  .sub-hero-img {
+    position: relative;
+    overflow: hidden;
+    background: var(--neutral-800);
+    border: 1px solid var(--neutral-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neutral-600);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+  .sub-hero-img--rect {
+    width: 420px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+  .sub-hero-img--square {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+  }
+  /* Subtle diagonal stripe texture on placeholders */
+  .sub-hero-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,255,255,0.02) 8px,
+      rgba(255,255,255,0.02) 9px
+    );
+  }
+  .sub-hero-img-label {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* Content area inside detail header */
+  .sub-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sub-hero-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary-500);
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-hero-text h1 {
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--neutral-100);
+    margin-bottom: 0.25rem;
+  }
+
+  .sub-hero-text .sub-hero-sub {
+    font-size: 1rem;
+    color: var(--neutral-400);
+    line-height: 1.5;
+  }
+
+  .sub-hero-meta {
+    font-size: 0.875rem;
+    color: var(--neutral-600);
+    margin-top: 0.5rem;
+  }
+  .sub-hero-meta a { color: var(--primary-500); }
+  .sub-hero-meta a:hover { color: var(--neutral-100); }
+  .sub-hero-meta-sep { color: var(--neutral-700); margin: 0 0.6rem; }
+
+  /* ── Section labels between headers ──────────────────────────── */
+  .mockup-divider {
+    padding: 3rem 0 1rem;
+  }
+  .mockup-divider-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--primary-500);
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.25);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    display: inline-block;
+  }
+  .mockup-divider-desc {
+    font-size: 0.85rem;
+    color: var(--neutral-600);
+    margin-top: 0.5rem;
+  }
+
+  .body-placeholder {
+    padding: 2rem 0 1rem;
+    color: var(--neutral-600);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-nav">
+  <div class="container">
+    <div class="mockup-nav-title">v2.1.0 · Sub-Page Headers Mockup</div>
+    <div class="mockup-nav-links">
+      <a href="#blog-list">Blog List</a>
+      <a href="#blog-detail">Blog Detail</a>
+      <a href="#podcast-list">Podcast List</a>
+      <a href="#podcast-detail">Podcast Detail</a>
+      <a href="#pres-list">Pres. List</a>
+      <a href="#pres-detail">Pres. Detail</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     1. BLOG — LISTING PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="blog-list">
+  <div class="mockup-divider-label">1 · Blog — Listing Page</div>
+  <div class="mockup-divider-desc">No image. Title + subtitle only.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-simple">
+      <h1><span class="gradient-text">Blog</span></h1>
+      <p class="sub-hero-sub">Articles with insights on how to build apps with AI.</p>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ 3-column grid of blog cards ]</div></div>
+
+<!-- ================================================================
+     2. BLOG — DETAIL PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="blog-detail">
+  <div class="mockup-divider-label">2 · Blog — Detail Page</div>
+  <div class="mockup-divider-desc">Cover image (16:9, 420px) left · label + title + meta right.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-detail sub-hero-detail--rect">
+      <div class="sub-hero-img sub-hero-img--rect">
+        <div class="sub-hero-img-label">Cover Image<br>16:9 · 420px wide</div>
+      </div>
+      <div class="sub-hero-text">
+        <div class="sub-hero-label">Blog</div>
+        <h1>How AI Is Changing the Way I Build Software</h1>
+        <div class="sub-hero-meta">
+          April 5, 2026<span class="sub-hero-meta-sep">•</span>7 min read
+        </div>
+        <div class="sub-hero-meta">
+          Written with <a href="#">Cody Article Writer AI Skill</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ Article body · Author bio card ]</div></div>
+
+<!-- ================================================================
+     3. PODCAST — LISTING PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="podcast-list">
+  <div class="mockup-divider-label">3 · Podcast — Listing Page</div>
+  <div class="mockup-divider-desc">No image. Title + subtitle only.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-simple">
+      <h1><span class="gradient-text">Podcast</span></h1>
+      <p class="sub-hero-sub">Conversations with professionals on building with AI.</p>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ 3-column grid of podcast cards ]</div></div>
+
+<!-- ================================================================
+     4. PODCAST — DETAIL PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="podcast-detail">
+  <div class="mockup-divider-label">4 · Podcast — Detail Page</div>
+  <div class="mockup-divider-desc">Guest headshot (300×300, rounded) left · label + title + guest line + date right.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-detail sub-hero-detail--square">
+      <div class="sub-hero-img sub-hero-img--square">
+        <div class="sub-hero-img-label">Guest Photo<br>250×250 · rounded</div>
+      </div>
+      <div class="sub-hero-text">
+        <div class="sub-hero-label">Podcast</div>
+        <h1>An Overview of Context Engineering for Knowledge Workers</h1>
+        <p class="sub-hero-sub">A conversation with Jane Doe, VP of AI at Acme Corp.</p>
+        <div class="sub-hero-meta" style="margin-top:0.75rem;">April 8, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ Platform icons · Audio embed · Show notes ]</div></div>
+
+<!-- ================================================================
+     5. PRESENTATIONS — LISTING PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="pres-list">
+  <div class="mockup-divider-label">5 · Presentations — Listing Page</div>
+  <div class="mockup-divider-desc">No image. Title + subtitle only.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-simple">
+      <h1><span class="gradient-text">Presentations</span></h1>
+      <p class="sub-hero-sub">Live talks, workshops, and on-demand sessions on building with AI.</p>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ Upcoming · On-Demand · Completed — 3-column grids ]</div></div>
+
+<!-- ================================================================
+     6. PRESENTATIONS — DETAIL PAGE
+     ================================================================ -->
+<div class="container mockup-divider" id="pres-detail">
+  <div class="mockup-divider-label">6 · Presentations — Detail Page</div>
+  <div class="mockup-divider-desc">Cover image (16:9, 420px) left · label + title + presenter + date/location right. Same header for both on-demand and event layouts.</div>
+</div>
+<section class="sub-hero">
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-grid"></div>
+  <div class="container">
+    <div class="sub-hero-detail sub-hero-detail--rect">
+      <div class="sub-hero-img sub-hero-img--rect">
+        <div class="sub-hero-img-label">Cover Image<br>16:9 · 420px wide</div>
+      </div>
+      <div class="sub-hero-text">
+        <div class="sub-hero-label">Presentation</div>
+        <h1>Building Agent Skills — A Hands-On Workshop</h1>
+        <p class="sub-hero-sub">Presented by Marcelo Lewin</p>
+        <div class="sub-hero-meta" style="margin-top:0.75rem;">
+          April 30, 2026<span class="sub-hero-meta-sep">•</span>6:30 PM PT<span class="sub-hero-meta-sep">•</span>Online
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container"><div class="body-placeholder">[ On-demand: YouTube embed · Event: register button + details ]</div></div>
+
+<div style="height: 6rem;"></div>
+
+</body>
+</html>

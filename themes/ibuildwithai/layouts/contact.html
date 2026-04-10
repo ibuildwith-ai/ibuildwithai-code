@@ -1,83 +1,66 @@
 {{ define "main" }}
-    <!-- Main Content -->
-    <main>
-        <!-- Contact Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>Contact <span class="highlight">Us</span></h1>
-                <p class="tagline">Reach out and we'll get back to you within 24 hours.</p>
+<main>
+
+  {{ partial "sub-page-hero.html" (dict
+    "variant"  "listing"
+    "title"    "Contact"
+    "subtitle" "Reach out and we'll get back to you within 24 hours."
+  ) }}
+
+  <section class="section-v2">
+    <div class="container">
+      <div class="contact-form-wrapper">
+        <form id="contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" required>
+              <div class="error-message" id="firstName-error"></div>
             </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section class="section">
-            <div class="container">
-                <div class="contact-form-wrapper">
-                    <!-- Contact Form -->
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-row">
-                            <!-- First Name -->
-                            <div class="form-group">
-                                <label for="firstName">First Name <span class="required">*</span></label>
-                                <input type="text" id="firstName" name="firstName" required>
-                                <div class="error-message" id="firstName-error"></div>
-                            </div>
-                            
-                            <!-- Last Name -->
-                            <div class="form-group">
-                                <label for="lastName">Last Name <span class="required">*</span></label>
-                                <input type="text" id="lastName" name="lastName" required>
-                                <div class="error-message" id="lastName-error"></div>
-                            </div>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                            <div class="error-message" id="email-error"></div>
-                        </div>
-
-                        <!-- Reason for contacting us -->
-                        <div class="form-group">
-                            <label for="reason">Reason for contacting us</label>
-                            <select id="reason" name="reason">
-                                <option value="">Please select a reason</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="support">Support Request</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="error-message" id="reason-error"></div>
-                        </div>
-
-                        <!-- Message -->
-                        <div class="form-group">
-                            <label for="message">Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
-                            <div class="error-message" id="message-error"></div>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <div class="form-group">
-                            <div class="submit-container">
-                                <button type="submit" class="btn-primary">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Thank You Message (Hidden by default) -->
-                    <div id="thank-you-message" class="thank-you-message" style="display: none;">
-                        <h3>Thank you!</h3>
-                        <p>We'll get back to you within 24 hours.</p>
-                    </div>
-                </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" required>
+              <div class="error-message" id="lastName-error"></div>
             </div>
-        </section>
-    </main>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <div class="error-message" id="email-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="reason">Reason for contacting us</label>
+            <select id="reason" name="reason">
+              <option value="">Please select a reason</option>
+              <option value="general">General Inquiry</option>
+              <option value="support">Support Request</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="error-message" id="reason-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+            <div class="error-message" id="message-error"></div>
+          </div>
+          <div class="form-group">
+            <div class="submit-container">
+              <button type="submit" class="btn-v2-primary">Send Message</button>
+            </div>
+          </div>
+        </form>
+        <div id="thank-you-message" class="thank-you-message" style="display: none;">
+          <h3>Thank you!</h3>
+          <p>We'll get back to you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Form Script -->
-    {{ $contactFormJS := resources.Get "js/contact-form.js" | resources.Minify | resources.Fingerprint }}
-    {{ if $contactFormJS }}
-    <script src="{{ $contactFormJS.RelPermalink }}"></script>
-    {{ end }}
+</main>
+
+{{ $contactFormJS := resources.Get "js/contact-form.js" | resources.Minify | resources.Fingerprint }}
+{{ if $contactFormJS }}
+<script src="{{ $contactFormJS.RelPermalink }}"></script>
+{{ end }}
 {{ end }}
