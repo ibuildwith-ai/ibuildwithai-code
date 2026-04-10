@@ -171,7 +171,7 @@
 {{ end }}
 {{ else if eq .Section "apps" }}
 <meta property="og:type" content="website">
-{{ else if eq .Section "events" }}
+{{ else if eq .Section "presentations" }}
 {{ with .Date }}
 <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
 {{ end }}
@@ -179,7 +179,7 @@
 {{ with .Date }}
 <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
 {{ end }}
-{{ else if eq .Section "videos" }}
+{{ else if and (eq .Section "presentations") .Params.video_url }}
 {{ if and .IsPage (not .IsSection) }}
 <meta property="og:type" content="video.other">
 {{ with .Params.video_url }}
@@ -371,7 +371,7 @@
     "name": "{{ $siteName }}",
     "url": "{{ $canonicalBaseUrl }}"
   }
-  {{ else if and (eq .Section "events") (and .IsPage (not .IsSection)) }}
+  {{ else if and (eq .Section "presentations") (and .IsPage (not .IsSection)) (not .Params.video_url) }}
   "@type": "Event",
   "name": "{{ $title }}",
   "description": "{{ $description }}",
@@ -460,7 +460,7 @@
     "name": "Building with AI Podcast",
     "url": "{{ $canonicalBaseUrl }}/podcast/"
   }
-  {{ else if and (eq .Section "videos") (and .IsPage (not .IsSection)) }}
+  {{ else if and (eq .Section "presentations") (and .IsPage (not .IsSection)) .Params.video_url }}
   "@type": "VideoObject",
   "name": "{{ $title }}",
   "description": "{{ $description }}",
@@ -519,7 +519,7 @@
     }
     {{ end }}
   }
-  {{ else if and (eq .Section "videos") .IsSection }}
+  {{ else if and (eq .Section "presentations") .IsSection }}
   "@type": "CollectionPage",
   "name": "{{ $title }}",
   "description": "{{ $description }}",

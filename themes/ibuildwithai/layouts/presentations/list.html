@@ -1,0 +1,180 @@
+{{ define "main" }}
+    <main>
+        <!-- Presentations Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1><span class="highlight">Presentations</span></h1>
+                <p class="tagline">Live talks, workshops, and on-demand sessions on building with AI.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+
+                {{ $upcomingPresentations := where .Pages ".Params.status" "upcoming" }}
+                {{ $onDemandPresentations := where .Pages ".Params.status" "on-demand" }}
+                {{ $completedPresentations := where .Pages ".Params.status" "completed" }}
+
+                {{ if $upcomingPresentations }}
+                <h2>Upcoming</h2>
+                <div class="event-cards">
+                    {{ range sort $upcomingPresentations ".Params.date_time" "asc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $img := resources.Get $imgPath }}
+                                    {{ if $img }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $imgFp := $img | resources.Fingerprint }}
+                                        <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }} • {{ .Params.location }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
+                                </div>
+                                <span class="card-link">Learn more →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+
+                {{ if $onDemandPresentations }}
+                <h2>On-Demand</h2>
+                <div class="event-cards">
+                    {{ range sort $onDemandPresentations ".Params.date_time" "desc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $img := resources.Get $imgPath }}
+                                    {{ if $img }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $imgFp := $img | resources.Fingerprint }}
+                                        <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }}
+                                </div>
+                                <span class="card-link">Watch video →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+
+                {{ if $completedPresentations }}
+                <h2>Completed</h2>
+                <div class="event-cards">
+                    {{ range sort $completedPresentations ".Params.date_time" "desc" }}
+                        <a href="{{ .Permalink }}" class="app-card-link">
+                            <article class="app-card">
+                                {{ if .Params.image }}
+                                    {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                                    {{ $img := resources.Get $imgPath }}
+                                    {{ if $img }}
+                                    <div class="event-card-thumbnail">
+                                        {{ $imgFp := $img | resources.Fingerprint }}
+                                        <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                    </div>
+                                    {{ end }}
+                                {{ end }}
+                                <h3>{{ .Title }}</h3>
+                                {{ if .Params.presenter }}
+                                    {{ $presenterKeys := split .Params.presenter "," }}
+                                    {{ $presenterNames := slice }}
+                                    {{ range $presenterKeys }}
+                                        {{ $key := trim . " " }}
+                                        {{ $presenterData := index $.Site.Data.people $key }}
+                                        {{ if $presenterData }}
+                                            {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                        {{ end }}
+                                    {{ end }}
+                                    {{ if $presenterNames }}
+                                        <div class="post-author">Presented by
+                                        {{ if eq (len $presenterNames) 1 }}
+                                            {{ index $presenterNames 0 }}
+                                        {{ else if eq (len $presenterNames) 2 }}
+                                            {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                        {{ else }}
+                                            {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                            {{ range $i, $name := $presenterNames }}
+                                                {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                            {{ end }}
+                                        {{ end }}</div>
+                                    {{ end }}
+                                {{ end }}
+                                <div class="app-meta">
+                                    {{ dateFormat "January 2, 2006" .Params.date_time }}{{ if .Params.location }} • {{ .Params.location }}{{ end }}{{ if .Params.meeting_type }} • {{ .Params.meeting_type | title }}{{ end }}
+                                </div>
+                                <span class="card-link">View details →</span>
+                            </article>
+                        </a>
+                    {{ end }}
+                </div>
+                {{ end }}
+
+                {{ if and (eq (len $upcomingPresentations) 0) (eq (len $onDemandPresentations) 0) (eq (len $completedPresentations) 0) }}
+                    <div class="app-card">
+                        <h3>No presentations yet</h3>
+                        <p>Check back soon for upcoming presentations!</p>
+                    </div>
+                {{ end }}
+            </div>
+        </section>
+    </main>
+{{ end }}

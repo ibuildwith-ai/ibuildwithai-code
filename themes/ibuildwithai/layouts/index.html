@@ -41,7 +41,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">Blocks Builder AI</h3>
-                            <p class="product-desc">Build AI-powered applications visually with drag-and-drop blocks. Create, customize, and deploy intelligent workflows without writing code.</p>
+                            <p class="product-desc">Learn the foundations of building AI apps through an intuitive block-based interface. Designed for people who want to build with AI without becoming developers.</p>
                             <span class="product-cta-btn">Launch App &#8599;</span>
                         </div>
                     </a>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">Cody Product Builder</h3>
-                            <p class="product-desc">Turn ideas into clear, buildable plans using AI. Works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+                            <p class="product-desc">Cody Product Builder helps domain experts turn ideas into clear, buildable plans using AI. It works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
                             <span class="product-cta">View on GitHub &#8599;</span>
                         </div>
                     </a>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">Cody Article Writer</h3>
-                            <p class="product-desc">Create research-backed articles with customizable style guides and citations. Guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
+                            <p class="product-desc">Cody Article Writer helps you create research-backed articles with customizable style guides and citations. It guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
                             <span class="product-cta">View on GitHub &#8599;</span>
                         </div>
                     </a>
@@ -105,8 +105,45 @@
             </div>
         </section>
 
-        <!-- Latest Presentations (placeholder — will be populated after Phase 3) -->
-        <section class="section-v2 section-v2-alt" id="presentations">
+        <!-- Latest Podcasts -->
+        <section class="section-v2 section-v2-alt" id="podcast">
+            <div class="container">
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Podcast</div>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Episodes</span></h2>
+                    <p class="section-v2-subtitle">Conversations with professionals on building with AI.</p>
+                </div>
+
+                <div class="hp-blog-grid">
+                    {{ $podcastPages := where .Site.RegularPages "Section" "podcast" }}
+                    {{ $latestPodcast := first 3 (sort $podcastPages "Date" "desc") }}
+                    {{ range $latestPodcast }}
+                    <a href="{{ .Permalink }}" class="hp-podcast-card">
+                        {{ if .Params.image }}
+                            {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                            {{ $img := resources.Get $imgPath }}
+                            {{ if $img }}
+                            <div class="hp-podcast-image">
+                                {{ $imgFp := $img | resources.Fingerprint }}
+                                <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
+                            {{ end }}
+                        {{ end }}
+                        <div class="hp-podcast-body">
+                            <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
+                            <h3 class="hp-blog-title">{{ .Title }}</h3>
+                            <span class="hp-blog-link">Listen &rarr;</span>
+                        </div>
+                    </a>
+                    {{ end }}
+                </div>
+
+                <a href="{{ .Site.Params.podcast }}" class="view-all-link">View All Episodes &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Latest Presentations -->
+        <section class="section-v2" id="presentations">
             <div class="container">
                 <div class="section-v2-header">
                     <div class="section-v2-label">Presentations</div>
@@ -114,8 +151,28 @@
                     <p class="section-v2-subtitle">Talks and workshops on building with AI</p>
                 </div>
 
-                <!-- TODO: Replace with dynamic presentation content after Phase 3 content merge -->
-                <p style="color: #666; font-style: italic;">Presentations section will be populated after content migration (Phase 3).</p>
+                <div class="hp-pres-grid">
+                    {{ $allPresentations := where .Site.RegularPages "Section" "presentations" }}
+                    {{ $latestPres := first 3 (sort $allPresentations "Params.date_time" "desc") }}
+                    {{ range $latestPres }}
+                    <a href="{{ .Permalink }}" class="hp-pres-card">
+                        {{ $status := .Params.status | default "completed" }}
+                        <span class="hp-pres-badge hp-pres-badge-{{ $status }}">{{ if eq $status "on-demand" }}On-Demand{{ else }}{{ $status | title }}{{ end }}</span>
+                        <h3 class="hp-pres-title">{{ .Title }}</h3>
+                        <div class="hp-pres-meta">
+                            {{ dateFormat "Jan 2, 2006" .Params.date_time }}
+                            {{ if .Params.presenter }}
+                                {{ $key := trim (index (split .Params.presenter ",") 0) " " }}
+                                {{ $presenterData := index .Site.Data.people $key }}
+                                {{ if $presenterData }} &middot; {{ $presenterData.fullName }}{{ end }}
+                            {{ end }}
+                        </div>
+                        {{ if eq $status "upcoming" }}<span class="hp-pres-action">Register &rarr;</span>
+                        {{ else if eq $status "on-demand" }}<span class="hp-pres-action">Watch &rarr;</span>
+                        {{ end }}
+                    </a>
+                    {{ end }}
+                </div>
 
                 <a href="{{ .Site.Params.presentations }}" class="view-all-link">View All Presentations &rarr;</a>
             </div>

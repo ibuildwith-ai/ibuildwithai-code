@@ -422,6 +422,133 @@
   transition: $transition-base;
 }
 
+// Podcast Cards (Home Page)
+// -----------------------------------------------------------------------------
+.hp-podcast-card {
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba($primary-500, 0.3);
+    box-shadow: 0 0 40px rgba($primary-500, 0.06);
+    transform: translateY(-3px);
+
+    .hp-blog-link {
+      color: $neutral-100;
+      gap: 10px;
+    }
+  }
+}
+
+.hp-podcast-image {
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.hp-podcast-body {
+  padding: $spacing-md $spacing-lg $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+// Presentations Cards (Home Page)
+// -----------------------------------------------------------------------------
+.hp-pres-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+}
+
+.hp-pres-card {
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba($primary-500, 0.3);
+    box-shadow: 0 0 40px rgba($primary-500, 0.06);
+    transform: translateY(-3px);
+
+    .hp-pres-action {
+      color: $neutral-100;
+      gap: 10px;
+    }
+  }
+}
+
+.hp-pres-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: $spacing-sm;
+  width: fit-content;
+}
+
+.hp-pres-badge-upcoming {
+  background: linear-gradient(135deg, rgba($primary-500, 0.2), rgba($primary-400, 0.1));
+  color: $primary-400;
+  border: 1px solid rgba($primary-500, 0.3);
+}
+
+.hp-pres-badge-on-demand {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.hp-pres-badge-completed {
+  background: rgba(255, 255, 255, 0.05);
+  color: $neutral-600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hp-pres-title {
+  font-size: 1.2rem;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-xs;
+}
+
+.hp-pres-meta {
+  font-size: 0.85rem;
+  color: $neutral-600;
+  margin-bottom: $spacing-md;
+}
+
+.hp-pres-action {
+  margin-top: auto;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $primary-500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: $transition-base;
+}
+
 // View All link
 // -----------------------------------------------------------------------------
 .view-all-link {
@@ -465,7 +592,8 @@
     grid-column: auto;
   }
 
-  .hp-blog-grid {
+  .hp-blog-grid,
+  .hp-pres-grid {
     grid-template-columns: 1fr;
   }
 

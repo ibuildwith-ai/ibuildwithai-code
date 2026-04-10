@@ -1,0 +1,185 @@
+{{ define "main" }}
+    <main>
+        <article class="blog-single">
+            <div class="container">
+                {{ if eq .Params.status "on-demand" }}
+                    <!-- On-Demand: Video-style layout -->
+                    <span class="content-type-header">Presentation</span>
+                    <h1>{{ .Title }}</h1>
+                    <div class="post-meta">
+                        {{ dateFormat "January 2, 2006" .Params.date_time }}
+                        <br>
+                        {{ if .Params.presenter }}
+                        {{ $presenterKeys := split .Params.presenter "," }}
+                        {{ $presenterNames := slice }}
+                        {{ range $presenterKeys }}
+                            {{ $key := trim . " " }}
+                            {{ $presenterData := index $.Site.Data.people $key }}
+                            {{ if $presenterData }}
+                                {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                            {{ end }}
+                        {{ end }}
+                        {{ if $presenterNames }}
+                            Presented by
+                            {{ if eq (len $presenterNames) 1 }}
+                                {{ index $presenterNames 0 }}
+                            {{ else if eq (len $presenterNames) 2 }}
+                                {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                            {{ else }}
+                                {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                {{ range $i, $name := $presenterNames }}
+                                    {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                {{ end }}
+                            {{ end }}
+                        {{ end }}
+                        {{ end }}
+                    </div>
+
+                    <!-- YouTube Video Embed -->
+                    {{ if and .Params.video_url (ne .Params.video_url "") }}
+                        {{ $videoID := "" }}
+                        {{ if (findRE "youtu\\.be/" .Params.video_url) }}
+                            {{ $videoID = index (last 1 (split .Params.video_url "/")) 0 }}
+                        {{ else if (findRE "watch\\?v=" .Params.video_url) }}
+                            {{ $videoID = index (split (index (last 1 (split .Params.video_url "v=")) 0) "&") 0 }}
+                        {{ else if (findRE "embed/" .Params.video_url) }}
+                            {{ $videoID = index (last 1 (split .Params.video_url "/")) 0 }}
+                        {{ end }}
+                        {{ if $videoID }}
+                        <div class="blog-single-image">
+                            <div class="video-embed-responsive">
+                                <iframe
+                                    src="https://www.youtube.com/embed/{{ $videoID }}"
+                                    frameborder="0"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ end }}
+
+                {{ else }}
+                    <!-- Upcoming/Completed: Event-style layout with header image -->
+                    <div class="blog-header-wrapper">
+                        {{ if .Params.image }}
+                            {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+                            {{ $eventImg := resources.Get $imagePath }}
+                            {{ if $eventImg }}
+                                {{ $eventImgFingerprint := $eventImg | resources.Fingerprint }}
+                                <div class="blog-header-image">
+                                    <img src="{{ $eventImgFingerprint.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                                </div>
+                            {{ end }}
+                        {{ end }}
+
+                        <div class="blog-header-content">
+                            <span class="content-type-header">Presentation</span>
+                            <h1>{{ .Title }}</h1>
+                            <div class="post-meta">
+                                {{ dateFormat "January 2, 2006" .Params.date_time }} at {{ dateFormat "3:04 PM" .Params.date_time }} {{ .Params.timezone }}
+                                <br>
+                                {{ if .Params.presenter }}
+                                {{ $presenterKeys := split .Params.presenter "," }}
+                                {{ $presenterNames := slice }}
+                                {{ range $presenterKeys }}
+                                    {{ $key := trim . " " }}
+                                    {{ $presenterData := index $.Site.Data.people $key }}
+                                    {{ if $presenterData }}
+                                        {{ $presenterNames = $presenterNames | append $presenterData.fullName }}
+                                    {{ end }}
+                                {{ end }}
+                                {{ if $presenterNames }}
+                                    Presented by
+                                    {{ if eq (len $presenterNames) 1 }}
+                                        {{ index $presenterNames 0 }}
+                                    {{ else if eq (len $presenterNames) 2 }}
+                                        {{ index $presenterNames 0 }} and {{ index $presenterNames 1 }}
+                                    {{ else }}
+                                        {{ $lastIndex := sub (len $presenterNames) 1 }}
+                                        {{ range $i, $name := $presenterNames }}
+                                            {{ if eq $i $lastIndex }}, and {{ $name }}{{ else if eq $i 0 }}{{ $name }}{{ else }}, {{ $name }}{{ end }}
+                                        {{ end }}
+                                    {{ end }}
+                                {{ end }}
+                                {{ end }}{{ if .Params.location }} at {{ .Params.location }}{{ end }}
+                                <br>
+                                {{ if .Params.meeting_type }}This {{ if eq .Params.status "completed" }}was{{ else }}is{{ end }} an {{ .Params.meeting_type }} event.{{ end }}
+                                {{ if eq .Params.status "completed" }}<span class="text-error">It's now completed.</span>{{ end }}
+                            </div>
+                        </div>
+
+                        <div class="blog-header-divider"></div>
+                    </div>
+                {{ end }}
+
+                <div class="content">
+                    {{ if ne .Params.status "on-demand" }}<h3 class="project-links-title">About the Presentation</h3>{{ end }}
+                    {{ .Content }}
+                </div>
+
+                <!-- About the Presenter(s) Section -->
+                {{ if .Params.presenter }}
+                {{ $presenterKeys := split .Params.presenter "," }}
+                {{ $presentersData := slice }}
+                {{ range $presenterKeys }}
+                    {{ $key := trim . " " }}
+                    {{ $presenterData := index $.Site.Data.people $key }}
+                    {{ if $presenterData }}
+                        {{ $presentersData = $presentersData | append $presenterData }}
+                    {{ end }}
+                {{ end }}
+                {{ if $presentersData }}
+                <div class="content">
+                    <h3 class="project-links-title">About the {{ if eq (len $presentersData) 1 }}Presenter{{ else }}Presenters{{ end }}</h3>
+                </div>
+                {{ range $presentersData }}
+                <div class="guest-photo-section">
+                    <div class="guest-content">
+                        <div class="guest-photo">
+                            {{ $presenterImgPath := strings.TrimPrefix "/" .image }}
+                            {{ $presenterImg := resources.Get $presenterImgPath }}
+                            {{ if $presenterImg }}
+                                {{ $presenterImgFingerprint := $presenterImg | resources.Fingerprint }}
+                                <img src="{{ $presenterImgFingerprint.RelPermalink }}" alt="{{ .fullName }}" loading="lazy">
+                            {{ end }}
+                        </div>
+                        <div class="guest-info">
+                            <h3>{{ partial "person-title-company.html" . }}</h3>
+                            <p>{{ .bio }}</p>
+                            {{ if and .learnMoreLink (ne .learnMoreLink "") }}
+                            <div class="guest-link-wrapper">
+                                <a href="{{ .learnMoreLink }}" class="section-link" target="_blank" rel="noopener noreferrer">Learn More →</a>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+                {{ end }}
+                {{ end }}
+
+                {{ if or .Params.learn_more_url .Params.register_url }}
+                <div class="project-links-section">
+                    <h3 class="project-links-title">Links</h3>
+                    <div class="project-links">
+                        {{ if .Params.register_url }}
+                        <a href="{{ .Params.register_url }}" target="_blank" class="btn-primary">
+                            Register to Attend
+                        </a>
+                        {{ end }}
+                        {{ if .Params.learn_more_url }}
+                        <a href="{{ .Params.learn_more_url }}" target="_blank" class="btn-secondary">
+                            Learn More
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
+                <div class="back-link-section">
+                    <a href="{{ "presentations/" | relURL }}" class="back-link">← Back to Presentations</a>
+                </div>
+            </div>
+        </article>
+    </main>
+{{ end }}

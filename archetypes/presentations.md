@@ -1,7 +1,7 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
 summary = ""
-image = "/images/events/default.png"
+image = "/images/presentations/default.png"
 date_time = "{{ .Date }}"
 location = "online | actual location"
 timezone = "PST"
@@ -11,6 +11,7 @@ learn_more_url = ""
 on_demand_url = ""
 register_url = ""
 meeting_type = "in-person | online"
+video_url = ""
 draft = true
 +++
 

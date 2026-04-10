@@ -2,10 +2,11 @@
 
 # Usage: ./create-content.sh <content-type> <title>
 # Example: ./create-content.sh blog "How Good at Coding Do You Need to Be to Vibe Code?"
+# Example: ./create-content.sh presentation "Building AI Agents Workshop"
 
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <content-type> \"<title>\""
-    echo "Content types: blog, app, podcast, video, event"
+    echo "Content types: blog, app, podcast, presentation"
     echo "Example: $0 blog \"How Good at Coding Do You Need to Be to Vibe Code?\""
     exit 1
 fi
@@ -14,7 +15,7 @@ CONTENT_TYPE=$1
 TITLE=$2
 
 # Valid content types (singular)
-VALID_TYPES=("blog" "app" "podcast" "video" "event")
+VALID_TYPES=("blog" "app" "podcast" "presentation")
 
 # Check if content type is valid
 if [[ ! " ${VALID_TYPES[@]} " =~ " ${CONTENT_TYPE} " ]]; then
@@ -28,11 +29,8 @@ case "$CONTENT_TYPE" in
     "app")
         CONTENT_TYPE_PLURAL="apps"
         ;;
-    "video")
-        CONTENT_TYPE_PLURAL="videos"
-        ;;
-    "event")
-        CONTENT_TYPE_PLURAL="events"
+    "presentation")
+        CONTENT_TYPE_PLURAL="presentations"
         ;;
     *)
         CONTENT_TYPE_PLURAL="$CONTENT_TYPE"
@@ -93,13 +91,7 @@ else
 
     # Replace the title template with the actual title
     case "$CONTENT_TYPE" in
-        "blog")
-            sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-            ;;
-        "video")
-            sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
-            ;;
-        "event")
+        "blog"|"presentation")
             sed -i.bak "s/title = \"{{ replace .Name \"-\" \" \" | title }}\"/title = \"$TITLE\"/" "$TEMP_ARCHETYPE"
             ;;
         "podcast")
