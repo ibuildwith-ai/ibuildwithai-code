@@ -169,8 +169,6 @@
 {{ range .Params.tags }}
 <meta property="article:tag" content="{{ . }}">
 {{ end }}
-{{ else if eq .Section "apps" }}
-<meta property="og:type" content="website">
 {{ else if eq .Section "presentations" }}
 {{ with .Date }}
 <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
@@ -345,31 +343,6 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ .Permalink }}"
-  }
-  {{ else if eq .Section "apps" }}
-  "@type": "SoftwareApplication",
-  "name": "{{ $title }}",
-  "description": "{{ $description }}",
-  "url": "{{ .Permalink }}",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Web",
-  {{ if $finalSocialImage }}
-  "screenshot": {
-    "@type": "ImageObject",
-    "url": "{{ $finalSocialImage | absURL }}",
-    "width": {{ $ogImageWidth }},
-    "height": {{ $ogImageHeight }}
-  },
-  {{ end }}
-  "author": {
-    "@type": "Person",
-    "name": "{{ $author }}",
-    "url": "{{ $canonicalBaseUrl }}/about-marcelo/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ $siteName }}",
-    "url": "{{ $canonicalBaseUrl }}"
   }
   {{ else if and (eq .Section "presentations") (and .IsPage (not .IsSection)) (not .Params.video_url) }}
   "@type": "Event",

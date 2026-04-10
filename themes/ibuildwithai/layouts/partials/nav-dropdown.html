@@ -25,16 +25,20 @@
   
   <ul class="nav-dropdown-menu" role="menu">
     {{ range .items }}
-      <li class="nav-dropdown-item" role="none">
-        <a href="{{ .url }}" 
-           role="menuitem"
-           {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }}>
-          {{ .name }}
-          {{ if .external }}
-            <span class="external-link-icon" aria-hidden="true">↗</span>
-          {{ end }}
-        </a>
-      </li>
+      {{ if .divider }}
+        <li class="nav-dropdown-divider" role="separator" aria-hidden="true"></li>
+      {{ else }}
+        <li class="nav-dropdown-item" role="none">
+          <a href="{{ .url }}"
+             role="menuitem"
+             {{ if .external }}target="_blank" rel="noopener noreferrer"{{ end }}>
+            {{ .name }}
+            {{ if .external }}
+              <span class="external-link-icon" aria-hidden="true">↗</span>
+            {{ end }}
+          </a>
+        </li>
+      {{ end }}
     {{ end }}
   </ul>
 </div>

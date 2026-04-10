@@ -15,7 +15,7 @@
                     <p class="hero-v2-sub">{{ .Site.Params.description }}</p>
                     <div class="hero-v2-actions">
                         <a href="#products" class="btn-v2-primary">Explore Products &rarr;</a>
-                        <a href="#blog" class="btn-v2-secondary">Read the Blog &rarr;</a>
+                        <a href="#blog" class="btn-v2-secondary">Explore Resources &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                 </div>
 
                 <div class="products-grid">
-                    <!-- Featured product: Blocks Builder AI -->
-                    <a href="{{ .Site.Params.blocks_builder_ai }}" target="_blank" rel="noopener" class="product-card featured">
+                    <!-- Product 1: Blocks Builder AI -->
+                    <a href="{{ .Site.Params.blocks_builder_ai }}" target="_blank" rel="noopener" class="product-card">
                         <div class="product-image">
                             {{ $bbImg := resources.Get "images/products/blocks-builder-ai.svg" }}
                             {{ if $bbImg }}
@@ -57,7 +57,7 @@
                         <div class="product-body">
                             <h3 class="product-name">Cody Product Builder</h3>
                             <p class="product-desc">Cody Product Builder helps domain experts turn ideas into clear, buildable plans using AI. It works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
-                            <span class="product-cta">View on GitHub &#8599;</span>
+                            <span class="product-cta">Get it on GitHub &#8599;</span>
                         </div>
                     </a>
 
@@ -72,7 +72,7 @@
                         <div class="product-body">
                             <h3 class="product-name">Cody Article Writer</h3>
                             <p class="product-desc">Cody Article Writer helps you create research-backed articles with customizable style guides and citations. It guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
-                            <span class="product-cta">View on GitHub &#8599;</span>
+                            <span class="product-cta">Get it on GitHub &#8599;</span>
                         </div>
                     </a>
                 </div>
@@ -93,10 +93,22 @@
                     {{ $latestBlog := first 3 (sort $blogPages "Date" "desc") }}
                     {{ range $latestBlog }}
                     <a href="{{ .Permalink }}" class="hp-blog-card">
-                        <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
-                        <h3 class="hp-blog-title">{{ .Title }}</h3>
-                        <p class="hp-blog-excerpt">{{ .Summary | truncate 150 }}</p>
-                        <span class="hp-blog-link">Read &rarr;</span>
+                        {{ if .Params.image }}
+                            {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                            {{ $img := resources.Get $imgPath }}
+                            {{ if $img }}
+                            <div class="hp-card-image">
+                                {{ $imgFp := $img | resources.Fingerprint }}
+                                <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
+                            {{ end }}
+                        {{ end }}
+                        <div class="hp-blog-body">
+                            <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
+                            <h3 class="hp-blog-title">{{ .Title }}</h3>
+                            <p class="hp-blog-excerpt">{{ .Summary | truncate 150 }}</p>
+                            <span class="hp-blog-link">Read &rarr;</span>
+                        </div>
                     </a>
                     {{ end }}
                 </div>
@@ -147,8 +159,8 @@
             <div class="container">
                 <div class="section-v2-header">
                     <div class="section-v2-label">Presentations</div>
-                    <h2 class="section-v2-title"><span class="gradient-text">Live</span> &amp; On-Demand</h2>
-                    <p class="section-v2-subtitle">Talks and workshops on building with AI</p>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Sessions</span></h2>
+                    <p class="section-v2-subtitle">In-person, online and on-demand presentations on building with AI.</p>
                 </div>
 
                 <div class="hp-pres-grid">
@@ -156,20 +168,32 @@
                     {{ $latestPres := first 3 (sort $allPresentations "Params.date_time" "desc") }}
                     {{ range $latestPres }}
                     <a href="{{ .Permalink }}" class="hp-pres-card">
-                        {{ $status := .Params.status | default "completed" }}
-                        <span class="hp-pres-badge hp-pres-badge-{{ $status }}">{{ if eq $status "on-demand" }}On-Demand{{ else }}{{ $status | title }}{{ end }}</span>
-                        <h3 class="hp-pres-title">{{ .Title }}</h3>
-                        <div class="hp-pres-meta">
-                            {{ dateFormat "Jan 2, 2006" .Params.date_time }}
-                            {{ if .Params.presenter }}
-                                {{ $key := trim (index (split .Params.presenter ",") 0) " " }}
-                                {{ $presenterData := index .Site.Data.people $key }}
-                                {{ if $presenterData }} &middot; {{ $presenterData.fullName }}{{ end }}
+                        {{ if .Params.image }}
+                            {{ $imgPath := strings.TrimPrefix "/" .Params.image }}
+                            {{ $img := resources.Get $imgPath }}
+                            {{ if $img }}
+                            <div class="hp-card-image">
+                                {{ $imgFp := $img | resources.Fingerprint }}
+                                <img src="{{ $imgFp.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+                            </div>
+                            {{ end }}
+                        {{ end }}
+                        <div class="hp-pres-body">
+                            {{ $status := .Params.status | default "completed" }}
+                            <span class="hp-pres-badge hp-pres-badge-{{ $status }}">{{ if eq $status "on-demand" }}On-Demand{{ else }}{{ $status | title }}{{ end }}</span>
+                            <h3 class="hp-pres-title">{{ .Title }}</h3>
+                            <div class="hp-pres-meta">
+                                {{ dateFormat "Jan 2, 2006" .Params.date_time }}
+                                {{ if .Params.presenter }}
+                                    {{ $key := trim (index (split .Params.presenter ",") 0) " " }}
+                                    {{ $presenterData := index .Site.Data.people $key }}
+                                    {{ if $presenterData }} &middot; {{ $presenterData.fullName }}{{ end }}
+                                {{ end }}
+                            </div>
+                            {{ if eq $status "upcoming" }}<span class="hp-pres-action">Register &rarr;</span>
+                            {{ else if eq $status "on-demand" }}<span class="hp-pres-action">Watch &rarr;</span>
                             {{ end }}
                         </div>
-                        {{ if eq $status "upcoming" }}<span class="hp-pres-action">Register &rarr;</span>
-                        {{ else if eq $status "on-demand" }}<span class="hp-pres-action">Watch &rarr;</span>
-                        {{ end }}
                     </a>
                     {{ end }}
                 </div>

@@ -260,6 +260,19 @@
   }
 }
 
+.nav-dropdown-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba($primary-400, 0.3) 20%,
+    rgba($primary-400, 0.3) 80%,
+    transparent 100%
+  );
+  margin: $spacing-xs $spacing-sm;
+  list-style: none;
+}
+
 .nav-dropdown-item {
   margin: 0;
 
@@ -2267,6 +2280,18 @@ h2 + .podcast-embed-section {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    .footer-links-divider {
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba($primary-400, 0.3) 20%,
+        rgba($primary-400, 0.3) 80%,
+        transparent 100%
+      );
+      margin: $spacing-sm 0;
     }
 
     a {

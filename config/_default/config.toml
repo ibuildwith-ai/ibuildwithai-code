@@ -28,7 +28,6 @@ enableRobotsTXT = true
 
   # Page Slugs
   about_marcelo = "/about-marcelo/"
-  apps = "/apps/"
   contact = "/contact/"
   newsletter = "/newsletter/"
   podcast = "/podcast/"
