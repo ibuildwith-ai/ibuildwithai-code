@@ -6,9 +6,6 @@
         <img src="{{ $logo.RelPermalink }}" alt="iBuildWith.ai" class="logo-image">
         {{ end }}
     </a>
-    {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
-    <span class="env-badge">{{ hugo.Environment }}</span>
-    {{ end }}
 </div>
 
 <!-- Mobile Menu Toggle Button -->
@@ -22,33 +19,20 @@
 <nav class="nav">
 
     {{ partial "nav-dropdown" (dict
-    "title" "Learn"
+    "title" "Products"
     "items" (slice
-    (dict "name" "Blog" "url" .Site.Params.blog "external" false)
-    (dict "name" "Videos" "url" .Site.Params.videos "external" false)
-    (dict "name" "Events" "url" .Site.Params.events "external" false)
-    )
-    ) }}
-
-    {{ partial "nav-dropdown" (dict
-    "title" "Explore"
-    "items" (slice
-    (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
-    )
-    ) }}
-
-    {{ partial "nav-dropdown" (dict
-    "title" "Build"
-    "items" (slice
+    (dict "name" "Blocks Builder AI" "url" .Site.Params.blocks_builder_ai "external" true)
     (dict "name" "Cody Product Builder" "url" .Site.Params.cody_product_builder "external" true)
     (dict "name" "Cody Article Writer" "url" .Site.Params.cody_article_writer "external" true)
     )
     ) }}
 
     {{ partial "nav-dropdown" (dict
-    "title" "Community"
+    "title" "Resources"
     "items" (slice
-    (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
+    (dict "name" "Blog" "url" .Site.Params.blog "external" false)
+    (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+    (dict "name" "Explore Apps" "url" .Site.Params.apps "external" false)
     )
     ) }}
 
@@ -58,72 +42,9 @@
     (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
     (dict "name" "Newsletter" "url" .Site.Params.newsletter "external" false)
     (dict "name" "Contact" "url" .Site.Params.contact "external" false)
+    (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
     )
     "align" "right"
     ) }}
 
 </nav>
-
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu-overlay">
-    <div class="mobile-menu-content">
-        <!-- Header with logo -->
-        <div class="mobile-menu-header">
-            <div class="mobile-menu-logo">
-                <a href="/">
-                    {{ if $logo }}
-                    <img src="{{ $logo.RelPermalink }}" alt="iBuildWith.ai" class="logo-image">
-                    {{ end }}
-                </a>
-                {{ if or (eq hugo.Environment "next") (eq hugo.Environment "local") }}
-                <span class="env-badge">{{ hugo.Environment }}</span>
-                {{ end }}
-            </div>
-        </div>
-
-        <!-- Navigation items (same structure as desktop) -->
-        <nav class="mobile-nav">
-
-            {{ partial "nav-dropdown" (dict
-            "title" "Learn"
-            "items" (slice
-            (dict "name" "Blog" "url" .Site.Params.blog "external" false)
-            (dict "name" "Videos" "url" .Site.Params.videos "external" false)
-            (dict "name" "Events" "url" .Site.Params.events "external" false)
-            )
-            ) }}
-
-            {{ partial "nav-dropdown" (dict
-            "title" "Explore"
-            "items" (slice
-            (dict "name" "App Gallery" "url" .Site.Params.apps "external" false)
-            )
-            ) }}
-
-            {{ partial "nav-dropdown" (dict
-            "title" "Build"
-            "items" (slice
-            (dict "name" "Cody Product Builder" "url" .Site.Params.cody_product_builder "external" true)
-            (dict "name" "Cody Article Writer" "url" .Site.Params.cody_article_writer "external" true)
-            )
-            ) }}
-
-            {{ partial "nav-dropdown" (dict
-            "title" "Community"
-            "items" (slice
-            (dict "name" "Meetup" "url" .Site.Params.meetup "external" true)
-            )
-            ) }}
-
-            {{ partial "nav-dropdown" (dict
-            "title" "About"
-            "items" (slice
-            (dict "name" "Marcelo Lewin" "url" .Site.Params.about_marcelo "external" false)
-            (dict "name" "Newsletter" "url" .Site.Params.newsletter "external" false)
-            (dict "name" "Contact" "url" .Site.Params.contact "external" false)
-            )
-            ) }}
-
-        </nav>
-    </div>
-</div>

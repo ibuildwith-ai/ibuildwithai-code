@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 // Root - CSS Custom Properties for Dynamic Theming
 // -----------------------------------------------------------------------------
 :root {
@@ -52,6 +57,7 @@ body {
   background-color: $neutral-900;
   color: $neutral-100;
   line-height: $line-height-base;
+  overflow-x: hidden;
 }
 
 // Scrollbar

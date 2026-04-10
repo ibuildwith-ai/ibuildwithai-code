@@ -11,7 +11,7 @@
   
   // Reduced padding on mobile for better content utilization
   @include tablet-down {
-    padding: 0 1rem; // 16px on mobile vs 32px on desktop
+    padding: 0 $spacing-md; // 24px on mobile vs 32px on desktop
   }
 }
 

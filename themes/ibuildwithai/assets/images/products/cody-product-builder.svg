@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#161616"/>
+      <stop offset="100%" style="stop-color:#0e0e0e"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+    <linearGradient id="greenFade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.02"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="280" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.06">
+    <line x1="0" y1="40" x2="600" y2="40" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="0" y1="80" x2="600" y2="80" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="0" y1="120" x2="600" y2="120" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="0" y1="160" x2="600" y2="160" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="0" y1="200" x2="600" y2="200" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="0" y1="240" x2="600" y2="240" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="100" y1="0" x2="100" y2="280" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="280" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="280" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="280" stroke="#22c55e" stroke-width="0.5"/>
+    <line x1="500" y1="0" x2="500" y2="280" stroke="#22c55e" stroke-width="0.5"/>
+  </g>
+
+  <!-- Green glow background -->
+  <ellipse cx="300" cy="140" rx="200" ry="120" fill="url(#greenFade)"/>
+
+  <!-- Plan document outline -->
+  <rect x="170" y="45" width="260" height="190" rx="8" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1.5"/>
+
+  <!-- Document header bar -->
+  <rect x="170" y="45" width="260" height="36" rx="8" fill="#1e1e1e"/>
+  <rect x="170" y="73" width="260" height="8" fill="#1e1e1e" rx="0"/>
+
+  <!-- Header dots -->
+  <circle cx="188" cy="63" r="4" fill="#ef4444" opacity="0.7"/>
+  <circle cx="202" cy="63" r="4" fill="#eab308" opacity="0.7"/>
+  <circle cx="216" cy="63" r="4" fill="#22c55e" opacity="0.7"/>
+
+  <!-- Document title line -->
+  <rect x="190" y="95" width="120" height="8" rx="4" fill="#22c55e" opacity="0.6"/>
+
+  <!-- Plan structure lines -->
+  <rect x="190" y="118" width="220" height="5" rx="2.5" fill="#2a2a2a"/>
+  <rect x="190" y="132" width="180" height="5" rx="2.5" fill="#2a2a2a"/>
+  <rect x="190" y="146" width="200" height="5" rx="2.5" fill="#2a2a2a"/>
+
+  <!-- Checklist items -->
+  <rect x="190" y="168" width="12" height="12" rx="2" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <polyline points="193,174 196,177 201,172" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <rect x="210" y="170" width="140" height="5" rx="2.5" fill="#2a2a2a"/>
+
+  <rect x="190" y="188" width="12" height="12" rx="2" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <polyline points="193,194 196,197 201,192" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <rect x="210" y="190" width="160" height="5" rx="2.5" fill="#2a2a2a"/>
+
+  <rect x="190" y="208" width="12" height="12" rx="2" stroke="#4ade80" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <rect x="210" y="210" width="120" height="5" rx="2.5" fill="#2a2a2a" opacity="0.5"/>
+
+  <!-- Floating version badge -->
+  <rect x="355" y="90" width="60" height="22" rx="11" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="385" y="105" font-family="DM Sans, sans-serif" font-size="10" fill="#22c55e" text-anchor="middle" font-weight="500">v2.1.0</text>
+
+  <!-- Connecting arrow from plan to code -->
+  <g transform="translate(445, 100)">
+    <rect width="90" height="110" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <rect x="10" y="12" width="30" height="4" rx="2" fill="#22c55e" opacity="0.5"/>
+    <rect x="10" y="22" width="70" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="10" y="30" width="55" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="10" y="38" width="65" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="10" y="50" width="30" height="4" rx="2" fill="#22c55e" opacity="0.5"/>
+    <rect x="10" y="60" width="60" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="10" y="68" width="70" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="10" y="80" width="30" height="4" rx="2" fill="#22c55e" opacity="0.5"/>
+    <rect x="10" y="90" width="50" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
+
+  <!-- Arrow connecting plan to code -->
+  <line x1="435" y1="150" x2="443" y2="150" stroke="#22c55e" stroke-width="1.5" opacity="0.5"/>
+  <polygon points="443,146 450,150 443,154" fill="#22c55e" opacity="0.5"/>
+
+  <!-- Small floating elements -->
+  <g transform="translate(80, 70)">
+    <rect width="70" height="50" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" opacity="0.7"/>
+    <text x="35" y="27" font-family="DM Sans, sans-serif" font-size="9" fill="#666" text-anchor="middle">PRD</text>
+    <rect x="12" y="34" width="46" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
+
+  <g transform="translate(90, 175)">
+    <rect width="60" height="45" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" opacity="0.5"/>
+    <text x="30" y="25" font-family="DM Sans, sans-serif" font-size="9" fill="#666" text-anchor="middle">Plan</text>
+    <rect x="10" y="32" width="40" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
+
+  <!-- Dotted connecting lines -->
+  <line x1="130" y1="95" x2="170" y2="120" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3" opacity="0.25"/>
+  <line x1="130" y1="197" x2="170" y2="180" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3" opacity="0.25"/>
+</svg>

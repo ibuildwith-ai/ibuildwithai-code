@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iBuildWith.ai — Mockup A: Clean & Minimal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET ========== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========== DESIGN TOKENS ========== */
+    :root {
+      --bg: #121212;
+      --card-bg: #161616;
+      --border: #2a2a2a;
+      --green: #22c55e;
+      --green-light: #4ade80;
+      --green-dark: #16a34a;
+      --text-primary: #ffffff;
+      --text-secondary: #e2e2e2;
+      --text-muted: #666666;
+
+      --font: 'DM Sans', sans-serif;
+
+      --xs: 0.5rem;
+      --sm: 1rem;
+      --md: 1.5rem;
+      --lg: 2rem;
+      --xl: 3rem;
+      --xxl: 5rem;
+
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 12px;
+
+      --transition: all 0.3s ease;
+      --container: 1200px;
+    }
+
+    /* ========== BASE ========== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--lg);
+    }
+
+    /* ========== NAV ========== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--lg);
+      display: flex;
+      align-items: center;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      white-space: nowrap;
+      margin-right: var(--xl);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--xs);
+      flex: 1;
+      list-style: none;
+    }
+
+    .nav-links > li {
+      position: relative;
+    }
+
+    .nav-links > li.about-link {
+      margin-left: auto;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link .chevron {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      position: relative;
+      top: 1px;
+    }
+
+    .nav-link .chevron::after {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      position: relative;
+      top: 0;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 220px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--xs) 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: var(--transition);
+      list-style: none;
+    }
+
+    .nav-links > li:hover > .dropdown,
+    .nav-links > li:focus-within > .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .about-link .dropdown {
+      left: auto;
+      right: 0;
+    }
+
+    .dropdown a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .dropdown a:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .ext-arrow {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 28px;
+      height: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 18, 18, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 999;
+      overflow-y: auto;
+      padding: var(--lg);
+    }
+
+    .mobile-nav.open {
+      display: block;
+    }
+
+    .mobile-nav-group {
+      margin-bottom: var(--lg);
+    }
+
+    .mobile-nav-group-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: var(--sm);
+    }
+
+    .mobile-nav-group a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.6rem 0;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-nav-group a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-nav-group a:hover {
+      color: var(--green-light);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: var(--xxl) 0;
+      text-align: center;
+    }
+
+    .hero-tagline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 800px;
+      margin: 0 auto var(--md);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ========== SECTION ========== */
+    .section {
+      padding: var(--xxl) 0;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--xl);
+      letter-spacing: -0.02em;
+    }
+
+    /* ========== PRODUCT CARDS ========== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--lg);
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.25);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.08);
+    }
+
+    .product-img-b { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .product-img-c1 { background: linear-gradient(135deg, #1a2e1a 0%, #162e21 100%); }
+    .product-img-c2 { background: linear-gradient(135deg, #2e1a2e 0%, #2e1621 100%); }
+
+    .product-body {
+      padding: var(--md);
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: var(--xs);
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: var(--md);
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--green);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .product-cta:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    /* ========== BLOG CARDS ========== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--lg);
+      margin-bottom: var(--xl);
+    }
+
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--md);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.25);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: var(--xs);
+    }
+
+    .blog-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: var(--sm);
+      line-height: 1.35;
+    }
+
+    .blog-excerpt {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: var(--md);
+      flex: 1;
+    }
+
+    .blog-read {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .blog-read:hover {
+      color: var(--green-light);
+    }
+
+    .view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .view-all:hover {
+      color: var(--green-light);
+    }
+
+    /* ========== PRESENTATION CARDS ========== */
+    .presentations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--lg);
+      margin-bottom: var(--xl);
+    }
+
+    .pres-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--md);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pres-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 197, 94, 0.25);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .pres-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: var(--sm);
+      width: fit-content;
+    }
+
+    .pres-badge--upcoming {
+      color: var(--green);
+      border: 1px solid var(--green);
+      background: transparent;
+    }
+
+    .pres-badge--ondemand {
+      color: var(--bg);
+      background: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .pres-badge--completed {
+      color: var(--text-muted);
+      border: 1px solid var(--text-muted);
+      background: transparent;
+    }
+
+    .pres-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: var(--xs);
+      line-height: 1.35;
+    }
+
+    .pres-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: var(--xs);
+    }
+
+    .pres-speaker {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--md);
+      flex: 1;
+    }
+
+    .pres-cta {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .pres-cta:hover {
+      color: var(--green-light);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: var(--xxl) 0 0;
+      margin-top: var(--xxl);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: var(--xl);
+      margin-bottom: var(--xxl);
+    }
+
+    .footer-brand-tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: var(--sm);
+      line-height: 1.5;
+    }
+
+    .footer-heading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: var(--sm);
+    }
+
+    .footer-heading:not(:first-child) {
+      margin-top: var(--lg);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: var(--xs);
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: var(--md) 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sm);
+    }
+
+    .footer-bottom span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1050px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-tagline {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .products-grid,
+      .blog-grid,
+      .presentations-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--xl);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">iBuildWith.ai</a>
+
+      <ul class="nav-links">
+        <!-- Products -->
+        <li>
+          <span class="nav-link">Products <span class="chevron"></span></span>
+          <ul class="dropdown">
+            <li><a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="ext-arrow">↗</span></a></li>
+          </ul>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <span class="nav-link">Resources <span class="chevron"></span></span>
+          <ul class="dropdown">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Presentations</a></li>
+            <li><a href="#">Explore Apps</a></li>
+          </ul>
+        </li>
+
+        <!-- About (right-aligned) -->
+        <li class="about-link">
+          <span class="nav-link">About <span class="chevron"></span></span>
+          <ul class="dropdown">
+            <li><a href="#">Marcelo Lewin</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="ext-arrow">↗</span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">Products</div>
+      <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="ext-arrow">↗</span></a>
+      <a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="ext-arrow">↗</span></a>
+      <a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="ext-arrow">↗</span></a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">Resources</div>
+      <a href="#">Blog</a>
+      <a href="#">Presentations</a>
+      <a href="#">Explore Apps</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">About</div>
+      <a href="#">Marcelo Lewin</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Contact</a>
+      <a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="ext-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-tagline">Domain Expertise + Building with AI Is the New Baseline</h1>
+      <p class="hero-sub">Learn how to use your domain expertise with AI tools to build real products — through blog posts, live presentations, and hands-on resources.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider container">
+
+  <!-- ==================== PRODUCTS ==================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Our Products</h2>
+
+      <div class="products-grid">
+        <!-- Blocks Builder AI -->
+        <div class="product-card">
+          <div class="product-img product-img-b">B</div>
+          <div class="product-body">
+            <h3 class="product-name">Blocks Builder AI</h3>
+            <p class="product-desc">Build AI-powered applications visually with drag-and-drop blocks. Create, customize, and deploy intelligent workflows without writing code.</p>
+            <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener" class="product-cta">Explore <span class="ext-arrow">↗</span></a>
+          </div>
+        </div>
+
+        <!-- Cody Product Builder -->
+        <div class="product-card">
+          <div class="product-img product-img-c1">C</div>
+          <div class="product-body">
+            <h3 class="product-name">Cody Product Builder</h3>
+            <p class="product-desc">Turn ideas into clear, buildable plans using AI. Works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+            <a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener" class="product-cta">Explore <span class="ext-arrow">↗</span></a>
+          </div>
+        </div>
+
+        <!-- Cody Article Writer -->
+        <div class="product-card">
+          <div class="product-img product-img-c2">C</div>
+          <div class="product-body">
+            <h3 class="product-name">Cody Article Writer</h3>
+            <p class="product-desc">Create research-backed articles with customizable style guides and citations. Guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
+            <a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener" class="product-cta">Explore <span class="ext-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider container">
+
+  <!-- ==================== BLOG ==================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Latest Blog Articles</h2>
+
+      <div class="blog-grid">
+        <div class="blog-card">
+          <span class="blog-date">Apr 5, 2026</span>
+          <h3 class="blog-title">Building with AI: A Practical Guide</h3>
+          <p class="blog-excerpt">Learn the fundamentals of AI-assisted development and how domain experts can leverage modern tools to ship real products faster than ever.</p>
+          <a href="#" class="blog-read">Read &rarr;</a>
+        </div>
+
+        <div class="blog-card">
+          <span class="blog-date">Mar 28, 2026</span>
+          <h3 class="blog-title">Spec Driven Development Explained</h3>
+          <p class="blog-excerpt">Why specifications matter more than ever in an era of AI-assisted coding, and how SDD keeps humans in control of the creative process.</p>
+          <a href="#" class="blog-read">Read &rarr;</a>
+        </div>
+
+        <div class="blog-card">
+          <span class="blog-date">Mar 15, 2026</span>
+          <h3 class="blog-title">From Idea to Production in 48 Hours</h3>
+          <p class="blog-excerpt">How domain experts can ship real products by combining deep industry knowledge with AI-powered development workflows.</p>
+          <a href="#" class="blog-read">Read &rarr;</a>
+        </div>
+      </div>
+
+      <a href="#" class="view-all">View All Articles &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="section-divider container">
+
+  <!-- ==================== PRESENTATIONS ==================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Latest Presentations</h2>
+
+      <div class="presentations-grid">
+        <div class="pres-card">
+          <span class="pres-badge pres-badge--upcoming">Upcoming</span>
+          <h3 class="pres-title">Agent Skills Workshop</h3>
+          <span class="pres-date">Apr 30, 2026</span>
+          <span class="pres-speaker">Marcelo Lewin</span>
+          <a href="#" class="pres-cta">Register &rarr;</a>
+        </div>
+
+        <div class="pres-card">
+          <span class="pres-badge pres-badge--ondemand">On-Demand</span>
+          <h3 class="pres-title">Building AI Agents with Claude</h3>
+          <span class="pres-date">Mar 10, 2026</span>
+          <span class="pres-speaker">Marcelo Lewin</span>
+          <a href="#" class="pres-cta">Watch &rarr;</a>
+        </div>
+
+        <div class="pres-card">
+          <span class="pres-badge pres-badge--completed">Completed</span>
+          <h3 class="pres-title">Intro to Spec Driven Development</h3>
+          <span class="pres-date">Feb 15, 2026</span>
+          <span class="pres-speaker">Marcelo Lewin</span>
+        </div>
+      </div>
+
+      <a href="#" class="view-all">View All Presentations &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="nav-logo">iBuildWith.ai</div>
+          <p class="footer-brand-tagline">Domain expertise meets AI-assisted development</p>
+        </div>
+
+        <!-- Products & Resources -->
+        <div>
+          <h4 class="footer-heading">Products</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="ext-arrow">↗</span></a></li>
+          </ul>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Presentations</a></li>
+            <li><a href="#">Explore Apps</a></li>
+          </ul>
+        </div>
+
+        <!-- About -->
+        <div>
+          <h4 class="footer-heading">About</h4>
+          <ul class="footer-links">
+            <li><a href="#">Marcelo Lewin</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="ext-arrow">↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h4 class="footer-heading">Follow Us</h4>
+          <ul class="footer-links">
+            <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://www.npmjs.com/" target="_blank" rel="noopener">NPM <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube <span class="ext-arrow">↗</span></a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noopener">X <span class="ext-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 by Red Pill Blue Pill Studios, LLC</span>
+        <span>Coded, built and written in partnership with AI.</span>
+        <span>v2.0.0</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JS ==================== -->
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.toggle('open');
+    }
+
+    // Close mobile nav when clicking a link inside it
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileNav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

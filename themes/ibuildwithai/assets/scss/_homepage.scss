@@ -1,0 +1,539 @@
+// =============================================================================
+// HOMEPAGE v2.0 — Bold & Editorial Design
+// =============================================================================
+
+// Hero Section
+// -----------------------------------------------------------------------------
+.hero-v2 {
+  position: relative;
+  padding: $spacing-2xl 0;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-v2-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  // Animated gradient glow
+  &::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse at center, rgba($primary-500, 0.08) 0%, transparent 70%);
+    animation: heroGlow1 8s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: -15%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(ellipse at center, rgba($primary-400, 0.05) 0%, transparent 70%);
+    animation: heroGlow2 10s ease-in-out infinite;
+  }
+}
+
+@keyframes heroGlow1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  50% { transform: translate(5%, 8%) scale(1.1); opacity: 0.7; }
+}
+
+@keyframes heroGlow2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-5%, -5%) scale(1.15); opacity: 1; }
+}
+
+.hero-v2-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+}
+
+.hero-v2-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+// Announcement pill
+.hero-v2-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $primary-500;
+  margin-bottom: $spacing-lg;
+  padding: 0.4rem 1rem;
+  background: rgba($primary-500, 0.08);
+  border: 1px solid rgba($primary-500, 0.2);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    background: rgba($primary-500, 0.12);
+    border-color: rgba($primary-500, 0.35);
+  }
+}
+
+.hero-v2-eyebrow .pulse {
+  width: 8px;
+  height: 8px;
+  background: $primary-500;
+  border-radius: $border-radius-full;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba($primary-500, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba($primary-500, 0); }
+}
+
+.hero-v2 h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: $font-weight-bold;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: $spacing-md;
+  color: $neutral-100;
+}
+
+.hero-v2 h1 .gradient-text {
+  background: linear-gradient(135deg, $primary-400, $primary-500, $primary-600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-v2-sub {
+  font-size: 1.2rem;
+  line-height: $line-height-relaxed;
+  color: $neutral-400;
+  max-width: 680px;
+  margin-bottom: $spacing-xl;
+}
+
+.hero-v2-actions {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+// Buttons
+// -----------------------------------------------------------------------------
+.btn-v2-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 2rem;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  font-family: $font-family-base;
+  color: #000;
+  background: linear-gradient(135deg, $primary-400, $primary-500);
+  border: none;
+  border-radius: $border-radius-base;
+  cursor: pointer;
+  transition: $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    color: $neutral-100;
+    background: linear-gradient(135deg, $primary-500, $primary-600);
+    transform: translateY($hover-lift-small);
+    box-shadow: 0 8px 30px rgba($primary-500, 0.3);
+  }
+}
+
+.btn-v2-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 2rem;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  font-family: $font-family-base;
+  color: $neutral-100;
+  background: transparent;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-base;
+  cursor: pointer;
+  transition: $transition-base;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $primary-500;
+    background: rgba($primary-500, 0.05);
+    transform: translateY($hover-lift-small);
+  }
+}
+
+// Section styling
+// -----------------------------------------------------------------------------
+.section-v2 {
+  padding: $spacing-2xl 0;
+}
+
+.section-v2-alt {
+  background: darken($neutral-900, 1%);
+}
+
+.section-v2-header {
+  margin-bottom: $spacing-xl;
+}
+
+.section-v2-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $primary-500;
+  margin-bottom: $spacing-sm;
+}
+
+.section-v2-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: -0.02em;
+
+  .gradient-text {
+    background: linear-gradient(135deg, $primary-400, $primary-500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.section-v2-subtitle {
+  font-size: $font-size-base;
+  color: $neutral-600;
+  margin-top: $spacing-sm;
+  max-width: 600px;
+}
+
+// Products Section
+// -----------------------------------------------------------------------------
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: $spacing-lg;
+}
+
+.product-card {
+  position: relative;
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  // Gradient border glow on hover
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: $border-radius-lg;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba($primary-500, 0), rgba($primary-500, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: $transition-base;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    background: linear-gradient(135deg, rgba($primary-500, 0.5), rgba($primary-400, 0.2));
+  }
+
+  &:hover {
+    transform: translateY($hover-lift-distance);
+    box-shadow: 0 0 60px rgba($primary-500, 0.08);
+    border-color: rgba($primary-500, 0.3);
+
+    .product-cta,
+    .product-cta-btn {
+      color: $neutral-100;
+    }
+  }
+
+  // Featured card spans left column
+  &.featured {
+    grid-row: 1 / 3;
+    grid-column: 1;
+  }
+}
+
+.product-image {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.product-body {
+  padding: $spacing-md $spacing-lg $spacing-lg;
+
+  .featured & {
+    padding: $spacing-lg $spacing-lg $spacing-xl;
+  }
+}
+
+.product-name {
+  font-size: 1.35rem;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-xs;
+  letter-spacing: -0.01em;
+
+  .featured & {
+    font-size: 1.6rem;
+  }
+}
+
+.product-desc {
+  font-size: 0.95rem;
+  color: $neutral-400;
+  line-height: $line-height-base;
+  margin-bottom: $spacing-md;
+}
+
+.product-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $primary-500;
+  transition: $transition-base;
+}
+
+.product-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(135deg, $primary-400, $primary-500);
+  border-radius: $border-radius-base;
+  transition: $transition-base;
+
+  &:hover {
+    background: linear-gradient(135deg, $primary-500, $primary-600);
+    transform: translateY($hover-lift-small);
+    box-shadow: 0 6px 20px rgba($primary-500, 0.25);
+  }
+}
+
+// Blog Cards
+// -----------------------------------------------------------------------------
+.hp-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+}
+
+.hp-blog-card {
+  background: $neutral-800;
+  border: 1px solid $neutral-700;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  transition: $transition-base;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    border-color: rgba($primary-500, 0.3);
+    box-shadow: 0 0 40px rgba($primary-500, 0.06);
+    transform: translateY(-3px);
+
+    .hp-blog-link {
+      color: $neutral-100;
+      gap: 10px;
+    }
+  }
+}
+
+.hp-blog-date {
+  font-size: 0.85rem;
+  color: $neutral-600;
+  margin-bottom: $spacing-sm;
+  font-weight: $font-weight-medium;
+}
+
+.hp-blog-title {
+  font-size: 1.25rem;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-sm;
+  letter-spacing: -0.01em;
+}
+
+.hp-blog-excerpt {
+  font-size: 0.9rem;
+  color: $neutral-400;
+  line-height: $line-height-base;
+  margin-bottom: $spacing-md;
+  flex: 1;
+}
+
+.hp-blog-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $primary-500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: $transition-base;
+}
+
+// View All link
+// -----------------------------------------------------------------------------
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $primary-500;
+  margin-top: $spacing-xl;
+  transition: $transition-base;
+
+  &:hover {
+    color: $neutral-100;
+    gap: 12px;
+  }
+}
+
+// Responsive
+// -----------------------------------------------------------------------------
+@include tablet-down {
+  .hero-v2 {
+    min-height: auto;
+    padding: $spacing-xl 0 $spacing-2xl;
+  }
+
+  .hero-v2 h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .hero-v2-sub {
+    font-size: 1.05rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card.featured {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .hp-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  // Footer bottom stacks on mobile
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+
+    .footer-bottom-right {
+      flex-direction: column;
+      gap: $spacing-2xs;
+    }
+
+    .footer-bottom-sep {
+      display: none;
+    }
+  }
+}
+
+// Mobile Navigation v2 — flat list design
+// -----------------------------------------------------------------------------
+.mobile-nav-v2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $neutral-900;
+  z-index: $z-index-header - 1;
+  padding: 80px $spacing-lg $spacing-lg;
+  overflow-y: auto;
+
+  &.open {
+    display: block;
+  }
+}
+
+.mobile-nav-v2-section {
+  margin-bottom: $spacing-lg;
+
+  &:first-child {
+    margin-top: $spacing-md;
+  }
+}
+
+.mobile-nav-v2-title {
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $primary-500;
+  margin-bottom: $spacing-sm;
+}
+
+.mobile-nav-v2-section a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+  font-weight: $font-weight-normal;
+  line-height: normal;
+  color: $neutral-400;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: $transition-base;
+
+  &:hover {
+    color: $primary-500;
+  }
+}

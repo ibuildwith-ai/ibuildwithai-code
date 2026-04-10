@@ -1,136 +1,123 @@
 {{ define "main" }}
-    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1>Domain Expertise +<br/>Building with AI<br/><span class="highlight">Is the New Baseline</span></h1>
-                <p class="tagline">{{ .Site.Params.description }}</p>
+        <section class="hero-v2">
+            <div class="hero-v2-bg">
+                <div class="hero-v2-grid"></div>
             </div>
-        </section>
-
-        <!-- Start Your Journey Section -->
-        <section class="section">
             <div class="container">
- 
-                <div class="homepage-features-grid">
-                    <div class="split-card split-card--icon-top">
-                        <div class="split-card-icon-section">
-                            {{ $blogIcon := resources.Get "images/icons/icon-blog.png" }}
-                            <img src="{{ $blogIcon.RelPermalink }}" alt="Read the Blog">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Blog</h3>
-                            <p class="split-card-description">Read practical guides, best practices, how-to's and other articles loaded with tips and techniques on how to build with AI.</p>
-                            <div class="split-card-actions">
-                                <a href="{{ .Site.Params.blog }}" class="section-link">Read →</a>
-                            </div>
-                        </div>
-                    </div>
-                    {{/* Podcast card hidden - content still available at /podcast/
-                    <div class="split-card split-card--icon-top">
-                        <div class="split-card-icon-section">
-                            {{ $podcastIcon := resources.Get "images/icons/icon-podcast.png" }}
-                            <img src="{{ $podcastIcon.RelPermalink }}" alt="Listen to the Podcast">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Podcast</h3>
-                            <p class="split-card-description">Listen to conversations with professionals as they share how they use AI to build prototypes, tools, and workflows.</p>
-                            <div class="split-card-actions">
-                                <a href="{{ .Site.Params.podcast }}" class="section-link">Listen →</a>
-                            </div>
-                        </div>
-                    </div>
-                    */}}
-                    <div class="split-card split-card--icon-top">
-                        <div class="split-card-icon-section">
-                            {{ $videosIcon := resources.Get "images/icons/icon-videos.png" }}
-                            <img src="{{ $videosIcon.RelPermalink }}" alt="Watch Videos">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Videos</h3>
-                            <p class="split-card-description">Watch tutorials, talks, presentations and other videos focused on building prototypes, tools, and workflows with AI.</p>
-                            <div class="split-card-actions">
-                                <a href="{{ .Site.Params.videos }}" class="section-link">Watch →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="split-card split-card--icon-top">
-                        <div class="split-card-icon-section">
-                            {{ $eventIcon := resources.Get "images/icons/icon-events.png" }}
-                            <img src="{{ $eventIcon.RelPermalink }}" alt="Attend Events">
-                        </div>
-                        <div class="split-card-content-section">
-                            <h3 class="split-card-title">Events</h3>
-                            <p class="split-card-description">Attend live in-person or online events exploring how to build prototypes, tools, and workflows with AI.</p>
-                            <div class="split-card-actions">
-                                <a href="{{ .Site.Params.events }}" class="section-link">Attend →</a>
-                            </div>
-                        </div>
+                <div class="hero-v2-content">
+                    <a href="#products" class="hero-v2-eyebrow">
+                        <span class="pulse"></span>
+                        New: Blocks Builder AI is live
+                    </a>
+                    <h1>Domain Expertise + <span class="gradient-text">Building with AI</span> Is the New Baseline</h1>
+                    <p class="hero-v2-sub">{{ .Site.Params.description }}</p>
+                    <div class="hero-v2-actions">
+                        <a href="#products" class="btn-v2-primary">Explore Products &rarr;</a>
+                        <a href="#blog" class="btn-v2-secondary">Read the Blog &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Explore Vibe Coded Apps Section -->
-        <section class="section">
+        <!-- Products Section -->
+        <section class="section-v2 section-v2-alt" id="products">
             <div class="container">
-                <h2 class="text-center text-white-important" style="margin-bottom: 0.5rem;">Explore</h2>
-                <p class="text-center section-tagline" style="margin-bottom: 2rem; margin-top: 0;">Explore apps, prototypes, tools, and workflows built with AI</p>
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Products</div>
+                    <h2 class="section-v2-title">Created for <span class="gradient-text">Builders</span></h2>
+                    <p class="section-v2-subtitle">Real products born from real workflows. Each one designed to help you build professional products with AI.</p>
+                </div>
 
-                {{ partial "scrolling-carousel.html" (dict
-                    "scroll" "auto"
-                    "speed" "fast"
-                    "direction" "left"
-                    "width" "280px"
-                    "height" "220px"
-                    "items" (slice
-                        (dict "icon" "/apps/treex/icon.png" "heading" "TreeX" "description" "CLI tool to visualize folder structures." "link" "/apps/treex/")
-                        (dict "icon" "/apps/care-assistant/icon.png" "heading" "CARE Assistant" "description" "AI Chatbot for healthcare insurance claims." "link" "/apps/care-assistant/")
-                        (dict "icon" "/apps/checkinto-app/icon.png" "heading" "CheckInto App" "description" "Self-service check-in for in-person community events." "link" "/apps/checkinto-app/")
-                        (dict "icon" "/apps/content-modeling-cli/icon.png" "heading" "Content Modeling CLI" "description" "Create content models using JSON files." "link" "/apps/content-modeling-cli/")
-                        (dict "icon" "/apps/galactic-invaders/icon.png" "heading" "Galactic Invaders" "description" "Defend your city from waves of aliens." "link" "/apps/galactic-invaders/")
-                        (dict "icon" "/apps/i-build-with-ai-website/icon.png" "heading" "I Build with AI" "description" "Educational website to learn how to build apps with AI." "link" "/apps/i-build-with-ai-website/")
-                        
-                    )
-                    "context" .
-                ) }}
+                <div class="products-grid">
+                    <!-- Featured product: Blocks Builder AI -->
+                    <a href="{{ .Site.Params.blocks_builder_ai }}" target="_blank" rel="noopener" class="product-card featured">
+                        <div class="product-image">
+                            {{ $bbImg := resources.Get "images/products/blocks-builder-ai.svg" }}
+                            {{ if $bbImg }}
+                            <img src="{{ $bbImg.RelPermalink }}" alt="Blocks Builder AI">
+                            {{ end }}
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Blocks Builder AI</h3>
+                            <p class="product-desc">Build AI-powered applications visually with drag-and-drop blocks. Create, customize, and deploy intelligent workflows without writing code.</p>
+                            <span class="product-cta-btn">Launch App &#8599;</span>
+                        </div>
+                    </a>
 
-                <div class="text-center" style="margin-top: 2rem;">
-                    <a href="{{ .Site.Params.apps }}" class="section-link">Explore All →</a>
+                    <!-- Product 2: Cody Product Builder -->
+                    <a href="{{ .Site.Params.cody_product_builder }}" target="_blank" rel="noopener" class="product-card">
+                        <div class="product-image">
+                            {{ $cpbImg := resources.Get "images/products/cody-product-builder.svg" }}
+                            {{ if $cpbImg }}
+                            <img src="{{ $cpbImg.RelPermalink }}" alt="Cody Product Builder">
+                            {{ end }}
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Cody Product Builder</h3>
+                            <p class="product-desc">Turn ideas into clear, buildable plans using AI. Works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+                            <span class="product-cta">View on GitHub &#8599;</span>
+                        </div>
+                    </a>
+
+                    <!-- Product 3: Cody Article Writer -->
+                    <a href="{{ .Site.Params.cody_article_writer }}" target="_blank" rel="noopener" class="product-card">
+                        <div class="product-image">
+                            {{ $cawImg := resources.Get "images/products/cody-article-writer.svg" }}
+                            {{ if $cawImg }}
+                            <img src="{{ $cawImg.RelPermalink }}" alt="Cody Article Writer">
+                            {{ end }}
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Cody Article Writer</h3>
+                            <p class="product-desc">Create research-backed articles with customizable style guides and citations. Guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
+                            <span class="product-cta">View on GitHub &#8599;</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Build with Cody Skills Section -->
-        <section class="section">
+        <!-- Latest Blog Articles -->
+        <section class="section-v2" id="blog">
             <div class="container">
-                <h2 class="text-center text-white-important" style="margin-bottom: 0.5rem;">Build</h2>
-                <p class="text-center section-tagline" style="margin-bottom: 2rem; margin-top: 0;">Start building with AI and Cody Skills.</p>
-                <div class="homepage-features-grid-2col">
-                    <div class="homepage-feature-card">
-                        <h3>Cody Product Builder</h3>
-                        <p>Cody Product Builder helps domain experts turn ideas into clear, buildable plans using AI. It works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
-                        <div class="mt-md">
-                            <a href="{{ .Site.Params.cody_product_builder }}" class="btn-primary" target="_blank">Start Building</a>
-                        </div>
-                    </div>
-                    <div class="homepage-feature-card">
-                        <h3>Cody Article Writer</h3>
-                        <p>Cody Article Writer helps you create research-backed articles with customizable style guides and citations. It guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
-                        <div class="mt-md">
-                            <a href="{{ .Site.Params.cody_article_writer }}" class="btn-primary" target="_blank">Start Writing</a>
-                        </div>
-                    </div>
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Blog</div>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Articles</span></h2>
+                    <p class="section-v2-subtitle">Articles with insights on how to build apps with AI.</p>
                 </div>
+
+                <div class="hp-blog-grid">
+                    {{ $blogPages := where .Site.RegularPages "Section" "blog" }}
+                    {{ $latestBlog := first 3 (sort $blogPages "Date" "desc") }}
+                    {{ range $latestBlog }}
+                    <a href="{{ .Permalink }}" class="hp-blog-card">
+                        <div class="hp-blog-date">{{ .Date.Format "Jan 2, 2006" }}</div>
+                        <h3 class="hp-blog-title">{{ .Title }}</h3>
+                        <p class="hp-blog-excerpt">{{ .Summary | truncate 150 }}</p>
+                        <span class="hp-blog-link">Read &rarr;</span>
+                    </a>
+                    {{ end }}
+                </div>
+
+                <a href="{{ .Site.Params.blog }}" class="view-all-link">View All Articles &rarr;</a>
             </div>
         </section>
 
-        <!-- Frequently Asked Questions Section -->
-        <section class="section">
+        <!-- Latest Presentations (placeholder — will be populated after Phase 3) -->
+        <section class="section-v2 section-v2-alt" id="presentations">
             <div class="container">
-                <h2 class="text-center text-white-important">Frequently Asked Questions</h2>
-                {{ partial "faq-accordion.html" (dict "faqs" "what-is-vibe-coding,how-do-i-apply-my-expertise,what-kinds-of-things-can-i-build,what-is-spec-drive-development,why-do-i-need-to-learn-how-to-guide-ai" "context" .) }}
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Presentations</div>
+                    <h2 class="section-v2-title"><span class="gradient-text">Live</span> &amp; On-Demand</h2>
+                    <p class="section-v2-subtitle">Talks and workshops on building with AI</p>
+                </div>
+
+                <!-- TODO: Replace with dynamic presentation content after Phase 3 content merge -->
+                <p style="color: #666; font-style: italic;">Presentations section will be populated after content migration (Phase 3).</p>
+
+                <a href="{{ .Site.Params.presentations }}" class="view-all-link">View All Presentations &rarr;</a>
             </div>
         </section>
 

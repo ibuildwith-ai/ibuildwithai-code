@@ -52,8 +52,11 @@
     </div>
     {{ end }}
     <div class="header">
-        {{ partial "header.html" . }}
+        <div class="container header-inner">
+            {{ partial "header.html" . }}
+        </div>
     </div>
+    {{ partial "mobile-nav.html" . }}
 
     {{ block "main" . }}{{ end }}
 

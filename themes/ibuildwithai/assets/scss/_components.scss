@@ -9,16 +9,18 @@
 // Header
 // -----------------------------------------------------------------------------
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $spacing-md $spacing-lg;
   border-bottom: 1px solid $neutral-700;
   background-color: rgba($neutral-900, $opacity-backdrop);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: $z-index-header;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: 72px;
 }
 
 .logo-section {
@@ -113,14 +115,8 @@
 
 .logo-image {
   height: $logo-size;
-  transition: $transition-base;
   position: relative;
   object-fit: cover;
-  
-  &:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-  }
 }
 
 .logo-text {
@@ -154,18 +150,10 @@
 // -----------------------------------------------------------------------------
 .nav {
   display: flex;
-  gap: $spacing-lg;
+  gap: $spacing-xs;
   align-items: center;
-  
-  a {
-    @include link-base;
-    @include link-underline;
-    @include smooth-transition;
-    
-    &:hover {
-      @include link-hover;
-    }
-  }
+  flex: 1;
+  margin-left: $spacing-xl;
 }
 
 // Navigation Dropdown
@@ -189,28 +177,30 @@
 }
 
 .nav-dropdown-toggle {
-  @include link-base;
-  @include link-underline;
-  @include smooth-transition;
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
-  padding: 0;
+  gap: 6px;
+  padding: 0.5rem 1rem;
   margin: 0;
   font-family: $font-family-base;
-  font-size: inherit;
+  font-size: 0.95rem;
   font-weight: $font-weight-medium;
-  line-height: inherit;
-  
+  line-height: normal;
+  color: $neutral-400;
+  border-radius: $border-radius-base;
+  transition: $transition-base;
+
   &:hover {
-    @include link-hover;
+    color: $neutral-100;
+    background: rgba(255, 255, 255, 0.05);
   }
-  
+
   &[aria-expanded="true"] {
-    @include link-hover;
+    color: $neutral-100;
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -232,28 +222,26 @@
   position: absolute;
   top: calc(100% + #{$spacing-xs});
   left: 0;
-  background: lighten($neutral-900, 5%);
+  background: #1a1a1a;
   border: 1px solid $neutral-700;
-  border-radius: $border-radius-base;
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: $border-radius-lg;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   list-style: none;
   margin: 0;
-  padding: $spacing-xs 0;
-  min-width: 180px;
+  padding: $spacing-xs;
+  min-width: 240px;
   opacity: 0;
   transform: translateY(-8px);
   visibility: hidden;
-  transition: all $transition-fast;
+  transition: all 0.25s ease;
   z-index: $z-index-dropdown;
-  
+
   &.show {
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
   }
-  
+
   // Keep dropdown open when hovering over it
   &:hover {
     opacity: 1;
@@ -262,39 +250,43 @@
   }
 }
 
-// Right-aligned dropdown menu
-.nav-dropdown--right .nav-dropdown-menu {
-  left: auto;
-  right: 0;
+// Right-aligned dropdown
+.nav-dropdown--right {
+  margin-left: auto;
+
+  .nav-dropdown-menu {
+    left: auto;
+    right: 0;
+  }
 }
 
 .nav-dropdown-item {
   margin: 0;
 
   a {
-    @include link-base;
-    @include link-underline;
-    @include smooth-transition;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $spacing-xs $spacing-sm;
+    padding: 0.65rem $spacing-sm;
+    font-size: $font-size-xs;
     color: $neutral-400;
     text-decoration: none;
-    border-radius: $border-radius-sm;
-    margin: 0 $spacing-xs;
+    border-radius: $border-radius-base;
     white-space: nowrap;
+    transition: all 0.3s ease;
 
     &:hover {
-      @include link-hover;
+      background: rgba($primary-500, 0.08);
+      color: $neutral-100;
     }
   }
 }
 
 .external-link-icon {
-  color: $primary-500;
-  font-size: $font-size-xs;
-  margin-left: $spacing-xs;
+  color: inherit;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-left: 2px;
   flex-shrink: 0;
 }
 
@@ -389,6 +381,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  margin-left: auto;
   z-index: $z-index-mobile-menu + 1;
   
   .hamburger-line {
@@ -500,11 +493,8 @@
   padding: 0;
   background-color: $neutral-800;
   width: 100%;
-  
+
   a {
-    @include link-base;
-    @include link-underline;
-    @include smooth-transition;
     font-size: $font-size-xl;
     color: $neutral-100;
     text-decoration: none;
@@ -513,7 +503,8 @@
     letter-spacing: 0.05em;
     width: 100%;
     text-align: center;
-    
+    transition: $transition-base;
+
     &:hover {
       @include link-hover;
     }
@@ -2195,24 +2186,16 @@ h2 + .podcast-embed-section {
       font-weight: $font-weight-medium;
       letter-spacing: $letter-spacing-tight;
       text-decoration: none;
-      transition: $transition-base;
       line-height: 1.2;
-      
-      &:hover {
-        background: linear-gradient(135deg, $primary-400, $primary-500);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
     }
     
     .footer-tagline {
-      color: $neutral-400;
-      font-size: $font-size-xs;
+      color: $neutral-600;
+      font-size: 0.9rem;
       margin: 0;
-      white-space: normal;       // Allow wrapping
-      max-width: 300px;          // Adjust as needed
-      line-height: 1.4;          // Better readability
+      white-space: normal;
+      max-width: 280px;
+      line-height: $line-height-base;
     }
     
   }
@@ -2224,16 +2207,8 @@ h2 + .podcast-embed-section {
   }
 
   .footer-desktop {
-    grid-template-columns: auto 1.3fr 1fr 1fr;
-
-    // Pull second column closer to first
-    > :nth-child(2) {
-      margin-left: -3.0rem;
-    }
-
-    > :nth-child(3) {
-      margin-left: -1.5rem;
-    }
+    grid-template-columns: 1.2fr auto auto auto auto;
+    gap: $spacing-xl;
   }
   
   .footer-mobile {
@@ -2273,9 +2248,11 @@ h2 + .podcast-embed-section {
   
   .footer-heading {
     color: $neutral-100;
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-    margin-bottom: .75rem; // $spacing-md (24px) - 5px = 19px
+    font-size: 0.8rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-sm;
     margin-top: 0;
   }
   
@@ -2283,46 +2260,61 @@ h2 + .podcast-embed-section {
     list-style: none;
     padding: 0;
     margin: 0;
-    
+
     li {
       margin-bottom: $spacing-xs;
-      
+
       &:last-child {
         margin-bottom: 0;
       }
     }
-    
+
     a {
-      @include link-base;
-      @include link-underline;
-      color: $neutral-400;
-      font-size: $font-size-xs;
-      
+      color: $neutral-600;
+      font-size: 0.9rem;
+      font-weight: $font-weight-normal;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: $transition-base;
+
       &:hover {
-        @include link-hover;
+        color: $primary-500;
       }
     }
   }
   
   .footer-bottom {
-    text-align: center;
-    padding: $spacing-lg 0;
     border-top: 1px solid $neutral-700;
-    // Full width border - no margin needed since footer spans full width
-    
-    p {
+    padding: $spacing-lg 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+
+    .footer-bottom-text {
+      font-size: 0.8rem;
       color: $neutral-600;
-      margin: 0;
-      margin-bottom: $spacing-xs;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
-    
-    .footer-version {
-      font-size: $font-size-xs;
+
+    .footer-bottom-right {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-xs;
+    }
+
+    .footer-bottom-sep {
+      font-size: 0.8rem;
       color: $neutral-600;
+    }
+
+    .footer-bottom-version {
+      font-size: 0.8rem;
+      color: $neutral-600;
+      font-weight: 600;
     }
   }
   
@@ -2342,9 +2334,9 @@ h2 + .podcast-embed-section {
       }
     }
     
-    // Add extra spacing between sections in stacked columns
-    .footer-section:not(:last-child) {
-      margin-bottom: $spacing-xs;
+    // Add spacing between stacked sections
+    .footer-section:not(:first-child) .footer-heading {
+      margin-top: $spacing-lg;
     }
   }
 }

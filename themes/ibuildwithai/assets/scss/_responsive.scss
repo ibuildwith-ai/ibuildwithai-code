@@ -5,16 +5,11 @@
 // Mobile Menu Activation (Tablet and Below)
 // -----------------------------------------------------------------------------
 @include tablet-down {
-  .header {
-    justify-content: space-between;
-    padding: $spacing-sm $spacing-lg;
-  }
-  
   // Hide desktop navigation
   .nav {
     display: none;
   }
-  
+
   // Show mobile menu toggle
   .mobile-menu-toggle {
     display: flex;
@@ -30,6 +25,10 @@
   }
   
   .mobile-menu-overlay {
+    display: none !important;
+  }
+
+  .mobile-nav-v2 {
     display: none !important;
   }
 }

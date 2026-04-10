@@ -17,54 +17,41 @@
                 </div>
             </div>
 
-            <!-- Desktop: Four columns with six sections -->
+            <!-- Desktop: Five columns (logo + 4 nav groups) -->
             <div class="footer-columns footer-desktop">
-                <!-- Column 1: Learn -->
+                <!-- Column 1: Products -->
                 <div class="footer-column">
-                    <h4 class="footer-heading">Learn</h4>
+                    <h4 class="footer-heading">Products</h4>
                     <ul class="footer-links">
-                        <li><a href="{{ .Site.Params.blog }}">Blog</a></li>
-                        <li><a href="{{ .Site.Params.videos }}">Videos</a></li>
-                        <li><a href="{{ .Site.Params.events }}">Events</a></li>
+                        <li><a href="{{ .Site.Params.blocks_builder_ai }}" target="_blank">Blocks Builder AI <span
+                                    class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="{{ .Site.Params.cody_product_builder }}" target="_blank">Cody Product Builder <span
+                                    class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="{{ .Site.Params.cody_article_writer }}" target="_blank">Cody Article Writer <span
+                                    class="external-link-icon" aria-hidden="true">↗</span></a></li>
                     </ul>
                 </div>
 
-                <!-- Column 2: Explore + Build -->
-                <div class="footer-column footer-column-stacked">
-                    <div class="footer-section">
-                        <h4 class="footer-heading">Explore</h4>
-                        <ul class="footer-links">
-                            <li><a href="{{ .Site.Params.apps }}">App Gallery</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-heading">Build</h4>
-                        <ul class="footer-links">
-                            <li><a href="{{ .Site.Params.cody_product_builder }}" target="_blank">Cody Product Builder<span
-                                        class="external-link-icon" aria-hidden="true">↗</span></a></li>
-                            <li><a href="{{ .Site.Params.cody_article_writer }}" target="_blank">Cody Article Writer<span
-                                        class="external-link-icon" aria-hidden="true">↗</span></a></li>
-                        </ul>
-                    </div>
+                <!-- Column 2: Resources -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ .Site.Params.blog }}">Blog</a></li>
+                        <li><a href="{{ .Site.Params.presentations }}">Presentations</a></li>
+                        <li><a href="{{ .Site.Params.apps }}">Explore Apps</a></li>
+                    </ul>
                 </div>
 
-                <!-- Column 3: Community + About -->
-                <div class="footer-column footer-column-stacked">
-                    <div class="footer-section">
-                        <h4 class="footer-heading">Community</h4>
-                        <ul class="footer-links">
-                            <li><a href="{{ .Site.Params.meetup }}" target="_blank">Meetup <span
-                                        class="external-link-icon" aria-hidden="true">↗</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-heading">About</h4>
-                        <ul class="footer-links">
-                            <li><a href="{{ .Site.Params.about_marcelo }}">Marcelo Lewin</a></li>
-                            <li><a href="{{ .Site.Params.newsletter }}">Newsletter</a></li>
-                            <li><a href="{{ .Site.Params.contact }}">Contact</a></li>
-                        </ul>
-                    </div>
+                <!-- Column 3: About -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ .Site.Params.about_marcelo }}">Marcelo Lewin</a></li>
+                        <li><a href="{{ .Site.Params.newsletter }}">Newsletter</a></li>
+                        <li><a href="{{ .Site.Params.contact }}">Contact</a></li>
+                        <li><a href="{{ .Site.Params.meetup }}" target="_blank">Meetup <span
+                                    class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
                 </div>
 
                 <!-- Column 4: Follow Us -->
@@ -85,25 +72,13 @@
                 </div>
             </div>
 
-            <!-- Mobile/Tablet: Three sections -->
+            <!-- Mobile/Tablet -->
             <div class="footer-columns footer-mobile">
                 <div class="footer-column">
-                    <h4 class="footer-heading">Learn</h4>
+                    <h4 class="footer-heading">Products</h4>
                     <ul class="footer-links">
-                        <li><a href="{{ .Site.Params.blog }}">Blog</a></li>
-                        <li><a href="{{ .Site.Params.videos }}">Videos</a></li>
-                        <li><a href="{{ .Site.Params.events }}">Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Explore</h4>
-                    <ul class="footer-links">
-                        <li><a href="{{ .Site.Params.apps }}">App Gallery</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Build</h4>
-                    <ul class="footer-links">
+                        <li><a href="{{ .Site.Params.blocks_builder_ai }}" target="_blank">Blocks Builder AI <span
+                                    class="external-link-icon" aria-hidden="true">↗</span></a></li>
                         <li><a href="{{ .Site.Params.cody_product_builder }}" target="_blank">Cody Product Builder <span
                                     class="external-link-icon" aria-hidden="true">↗</span></a></li>
                         <li><a href="{{ .Site.Params.cody_article_writer }}" target="_blank">Cody Article Writer <span
@@ -111,10 +86,11 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4 class="footer-heading">Community</h4>
+                    <h4 class="footer-heading">Resources</h4>
                     <ul class="footer-links">
-                        <li><a href="{{ .Site.Params.meetup }}" target="_blank">Meetup <span class="external-link-icon"
-                                    aria-hidden="true">↗</span></a></li>
+                        <li><a href="{{ .Site.Params.blog }}">Blog</a></li>
+                        <li><a href="{{ .Site.Params.presentations }}">Presentations</a></li>
+                        <li><a href="{{ .Site.Params.apps }}">Explore Apps</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -123,10 +99,12 @@
                         <li><a href="{{ .Site.Params.about_marcelo }}">Marcelo Lewin</a></li>
                         <li><a href="{{ .Site.Params.newsletter }}">Newsletter</a></li>
                         <li><a href="{{ .Site.Params.contact }}">Contact</a></li>
+                        <li><a href="{{ .Site.Params.meetup }}" target="_blank">Meetup <span class="external-link-icon"
+                                    aria-hidden="true">↗</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4 class="footer-heading">On the Web</h4>
+                    <h4 class="footer-heading">Follow Us</h4>
                     <ul class="footer-links">
                         <li><a href="{{ .Site.Params.github }}" target="_blank">GitHub <span class="external-link-icon"
                                     aria-hidden="true">↗</span></a></li>
@@ -145,9 +123,14 @@
     </div>
 
     <!-- Bottom: Copyright and version -->
-    <div class="footer-bottom">
-        <p>© {{ now.Format "2006" }} by Red Pill Blue Pill Studios, LLC</p>
-        <p class="footer-version">Coded, built and written in partnership with AI.</p>
-        <p class="footer-version">v{{ .Site.Params.version }} • {{ .Site.Params.last_updated }}</p>
+    <div class="container">
+        <div class="footer-bottom">
+            <span class="footer-bottom-text">&copy; {{ now.Format "2006" }} by Red Pill Blue Pill Studios, LLC</span>
+            <span class="footer-bottom-right">
+                <span class="footer-bottom-text">Coded, built and written in partnership with AI.</span>
+                <span class="footer-bottom-sep">&middot;</span>
+                <span class="footer-bottom-version">v{{ .Site.Params.version }}</span>
+            </span>
+        </div>
     </div>
 </footer>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iBuildWith.ai — Mockup C: Hybrid & Integrated</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #121212;
+      --bg-card: #161616;
+      --bg-section-alt: #0e0e0e;
+      --border: #2a2a2a;
+      --green: #22c55e;
+      --green-light: #4ade80;
+      --green-dark: #16a34a;
+      --text: #ffffff;
+      --text-secondary: #e2e2e2;
+      --text-muted: #666666;
+      --xs: 0.5rem;
+      --sm: 1rem;
+      --md: 1.5rem;
+      --lg: 2rem;
+      --xl: 3rem;
+      --xxl: 5rem;
+      --radius-sm: 4px;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --transition: all 0.3s ease;
+      --container: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; transition: var(--transition); }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--lg);
+    }
+
+    .external-arrow { font-size: 0.75em; margin-left: 2px; opacity: 0.7; }
+
+    /* ===================== NAVIGATION ===================== */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--lg);
+      display: flex;
+      align-items: center;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      white-space: nowrap;
+      margin-right: var(--xl);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--xs);
+      flex: 1;
+      list-style: none;
+    }
+
+    .nav-links > li { position: relative; }
+
+    .nav-links > li > a,
+    .nav-links > li > .dropdown-trigger {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .nav-links > li > a:hover,
+    .nav-links > li > .dropdown-trigger:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .dropdown-trigger .chevron {
+      font-size: 0.6rem;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links > li:hover .chevron { transform: rotate(180deg); }
+
+    .nav-spacer { flex: 1; }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      min-width: 220px;
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--xs) 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.2s ease;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+
+    .nav-links > li:hover > .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(34, 197, 94, 0.08);
+      color: var(--text);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      margin-left: auto;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(12, 12, 12, 0.98);
+      z-index: 999;
+      overflow-y: auto;
+      padding: var(--lg);
+    }
+
+    .mobile-nav.active { display: block; }
+
+    .mobile-nav-group { margin-bottom: var(--lg); }
+
+    .mobile-nav-group-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: var(--sm);
+    }
+
+    .mobile-nav-group a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .mobile-nav-group a:hover { color: var(--green-light); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      padding: var(--xxl) 0 var(--xl);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--green), transparent);
+      margin: var(--xl) auto 0;
+    }
+
+    .hero-tagline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 800px;
+      margin: 0 auto var(--md);
+    }
+
+    .hero-tagline .highlight {
+      background: linear-gradient(135deg, var(--green-light), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===================== SECTION UTILITIES ===================== */
+    .section { padding: var(--xxl) 0; position: relative; }
+    .section-alt { background: var(--bg-section-alt); }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: var(--xs);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: var(--sm);
+    }
+
+    .section-intro {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+
+    /* Flow connector between sections */
+    .flow-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--lg) 0;
+      position: relative;
+    }
+
+    .flow-connector::before {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    }
+
+    .flow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+      margin: var(--xs) 0;
+    }
+
+    .flow-connector::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    }
+
+    /* ===================== PRODUCTS — STORYTELLING LAYOUT ===================== */
+    .products-header {
+      text-align: center;
+      margin-bottom: var(--xl);
+    }
+
+    .product-row {
+      display: flex;
+      align-items: center;
+      gap: var(--xl);
+      margin-bottom: 0;
+      position: relative;
+    }
+
+    .product-row + .product-connector {
+      display: flex;
+      justify-content: center;
+      padding: var(--lg) 0;
+    }
+
+    .product-connector-line {
+      width: 1px;
+      height: 50px;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--border) 0px,
+        var(--border) 4px,
+        transparent 4px,
+        transparent 10px
+      );
+    }
+
+    .product-row.reverse { flex-direction: row-reverse; }
+
+    .product-visual {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-visual-inner {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .product-row:hover .product-visual-inner {
+      border-color: rgba(34, 197, 94, 0.3);
+      box-shadow: 0 0 30px rgba(34, 197, 94, 0.06);
+    }
+
+    .product-visual-placeholder {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: var(--lg);
+    }
+
+    .product-visual-placeholder .placeholder-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--sm);
+      opacity: 0.4;
+    }
+
+    .product-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-number {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      margin-bottom: var(--xs);
+    }
+
+    .product-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: var(--sm);
+    }
+
+    .product-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: var(--md);
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--green);
+      color: var(--green);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .product-cta:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    /* ===================== WHAT'S NEW — COMBINED SECTION ===================== */
+    .whats-new-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: var(--xl);
+      margin-top: var(--xl);
+    }
+
+    .whats-new-column-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: var(--md);
+      padding-bottom: var(--xs);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Blog cards */
+    .blog-card {
+      display: block;
+      padding: var(--md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      border-radius: var(--radius);
+      margin-bottom: var(--sm);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      border-left-color: var(--green);
+      transform: translateX(4px);
+      background: #1a1a1a;
+    }
+
+    .blog-card-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .blog-card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Presentation cards */
+    .pres-card {
+      display: block;
+      padding: var(--md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      border-radius: var(--radius);
+      margin-bottom: var(--sm);
+      transition: var(--transition);
+    }
+
+    .pres-card:hover {
+      border-left-color: var(--green);
+      transform: translateX(4px);
+      background: #1a1a1a;
+    }
+
+    .pres-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .badge-upcoming {
+      color: var(--green);
+      border: 1px solid var(--green);
+      background: transparent;
+    }
+
+    .badge-on-demand {
+      color: var(--bg);
+      background: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .badge-completed {
+      color: var(--text-muted);
+      border: 1px solid #444;
+      background: transparent;
+    }
+
+    .pres-card-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pres-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .pres-card-action {
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--green);
+      margin-top: var(--sm);
+      transition: var(--transition);
+    }
+
+    .view-all:hover { color: var(--green-light); gap: 8px; }
+
+    /* ===================== FOOTER ===================== */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: var(--xxl) 0 var(--lg);
+      background: var(--bg);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: var(--xl);
+      margin-bottom: var(--xl);
+    }
+
+    .footer-brand-tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: var(--sm);
+      line-height: 1.5;
+    }
+
+    .footer-heading {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: var(--sm);
+    }
+
+    .footer-heading + .footer-heading { margin-top: var(--lg); }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li { margin-bottom: var(--xs); }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .footer-links a:hover { color: var(--green-light); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: var(--md);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sm);
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sm);
+      align-items: center;
+    }
+
+    .footer-bottom-items span + span::before {
+      content: '|';
+      margin-right: var(--sm);
+      opacity: 0.4;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1050px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-tagline { font-size: clamp(1.6rem, 5vw, 2.4rem); }
+      .hero-sub { font-size: 1rem; }
+
+      .section-title { font-size: 1.8rem; }
+
+      .product-row,
+      .product-row.reverse {
+        flex-direction: column;
+        gap: var(--lg);
+      }
+
+      .product-visual,
+      .product-content {
+        width: 100%;
+      }
+
+      .whats-new-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--lg);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-bottom-items { justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 var(--sm); }
+
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav-header">
+    <nav class="nav-inner">
+      <a href="#" class="nav-logo">iBuildWith.ai</a>
+
+      <ul class="nav-links">
+        <!-- Products -->
+        <li>
+          <button class="dropdown-trigger">Products <span class="chevron">▼</span></button>
+          <div class="dropdown-menu">
+            <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="external-arrow">↗</span></a>
+            <a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="external-arrow">↗</span></a>
+            <a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="external-arrow">↗</span></a>
+          </div>
+        </li>
+
+        <!-- Resources -->
+        <li>
+          <button class="dropdown-trigger">Resources <span class="chevron">▼</span></button>
+          <div class="dropdown-menu">
+            <a href="#">Blog</a>
+            <a href="#">Presentations</a>
+            <a href="#">Explore Apps</a>
+          </div>
+        </li>
+
+        <li class="nav-spacer"></li>
+
+        <!-- About -->
+        <li>
+          <button class="dropdown-trigger">About <span class="chevron">▼</span></button>
+          <div class="dropdown-menu" style="right: 0; left: auto;">
+            <a href="#">Marcelo Lewin</a>
+            <a href="#">Newsletter</a>
+            <a href="#">Contact</a>
+            <a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="external-arrow">↗</span></a>
+          </div>
+        </li>
+      </ul>
+
+      <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.toggle('active'); this.classList.toggle('open');" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">Products</div>
+      <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="external-arrow">↗</span></a>
+      <a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="external-arrow">↗</span></a>
+      <a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="external-arrow">↗</span></a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">Resources</div>
+      <a href="#">Blog</a>
+      <a href="#">Presentations</a>
+      <a href="#">Explore Apps</a>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-group-title">About</div>
+      <a href="#">Marcelo Lewin</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Contact</a>
+      <a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="external-arrow">↗</span></a>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-tagline">Domain Expertise + Building with AI<br>Is the <span class="highlight">New Baseline</span></h1>
+      <p class="hero-sub">Learn how to use your domain expertise with AI tools to build real products — through blog posts, live presentations, and hands-on resources.</p>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS SECTION ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="products-header">
+        <p class="section-label">Our Products</p>
+        <h2 class="section-title">Tools we've built to help you build</h2>
+        <p class="section-intro" style="margin: 0 auto;">Each one was created with AI — the same approach we teach.</p>
+      </div>
+
+      <!-- Product 1: Image left, text right -->
+      <div class="product-row">
+        <div class="product-visual">
+          <div class="product-visual-inner">
+            <div class="product-visual-placeholder">
+              <div class="placeholder-icon">◆</div>
+              Blocks Builder AI — Product Screenshot
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-number">01</div>
+          <h3 class="product-name">Blocks Builder AI</h3>
+          <p class="product-desc">Build AI-powered applications visually with drag-and-drop blocks. Create, customize, and deploy intelligent workflows without writing code.</p>
+          <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener" class="product-cta">Explore Blocks Builder <span class="external-arrow">↗</span></a>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="product-connector"><div class="product-connector-line"></div></div>
+
+      <!-- Product 2: Text left, image right -->
+      <div class="product-row reverse">
+        <div class="product-visual">
+          <div class="product-visual-inner">
+            <div class="product-visual-placeholder">
+              <div class="placeholder-icon">◇</div>
+              Cody Product Builder — Product Screenshot
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-number">02</div>
+          <h3 class="product-name">Cody Product Builder</h3>
+          <p class="product-desc">Turn ideas into clear, buildable plans using AI. Works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+          <a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener" class="product-cta">View on GitHub <span class="external-arrow">↗</span></a>
+        </div>
+      </div>
+
+      <!-- Connector -->
+      <div class="product-connector"><div class="product-connector-line"></div></div>
+
+      <!-- Product 3: Image left, text right -->
+      <div class="product-row">
+        <div class="product-visual">
+          <div class="product-visual-inner">
+            <div class="product-visual-placeholder">
+              <div class="placeholder-icon">○</div>
+              Cody Article Writer — Product Screenshot
+            </div>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-number">03</div>
+          <h3 class="product-name">Cody Article Writer</h3>
+          <p class="product-desc">Create research-backed articles with customizable style guides and citations. Guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
+          <a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener" class="product-cta">View on GitHub <span class="external-arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOW CONNECTOR ===== -->
+  <div class="flow-connector">
+    <div class="flow-dot"></div>
+  </div>
+
+  <!-- ===== WHAT'S NEW SECTION ===== -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label">Stay Current</p>
+      <h2 class="section-title">Latest from iBuildWith.ai</h2>
+      <p class="section-intro">What we've been writing, building, and presenting recently.</p>
+
+      <div class="whats-new-grid">
+        <!-- Blog Column -->
+        <div>
+          <h3 class="whats-new-column-title">From the Blog</h3>
+
+          <a href="#" class="blog-card">
+            <div class="blog-card-date">Apr 5, 2026</div>
+            <div class="blog-card-title">Building with AI: A Practical Guide</div>
+          </a>
+
+          <a href="#" class="blog-card">
+            <div class="blog-card-date">Mar 28, 2026</div>
+            <div class="blog-card-title">Spec Driven Development Explained</div>
+          </a>
+
+          <a href="#" class="blog-card">
+            <div class="blog-card-date">Mar 15, 2026</div>
+            <div class="blog-card-title">From Idea to Production in 48 Hours</div>
+          </a>
+
+          <a href="#" class="view-all">View All Articles <span>&rarr;</span></a>
+        </div>
+
+        <!-- Presentations Column -->
+        <div>
+          <h3 class="whats-new-column-title">Presentations</h3>
+
+          <a href="#" class="pres-card">
+            <div class="pres-card-top">
+              <span class="badge badge-upcoming">Upcoming</span>
+              <span class="pres-card-date">Apr 30, 2026</span>
+            </div>
+            <div class="pres-card-title">Agent Skills Workshop</div>
+            <div class="pres-card-action">Register &rarr;</div>
+          </a>
+
+          <a href="#" class="pres-card">
+            <div class="pres-card-top">
+              <span class="badge badge-on-demand">On-Demand</span>
+              <span class="pres-card-date">Mar 10, 2026</span>
+            </div>
+            <div class="pres-card-title">Building AI Agents with Claude</div>
+            <div class="pres-card-action">Watch &rarr;</div>
+          </a>
+
+          <a href="#" class="pres-card">
+            <div class="pres-card-top">
+              <span class="badge badge-completed">Completed</span>
+              <span class="pres-card-date">Feb 15, 2026</span>
+            </div>
+            <div class="pres-card-title">Intro to Spec Driven Development</div>
+          </a>
+
+          <a href="#" class="view-all">View All Presentations <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div>
+          <div class="nav-logo" style="font-size: 1.3rem;">iBuildWith.ai</div>
+          <p class="footer-brand-tagline">Domain expertise meets AI-assisted development</p>
+        </div>
+
+        <!-- Column 2: Products + Resources -->
+        <div>
+          <div class="footer-heading">Products</div>
+          <ul class="footer-links">
+            <li><a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://github.com/example/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="external-arrow">↗</span></a></li>
+          </ul>
+          <div class="footer-heading">Resources</div>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Presentations</a></li>
+            <li><a href="#">Explore Apps</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: About -->
+        <div>
+          <div class="footer-heading">About</div>
+          <ul class="footer-links">
+            <li><a href="#">Marcelo Lewin</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="https://www.meetup.com/" target="_blank" rel="noopener">Meetup <span class="external-arrow">↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Follow Us -->
+        <div>
+          <div class="footer-heading">Follow Us</div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://www.npmjs.com/" target="_blank" rel="noopener">NPM <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube <span class="external-arrow">↗</span></a></li>
+            <li><a href="https://x.com/" target="_blank" rel="noopener">X <span class="external-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-items">
+          <span>&copy; 2026 by Red Pill Blue Pill Studios, LLC</span>
+          <span>Coded, built and written in partnership with AI.</span>
+          <span>v2.0.0</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Close mobile nav when a link is clicked
+    document.querySelectorAll('.mobile-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.querySelector('.mobile-nav').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

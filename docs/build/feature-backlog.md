@@ -13,6 +13,75 @@ This document lists features and enhancements derived from the plan. It is a liv
 | #  | Feature             | Description                               | Source |
 |----|---------------------|-------------------------------------------|--------|
 
+## v2.0.0-home-page-and-nav-redesign - 🔴 Not Started
+Redesign the home page to be product-focused and restructure the site navigation. The three products (Blocks Builder AI, Cody Product Builder, Cody Article Writer) become front and center. Videos merge back into Events, renamed to Presentations with Upcoming/On-Demand/Completed groupings. Navigation simplifies from Learn/Build/Community to Products/Resources/About.
+
+**Key Features:**
+
+**Navigation Restructure**
+- Add "Products" top-level nav with dropdown: Blocks Builder AI, Cody Product Builder, Cody Article Writer (all external links)
+- Rename "Learn" to "Resources" with dropdown: Blog, Presentations, Explore Apps
+- Remove "Build" from top nav entirely
+- Remove "Community" from top nav entirely
+- Add "Meetup" link in About section (top and bottom nav), after Contact
+- Remove Community section from footer
+- Update footer to match new top nav structure (Products, Resources, About with Meetup)
+
+**Content Merge: Videos + Events → Presentations**
+- Merge Videos section back into Events, rename to "Presentations"
+- Keep video versions of duplicate entries (they have YouTube embeds); remove the duplicate event-only entries
+- Add "on-demand" status for entries with YouTube videos
+- Update listing page to display three groupings: Upcoming, On-Demand, Completed
+- Upcoming works as current events; On-Demand works like current videos; Completed works as current past events
+- Update archetypes for the new Presentations content type
+- Update SEO metadata and configuration
+- Update image folders and asset references
+- Update all internal links and references from events/videos to presentations
+
+**App Gallery → Explore Apps**
+- Move App Gallery under Resources as "Explore Apps"
+- Update navigation references and internal links
+
+**Home Page Redesign**
+- Keep tagline and sub-tagline (reduced size)
+- New product showcase section: 3 cards with placeholder image, short description, and external link
+  - Blocks Builder AI → https://www.blocksbuilder.ai
+  - Cody Product Builder → GitHub repo link
+  - Cody Article Writer → GitHub repo link
+- "Latest Blog Articles" section
+- "Latest Presentations" section
+- Remove Explore section
+- Remove Build section
+- Remove FAQ section
+
+**Code Cleanup**
+- Remove unused CSS classes, SCSS partials, and duplicate styles from removed sections
+- Remove unused Hugo partials and templates (Videos section, Build nav, Community nav, FAQ component on home page)
+- Remove unused JS functions and assets
+- Keep codebase DRY — consolidate any duplicate or near-duplicate code exposed by the restructure
+
+**Pre-Coding Deliverables**
+- 2–3 HTML mockup prototypes showing home page with new nav (top and bottom), stored in version folder
+
+| ID  | Feature                 | Description                              | Priority | Status |
+|-----|-------------------------|------------------------------------------|----------|--------|
+| 21.1 | HTML mockups (2–3 options) | Create HTML prototypes of home page + nav for user review | High | 🔴 Not Started |
+| 21.2 | Restructure top navigation | Add Products dropdown, rename Learn→Resources, remove Build & Community, add Meetup to About | High | 🔴 Not Started |
+| 21.3 | Restructure footer navigation | Update footer to match new nav: Products, Resources, About (with Meetup), remove Community section | High | 🔴 Not Started |
+| 21.4 | Merge Videos into Events | Keep video versions of duplicates, remove duplicate event-only entries, add on-demand status | High | 🔴 Not Started |
+| 21.5 | Rename Events to Presentations | Rename section, update all references, URLs, folder names, config | High | 🔴 Not Started |
+| 21.6 | Update Presentations listing page | Show Upcoming, On-Demand, Completed groupings | High | 🔴 Not Started |
+| 21.7 | Update archetypes for Presentations | Create/update archetypes to support the new Presentations content type with on-demand status | High | 🔴 Not Started |
+| 21.8 | Update SEO and image references | Update SEO config, image folders, and asset references for Presentations rename | High | 🔴 Not Started |
+| 21.9 | Move App Gallery to Explore Apps | Relocate under Resources, update nav and internal links | Medium | 🔴 Not Started |
+| 21.10 | Redesign home page — product showcase | 3 product cards with placeholder images, descriptions, and external links | High | 🔴 Not Started |
+| 21.11 | Redesign home page — latest content | Latest Blog Articles and Latest Presentations sections | High | 🔴 Not Started |
+| 21.12 | Remove home page sections | Remove Explore, Build, and FAQ sections | High | 🔴 Not Started |
+| 21.13 | Reduce tagline/sub-tagline size | Keep existing tagline content, adjust styling for smaller presentation | Medium | 🔴 Not Started |
+| 21.14 | Update all internal links | Fix any remaining references to old nav structure (events, videos, community, build) | High | 🔴 Not Started |
+| 21.15 | Code cleanup — remove dead code | Remove unused templates and assets from removed sections (Videos layouts, old Events layouts). Keep all reusable components (carousel, FAQ, split cards, etc.) — only remove their usage from the home page. Keep it DRY. | High | 🔴 Not Started |
+| 21.16 | End-to-end testing | Test all navigation paths, responsive layouts, and content display | High | 🔴 Not Started |
+
 ## v1.9.2-support-no-company-for-people - 🟢 Completed
 Make the company and title fields optional when displaying people across all content types. Currently, all templates render the pattern `[name], [title] @ [company]` unconditionally. When company or title is null, empty, or "N/A" (case-insensitive), the display should gracefully omit the missing parts.
 

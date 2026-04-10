@@ -33,13 +33,16 @@ enableRobotsTXT = true
   newsletter = "/newsletter/"
   podcast = "/podcast/"
   blog = "/blog/"
-  videos = "/videos/"
-  events = "/events/"
+  presentations = "/presentations/"
+
+  # Product Links
+  blocks_builder_ai = "https://www.blocksbuilder.ai"
+  cody_product_builder = "https://github.com/ibuildwith-ai/cody-product-builder"
+  cody_article_writer = "https://github.com/ibuildwith-ai/cody-article-writer"
 
   # Community Links
-  discord = "https://discord.gg/Mz7vdRmpJH"
   meetup = "https://www.meetup.com/i-build-with-ai/"
-  
+
   # Social Media Links
   linkedin = "https://www.linkedin.com/company/ibuildwithai/"
   youtube = "https://www.youtube.com/@ibuildwith_ai"
@@ -49,9 +52,7 @@ enableRobotsTXT = true
   podcast_spotify = "https://open.spotify.com/show/1cTBfbjX80FNQpUAjKOJto"
   podcast_apple = "https://podcasts.apple.com/us/podcast/i-build-with-ai/id1832010884"
   podcast_rss = "https://anchor.fm/s/1070b91b0/podcast/rss"
-  
+
   # Developer Site Links
   github = "https://github.com/ibuildwith-ai"
-  cody_product_builder = "https://github.com/ibuildwith-ai/cody-product-builder"
-  cody_article_writer = "https://github.com/ibuildwith-ai/cody-article-writer"
   npm = "https://www.npmjs.com/~bymarcelolewin"
