@@ -18,7 +18,7 @@ enableRobotsTXT = true
 [params]
 
   # About the Site
-  version = "2.0.0"
+  version = "2.1.0"
   last_updated = "2026-04-10"
   author = "Marcelo Lewin"
   description = "Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer."
