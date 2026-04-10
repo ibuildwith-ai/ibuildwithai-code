@@ -5,7 +5,7 @@ date = "2026-01-27"
 draft = false
 status = "published"
 description = "An overview of context engineering for knowledge workers, featuring Eleanor Berger, AI Leadership Expert and Founder at Agentic Ventures, exploring how structured context helps teams get more consistent, reliable results from AI beyond prompt engineering."
-image = "/images/podcast/s2e02.jpg"
+image = "/images/podcast/s2e02.png"
 audio_id = "2hOkrpZ3WscIzS4JBgLOJo"
 spotify_episode_link = "https://open.spotify.com/episode/2hOkrpZ3WscIzS4JBgLOJo"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/an-overview-of-context-engineering-for-knowledge-workers/id1832010884?i=1000746829915"

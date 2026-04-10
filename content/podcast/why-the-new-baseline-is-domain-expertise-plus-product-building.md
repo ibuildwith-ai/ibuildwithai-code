@@ -5,7 +5,7 @@ date = "2026-02-10"
 draft = false
 status = "published"
 description = "In this episode, Marcelo Lewin talks with Dustin Lehr, AppSec Advocate @ Security Journey and Co-founder of Katilyst, about why the new baseline for knowledge workers is domain expertise plus product building. They explore how vibe coding enables experts to become builders and why future teams will expect both deep knowledge and the ability to build with AI."
-image = "/images/podcast/s2e03.jpg"
+image = "/images/podcast/s2e03.png"
 audio_id = "4706uA18TJEkwrF9NEIm2d"
 spotify_episode_link = "https://open.spotify.com/episode/4706uA18TJEkwrF9NEIm2d"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/why-the-new-baseline-is-domain-expertise-plus-product/id1832010884?i=1000749050835"

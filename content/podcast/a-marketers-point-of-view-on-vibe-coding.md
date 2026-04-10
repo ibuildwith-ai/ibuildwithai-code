@@ -5,7 +5,7 @@ date = "2026-02-24"
 draft = false
 status = "published"
 description = "A conversation with Erin Carpenter about how marketing teams can use AI to prototype and iterate on internal tools, collaborate more effectively with developers, and move faster without becoming engineers."
-image = "/images/podcast/s2e04.jpg"
+image = "/images/podcast/s2e04.png"
 audio_id = "75zsmeGkMIpkmVrSYZ2GND"
 spotify_episode_link = "https://open.spotify.com/episode/75zsmeGkMIpkmVrSYZ2GND"
 apple_podcast_episode_link = "https://podcasts.apple.com/us/podcast/a-marketers-point-of-view-on-vibe-coding/id1832010884?i=1000751159829"
