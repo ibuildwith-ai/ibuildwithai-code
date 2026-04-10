@@ -23,11 +23,10 @@ Disallow: /.git/
 # Allow access to all content types
 Allow: /blog/
 Allow: /podcast/
-Allow: /videos/
-Allow: /events/
-Allow: /apps/
+Allow: /presentations/
 Allow: /about-marcelo/
 Allow: /contact/
+Allow: /newsletter/
 
 {{- else }}
 # {{ if eq .Site.BaseURL "https://next.ibuildwith.ai" }}Staging{{ else if hasPrefix .Site.BaseURL "http://localhost" }}Development{{ else }}Non-production{{ end }} robots.txt

@@ -18,12 +18,12 @@ enableRobotsTXT = true
 [params]
 
   # About the Site
-  version = "1.9.2"
-  last_updated = "2026-03-28"
+  version = "2.0.0"
+  last_updated = "2026-04-09"
   author = "Marcelo Lewin"
-  description = "Learn how to combine your domain expertise with AI to build prototypes, tools, and workflows without becoming a developer."
-  short_description = "Learn how to combine your domain expertise with AI to build prototypes, tools, and workflows without becoming a developer."
-  footer_description = "Learn how to combine your domain expertise with AI to build prototypes, tools, and workflows without becoming a developer."
+  description = "Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer."
+  short_description = "Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer."
+  footer_description = "Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer."
   
 
   # Page Slugs

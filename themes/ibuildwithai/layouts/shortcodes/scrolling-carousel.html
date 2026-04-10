@@ -8,7 +8,6 @@
   Usage in Content Files (.md):
   ------------------------------
   {{< scrolling-carousel scroll="auto" speed="slow" direction="left" width="300px" height="200px" >}}
-    {{< carousel-item icon="/images/icons/icon-apps.png" heading="TreeX" description="Task management app" link="/apps/treex/" >}}
     {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" description="Read our latest posts" link="/blog/" >}}
     {{< carousel-item icon="/images/icons/icon-podcast.png" heading="Podcast" link="/podcast/" >}}
   {{< /scrolling-carousel >}}
@@ -51,25 +50,18 @@
   ---------
   Example 1: Auto-scrolling carousel (default settings)
   {{< scrolling-carousel >}}
-    {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" description="Explore our apps" link="/apps/" >}}
     {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" description="Read our posts" link="/blog/" >}}
     {{< carousel-item icon="/images/icons/icon-podcast.png" heading="Podcast" link="/podcast/" >}}
   {{< /scrolling-carousel >}}
 
   Example 2: Fast scrolling right with custom dimensions
   {{< scrolling-carousel scroll="auto" speed="fast" direction="right" width="320px" height="240px" >}}
-    {{< carousel-item icon="/images/icons/icon-events.png" heading="Events" link="/events/" >}}
+    {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" link="/blog/" >}}
   {{< /scrolling-carousel >}}
 
-  Example 3: Using page bundle icons (from content folders)
-  {{< scrolling-carousel width="280px" height="220px" >}}
-    {{< carousel-item icon="/apps/treex/icon.png" heading="TreeX" description="Task management" link="/apps/treex/" >}}
-    {{< carousel-item icon="/apps/galactic-invaders/icon.png" heading="Galactic Invaders" link="/apps/galactic-invaders/" >}}
-  {{< /scrolling-carousel >}}
-
-  Example 4: Static carousel (no auto-scroll)
+  Example 3: Static carousel (no auto-scroll)
   {{< scrolling-carousel scroll="none" >}}
-    {{< carousel-item icon="/images/icons/icon-apps.png" heading="Apps" link="/apps/" >}}
+    {{< carousel-item icon="/images/icons/icon-blog.png" heading="Blog" link="/blog/" >}}
   {{< /scrolling-carousel >}}
 
   Features:

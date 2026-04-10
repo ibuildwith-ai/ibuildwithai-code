@@ -2,11 +2,11 @@
   "cody-product-builder": {
     "name": "iBuildWith.ai",
     "description": "Educational platform teaching Spec Driven Development and AI-assisted coding through blog, podcast, events, videos, and community",
-    "version": "1.9.2",
+    "version": "2.0.0",
     "phase": "build",
     "projectPath": "docs",
     "createdAt": "2025-10-20",
     "releaseNotesPath": "{{projectRoot}}",
-    "updatedAt": "2026-02-23"
+    "updatedAt": "2026-04-09"
   }
 }

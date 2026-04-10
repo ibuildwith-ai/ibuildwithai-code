@@ -15,17 +15,13 @@
           {{ $priority = 1.0 }}
         
         {{/* Main Section Pages - Priority 0.9 */}}
-        {{ else if or (eq .RelPermalink "/blog/") (eq .RelPermalink "/podcast/") (eq .RelPermalink "/tutorials/") (eq .RelPermalink "/events/") (eq .RelPermalink "/apps/") }}
+        {{ else if or (eq .RelPermalink "/blog/") (eq .RelPermalink "/podcast/") (eq .RelPermalink "/presentations/") }}
           {{ $priority = 0.9 }}
-        
+
         {{/* Individual Content - Priority 0.8 */}}
-        {{ else if or (eq .Section "blog") (eq .Section "podcast") (eq .Section "tutorials") (eq .Section "events") (eq .Section "apps") }}
+        {{ else if or (eq .Section "blog") (eq .Section "podcast") (eq .Section "presentations") }}
           {{ $priority = 0.8 }}
-        
-        {{/* Community Section - Priority 0.7 */}}
-        {{ else if eq .Section "community" }}
-          {{ $priority = 0.7 }}
-        
+
         {{/* About Page - Priority 0.6 */}}
         {{ else if eq .RelPermalink "/about-marcelo/" }}
           {{ $priority = 0.6 }}

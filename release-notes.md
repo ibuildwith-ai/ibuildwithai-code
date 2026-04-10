@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v2.0.0-home-page-and-nav-redesign - April 9, 2026](#v200-home-page-and-nav-redesign---april-9-2026)
 - [v1.9.2-support-no-company-for-people - February 23, 2026](#v192-support-no-company-for-people---february-23-2026)
 - [v1.9.1-podcast-header-restructure - January 15, 2026](#v191-podcast-header-restructure---january-15-2026)
 - [v1.9.0-event-header-restructure - January 15, 2026](#v190-event-header-restructure---january-15-2026)
@@ -20,6 +21,104 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v2.0.0-home-page-and-nav-redesign - April 9, 2026
+
+## Overview
+
+Major release repositioning iBuildWith.ai from a content-first educational site into a product-first platform. The three products (Blocks Builder AI, Cody Product Builder, Cody Article Writer) are now front and center on the home page and in navigation. Videos and Events sections merged into a unified Presentations section. Complete home page redesign, new navigation structure, new footer layout, and extensive code cleanup.
+
+## Key Features
+
+**New Home Page Design**
+- Animated gradient hero with clickable announcement pill ("New: Blocks Builder AI is live")
+- Product showcase: 3 equal cards (Blocks Builder AI, Cody Product Builder, Cody Article Writer) with custom SVG illustrations, descriptions, and CTAs
+- Latest Blog Articles section (3 most recent, with images and excerpts)
+- Latest Episodes podcast section (3 most recent with guest images, date, title)
+- Latest Sessions presentations section (3 most recent across all statuses with badges)
+- Alternating section backgrounds for visual rhythm
+- Fully responsive with mobile-optimized layouts
+
+**Navigation Restructure**
+- Top nav simplified from Learn/Explore/Build/Community/About → **Products / Resources / About**
+- Products dropdown: Blocks Builder AI, Cody Product Builder, Cody Article Writer (all external)
+- Resources dropdown: Blog, Podcast, Presentations (with visual divider) GitHub, NPM
+- About dropdown: Marcelo Lewin, Newsletter, Contact, Meetup
+- New dropdown style: subtle shadow, rounded corners, green tint hover
+- Mobile nav redesigned as flat list with section headers
+
+**Content Merge: Videos + Events → Presentations**
+- New `/presentations/` section with 18 entries (4 on-demand from videos + 14 events)
+- New archetype combining events + videos fields (status, video_url, etc.)
+- List page with three groupings: Upcoming, On-Demand, Completed
+- Single page handles both on-demand (YouTube embed) and event layouts
+- 4 duplicate entries resolved (video versions kept as canonical)
+- Image folders merged into `/images/presentations/`
+
+**Footer Redesign**
+- 5-column layout: Logo/tagline + Products + Resources + About + Follow Us
+- Products column with external arrows for all three
+- Resources column with visual divider between content (Blog/Podcast/Presentations) and code (GitHub/NPM)
+- About column includes Meetup
+- Follow Us: LinkedIn, YouTube, X (social-only, no longer duplicating GitHub/NPM)
+- Bottom bar: copyright, "Coded with AI" note, version (right-aligned)
+
+**Clickable Cards**
+- All product, blog, podcast, and presentation cards are now fully clickable
+- Hover effects: lift, green border glow, link color shift to white
+- No more tiny clickable links inside cards
+
+**Custom SVG Product Illustrations**
+- Blocks Builder AI: Visual block canvas with interlocking Lego-style blocks, AI Chat panel
+- Cody Product Builder: Plan document with PRD/checklist connecting to code panel
+- Cody Article Writer: Article layout with Style Guide panel and Research sources
+
+## Removed
+
+- **App Gallery section** — Entirely removed (content, layouts, archetype, SEO, images). Replaced with direct GitHub link in Resources nav.
+- **Old home page sections** — Start Your Journey split cards, Explore carousel, Build feature cards, FAQ accordion (component preserved for future use)
+- **Community nav group** — Meetup moved to About; Discord link removed
+- **Learn/Explore/Build nav groups** — Merged into Products and Resources
+- **`.Site.Params.events`, `.Site.Params.videos`, `.Site.Params.apps`, `.Site.Params.discord`** — Removed from config.toml
+
+## Code Cleanup
+
+- Deleted `/content/events/`, `/content/videos/`, `/content/apps/` folders
+- Deleted `/layouts/events/`, `/layouts/videos/`, `/layouts/apps/` directories
+- Deleted old SEO data folders for events/videos/apps
+- Deleted orphaned `photo-gallery.js`
+- Deleted 6 unused icon files (icon-apps, icon-events, icon-videos, icon-keep-the-vibe, icon-structure, icon-vibe-coder)
+- Updated `sitemap.xml` to reference new sections only
+- Updated `robots.txt` Allow directives
+- Updated shortcode documentation comments
+- Updated `automations/create-content.sh` to remove app/video/event content types
+- Added `content/faq/_index.md` with `render: never` to silence layout warnings
+
+## Standardization
+
+- Removed animated underline hover effects — all text links now use color-change only
+- Standardized card hover pattern: lift + green glow + link color shift to white
+- Consistent section label size (18px, uppercase, bold, letter-spacing)
+- Consistent image aspect ratios (16:9 for blog/presentations, natural for podcast)
+- Left-aligned paragraph text throughout (removed centered text experiments)
+- Green gradient divider style reused across desktop dropdown, mobile nav, and footer
+
+## Bug Fixes
+
+- Fixed horizontal scrollbar caused by hero background overflow
+- Fixed mobile nav not displaying (was being clipped by `backdrop-filter` on parent header creating a new stacking context — moved mobile nav outside the header)
+- Fixed logo hover scale effect (removed, now static)
+- Fixed dropdown box shadow being too heavy (toned down from `0 20px 60px` to `0 4px 12px`)
+- Fixed product card images being cropped (aspect-ratio property now matches SVG source)
+
+## Other Changes
+
+- Version bumped from 1.9.2 → 2.0.0
+- Footer tagline updated to match main site description
+- Hero tagline/sub-tagline sized down for better balance
+- Page count reduced from stale 98 → clean 63
 
 ---
 

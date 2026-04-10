@@ -12,8 +12,10 @@ This document lists features and enhancements derived from the plan. It is a liv
 
 | #  | Feature             | Description                               | Source |
 |----|---------------------|-------------------------------------------|--------|
+| 22 | Migrate Site.Data to hugo.Data | `.Site.Data` is deprecated in Hugo v0.156.0 and emits a build warning. Update all templates to use `hugo.Data` instead. Affects templates that read from `/data/people/` (blog/single, podcast/single, presentations/list, presentations/single) and `/data/seo/`. | User |
+| 23 | Remove next environment | Remove the `next` (staging) environment entirely. Delete `config/next/config.toml`, remove staging password logic from `baseof.html`, remove any CI/CD workflows that deploy to next.ibuildwith.ai, update documentation. | User |
 
-## v2.0.0-home-page-and-nav-redesign - 🔴 Not Started
+## v2.0.0-home-page-and-nav-redesign - 🟢 Completed
 Redesign the home page to be product-focused and restructure the site navigation. The three products (Blocks Builder AI, Cody Product Builder, Cody Article Writer) become front and center. Videos merge back into Events, renamed to Presentations with Upcoming/On-Demand/Completed groupings. Navigation simplifies from Learn/Build/Community to Products/Resources/About.
 
 **Key Features:**
@@ -65,22 +67,22 @@ Redesign the home page to be product-focused and restructure the site navigation
 
 | ID  | Feature                 | Description                              | Priority | Status |
 |-----|-------------------------|------------------------------------------|----------|--------|
-| 21.1 | HTML mockups (2–3 options) | Create HTML prototypes of home page + nav for user review | High | 🔴 Not Started |
-| 21.2 | Restructure top navigation | Add Products dropdown, rename Learn→Resources, remove Build & Community, add Meetup to About | High | 🔴 Not Started |
-| 21.3 | Restructure footer navigation | Update footer to match new nav: Products, Resources, About (with Meetup), remove Community section | High | 🔴 Not Started |
-| 21.4 | Merge Videos into Events | Keep video versions of duplicates, remove duplicate event-only entries, add on-demand status | High | 🔴 Not Started |
-| 21.5 | Rename Events to Presentations | Rename section, update all references, URLs, folder names, config | High | 🔴 Not Started |
-| 21.6 | Update Presentations listing page | Show Upcoming, On-Demand, Completed groupings | High | 🔴 Not Started |
-| 21.7 | Update archetypes for Presentations | Create/update archetypes to support the new Presentations content type with on-demand status | High | 🔴 Not Started |
-| 21.8 | Update SEO and image references | Update SEO config, image folders, and asset references for Presentations rename | High | 🔴 Not Started |
-| 21.9 | Move App Gallery to Explore Apps | Relocate under Resources, update nav and internal links | Medium | 🔴 Not Started |
-| 21.10 | Redesign home page — product showcase | 3 product cards with placeholder images, descriptions, and external links | High | 🔴 Not Started |
-| 21.11 | Redesign home page — latest content | Latest Blog Articles and Latest Presentations sections | High | 🔴 Not Started |
-| 21.12 | Remove home page sections | Remove Explore, Build, and FAQ sections | High | 🔴 Not Started |
-| 21.13 | Reduce tagline/sub-tagline size | Keep existing tagline content, adjust styling for smaller presentation | Medium | 🔴 Not Started |
-| 21.14 | Update all internal links | Fix any remaining references to old nav structure (events, videos, community, build) | High | 🔴 Not Started |
-| 21.15 | Code cleanup — remove dead code | Remove unused templates and assets from removed sections (Videos layouts, old Events layouts). Keep all reusable components (carousel, FAQ, split cards, etc.) — only remove their usage from the home page. Keep it DRY. | High | 🔴 Not Started |
-| 21.16 | End-to-end testing | Test all navigation paths, responsive layouts, and content display | High | 🔴 Not Started |
+| 21.1 | HTML mockups (2–3 options) | Create HTML prototypes of home page + nav for user review | High | 🟢 Completed |
+| 21.2 | Restructure top navigation | Add Products dropdown, rename Learn→Resources, remove Build & Community, add Meetup to About | High | 🟢 Completed |
+| 21.3 | Restructure footer navigation | Update footer to match new nav: Products, Resources, About (with Meetup), remove Community section | High | 🟢 Completed |
+| 21.4 | Merge Videos into Events | Keep video versions of duplicates, remove duplicate event-only entries, add on-demand status | High | 🟢 Completed |
+| 21.5 | Rename Events to Presentations | Rename section, update all references, URLs, folder names, config | High | 🟢 Completed |
+| 21.6 | Update Presentations listing page | Show Upcoming, On-Demand, Completed groupings | High | 🟢 Completed |
+| 21.7 | Update archetypes for Presentations | Create/update archetypes to support the new Presentations content type with on-demand status | High | 🟢 Completed |
+| 21.8 | Update SEO and image references | Update SEO config, image folders, and asset references for Presentations rename | High | 🟢 Completed |
+| 21.9 | Move App Gallery to Explore Apps | Relocate under Resources, update nav and internal links | Medium | 🟢 Completed |
+| 21.10 | Redesign home page — product showcase | 3 product cards with placeholder images, descriptions, and external links | High | 🟢 Completed |
+| 21.11 | Redesign home page — latest content | Latest Blog Articles and Latest Presentations sections | High | 🟢 Completed |
+| 21.12 | Remove home page sections | Remove Explore, Build, and FAQ sections | High | 🟢 Completed |
+| 21.13 | Reduce tagline/sub-tagline size | Keep existing tagline content, adjust styling for smaller presentation | Medium | 🟢 Completed |
+| 21.14 | Update all internal links | Fix any remaining references to old nav structure (events, videos, community, build) | High | 🟢 Completed |
+| 21.15 | Code cleanup — remove dead code | Remove unused templates and assets from removed sections (Videos layouts, old Events layouts). Keep all reusable components (carousel, FAQ, split cards, etc.) — only remove their usage from the home page. Keep it DRY. | High | 🟢 Completed |
+| 21.16 | End-to-end testing | Test all navigation paths, responsive layouts, and content display | High | 🟢 Completed |
 
 ## v1.9.2-support-no-company-for-people - 🟢 Completed
 Make the company and title fields optional when displaying people across all content types. Currently, all templates render the pattern `[name], [title] @ [company]` unconditionally. When company or title is null, empty, or "N/A" (case-insensitive), the display should gracefully omit the missing parts.

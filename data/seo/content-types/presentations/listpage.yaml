@@ -1,11 +1,11 @@
-# Basic SEO - Custom content for this event
-title: "An Overview of AI Dev Agents for Non-Developers | iBuildWith.ai"
-description: "Get a deep-dive into AI development agents designed for professionals who work alongside development teams but don't write code daily. This session explains how specialized AI agents are changing software development workflows and what technical leaders need to know about this emerging technology."
+# Basic SEO - Custom presentations listing content
+title: "Presentations | iBuildWith.ai"
+description: "Live talks, workshops, and on-demand sessions on building with AI."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/events/ai-dev-agemts-overview-social-share.jpg"
-social_image_alt: "An Overview of AI Dev Agents for Non-Developers | iBuildWith.ai"
+social_image: "defaults.social_image"
+social_image_alt: "Presentations | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

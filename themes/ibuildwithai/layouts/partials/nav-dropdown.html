@@ -1,17 +1,20 @@
 {{/*
   Reusable Navigation Dropdown Component
-  
+
   Parameters:
-  - title: Group name (e.g., "Content", "Building with AI")
+  - title: Group name (e.g., "Resources", "Products")
   - items: Array of menu items with name, url, external properties
+           Or { divider: true } for a visual separator between items
   - align: Dropdown alignment ("left" or "right") - defaults to "left"
-  
+
   Usage:
-  {{ partial "nav-dropdown" (dict 
-    "title" "Content"
-    "items" (slice 
+  {{ partial "nav-dropdown" (dict
+    "title" "Resources"
+    "items" (slice
       (dict "name" "Blog" "url" .Site.Params.blog "external" false)
-      (dict "name" "Events" "url" .Site.Params.events "external" false)
+      (dict "name" "Presentations" "url" .Site.Params.presentations "external" false)
+      (dict "divider" true)
+      (dict "name" "GitHub" "url" .Site.Params.github "external" true)
     )
     "align" "right"
   ) }}

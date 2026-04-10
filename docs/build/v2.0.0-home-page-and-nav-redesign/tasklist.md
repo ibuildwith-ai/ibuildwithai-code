@@ -71,18 +71,18 @@ This document outlines all the tasks to work on to deliver this particular versi
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 6.1 | Remove `/layouts/videos/` | Delete entire videos layout directory | 3.9 | 🔴 Not Started | AGENT |
-| 6.2 | Remove `/layouts/events/` | Delete entire events layout directory | 3.9 | 🔴 Not Started | AGENT |
-| 6.3 | Audit and clean SCSS | Remove unused `.video-*` and `.event-*` styles. Consolidate into `.presentation-*` where needed. Keep all reusable component styles (carousel, FAQ, split cards, etc.) | 5.7 | 🔴 Not Started | AGENT |
-| 6.4 | Update internal links | Search entire codebase for references to old nav structure (events, videos, community, build paths) and update | 3.13, 4.3 | 🔴 Not Started | AGENT |
-| 6.5 | Remove unused config params | Clean up config.toml: remove discord, old page slugs, any orphaned params | 2.1 | 🔴 Not Started | AGENT |
+| 6.1 | Remove `/layouts/videos/` | Deleted | 3.9 | 🟢 Completed | AGENT |
+| 6.2 | Remove `/layouts/events/` | Deleted | 3.9 | 🟢 Completed | AGENT |
+| 6.3 | Audit and clean SCSS | Audited via Explore agent. Most `.event-*`, `.video-*`, `.app-card*` classes still actively used by presentations templates (repurposed). Reusable components (carousel, FAQ, split cards) kept as requested. | 5.7 | 🟢 Completed | AGENT |
+| 6.4 | Update internal links | Cleaned: deleted old `/content/events/`, `/content/videos/`, image folders, SEO data folders. Updated sitemap.xml, robots.txt, shortcode doc comments, nav-dropdown partial comment. Deleted orphaned `photo-gallery.js` and 6 unused icon files. Added `content/faq/_index.md` with `render: never` to prevent layout warnings. | 3.13, 4.3 | 🟢 Completed | AGENT |
+| 6.5 | Remove unused config params | Previously completed — `events`, `videos`, `apps`, `discord` slugs/params removed from config.toml. | 2.1 | 🟢 Completed | AGENT |
 
 ## Phase 7: End-to-End Testing
 
 | ID  | Task             | Description                             | Dependencies | Status | Assigned To |
 |-----|------------------|-----------------------------------------|-------------|----------|--------|
-| 7.1 | Full navigation test | Test all top nav, mobile nav, and footer links (internal and external) | 6.1-6.5 | 🔴 Not Started | AGENT + USER |
-| 7.2 | Presentations test | Verify all presentation entries display correctly — upcoming, on-demand (YouTube), completed | 6.1-6.5 | 🔴 Not Started | AGENT + USER |
-| 7.3 | Home page test | Verify all sections, product links, latest content, responsive behavior | 6.1-6.5 | 🔴 Not Started | AGENT + USER |
-| 7.4 | Hugo build test | Run `hugo` build to verify no errors or warnings | 6.1-6.5 | 🔴 Not Started | AGENT |
-| 7.5 | Cross-page test | Spot-check blog, podcast, apps, about pages for broken references | 7.1-7.4 | 🔴 Not Started | AGENT + USER |
+| 7.1 | Full navigation test | Tested all top nav, mobile nav, and footer links | 6.1-6.5 | 🟢 Completed | AGENT + USER |
+| 7.2 | Presentations test | Verified presentation entries display correctly | 6.1-6.5 | 🟢 Completed | AGENT + USER |
+| 7.3 | Home page test | Verified all sections, product links, latest content, responsive | 6.1-6.5 | 🟢 Completed | AGENT + USER |
+| 7.4 | Hugo build test | Build passes clean. Only deprecation warning for `.Site.Data` (upstream Hugo issue, captured in backlog as idea #22). | 6.1-6.5 | 🟢 Completed | AGENT |
+| 7.5 | Cross-page test | Spot-checked blog, podcast, about pages for broken references | 7.1-7.4 | 🟢 Completed | AGENT + USER |
