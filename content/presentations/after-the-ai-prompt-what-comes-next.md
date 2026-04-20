@@ -6,10 +6,10 @@ date_time = "2026-04-15T18:00:00-07:00"
 location = "OC Merage Jewish Community Center"
 timezone = "PDT"
 presenter = "marcelo-lewin"
-status = "upcoming"
+status = "completed"
 learn_more_url = "https://luma.com/mg994olu"
 on_demand_url = ""
-register_url = "https://luma.com/mg994olu"
+register_url = ""
 meeting_type = "in-person"
 draft = false
 +++
