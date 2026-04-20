@@ -1,0 +1,29 @@
+{
+  "name": "Builder Peer",
+  "description": "Peer-to-peer voice for non-developer builders and technically-curious professionals. Casual but substantive, honest over flattering, explains the why not just the what.",
+  "voice": {
+    "tone": 3,
+    "humor": 5,
+    "opinion": 7,
+    "technical": 7
+  },
+  "formatting": {
+    "emojis": 0,
+    "em_dashes": 0,
+    "blockquotes": "occasional"
+  },
+  "structure": {
+    "opening": ["direct", "contextual"],
+    "closing": ["key_takeaways", "open_question"],
+    "visual_breaks": "moderate",
+    "examples": "some",
+    "example_types": ["tables", "lists", "code_snippets"]
+  },
+  "context": {
+    "author_role": "Founder of iBuildWith.ai, teaching non-coders to build production apps with AI",
+    "author_topic_knowledge": 7,
+    "audience_role": "Non-developer builders, enterprise professionals using AI tools, and technically-curious vibe coders",
+    "audience_topic_knowledge": 4,
+    "author_relationship_to_audience": 2
+  }
+}
