@@ -80,7 +80,7 @@ Opus 4.7 removed that tension by fusing the two controls. You can no longer set 
 
 Here's the clean way to think about it on Opus 4.7: thinking is a switch (on or off), and effort is the dial that shapes what happens when the switch is on. The two are still conceptually distinct, but the controls are now tightly coupled. You can't independently tune depth anymore.
 
-This is a real tradeoff, and it's worth being honest about. What was gained is simpler. Most people who tuned effort and thinking budgets separately were getting it wrong, and the model fighting itself produced worse results than either setting alone would have. Adaptive thinking with effort as the main dial produces better outcomes for most users most of the time. Genuinely better for the 90 percent case.
+This is a real tradeoff. What was gained is simpler. Most people who tuned effort and thinking budgets separately may have been getting it wrong, and the model fighting itself produced worse results than either setting alone would have. Adaptive thinking with effort as the main dial produces better outcomes for most users most of the time. Genuinely better for the 90 percent case.
 
 What was lost is precision. If you're a power user who knew exactly what configuration you wanted, say high effort with a tight 4,000 token thinking cap for a specific agentic workflow, you can't express that anymore. The closest you can get is picking an effort level and prompting the model to think less. That's less precise than the old knob.
 
@@ -101,9 +101,9 @@ The concepts of effort and thinking apply across the Claude lineup, but which co
 
 The "thinking default" column reflects that thinking is opt-in across the board. On Opus 4.7, this is explicit: you set `thinking: {type: "adaptive"}` to turn it on.[^2] On Opus 4.6, Sonnet 4.6, and Haiku 4.5, the API treats thinking as off unless you include the thinking parameter in your request. In the various app and tool environments (claude.ai, Claude Code), the defaults shift based on the model and plan.
 
-A few things worth calling out, since the table compresses a lot.
+A few things worth expanding on.
 
-**Opus 4.7 is the cleanest case.** You get all five effort levels, including xhigh which is exclusive to this model. Thinking is adaptive-only, with a simple on or off switch, and it's off by default. You can't set a manual thinking budget, and you can't set temperature, top-p, or top-k either. The API is stricter about what you can pass in, and it will error on parameters it used to accept.[^3]
+**Opus 4.7 is the cleanest case.** You get all five effort levels, including xhigh which is exclusive to this model. Thinking is adaptive-only, with a simple on or off switch, and it's off by default. You can't set a manual thinking budget and the API is stricter about what you can pass in, and it will error on parameters it used to accept.[^3]
 
 **Opus 4.6 and Sonnet 4.6 are the transitional models.** They support the effort parameter (low through max, but not xhigh). They also support both adaptive and manual thinking, but manual is deprecated, which means it still works today but will be removed at some point. If you're writing new code against these models, default to adaptive plus effort. If you're maintaining old code that uses manual budgets, it will keep working for now, but plan to migrate.[^2]
 
@@ -127,8 +127,6 @@ The bottom line: pick the environment that matches the level of control you need
 
 ## What this means going forward
 
-If you made it this far, here's what actually sticks.
-
 Effort and thinking are still two different things, even on Opus 4.7. Effort is how many steps Claude takes and how ambitious it's allowed to be. Thinking is whether and how hard the model reasons before responding. Holding them separately in your head is the fastest way to diagnose why a response feels off.
 
 Opus 4.7 didn't remove thinking. It removed your ability to tune it independently. You can still turn it on or off, but once it's on, the model decides how much to use and effort becomes the dial that shapes that choice. This is a tradeoff. You get simpler, better defaults. You lose the precision of the old manual budget.
@@ -146,9 +144,9 @@ The older models (Opus 4.6, Sonnet 4.6) still support the old way, but the old w
 
 {{< space "1.5rem" >}}
 
-The open question worth sitting with is this. Anthropic bet that the model knows better than you do how much to think. OpenAI made a similar bet with its reasoning models. Google went the other way and still lets you set a specific thinking budget. Whose approach is right is something we'll find out over the next year or two. For now, if you're building on Claude, the direction is clear: the dials are getting simpler, and the model is taking on more of the decisions that used to be yours.
+Anthropic is betting that the model knows better than you how much to think. If you're building on Claude, the direction is clear: the dials are getting simpler, and the model is taking on more of the decisions that used to be yours.
 
-Whether that feels like a win or a loss probably depends on whether you knew what to do with those dials in the first place.
+Whether this feels like a win or a loss probably depends on whether you knew what to do with those dials in the first place.
 
 <!-- References Here (If any) -->s
 [^1]: Anthropic. "Effort." Claude API Docs. https://platform.claude.com/docs/en/build-with-claude/effort
