@@ -1,6 +1,6 @@
 +++
 title = "Effort, Thinking, and How Opus 4.7 Changed the Rules"
-date = "2026-04-20T06:28:42-07:00"
+date = "2026-04-19T06:28:42-07:00"
 author = "marcelo-lewin"
 draft = false
 summary = "Effort and thinking are two different controls in Claude models. Opus 4.7 fused them. Here's how each current Claude model handles both, and what that means for builders."
