@@ -3,7 +3,7 @@ title: "From Ranking to Being Cited: An Introduction to Generative Engine Optimi
 date: 2026-01-06
 description: "AI tools like ChatGPT and Perplexity are changing how people find information. Learn what Generative Engine Optimization (GEO) is, why it matters for Product Builders and website owners, and practical steps to make your content citable by AI systems."
 keywords: [Generative Engine Optimization, GEO, AI search, SEO vs GEO, content optimization, AI citations, ChatGPT, Perplexity, llms.txt, Product Builders]
-author: "AI Educator, Product Builder"
+author: "Marcelo Lewin"
 ---
 
 # From Ranking to Being Cited: An Introduction to Generative Engine Optimization

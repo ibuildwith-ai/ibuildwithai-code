@@ -3,7 +3,7 @@ title: "How AI Agents Will Work Together: A Guide to the A2A Protocol"
 date: 2026-02-21
 description: "A practical guide to Google's A2A protocol, explaining how AI agents discover, communicate, and collaborate through Agent Cards, Tasks, Messages, and Execution Modes."
 keywords: [A2A, Agent-to-Agent Protocol, AI agents, multi-agent systems, Agent Cards, Google A2A, agent interoperability, agentic AI]
-author: "AI/Tech Educator, Founder of iBuildwith.ai"
+author: "Marcelo Lewin"
 ---
 
 # How AI Agents Will Work Together: A Guide to the A2A Protocol

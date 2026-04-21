@@ -3,7 +3,7 @@ title: "Effort, Thinking, and How Opus 4.7 Changed the Rules"
 date: 2026-04-19
 description: "Effort and thinking are two different controls in Claude models. Opus 4.7 fused them. Here's how each current Claude model handles both, and what that means for builders."
 keywords: [Claude effort parameter, Claude adaptive thinking, Claude Opus 4.7, extended thinking budget tokens, Claude Code effort levels, xhigh effort, Claude API reasoning, adaptive vs manual thinking, Claude model tuning, Claude thinking modes]
-author: "Founder of iBuildWith.ai, teaching non-coders to build production apps with AI"
+author: "Marcelo Lewin"
 ---
 
 ## Two dials that do different things

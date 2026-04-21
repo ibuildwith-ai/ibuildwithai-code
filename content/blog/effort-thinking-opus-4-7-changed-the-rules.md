@@ -1,5 +1,5 @@
 +++
-title = "Effort, Thinking, and How Opus 4.7 Changed the Rules"
+title = "Effort, Thinking, and How Claude Opus 4.7 Changed the Rules"
 date = "2026-04-19T06:28:42-07:00"
 author = "marcelo-lewin"
 draft = false

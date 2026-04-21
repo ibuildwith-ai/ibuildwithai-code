@@ -1,11 +1,11 @@
 # Basic SEO - Custom content for this blog
-title: "Effort, Thinking, and How Claude Opus 4.7 Changed the Rules | iBuildWith.ai"
-description: "Effort and thinking are two different controls in Claude models. Opus 4.7 fused them. Here's how each current Claude model handles both, and what that means for builders."
+title: "Is Claude Fast Mode Worth the Cost? | iBuildWith.ai"
+description: "Claude's fast mode runs the same Opus 4.6 model 2.5x faster at 6x the price. A practical guide to when the premium pays off and when it's just expensive."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/blog/effort-thinking-opus-4-7-changed-the-rules.png"
-social_image_alt: "Effort, Thinking, and How Claude Opus 4.7 Changed the Rules | iBuildWith.ai"
+social_image: "images/seo/content-types/blog/is-claude-fast-mode-worth-the-cost.png"
+social_image_alt: "Is Claude Fast Mode Worth the Cost? | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

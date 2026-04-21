@@ -1,0 +1,119 @@
+{
+  "id": "fast-mode-2026-04-20",
+  "created_at": "2026-04-20T00:00:00Z",
+  "updated_at": "2026-04-20T00:00:00Z",
+  "phase": "approval",
+  "writing_mode": "full",
+  "style_guide": "builder-peer-variation-2",
+  "title": "Is Claude Fast Mode Worth the Cost?",
+  "thesis": "Fast mode isn't a faster Claude. It's the same Opus 4.6, routed through priority infrastructure at 6x the price. Whether that's worth it depends entirely on who's waiting: you, or a pipeline.",
+  "outline": [
+    { "heading": "Opening", "type": "opening", "status": "complete" },
+    { "heading": "What Fast Mode actually is", "type": null, "status": "complete" },
+    { "heading": "Fast vs. standard: a quick comparison", "type": null, "status": "complete" },
+    { "heading": "When it's worth the cost", "type": null, "status": "complete" },
+    { "heading": "When it isn't", "type": null, "status": "complete" },
+    { "heading": "So, is it worth it?", "type": "closing", "status": "complete" }
+  ],
+  "sections": {
+    "opening": "written — see drafts/fast-mode-2026-04-20.md",
+    "what-fast-mode-is": "written — see drafts/fast-mode-2026-04-20.md",
+    "comparison": "written — see drafts/fast-mode-2026-04-20.md",
+    "when-worth": "written — see drafts/fast-mode-2026-04-20.md",
+    "when-not": "written — see drafts/fast-mode-2026-04-20.md",
+    "closing": "written — see drafts/fast-mode-2026-04-20.md"
+  },
+  "citations_used": [
+    { "source_url": "https://platform.claude.com/docs/en/build-with-claude/fast-mode", "citation_count": 11, "cited_in_sections": ["opening", "what-fast-mode-is", "comparison", "when-not", "closing"] },
+    { "source_url": "https://code.claude.com/docs/en/fast-mode", "citation_count": 9, "cited_in_sections": ["opening", "what-fast-mode-is", "comparison", "when-worth", "when-not", "closing"] },
+    { "source_url": "https://simonwillison.net/2026/Feb/7/claude-fast-mode/", "citation_count": 2, "cited_in_sections": ["opening", "closing"] },
+    { "source_url": "https://groundy.com/articles/claude-code-fast-mode-6x-pricing-worth/", "citation_count": 1, "cited_in_sections": ["when-worth"] },
+    { "source_url": "https://www.buildfastwithai.com/blogs/claude-opus-4-6-fast-mode", "citation_count": 2, "cited_in_sections": ["what-fast-mode-is", "closing"] }
+  ],
+  "topic": {
+    "initial_idea": "Write a short article about Claude's Fast Mode for people not familiar with it. The user already has detailed research: fast mode is a research preview that runs the same Opus 4.6 model at up to 2.5x higher output tokens/sec via priority routing, costs 6x standard Opus rates ($30/$150 per MTok), only on Opus 4.6 (not 4.7), available via Console API beta header fast-mode-2026-02-01 and Claude Code /fast (v2.1.36+), billed to extra usage on paid plans, disabled by default on Team/Enterprise, and switching between modes invalidates the prompt cache. Built for interactive latency-sensitive work.",
+    "refined_topic": "Working title: 'Is Fast Mode in Claude Worth the Price?' Decision-framed explainer for people unfamiliar with Fast Mode. Structure: (1) overview of what Fast Mode is, (2) how it compares to standard mode, (3) use cases where the premium is worth it. End with 'it depends' — use cases on both sides do the work. Frame pricing as 'currently 6x' to keep the article evergreen if the multiplier changes later. Audience: builders using Claude (Code and API).",
+    "exploratory_research": {
+      "searches_performed": [
+        "Claude fast mode Opus 4.6 Anthropic research preview 2026",
+        "Claude Code /fast slash command priority routing pricing",
+        "Anthropic fast-mode-2026-02-01 beta header API documentation",
+        "Claude fast mode vs standard developer experience latency tradeoff"
+      ],
+      "sources_reviewed": [
+        "https://code.claude.com/docs/en/fast-mode",
+        "https://platform.claude.com/docs/en/build-with-claude/fast-mode",
+        "https://www.buildfastwithai.com/blogs/claude-opus-4-6-fast-mode",
+        "https://simonwillison.net/2026/Feb/7/claude-fast-mode/",
+        "https://claudefa.st/blog/guide/performance/fast-mode",
+        "https://groundy.com/articles/claude-code-fast-mode-6x-pricing-worth/",
+        "https://www.cloudproinc.com.au/index.php/2026/02/09/claude-opus-4-6-fast-mode/",
+        "https://help.apiyi.com/en/claude-4-6-fast-mode-guide-en.html"
+      ],
+      "date": "2026-04-20T00:00:00Z"
+    }
+  },
+  "research": {
+    "depth": "light",
+    "include_citations_in_export": true,
+    "citation_style": "footnotes",
+    "approved_sources": [
+      {
+        "url": "https://platform.claude.com/docs/en/build-with-claude/fast-mode",
+        "title": "Fast mode (beta: research preview)",
+        "author": "Anthropic",
+        "date": null,
+        "domain": "platform.claude.com",
+        "required": true,
+        "relevance": "Primary source — authoritative definition, pricing, beta header, cache behavior, unsupported with Batch API and Priority Tier",
+        "excerpt": "Fast mode runs the same model with a faster inference configuration. There is no change to intelligence or capabilities. Up to 2.5x higher output tokens per second compared to standard speed. Speed benefits are focused on output tokens per second (OTPS), not time to first token (TTFT). Same model weights and behavior (not a different model). Fast mode is priced at 6x standard Opus rates across the full context window: $30/MTok input, $150/MTok output. Switching between fast and standard speed invalidates the prompt cache. Not available with the Batch API or Priority Tier.",
+        "accessed": "2026-04-20T00:00:00Z"
+      },
+      {
+        "url": "https://code.claude.com/docs/en/fast-mode",
+        "title": "Speed up responses with fast mode",
+        "author": "Anthropic",
+        "date": null,
+        "domain": "code.claude.com",
+        "required": true,
+        "relevance": "Primary source — /fast command, v2.1.36 requirement, org admin controls, extra-usage billing, mid-session switch cost penalty",
+        "excerpt": "Fast mode is a high-speed configuration for Claude Opus 4.6, making the model 2.5x faster at a higher cost per token. Toggle it on with /fast when you need speed for interactive work like rapid iteration or live debugging, and toggle it off when cost matters more than latency. Fast mode is not available on Opus 4.7 or other models. Fast mode requires Claude Code v2.1.36 or later. When you switch into fast mode mid-conversation, you pay the full fast mode uncached input token price for the entire conversation context. Not available on Amazon Bedrock, Google Vertex AI, or Microsoft Azure Foundry. Fast mode usage is billed directly to extra usage, even if you have remaining usage on your plan. Fast mode is disabled by default for Team and Enterprise organizations.",
+        "accessed": "2026-04-20T00:00:00Z"
+      },
+      {
+        "url": "https://simonwillison.net/2026/Feb/7/claude-fast-mode/",
+        "title": "Claude: Speed up responses with fast mode",
+        "author": "Simon Willison",
+        "date": "2026-02-07",
+        "domain": "simonwillison.net",
+        "required": false,
+        "relevance": "Independent developer coverage at launch; captures launch-day framing",
+        "excerpt": "Anthropic states they've been building with a 2.5x-faster version of Claude Opus 4.6 and are now offering it experimentally. Standard Opus 4.6 pricing ($5/$25 per million tokens) jumps to $30/$150 with fast mode—a sixfold increase.",
+        "accessed": "2026-04-20T00:00:00Z"
+      },
+      {
+        "url": "https://groundy.com/articles/claude-code-fast-mode-6x-pricing-worth/",
+        "title": "Claude Code /fast Mode: Is 6x Pricing Worth It?",
+        "author": "Groundy",
+        "date": "2026-02-13",
+        "domain": "groundy.com",
+        "required": false,
+        "relevance": "Directly frames the cost/benefit question our article is tackling; has concrete hourly-rate math",
+        "excerpt": "The 2.5x speed improvement means you can maintain momentum rather than context-switching while waiting. A senior developer billing $200/hour could justify fast mode by saving even 30 minutes daily in waiting time. Fast mode is worthwhile primarily for professional developers on interactive work. For automated workflows or cost-sensitive scenarios, standard mode offers identical quality at substantially lower cost.",
+        "accessed": "2026-04-20T00:00:00Z"
+      },
+      {
+        "url": "https://www.buildfastwithai.com/blogs/claude-opus-4-6-fast-mode",
+        "title": "Claude Opus 4.6 Fast Mode: 2.5x Faster, Same Brain (2026)",
+        "author": "Build Fast with AI",
+        "date": "2026-04-08",
+        "domain": "buildfastwithai.com",
+        "required": false,
+        "relevance": "Captures the 'same brain' framing and the infrastructure-not-algorithm explanation of priority routing",
+        "excerpt": "The mechanism isn't algorithmic—it's infrastructural. Anthropic directs fast mode requests through a high-priority serving path optimized for output token speed. Identical model weights, same reasoning depth, identical quality ceiling—just deployed through faster hardware pathways. Fast mode solves a latency problem, not an intelligence problem.",
+        "accessed": "2026-04-20T00:00:00Z"
+      }
+    ],
+    "citations_used": []
+  }
+}

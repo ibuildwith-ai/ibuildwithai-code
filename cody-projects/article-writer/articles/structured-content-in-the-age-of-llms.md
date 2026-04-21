@@ -3,7 +3,7 @@ title: "Structured Content in the Age of LLMs: When and Where It Fits"
 date: 2026-03-06
 description: "An evidence-based examination of how large language models have changed the value proposition of structured content, with benchmarks on retrieval accuracy, hallucination rates, and a practical framework for content architecture decisions."
 keywords: [structured content, unstructured content, LLM, large language models, content architecture, RAG, GraphRAG, headless CMS, atomic content, content strategy, AI agents, content reuse, enterprise content]
-author: "Content strategist and technical leader"
+author: "Marcelo Lewin"
 ---
 
 ## The Question on the Table
