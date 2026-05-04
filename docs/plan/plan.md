@@ -34,10 +34,10 @@ _High-level structure and major technical decisions. Include how the system is o
 ## Components
 _What are the key parts/modules of the system and what do they do?_
 
-- **Content Management**: Hugo-based system with blog, podcast, events, and videos sections
+- **Content Management**: Hugo-based system with blog, podcast, and presentations sections
 - **Theme System**: Custom ibuildwithai theme with responsive design and component library
-- **Multi-Presenter System**: Support for multiple presenters in events and podcasts
-- **Responsive Header System**: Two-column desktop layout (45/55 split) for blog posts and events with mobile stacking
+- **Multi-Presenter System**: Support for multiple presenters in presentations and podcasts
+- **Responsive Header System**: Two-column desktop layout (45/55 split) for blog posts and presentations with mobile stacking
 - **Photo Gallery Component**: Interactive image galleries for app showcases
 - **Navigation System**: Responsive header/footer with mobile menu and dropdown components
 - **SEO System**: Comprehensive meta tags, Open Graph, and search engine optimization
@@ -50,7 +50,7 @@ _What are the key parts/modules of the system and what do they do?_
 ## Data Model
 _What are the main types of data or objects the system will manage?_
 
-- **Content Types**: Blog posts, podcast episodes, events (presentations/meetups), videos, app showcases
+- **Content Types**: Blog posts, podcast episodes, presentations (upcoming, on-demand, completed), app showcases
 - **People Profiles**: JSON files with presenter/guest information, photos, and biographical data
 - **App Data**: Page bundles with metadata, thumbnails, and photo galleries
 - **SEO Metadata**: YAML files for search engine optimization and social media integration

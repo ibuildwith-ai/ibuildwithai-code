@@ -4,7 +4,7 @@ description: "In this presentation, you’ll learn how to turn repeatable workfl
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/events/building-ai-skills-without-code.png"
+social_image: "images/seo/content-types/presentations/building-ai-skills-without-code.png"
 social_image_alt: "Building AI Skills Without Code: Designing Workflow-Driven Agents for Non-Developers | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

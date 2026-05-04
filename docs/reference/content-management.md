@@ -9,7 +9,7 @@ The website now uses a multi-repository architecture:
 - **Staging**: `dev` branch → `ibuildwithai-next` repository → `next.ibuildwith.ai`
 - **Production**: `main` branch → `ibuildwithai-prod` repository → `www.ibuildwith.ai`
 
-Create new blog posts, app pages, or events using the automated script with titles:
+Create new blog posts, app pages, or presentations using the automated script with titles:
 ```bash
 # Blog posts
 ./automations/create-content.sh blog "My New Blog Article"
@@ -21,10 +21,10 @@ Create new blog posts, app pages, or events using the automated script with titl
 ./automations/create-content.sh app "Todo CLI"
 ./automations/create-content.sh app "Weather Widget"
 
-# Events
-./automations/create-content.sh event "My Event Topic"
-./automations/create-content.sh event "AI Ethics Workshop"
-./automations/create-content.sh event "Contentful Masterclass"
+# Presentations
+./automations/create-content.sh presentation "My Presentation Topic"
+./automations/create-content.sh presentation "AI Ethics Workshop"
+./automations/create-content.sh presentation "Contentful Masterclass"
 
 # Podcast episodes
 ./automations/create-content.sh podcast "Episode Name"
@@ -48,7 +48,7 @@ The automation script automatically creates:
      - `image03.png` - Template gallery image (800x450px)
 2. **SEO file**: `data/seo/content-types/apps/entries/{filename}.yaml` with default metadata
 
-**For other content types (blog, podcast, events):**
+**For other content types (blog, podcast, presentations):**
 1. **Content file**: `content/{type}/{filename}.md` using Hugo archetypes with the actual title pre-filled
 2. **SEO file**: `data/seo/content-types/{type}/entries/{filename}.yaml` with:
    - Title formatted as `[Title] | iCodeWith.ai`
@@ -63,7 +63,7 @@ The automation script automatically creates:
 # Legacy method - requires manual SEO file creation
 hugo new content blog/my-new-blog-article.md
 hugo new content apps/my-new-app-name/index.md
-hugo new content events/my-event-topic.md
+hugo new content presentations/my-presentation-topic.md
 hugo new content podcast/episode-name.md
 ```
 
@@ -102,7 +102,7 @@ The script performs the following git operations:
 - `content/blog/` - Blog posts
 - `content/apps/` - App showcase pages (page bundles with images)
 - `content/podcast/` - Podcast episodes
-- `content/events/` - Event pages
+- `content/presentations/` - Presentation pages
 
 ## People Management
 
@@ -143,7 +143,7 @@ cp data/people/marcelo-lewin.json data/people/new-person-name.json
 - `image` - Path to profile image (must match actual file)
 
 #### Step 2: Add Profile Image
-Add the corresponding profile image to `themes/icodewithai/assets/images/people/`:
+Add the corresponding profile image to `themes/ibuildwithai/assets/images/people/`:
 
 **Image Requirements**:
 - **Dimensions**: Square aspect ratio (1:1) recommended, minimum 300x300px
@@ -160,7 +160,7 @@ data/people/
 ├── debbie-o-brien.json
 └── new-person-name.json
 
-themes/icodewithai/assets/images/people/
+themes/ibuildwithai/assets/images/people/
 ├── marcelo-lewin.png
 ├── debbie-o-brien.png
 └── new-person-name.png
@@ -177,16 +177,16 @@ guest = "debbie-o-brien"
 +++
 ```
 
-**Events**:
+**Presentations**:
 ```yaml
 +++
-presenter = "marcelo-lewin.json"  # Note: events use .json extension
+presenter = "marcelo-lewin.json"  # Note: presentations use .json extension
 +++
 ```
 
 #### People Profile Checklist
 - [ ] JSON file created in `data/people/` with all required fields
-- [ ] Profile image added to `themes/icodewithai/assets/images/people/`
+- [ ] Profile image added to `themes/ibuildwithai/assets/images/people/`
 - [ ] Image path in JSON matches actual file location
 - [ ] Image is properly sized and optimized
 - [ ] Bio is professional and under 200 words
@@ -291,7 +291,7 @@ Episode content in markdown format...
 - **"upcoming"**: Episode appears in Upcoming Episodes section
 
 #### Episode Images
-- **Location**: `themes/icodewithai/assets/images/podcast/`
+- **Location**: `themes/ibuildwithai/assets/images/podcast/`
 - **Organization**: All images consolidated in theme assets folder (v1.4.4)
 - **Naming**: Use episode slug (e.g., `episode-001.jpg`)
 - **Dimensions**: 1:1 aspect ratio (square) recommended
@@ -324,8 +324,8 @@ Content automatically includes proper meta tags for rich previews when shared on
 Theme images (logos, profile photos, certificates) are processed through Hugo Pipes for optimization and cache busting:
 
 #### File Location
-- **Source**: `themes/icodewithai/assets/images/` (consolidated in v1.4.4)
-- **Organization**: 67 image files organized by category (blog, podcast, events, seo, people, icons)
+- **Source**: `themes/ibuildwithai/assets/images/` (consolidated in v1.4.4)
+- **Organization**: image files organized by category (blog, podcast, presentations, seo, people, icons)
 - **Generated**: `/public/images/[filename].[hash].[ext]`
 
 #### Supported Images
@@ -352,9 +352,9 @@ Images are referenced using Hugo's `resources.Get` function:
 - **Consistency**: Unified asset pipeline with SCSS and JavaScript
 
 #### File Management
-- **Static Images**: Favicons and PWA icons remain in `themes/icodewithai/static/images/`
-- **Theme Images**: All images consolidated in `themes/icodewithai/assets/images/` (v1.4.4)
-- **Asset Consolidation**: All JS and SCSS also in `themes/icodewithai/assets/` (v1.4.5)
+- **Static Images**: Favicons and PWA icons remain in `themes/ibuildwithai/static/images/`
+- **Theme Images**: All images consolidated in `themes/ibuildwithai/assets/images/` (v1.4.4)
+- **Asset Consolidation**: All JS and SCSS also in `themes/ibuildwithai/assets/` (v1.4.5)
 - **Performance**: 54% build improvement from consolidation (69ms → 32ms)
 - **Content Images**: App thumbnails and galleries remain as page bundle resources
 

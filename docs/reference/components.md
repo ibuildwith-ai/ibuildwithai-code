@@ -352,7 +352,7 @@ The site uses a unified button system with two standardized button types that pr
 #### Templates Using Buttons
 - `layouts/partials/header.html` - Discord button (`.btn-primary`)
 - `layouts/apps/single.html` - Project action buttons
-- `layouts/events/single.html` - Event action buttons
+- `layouts/presentations/single.html` - Presentation action buttons
 
 #### Migration History
 **v1.2.0**: Standardized from 4+ different button implementations:

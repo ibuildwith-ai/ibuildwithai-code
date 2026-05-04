@@ -4,7 +4,7 @@ description: "[Add description here]"
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/videos/ai-cafe-presentation.jpg"
+social_image: "images/seo/content-types/presentations/ai-cafe-presentation.jpg"
 social_image_alt: "Structured Vibe Coding Without Losing the Vibes | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

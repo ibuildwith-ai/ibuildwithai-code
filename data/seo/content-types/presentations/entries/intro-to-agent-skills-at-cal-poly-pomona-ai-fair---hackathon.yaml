@@ -4,7 +4,7 @@ description: "A practical session at the Cal Poly Pomona AI Fair & Hackathon 202
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/events/cpp-ai-fair-hackathon-presentation.png"
+social_image: "images/seo/content-types/presentations/cpp-ai-fair-hackathon-presentation.png"
 social_image_alt: "Intro to Agent Skills at Cal Poly Pomona AI Fair & Hackathon | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

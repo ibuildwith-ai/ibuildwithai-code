@@ -4,7 +4,7 @@ description: "Explore how to take your vibe-coded app from your laptop to the re
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/events/i-build-with-ai-meetup-social-share.png"
+social_image: "images/seo/content-types/presentations/i-build-with-ai-meetup-social-share.png"
 social_image_alt: "How to Publish your Vibe Coded App for Others To Use | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

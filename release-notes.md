@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v2.1.1-presentations-rename-cleanup - May 4, 2026](#v211-presentations-rename-cleanup---may-4-2026)
 - [v2.1.0-sub-page-redesign - April 10, 2026](#v210-sub-page-redesign---april-10-2026)
 - [v2.0.0-home-page-and-nav-redesign - April 9, 2026](#v200-home-page-and-nav-redesign---april-9-2026)
 - [v1.9.2-support-no-company-for-people - February 23, 2026](#v192-support-no-company-for-people---february-23-2026)
@@ -22,6 +23,41 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v2.1.1-presentations-rename-cleanup - May 4, 2026
+
+## Overview
+
+Patch cleanup for the v2.0.0 events-to-presentations rename. Renames the SEO image folder from `events/` to `presentations/`, consolidates the leftover `videos/` folder into `presentations/`, repoints all 17 affected SEO entry YAMLs to the new path, removes an orphaned typo file, and refreshes stale "events"/"videos" references in project docs.
+
+## Bug Fixes
+
+**SEO Image Folder Rename**
+- `themes/ibuildwithai/assets/images/seo/content-types/events/` renamed to `presentations/` (8 image files preserved with git history)
+- `ai-dev-agents-overview.jpg` moved from `videos/` to `presentations/` (the only unique image in `videos/`; the other 3 were duplicates of files already in `events/`/`presentations/`)
+- `videos/` folder removed entirely
+- Orphaned typo file `ai-dev-agemts-overview-social-share.jpg` (note misspelled "agemts") deleted — no entry referenced it
+- Empty `apps/` SEO image folder also removed — apps content type was previously decommissioned but the empty folder was left behind
+
+**SEO Entry Path Updates**
+- 17 `data/seo/content-types/presentations/entries/*.yaml` files updated: `social_image` paths repointed from `images/seo/content-types/events/...` and `images/seo/content-types/videos/...` to `images/seo/content-types/presentations/...`
+
+**Documentation Refresh**
+- `cody.json` description updated: "blog, podcast, events, videos, and community" → "blog, podcast, presentations, and community"
+- `docs/plan/prd.md` and `docs/plan/plan.md`: stale "events"/"videos" content-type references updated to "presentations"
+- `docs/reference/components.md`: `layouts/events/single.html` → `layouts/presentations/single.html`
+- `docs/reference/content-management.md`: events references updated to presentations; lingering `themes/icodewithai/...` paths swept to `themes/ibuildwithai/...` for consistency with the v1.7.0 rebrand
+
+## Files Changed
+
+See `docs/build/v2.1.1-presentations-rename-cleanup/patch.md` for the full file list.
+
+## Verification
+
+- `hugo --environment local` builds clean — no missing-resource warnings related to social images
+- Rendered `<meta property="og:image">` URLs verified to resolve to the new `/images/seo/content-types/presentations/...` paths
 
 ---
 

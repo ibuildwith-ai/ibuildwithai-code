@@ -1,11 +1,11 @@
-# Basic SEO - Custom content for this event
-title: "Building Marketing Tools at the Speed of Vibes | iBuildWith.ai"
-description: "In this session, Erin Carpenter, Sr. Digital Marketing Director at e360, will share how she applies Vibe Coding techniques with platforms like Lovable to rapidly prototype and launch marketing apps."
+# Basic SEO - Custom content for this presentation
+title: "GitHub Copilot Dev Days Los Angeles | iBuildWith.ai"
+description: "Learn how agent skills, GitHub Copilot, and practical AI-assisted development workflows can help developers and builders create more structured, reusable, and effective AI-powered software experiences."
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/presentations/i-build-with-ai-meetup-social-share.png"
-social_image_alt: "Building Marketing Tools at the Speed of Vibes | iBuildWith.ai"
+social_image: "images/seo/content-types/presentations/github-copilot-dev-days-los-angeles.jpg"
+social_image_alt: "GitHub Copilot Dev Days Los Angeles | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
 twitter_creator: "defaults.twitter_creator"

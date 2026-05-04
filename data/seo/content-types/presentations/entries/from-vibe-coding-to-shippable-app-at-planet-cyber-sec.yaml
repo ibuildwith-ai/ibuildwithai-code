@@ -4,7 +4,7 @@ description: "In this online presentation at the Planet Cyber Security Conferenc
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/videos/ai-at-work-planet-cyber-sec.png"
+social_image: "images/seo/content-types/presentations/ai-at-work-planet-cyber-sec.png"
 social_image_alt: "From Vibe Coding to Shippable App at Planet Cyber Sec | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

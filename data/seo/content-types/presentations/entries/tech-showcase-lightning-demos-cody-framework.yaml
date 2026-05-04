@@ -4,7 +4,7 @@ description: "[Add description here]"
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/videos/tech-showcase-2025.jpg"
+social_image: "images/seo/content-types/presentations/tech-showcase-2025.jpg"
 social_image_alt: "Tech Showcase Lightning Demos - Cody Framework | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"

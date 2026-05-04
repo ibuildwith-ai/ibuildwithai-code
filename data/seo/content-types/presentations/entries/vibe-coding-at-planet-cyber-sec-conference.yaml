@@ -4,7 +4,7 @@ description: "Planet Cyber Sec Conference is putting on a 1 day AI event and I'l
 author: "defaults.author"
 
 # Social Media - Use default image with custom alt text
-social_image: "images/seo/content-types/events/ai-at-work-planet-cyber-sec.png"
+social_image: "images/seo/content-types/presentations/ai-at-work-planet-cyber-sec.png"
 social_image_alt: "Vibe Coding at Planet Cyber Sec Conference | iBuildWith.ai"
 twitter_card_type: "defaults.twitter_card_type"
 twitter_site: "defaults.twitter_site"
