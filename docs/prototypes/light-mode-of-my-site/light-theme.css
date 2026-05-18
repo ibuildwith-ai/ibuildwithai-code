@@ -1,0 +1,245 @@
+/* =============================================================================
+   LIGHT MODE PROTOTYPE — overrides layered on top of the real site stylesheet
+   -----------------------------------------------------------------------------
+   This file is prototype-only. It does two things:
+     1. Styles the light/dark toggle switch (applies in BOTH modes).
+     2. Repaints the home page in a light palette, scoped under `.theme-light`
+        (the class is placed on <html> by theme-toggle.js).
+   The brand green is intentionally left untouched in both modes.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   1. Theme toggle switch
+   -------------------------------------------------------------------------- */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: 100px;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.theme-toggle-ico {
+  font-size: 12px;
+  line-height: 1;
+  color: #0a0a0a;
+}
+
+/* Dark mode (default): moon icon, thumb on the left */
+.theme-toggle-ico--sun { display: none; }
+.theme-toggle-ico--moon { display: block; }
+
+.theme-toggle:focus-visible .theme-toggle-track {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Light mode: thumb slides right, sun icon */
+.theme-light .theme-toggle-track {
+  background: #dfe1df;
+  border-color: #cdd0cd;
+}
+.theme-light .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+.theme-light .theme-toggle-ico--sun { display: block; }
+.theme-light .theme-toggle-ico--moon { display: none; }
+
+/* -----------------------------------------------------------------------------
+   2. Light palette — scoped under .theme-light (set on <html>)
+   -------------------------------------------------------------------------- */
+
+/* Base ---------------------------------------------------------------------- */
+.theme-light body {
+  background-color: #ffffff;
+  color: #18181b;
+}
+
+.theme-light ::-webkit-scrollbar-track {
+  background: #f0f1f0;
+}
+
+/* Header & navigation ------------------------------------------------------- */
+.theme-light .header {
+  background-color: rgba(255, 255, 255, 0.82);
+  border-bottom-color: #e5e7e5;
+}
+.theme-light .header.nav-open {
+  background-color: #ffffff;
+}
+
+.theme-light .nav-dropdown-toggle,
+.theme-light .nav-dropdown-arrow {
+  color: #52525b;
+}
+.theme-light .nav-dropdown-toggle:hover,
+.theme-light .nav-dropdown-toggle[aria-expanded="true"] {
+  color: #18181b;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-light .nav-dropdown-menu {
+  background: #ffffff;
+  border-color: #e5e7e5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.theme-light .nav-dropdown-item a {
+  color: #52525b;
+}
+.theme-light .nav-dropdown-item a:hover {
+  background: rgba(34, 197, 94, 0.1);
+  color: #18181b;
+}
+
+.theme-light .hamburger-line {
+  background-color: #18181b;
+}
+
+/* Logo (inline SVG) — icon stays green; the "With.ai" wordmark adapts */
+.logo-svg {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+.theme-light .logo-word-secondary {
+  fill: #3f3f46;
+}
+
+/* Hero ---------------------------------------------------------------------- */
+.theme-light .hero-v2 h1 {
+  color: #18181b;
+}
+.theme-light .hero-v2-sub {
+  color: #52525b;
+}
+/* Faint background grid — invisible on white at the original opacity */
+.theme-light .hero-v2-grid {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+}
+
+/* Buttons ------------------------------------------------------------------- */
+.theme-light .btn-v2-secondary {
+  color: #18181b;
+  border-color: #d4d6d4;
+}
+
+/* Sections ------------------------------------------------------------------ */
+.theme-light .section-v2-alt {
+  background: #f4f6f4;
+}
+.theme-light .section-v2-subtitle {
+  color: #5f636a;
+}
+
+/* Product cards ------------------------------------------------------------- */
+.theme-light .product-card {
+  background: #ffffff;
+  border-color: #e5e7e5;
+}
+.theme-light .product-card:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+.theme-light .product-desc {
+  color: #52525b;
+}
+/* The product art is dark-on-transparent, so the image frame stays dark */
+.theme-light .product-image {
+  background: #121212;
+}
+/* On hover the base theme turns these green links white — keep them readable */
+.theme-light .product-card:hover .product-cta {
+  color: #15803d;
+}
+
+/* Blog / podcast / presentation cards -------------------------------------- */
+.theme-light .hp-blog-card,
+.theme-light .hp-podcast-card,
+.theme-light .hp-pres-card {
+  background: #ffffff;
+  border-color: #e5e7e5;
+}
+.theme-light .hp-blog-card:hover,
+.theme-light .hp-podcast-card:hover,
+.theme-light .hp-pres-card:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
+}
+.theme-light .hp-blog-date,
+.theme-light .hp-pres-meta {
+  color: #71717a;
+}
+.theme-light .hp-blog-card:hover .hp-blog-link,
+.theme-light .hp-podcast-card:hover .hp-blog-link,
+.theme-light .hp-pres-card:hover .hp-pres-action {
+  color: #15803d;
+}
+.theme-light .hp-pres-badge-completed {
+  background: rgba(0, 0, 0, 0.05);
+  color: #71717a;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* View-all link ------------------------------------------------------------- */
+.theme-light .view-all-link:hover {
+  color: #15803d;
+}
+
+/* Footer -------------------------------------------------------------------- */
+.theme-light .footer {
+  border-top-color: #e5e7e5;
+}
+.theme-light .footer .footer-tagline {
+  color: #71717a;
+}
+.theme-light .footer .footer-heading {
+  color: #18181b;
+}
+.theme-light .footer .footer-links a {
+  color: #52525b;
+}
+.theme-light .footer .footer-bottom {
+  border-top-color: #e5e7e5;
+}
+.theme-light .footer .footer-bottom-text,
+.theme-light .footer .footer-bottom-sep,
+.theme-light .footer .footer-bottom-version {
+  color: #71717a;
+}
+
+/* Mobile navigation --------------------------------------------------------- */
+.theme-light .mobile-nav-v2 {
+  background: #ffffff;
+}
+.theme-light .mobile-nav-v2-section a {
+  color: #52525b;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="280" viewBox="0 0 600 280">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#161616"/>
+      <stop offset="100%" style="stop-color:#0e0e0e"/>
+    </linearGradient>
+    <linearGradient id="greenFade3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.02"/>
+    </linearGradient>
+    <linearGradient id="blockGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:0.15"/>
+    </linearGradient>
+    <linearGradient id="blockTeal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.12"/>
+    </linearGradient>
+    <linearGradient id="blockOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:0.12"/>
+    </linearGradient>
+    <linearGradient id="blockPink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#db2777;stop-opacity:0.12"/>
+    </linearGradient>
+    <linearGradient id="blockBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="280" fill="url(#bg3)"/>
+
+  <!-- Subtle dot grid -->
+  <g opacity="0.05">
+    <pattern id="dotgrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1" fill="#22c55e"/>
+    </pattern>
+    <rect width="600" height="280" fill="url(#dotgrid)"/>
+  </g>
+
+  <!-- Green glow -->
+  <ellipse cx="300" cy="140" rx="230" ry="120" fill="url(#greenFade3)"/>
+
+  <!-- Canvas area -->
+  <rect x="120" y="25" width="360" height="230" rx="10" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1.5"/>
+
+  <!-- Canvas header bar -->
+  <rect x="120" y="25" width="360" height="32" rx="10" fill="#1e1e1e"/>
+  <rect x="120" y="49" width="360" height="8" fill="#1e1e1e" rx="0"/>
+
+  <!-- Header dots -->
+  <circle cx="138" cy="41" r="4" fill="#ef4444" opacity="0.7"/>
+  <circle cx="152" cy="41" r="4" fill="#eab308" opacity="0.7"/>
+  <circle cx="166" cy="41" r="4" fill="#22c55e" opacity="0.7"/>
+
+  <!-- Canvas title -->
+  <text x="300" y="45" font-family="DM Sans, sans-serif" font-size="9" fill="#666" text-anchor="middle" font-weight="500">Blocks Builder AI — Workflow Canvas</text>
+
+  <!-- ============================================ -->
+  <!-- SNAPPING BLOCKS — stacked like Lego bricks  -->
+  <!-- Each block has a tab on top and a slot on    -->
+  <!-- bottom so they interlock visually.           -->
+  <!-- ============================================ -->
+
+  <!-- Block 1: AI Model (green) — top of stack -->
+  <g transform="translate(210, 68)">
+    <!-- Tab on top -->
+    <rect x="30" y="-6" width="24" height="8" rx="3" fill="url(#blockGreen)" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4"/>
+    <!-- Main block body -->
+    <path d="M0,0 h30 v2 q0,4 4,4 h16 q4,0 4,-4 v-2 h126 v40 h-126 v2 q0,4 -4,4 h-16 q-4,0 -4,-4 v-2 h-30 z" fill="url(#blockGreen)" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4"/>
+    <!-- Block icon -->
+    <rect x="10" y="10" width="18" height="18" rx="4" fill="#22c55e" opacity="0.2"/>
+    <text x="19" y="23" font-family="DM Sans, sans-serif" font-size="9" fill="#22c55e" text-anchor="middle" opacity="0.8">AI</text>
+    <!-- Block label -->
+    <text x="38" y="18" font-family="DM Sans, sans-serif" font-size="10" fill="#e2e2e2" font-weight="500">Use AI Model</text>
+    <text x="38" y="31" font-family="DM Sans, sans-serif" font-size="8" fill="#666">claude-4 · streaming</text>
+  </g>
+
+  <!-- Block 2: Prompt (teal) — snaps below block 1 -->
+  <g transform="translate(210, 110)">
+    <!-- Slot at top (receives tab from above) -->
+    <!-- Main block body with slot -->
+    <path d="M0,0 h30 v2 q0,4 4,4 h16 q4,0 4,-4 v-2 h126 v40 h-126 v2 q0,4 -4,4 h-16 q-4,0 -4,-4 v-2 h-30 z" fill="url(#blockTeal)" stroke="#4ade80" stroke-width="1" stroke-opacity="0.3"/>
+    <!-- Block icon -->
+    <rect x="10" y="10" width="18" height="18" rx="4" fill="#4ade80" opacity="0.2"/>
+    <text x="19" y="23" font-family="DM Sans, sans-serif" font-size="9" fill="#4ade80" text-anchor="middle" opacity="0.8">{ }</text>
+    <!-- Block label -->
+    <text x="38" y="18" font-family="DM Sans, sans-serif" font-size="10" fill="#e2e2e2" font-weight="500">Set Prompt</text>
+    <text x="38" y="31" font-family="DM Sans, sans-serif" font-size="8" fill="#666">system + user context</text>
+  </g>
+
+  <!-- Block 3: User Input (orange) — snaps below block 2 -->
+  <g transform="translate(210, 152)">
+    <path d="M0,0 h30 v2 q0,4 4,4 h16 q4,0 4,-4 v-2 h126 v40 h-126 v2 q0,4 -4,4 h-16 q-4,0 -4,-4 v-2 h-30 z" fill="url(#blockOrange)" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+    <!-- Block icon -->
+    <rect x="10" y="10" width="18" height="18" rx="4" fill="#f59e0b" opacity="0.2"/>
+    <text x="19" y="23" font-family="DM Sans, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle" opacity="0.8">?</text>
+    <!-- Block label -->
+    <text x="38" y="18" font-family="DM Sans, sans-serif" font-size="10" fill="#e2e2e2" font-weight="500">Ask User</text>
+    <text x="38" y="31" font-family="DM Sans, sans-serif" font-size="8" fill="#666">wait for input</text>
+  </g>
+
+  <!-- Block 4: Stream Output (pink) — last block, no bottom tab -->
+  <g transform="translate(210, 194)">
+    <path d="M0,0 h30 v2 q0,4 4,4 h16 q4,0 4,-4 v-2 h126 v40 h-180 z" fill="url(#blockPink)" stroke="#ec4899" stroke-width="1" stroke-opacity="0.3"/>
+    <!-- Block icon -->
+    <rect x="10" y="10" width="18" height="18" rx="4" fill="#ec4899" opacity="0.2"/>
+    <text x="19" y="23" font-family="DM Sans, sans-serif" font-size="9" fill="#ec4899" text-anchor="middle" opacity="0.8">↓</text>
+    <!-- Block label -->
+    <text x="38" y="18" font-family="DM Sans, sans-serif" font-size="10" fill="#e2e2e2" font-weight="500">Stream Output</text>
+    <text x="38" y="31" font-family="DM Sans, sans-serif" font-size="8" fill="#666">response → user</text>
+  </g>
+
+  <!-- Subtle snap indicator lines between blocks -->
+  <line x1="240" y1="108" x2="240" y2="112" stroke="#22c55e" stroke-width="1" opacity="0.15"/>
+  <line x1="240" y1="150" x2="240" y2="154" stroke="#22c55e" stroke-width="1" opacity="0.15"/>
+  <line x1="240" y1="192" x2="240" y2="196" stroke="#22c55e" stroke-width="1" opacity="0.15"/>
+
+  <!-- ============================================ -->
+  <!-- Left sidebar: Block palette -->
+  <!-- ============================================ -->
+  <g transform="translate(30, 50)">
+    <rect width="70" height="185" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" opacity="0.8"/>
+
+    <text x="12" y="20" font-family="DM Sans, sans-serif" font-size="8" fill="#666" font-weight="500">Blocks</text>
+
+    <!-- Block palette items -->
+    <rect x="10" y="30" width="50" height="20" rx="5" fill="url(#blockGreen)" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="35" y="43" font-family="DM Sans, sans-serif" font-size="7" fill="#e2e2e2" text-anchor="middle">AI Call</text>
+
+    <rect x="10" y="56" width="50" height="20" rx="5" fill="url(#blockTeal)" stroke="#4ade80" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="35" y="69" font-family="DM Sans, sans-serif" font-size="7" fill="#e2e2e2" text-anchor="middle">Prompt</text>
+
+    <rect x="10" y="82" width="50" height="20" rx="5" fill="url(#blockOrange)" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="35" y="95" font-family="DM Sans, sans-serif" font-size="7" fill="#e2e2e2" text-anchor="middle">Input</text>
+
+    <rect x="10" y="108" width="50" height="20" rx="5" fill="url(#blockPink)" stroke="#ec4899" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="35" y="121" font-family="DM Sans, sans-serif" font-size="7" fill="#e2e2e2" text-anchor="middle">Output</text>
+
+    <rect x="10" y="134" width="50" height="20" rx="5" fill="url(#blockBlue)" stroke="#3b82f6" stroke-width="0.5" stroke-opacity="0.3"/>
+    <text x="35" y="147" font-family="DM Sans, sans-serif" font-size="7" fill="#e2e2e2" text-anchor="middle">Format</text>
+
+    <rect x="10" y="160" width="50" height="20" rx="5" fill="#2a2a2a" stroke="#2a2a2a" stroke-width="0.5"/>
+    <text x="35" y="173" font-family="DM Sans, sans-serif" font-size="7" fill="#666" text-anchor="middle">More...</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- Right sidebar: AI Chat preview -->
+  <!-- ============================================ -->
+  <g transform="translate(500, 50)">
+    <rect width="80" height="150" rx="6" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1" opacity="0.8"/>
+
+    <text x="12" y="20" font-family="DM Sans, sans-serif" font-size="8" fill="#666" font-weight="500">AI Chat</text>
+
+    <!-- Chat bubbles -->
+    <rect x="8" y="32" width="50" height="18" rx="8" fill="#2a2a2a" opacity="0.5"/>
+    <rect x="12" y="37" width="30" height="3" rx="1.5" fill="#666" opacity="0.5"/>
+    <rect x="12" y="43" width="20" height="3" rx="1.5" fill="#666" opacity="0.3"/>
+
+    <rect x="22" y="56" width="50" height="24" rx="8" fill="#22c55e" opacity="0.12" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2"/>
+    <rect x="26" y="62" width="38" height="3" rx="1.5" fill="#22c55e" opacity="0.4"/>
+    <rect x="26" y="68" width="30" height="3" rx="1.5" fill="#22c55e" opacity="0.3"/>
+
+    <rect x="8" y="86" width="45" height="18" rx="8" fill="#2a2a2a" opacity="0.5"/>
+    <rect x="12" y="91" width="32" height="3" rx="1.5" fill="#666" opacity="0.5"/>
+    <rect x="12" y="97" width="22" height="3" rx="1.5" fill="#666" opacity="0.3"/>
+
+    <rect x="22" y="110" width="50" height="18" rx="8" fill="#22c55e" opacity="0.12" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2"/>
+    <rect x="26" y="115" width="40" height="3" rx="1.5" fill="#22c55e" opacity="0.4"/>
+    <rect x="26" y="121" width="28" height="3" rx="1.5" fill="#22c55e" opacity="0.3"/>
+
+    <!-- Input bar -->
+    <rect x="8" y="133" width="64" height="12" rx="6" fill="#2a2a2a" opacity="0.4"/>
+    <text x="18" y="141" font-family="DM Sans, sans-serif" font-size="6" fill="#666" opacity="0.5">Type...</text>
+  </g>
+
+  <!-- Dotted lines connecting sidebars to canvas -->
+  <line x1="100" y1="140" x2="120" y2="140" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3" opacity="0.2"/>
+  <line x1="480" y1="125" x2="500" y2="125" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3" opacity="0.2"/>
+</svg>

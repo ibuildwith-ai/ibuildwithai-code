@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Mode Prototype — iBuildWith.ai Home Page</title>
+    <meta name="description" content="Throwaway prototype: iBuildWith.ai home page with a light/dark mode toggle.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <!-- Real site stylesheet (dark baseline) -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Prototype-only: light theme overrides + toggle styles -->
+    <link rel="stylesheet" href="light-theme.css">
+
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('prototype-theme');
+                if (saved === 'light') {
+                    document.documentElement.classList.add('theme-light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="container header-inner">
+
+<div class="logo-section">
+    <a href="https://ibuildwith.ai/">
+        <svg class="logo-image logo-svg" viewBox="0 0 555 140" role="img" aria-label="iBuildWith.ai" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#22c55e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M50 41 A23 23 0 0 1 96 41"/>
+                <circle cx="73" cy="44" r="19"/>
+                <ellipse cx="50" cy="44" rx="6" ry="9"/>
+                <ellipse cx="96" cy="44" rx="6" ry="9"/>
+                <rect x="36" y="60" width="74" height="48" rx="6"/>
+                <path d="M24 108 H122 L132 124 H14 Z"/>
+                <circle cx="123" cy="30" r="14"/>
+            </g>
+            <g stroke="#22c55e" stroke-width="5" stroke-linecap="round">
+                <line x1="137" y1="30" x2="142" y2="30"/>
+                <line x1="133" y1="40" x2="136.5" y2="43.5"/>
+                <line x1="123" y1="44" x2="123" y2="49"/>
+                <line x1="113" y1="40" x2="109.5" y2="43.5"/>
+                <line x1="109" y1="30" x2="104" y2="30"/>
+                <line x1="113" y1="20" x2="109.5" y2="16.5"/>
+                <line x1="123" y1="16" x2="123" y2="11"/>
+                <line x1="133" y1="20" x2="136.5" y2="16.5"/>
+            </g>
+            <text x="73" y="93" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace" font-size="26" font-weight="700" fill="#22c55e" text-anchor="middle">&lt;/&gt;</text>
+            <text x="123" y="35" font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">AI</text>
+            <text x="170" y="92" font-family="'DM Sans',sans-serif" font-size="54" font-weight="700" letter-spacing="-2">
+                <tspan fill="#22c55e">iBuild</tspan><tspan class="logo-word-secondary" fill="#cfcfcf">With.ai</tspan>
+            </text>
+        </svg>
+    </a>
+</div>
+
+
+<button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+
+<nav class="nav">
+
+<div class="nav-dropdown">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+    Products
+    <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+  </button>
+  <ul class="nav-dropdown-menu" role="menu">
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://www.blocksbuilder.ai" role="menuitem" target="_blank" rel="noopener noreferrer">
+            Blocks Builder AI
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://github.com/ibuildwith-ai/cody-product-builder" role="menuitem" target="_blank" rel="noopener noreferrer">
+            Cody Product Builder
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://github.com/ibuildwith-ai/cody-article-writer" role="menuitem" target="_blank" rel="noopener noreferrer">
+            Cody Article Writer
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+  </ul>
+</div>
+
+<div class="nav-dropdown">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+    Resources
+    <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+  </button>
+  <ul class="nav-dropdown-menu" role="menu">
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/blog/" role="menuitem">Blog</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/podcast/" role="menuitem">Podcast</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/presentations/" role="menuitem">Presentations</a>
+        </li>
+        <li class="nav-dropdown-divider" role="separator" aria-hidden="true"></li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://github.com/bymarcelolewin" role="menuitem" target="_blank" rel="noopener noreferrer">
+            GitHub
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://www.npmjs.com/~bymarcelolewin" role="menuitem" target="_blank" rel="noopener noreferrer">
+            NPM
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+  </ul>
+</div>
+
+<div class="nav-dropdown nav-dropdown--right">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+    About
+    <span class="nav-dropdown-arrow" aria-hidden="true">▾</span>
+  </button>
+  <ul class="nav-dropdown-menu" role="menu">
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/about-marcelo/" role="menuitem">Marcelo Lewin</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/newsletter/" role="menuitem">Newsletter</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://ibuildwith.ai/contact/" role="menuitem">Contact</a>
+        </li>
+        <li class="nav-dropdown-item" role="none">
+          <a href="https://www.meetup.com/i-build-with-ai/" role="menuitem" target="_blank" rel="noopener noreferrer">
+            Meetup
+            <span class="external-link-icon" aria-hidden="true">↗</span>
+          </a>
+        </li>
+  </ul>
+</div>
+
+</nav>
+
+<!-- Prototype-only: light/dark mode switch -->
+<button class="theme-toggle" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Switch between light and dark mode" title="Toggle light / dark mode">
+    <span class="theme-toggle-track" aria-hidden="true">
+        <span class="theme-toggle-thumb">
+            <span class="theme-toggle-ico theme-toggle-ico--moon">☾</span>
+            <span class="theme-toggle-ico theme-toggle-ico--sun">☀</span>
+        </span>
+    </span>
+</button>
+
+        </div>
+    </div>
+
+<div class="mobile-nav-v2" id="mobileNav">
+    <div class="mobile-nav-v2-section">
+        <div class="mobile-nav-v2-title">Products</div>
+        <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener">Blocks Builder AI <span class="external-link-icon" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/ibuildwith-ai/cody-product-builder" target="_blank" rel="noopener">Cody Product Builder <span class="external-link-icon" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/ibuildwith-ai/cody-article-writer" target="_blank" rel="noopener">Cody Article Writer <span class="external-link-icon" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="mobile-nav-v2-section">
+        <div class="mobile-nav-v2-title">Resources</div>
+        <a href="https://ibuildwith.ai/blog/">Blog</a>
+        <a href="https://ibuildwith.ai/podcast/">Podcast</a>
+        <a href="https://ibuildwith.ai/presentations/">Presentations</a>
+        <div class="mobile-nav-v2-divider"></div>
+        <a href="https://github.com/bymarcelolewin" target="_blank" rel="noopener">GitHub <span class="external-link-icon" aria-hidden="true">↗</span></a>
+        <a href="https://www.npmjs.com/~bymarcelolewin" target="_blank" rel="noopener">NPM <span class="external-link-icon" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="mobile-nav-v2-section">
+        <div class="mobile-nav-v2-title">About</div>
+        <a href="https://ibuildwith.ai/about-marcelo/">Marcelo Lewin</a>
+        <a href="https://ibuildwith.ai/newsletter/">Newsletter</a>
+        <a href="https://ibuildwith.ai/contact/">Contact</a>
+        <a href="https://www.meetup.com/i-build-with-ai/" target="_blank" rel="noopener">Meetup <span class="external-link-icon" aria-hidden="true">↗</span></a>
+    </div>
+</div>
+
+
+    <main>
+
+        <section class="hero-v2">
+            <div class="hero-v2-bg">
+                <div class="hero-v2-grid"></div>
+            </div>
+            <div class="container">
+                <div class="hero-v2-content">
+                    <a href="#products" class="hero-v2-eyebrow">
+                        <span class="pulse"></span>
+                        New: Blocks Builder AI is live
+                    </a>
+                    <h1>Domain Expertise + <span class="gradient-text">Building with AI</span> is the New Baseline</h1>
+                    <p class="hero-v2-sub">Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer.</p>
+                    <div class="hero-v2-actions">
+                        <a href="#products" class="btn-v2-primary">Explore Products &rarr;</a>
+                        <a href="#blog" class="btn-v2-secondary">Explore Resources &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section-v2 section-v2-alt" id="products">
+            <div class="container">
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Products</div>
+                    <h2 class="section-v2-title">Created for <span class="gradient-text">Builders</span></h2>
+                    <p class="section-v2-subtitle">Real products born from real workflows. Each one designed to help you learn and build professional products with AI.</p>
+                </div>
+
+                <div class="products-grid">
+
+                    <a href="https://www.blocksbuilder.ai" target="_blank" rel="noopener" class="product-card">
+                        <div class="product-image">
+                            <img src="images/products/blocks-builder-ai.svg" alt="Blocks Builder AI">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Blocks Builder AI</h3>
+                            <p class="product-desc">Learn the foundations of building AI apps through an intuitive block-based interface. Designed for people who want to build with AI without becoming developers.</p>
+                            <span class="product-cta-btn">Launch App &#8599;</span>
+                        </div>
+                    </a>
+
+
+                    <a href="https://github.com/ibuildwith-ai/cody-product-builder" target="_blank" rel="noopener" class="product-card">
+                        <div class="product-image">
+                            <img src="images/products/cody-product-builder.svg" alt="Cody Product Builder">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Cody Product Builder</h3>
+                            <p class="product-desc">Cody Product Builder helps domain experts turn ideas into clear, buildable plans using AI. It works inside your AI coding tools and keeps you, your team, and your AI assistant in sync without stifling creativity.</p>
+                            <span class="product-cta">Get it on GitHub &#8599;</span>
+                        </div>
+                    </a>
+
+
+                    <a href="https://github.com/ibuildwith-ai/cody-article-writer" target="_blank" rel="noopener" class="product-card">
+                        <div class="product-image">
+                            <img src="images/products/cody-article-writer.svg" alt="Cody Article Writer">
+                        </div>
+                        <div class="product-body">
+                            <h3 class="product-name">Cody Article Writer</h3>
+                            <p class="product-desc">Cody Article Writer helps you create research-backed articles with customizable style guides and citations. It guides you through topic ideation, research planning, outlining, and section-by-section writing.</p>
+                            <span class="product-cta">Get it on GitHub &#8599;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section-v2" id="blog">
+            <div class="container">
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Blog</div>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Articles</span></h2>
+                    <p class="section-v2-subtitle">Articles with insights on how to build apps with AI.</p>
+                </div>
+
+                <div class="hp-blog-grid">
+
+                    <a href="https://ibuildwith.ai/blog/the-frictions-i-couldn-t-see-until-i-started-building-with-claude-code/" class="hp-blog-card">
+                            <div class="hp-card-image">
+                                <img src="images/blog/human-frictions-collaboration.5b8f827722729d228376baf223b35264dbd7dad397b8381fce31c21f5e53d235.jpg" alt="The Frictions I Couldn&#39;t See Until I Started Building With Claude Code" loading="lazy">
+                            </div>
+                        <div class="hp-blog-body">
+                            <div class="hp-blog-date">May 14, 2026</div>
+                            <h3 class="hp-blog-title">The Frictions I Couldn&#39;t See Until I Started Building With Claude Code</h3>
+                            <span class="hp-blog-link">Read &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/blog/is-claude-fast-mode-worth-the-cost/" class="hp-blog-card">
+                            <div class="hp-card-image">
+                                <img src="images/blog/is-claude-fast-mode-worth-the-cost.07141e31720d98ae0ebf3338fd0b43f1c54bf56f9d8050addd9e4b1d9800d50d.png" alt="Is Claude Fast Mode Worth the Cost?" loading="lazy">
+                            </div>
+                        <div class="hp-blog-body">
+                            <div class="hp-blog-date">Apr 20, 2026</div>
+                            <h3 class="hp-blog-title">Is Claude Fast Mode Worth the Cost?</h3>
+                            <span class="hp-blog-link">Read &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/blog/effort-thinking-opus-4-7-changed-the-rules/" class="hp-blog-card">
+                            <div class="hp-card-image">
+                                <img src="images/blog/effort-thinking-opus-4-7-changed-the-rules.8822468a9c54117f167369be3978fa5dd3257761f6474788531818adb5df238b.png" alt="Effort, Thinking, and How Claude Opus 4.7 Changed the Rules" loading="lazy">
+                            </div>
+                        <div class="hp-blog-body">
+                            <div class="hp-blog-date">Apr 19, 2026</div>
+                            <h3 class="hp-blog-title">Effort, Thinking, and How Claude Opus 4.7 Changed the Rules</h3>
+                            <span class="hp-blog-link">Read &rarr;</span>
+                        </div>
+                    </a>
+
+                </div>
+
+                <a href="https://ibuildwith.ai/blog/" class="view-all-link">View All Articles &rarr;</a>
+            </div>
+        </section>
+
+
+        <section class="section-v2 section-v2-alt" id="podcast">
+            <div class="container">
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Podcast</div>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Episodes</span></h2>
+                    <p class="section-v2-subtitle">Conversations with professionals on building with AI.</p>
+                </div>
+
+                <div class="hp-blog-grid">
+
+                    <a href="https://ibuildwith.ai/podcast/a-marketers-point-of-view-on-vibe-coding/" class="hp-podcast-card">
+                            <div class="hp-podcast-image">
+                                <img src="images/podcast/s2e04.3fc8181c3504a0d4f1edeb26a147d8f04e8f3149f4fc99ba0ff916b6330a29f9.png" alt="A Marketer&#39;s Point of View on Vibe Coding" loading="lazy">
+                            </div>
+                        <div class="hp-podcast-body">
+                            <div class="hp-blog-date">Feb 24, 2026</div>
+                            <h3 class="hp-blog-title">A Marketer&#39;s Point of View on Vibe Coding</h3>
+                            <span class="hp-blog-link">Listen &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/podcast/why-the-new-baseline-is-domain-expertise-plus-product-building/" class="hp-podcast-card">
+                            <div class="hp-podcast-image">
+                                <img src="images/podcast/s2e03.db10573b5b98e700760f48f99acf4c48e0ed2e524f5c6b367726522aaa7cc80a.png" alt="Why the New Baseline Is Domain Expertise Plus Product Building" loading="lazy">
+                            </div>
+                        <div class="hp-podcast-body">
+                            <div class="hp-blog-date">Feb 10, 2026</div>
+                            <h3 class="hp-blog-title">Why the New Baseline Is Domain Expertise Plus Product Building</h3>
+                            <span class="hp-blog-link">Listen &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/podcast/an-overview-of-context-engineering-for-knowledge-workers/" class="hp-podcast-card">
+                            <div class="hp-podcast-image">
+                                <img src="images/podcast/s2e02.b624a8b64b7bbffc203ada81e8283ff76d025abc65608f3174f458fd2f231298.png" alt="An Overview of Context Engineering for Knowledge Workers" loading="lazy">
+                            </div>
+                        <div class="hp-podcast-body">
+                            <div class="hp-blog-date">Jan 27, 2026</div>
+                            <h3 class="hp-blog-title">An Overview of Context Engineering for Knowledge Workers</h3>
+                            <span class="hp-blog-link">Listen &rarr;</span>
+                        </div>
+                    </a>
+
+                </div>
+
+                <a href="https://ibuildwith.ai/podcast/" class="view-all-link">View All Episodes &rarr;</a>
+            </div>
+        </section>
+
+
+        <section class="section-v2" id="presentations">
+            <div class="container">
+                <div class="section-v2-header">
+                    <div class="section-v2-label">Presentations</div>
+                    <h2 class="section-v2-title">Latest <span class="gradient-text">Sessions</span></h2>
+                    <p class="section-v2-subtitle">In-person, online and on-demand presentations on building with AI.</p>
+                </div>
+
+                <div class="hp-pres-grid">
+
+                    <a href="https://ibuildwith.ai/presentations/i-build-with-ai-buildathon-from-idea-to-demo/" class="hp-pres-card">
+                            <div class="hp-card-image">
+                                <img src="images/presentations/i-build-with-ai-meetup.1de6c7cca5e9da176eaabb6d208b4e99ab51d5439b64ba1a06b43b88b6fd1edf.png" alt="I Build with AI Buildathon: From Idea to Demo" loading="lazy">
+                            </div>
+                        <div class="hp-pres-body">
+                            <span class="hp-pres-badge hp-pres-badge-upcoming">Upcoming</span>
+                            <h3 class="hp-pres-title">I Build with AI Buildathon: From Idea to Demo</h3>
+                            <div class="hp-pres-meta">
+                                May 28, 2026
+                            </div>
+                            <span class="hp-pres-action">Register &rarr;</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/presentations/github-copilot-dev-days-los-angeles/" class="hp-pres-card">
+                            <div class="hp-card-image">
+                                <img src="images/presentations/github-copilot-dev-days-los-angeles.a257d8fddfac09ac249ac589470ad763e589020a863296faec050a0e43955d39.jpg" alt="GitHub Copilot Dev Days Los Angeles" loading="lazy">
+                            </div>
+                        <div class="hp-pres-body">
+                            <span class="hp-pres-badge hp-pres-badge-completed">Completed</span>
+                            <h3 class="hp-pres-title">GitHub Copilot Dev Days Los Angeles</h3>
+                            <div class="hp-pres-meta">
+                                May 12, 2026
+                                &middot; Marcelo Lewin
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://ibuildwith.ai/presentations/agent-skills-foundations--best-practices--and-a-hands-on-workshop/" class="hp-pres-card">
+                            <div class="hp-card-image">
+                                <img src="images/presentations/i-build-with-ai-meetup.1de6c7cca5e9da176eaabb6d208b4e99ab51d5439b64ba1a06b43b88b6fd1edf.png" alt="Agent Skills Foundations, Best Practices, and a Hands-On Workshop" loading="lazy">
+                            </div>
+                        <div class="hp-pres-body">
+                            <span class="hp-pres-badge hp-pres-badge-completed">Completed</span>
+                            <h3 class="hp-pres-title">Agent Skills Foundations, Best Practices, and a Hands-On Workshop</h3>
+                            <div class="hp-pres-meta">
+                                Apr 30, 2026
+                                &middot; Marcelo Lewin
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <a href="https://ibuildwith.ai/presentations/" class="view-all-link">View All Presentations &rarr;</a>
+            </div>
+        </section>
+
+    </main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-text">
+                        <a href="https://ibuildwith.ai/">
+                            <svg class="logo-image logo-svg" viewBox="0 0 555 140" role="img" aria-label="iBuildWith.ai" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#22c55e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M50 41 A23 23 0 0 1 96 41"/>
+                <circle cx="73" cy="44" r="19"/>
+                <ellipse cx="50" cy="44" rx="6" ry="9"/>
+                <ellipse cx="96" cy="44" rx="6" ry="9"/>
+                <rect x="36" y="60" width="74" height="48" rx="6"/>
+                <path d="M24 108 H122 L132 124 H14 Z"/>
+                <circle cx="123" cy="30" r="14"/>
+            </g>
+            <g stroke="#22c55e" stroke-width="5" stroke-linecap="round">
+                <line x1="137" y1="30" x2="142" y2="30"/>
+                <line x1="133" y1="40" x2="136.5" y2="43.5"/>
+                <line x1="123" y1="44" x2="123" y2="49"/>
+                <line x1="113" y1="40" x2="109.5" y2="43.5"/>
+                <line x1="109" y1="30" x2="104" y2="30"/>
+                <line x1="113" y1="20" x2="109.5" y2="16.5"/>
+                <line x1="123" y1="16" x2="123" y2="11"/>
+                <line x1="133" y1="20" x2="136.5" y2="16.5"/>
+            </g>
+            <text x="73" y="93" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace" font-size="26" font-weight="700" fill="#22c55e" text-anchor="middle">&lt;/&gt;</text>
+            <text x="123" y="35" font-family="'DM Sans',sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">AI</text>
+            <text x="170" y="92" font-family="'DM Sans',sans-serif" font-size="54" font-weight="700" letter-spacing="-2">
+                <tspan fill="#22c55e">iBuild</tspan><tspan class="logo-word-secondary" fill="#cfcfcf">With.ai</tspan>
+            </text>
+        </svg>
+                        </a>
+                        <p class="footer-tagline">Learn how to combine your domain expertise with AI to build apps, prototypes, tools, and workflows without becoming a developer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-columns footer-desktop">
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.blocksbuilder.ai" target="_blank">Blocks Builder AI <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://github.com/ibuildwith-ai/cody-product-builder" target="_blank">Cody Product Builder <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://github.com/ibuildwith-ai/cody-article-writer" target="_blank">Cody Article Writer <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://ibuildwith.ai/blog/">Blog</a></li>
+                        <li><a href="https://ibuildwith.ai/podcast/">Podcast</a></li>
+                        <li><a href="https://ibuildwith.ai/presentations/">Presentations</a></li>
+                        <li class="footer-links-divider" aria-hidden="true"></li>
+                        <li><a href="https://github.com/bymarcelolewin" target="_blank">GitHub <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://www.npmjs.com/~bymarcelolewin" target="_blank">NPM <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://ibuildwith.ai/about-marcelo/">Marcelo Lewin</a></li>
+                        <li><a href="https://ibuildwith.ai/newsletter/">Newsletter</a></li>
+                        <li><a href="https://ibuildwith.ai/contact/">Contact</a></li>
+                        <li><a href="https://www.meetup.com/i-build-with-ai/" target="_blank">Meetup <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.linkedin.com/company/ibuildwithai/" target="_blank">LinkedIn <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://www.youtube.com/@ibuildwith_ai" target="_blank">YouTube <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://x.com/ibuildwith_ai" target="_blank">X <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-columns footer-mobile">
+                <div class="footer-column">
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.blocksbuilder.ai" target="_blank">Blocks Builder AI <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://github.com/ibuildwith-ai/cody-product-builder" target="_blank">Cody Product Builder <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://github.com/ibuildwith-ai/cody-article-writer" target="_blank">Cody Article Writer <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://ibuildwith.ai/blog/">Blog</a></li>
+                        <li><a href="https://ibuildwith.ai/podcast/">Podcast</a></li>
+                        <li><a href="https://ibuildwith.ai/presentations/">Presentations</a></li>
+                        <li class="footer-links-divider" aria-hidden="true"></li>
+                        <li><a href="https://github.com/bymarcelolewin" target="_blank">GitHub <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://www.npmjs.com/~bymarcelolewin" target="_blank">NPM <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://ibuildwith.ai/about-marcelo/">Marcelo Lewin</a></li>
+                        <li><a href="https://ibuildwith.ai/newsletter/">Newsletter</a></li>
+                        <li><a href="https://ibuildwith.ai/contact/">Contact</a></li>
+                        <li><a href="https://www.meetup.com/i-build-with-ai/" target="_blank">Meetup <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Follow Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.linkedin.com/company/ibuildwithai/" target="_blank">LinkedIn <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://www.youtube.com/@ibuildwith_ai" target="_blank">YouTube <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                        <li><a href="https://x.com/ibuildwith_ai" target="_blank">X <span class="external-link-icon" aria-hidden="true">↗</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="footer-bottom">
+            <span class="footer-bottom-text">&copy; 2026 by Red Pill Blue Pill Studios, LLC</span>
+            <span class="footer-bottom-right">
+                <span class="footer-bottom-text">Coded, built and written in partnership with AI.</span>
+                <span class="footer-bottom-sep">&middot;</span>
+                <span class="footer-bottom-version">v2.1.1</span>
+            </span>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/mobile-menu.min.2ec863c9c6d6964f98eca20bed385b0453f3c3f229008a07841c23a3e4be16a3.js"></script>
+    <script src="js/nav-dropdown.min.cc6e5e299517d42d6a98b3735bfc8b66344854cb1525c1624523f9ca146d69b2.js"></script>
+    <script src="theme-toggle.js"></script>
+</body>
+</html>
