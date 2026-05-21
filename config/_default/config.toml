@@ -36,8 +36,8 @@ enableRobotsTXT = true
 
   # Product Links
   blocks_builder_ai = "https://www.blocksbuilder.ai"
-  cody_product_builder = "https://github.com/ibuildwith-ai/cody-product-builder"
-  cody_article_writer = "https://github.com/ibuildwith-ai/cody-article-writer"
+  cody_product_builder = "https://codyskills.ai/docs/cody-product-builder/"
+  cody_article_writer = "https://codyskills.ai/docs/cody-article-writer/"
 
   # Community Links
   meetup = "https://www.meetup.com/i-build-with-ai/"
