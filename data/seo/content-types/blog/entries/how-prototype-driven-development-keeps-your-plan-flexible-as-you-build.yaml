@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this blog
+title: "How Prototype Driven Development Keeps Your Plan Flexible as You Build | iBuildWith.ai"
+description: "Prototype Driven Development (PDD) is a way to build products with AI where throwaway prototypes settle the decisions you can't make on paper and keep your plan flexible."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "images/seo/content-types/blog/prototype-driven-development.jpg"
+social_image_alt: "How Prototype Driven Development Keeps Your Plan Flexible as You Build | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"

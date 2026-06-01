@@ -1,0 +1,55 @@
+{
+  "id": "prototype-driven-development-2026-06-01",
+  "created_at": "2026-06-01T00:00:00Z",
+  "updated_at": "2026-06-01T00:00:00Z",
+  "phase": "ideation",
+  "topic": {
+    "initial_idea": "An article about what Marcelo calls Prototype Driven Development (PDD).",
+    "refined_topic": "Prototype Driven Development (PDD): a structured way of building software for a new class of builder (knowledge workers, domain experts, business professionals, solo app builders). A master plan advances through versioned milestones; whenever the builder hits a decision they can't make on paper, they spin off an isolated, throwaway prototype governed by a structured prototype.md (the idea, what to test, lightweight build approach, a running findings log, and a final LOCKED verdict with explicit keeps/rejects). The prototype validates or invalidates the idea, the DECISION (not the code) is promoted back into the plan, and the disposable prototype is discarded. Core claims: (1) PDD is a new way of building, for a new class of builder; (2) it kills the fantasy that you know everything upfront; (3) the prototype is a probe, not the product; (4) isolation is the discipline; (5) validate OR invalidate both count; (6) the plan stays the source of truth; (7) the LOCKED verdict + structured handoff is the built-in stopping rule that keeps prototypes disposable and the plan moving. Lived practice via :cody prototype in Cody Product Builder; demonstrated on Marcelo's game Sagitta Escape (prototypes/ folder named by question, docs/build/ versioned milestones, prototype.md artifact).",
+    "exploratory_research": {
+      "searches_performed": [
+        "\"prototype driven development\" methodology software AI",
+        "prototype first development vs test driven development AI prototyping product"
+      ],
+      "sources_reviewed": [
+        "https://dev.to/hackastak/tdd-is-backwards-why-prototype-first-development-ships-better-software-8fc",
+        "https://figr.design/blog/ai-driven-prototyping-software-specifically-for-startups-and-early-stage-teams",
+        "https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/",
+        "https://sparkco.ai/blog/ai-prototyping-vs-code-building-deep-dive-insights"
+      ],
+      "date": "2026-06-01T00:00:00Z",
+      "notes": "Term 'prototype-driven' / 'prototype-first' exists in the wild but is not owned as a defined methodology. Existing discourse frames it as (a) AI making prototypes cheap enough to validate fast, and (b) a counter to TDD. Marcelo's PDD is distinct: structured plan + disposable, documented prototypes that feed the plan; for non-developer builders, not an eng TDD debate."
+    }
+  },
+  "audience": "Knowledge workers, business professionals, domain experts, one-person/solo teams building apps with AI (iBuildwith.ai core audience). Non-developer but technical people who now have to build.",
+  "angle": "Define PDD AND propose it as a new way of building (manifesto-leaning, grounded in lived practice).",
+  "research": { "depth": "none" },
+  "style_guide": "builder-peer-variation-2",
+  "phase": "export",
+  "writing_mode": "section",
+  "exported_to": "articles/prototype-driven-development.md",
+  "exported_at": "2026-06-01T00:00:00Z",
+  "title": "How Prototype Driven Development Keeps Your Plan Flexible as You Build",
+  "thesis": "The new class of builder (knowledge workers, domain experts, solo founders building real apps with AI) already knows what they want to build. They start at A and know they want to reach B. The trap is treating the plan as something you lock down upfront and then execute, when in reality some ideas can only be judged by building them. Prototype Driven Development keeps the plan flexible as you build: you advance a master plan, and whenever you hit a decision you can't settle on paper, you spin off a fast, disposable prototype, learn from it, update the plan, and keep building. You repeat this loop across the product's whole lifecycle and into every new version. Prototyping is how you find the best route from A to B, and sometimes what you learn moves the destination to C, which is a valid and valuable outcome. The code is throwaway; the learning is permanent. That discipline separates PDD from both rigid upfront planning and aimless vibe coding.",
+  "key_moves": {
+    "redefine_development": "Open by reclaiming the word 'development': it used to mean writing code; for this new class of builder it means building products with AI. Disarms the 'this is for developers' reflex and places PDD in the TDD/BDD methodology lineage.",
+    "a_to_b_to_c": "Through-line metaphor: you start at A, you know you want B. Prototyping finds the best route from A to B. Stay flexible on the way, and sometimes what you learn moves the destination to C, and that's okay. Reaching C (invalidating B) is the method working, not failing. Plant A->B in the opening, use it to explain the loop in section 3, give 'sometimes you reach C' its own honest beat.",
+    "never_ending_loop": "The loop never stops across the product lifecycle and across versions, but every INDIVIDUAL prototype ends in a LOCKED verdict. That distinction is the discipline.",
+    "running_example": "Sagitta Escape (Marcelo's game): prototypes/ folder named by question, docs/build/ versioned milestones (v0.8.0-mechanic-validation, v0.9.0-design-validation, v1.0.0-feature-complete), and the v1-powerup-and-pause-overlay prototype.md as the concrete artifact.",
+    "no_em_dashes": true
+  },
+  "outline": [
+    { "heading": "Development isn't what it used to be", "type": "opening", "status": "pending", "notes": "Reclaim 'development' = building products with AI. Hook: you know what you're building, you have a plan, you start at A and want B. But you can't finalize every idea by thinking. PDD keeps the plan flexible as you build." },
+    { "heading": "The trap: a plan you're afraid to change", "type": null, "status": "pending", "notes": "Old way locks the plan upfront then executes. Some ideas can only be judged by building them. A rigid plan punishes learning. Builders need a plan that bends." },
+    { "heading": "What Prototype Driven Development actually is", "type": null, "status": "pending", "notes": "The loop: plan -> decision you can't settle on paper -> disposable prototype -> learn -> update plan -> keep building -> repeat. Never fully stops, even across versions. A->B route-finding, sometimes C. Honest middle between rigid planning and vibe coding." },
+    { "heading": "The prototype is a probe, not the product", "type": null, "status": "pending", "notes": "Throwaway code, durable learning. Reframes what a prototype is for." },
+    { "heading": "PDD in the wild: building Sagitta Escape", "type": null, "status": "pending", "notes": "prototypes/ named by question, separate from docs/build/. Versioned milestones (mechanic-validation -> design-validation -> feature-complete) show the loop repeating across versions." },
+    { "heading": "Anatomy of a prototype: the prototype.md", "type": null, "status": "pending", "notes": "Walk the real power-up/pause prototype: Idea, What to Test, Build Approach, Findings Log, LOCKED verdict. The artifact that turns a throwaway experiment into a plan update." },
+    { "heading": "The principles of Prototype Driven Development", "type": null, "status": "pending", "notes": "Distilled applicable set: prototypes answer a question then retire; isolation; validate OR invalidate; plan stays source of truth; prototype at the point of doubt mid-build; capture the decision not the code." },
+    { "heading": "But won't you just prototype forever?", "type": null, "status": "pending", "notes": "The brake. The loop never ends (lifecycle), but every individual prototype ends in a LOCKED verdict. That distinction = discipline, not aimlessness." },
+    { "heading": "Keep your plan flexible", "type": "closing", "status": "pending", "notes": "Key takeaways + open question inviting reader to try it on their own project." }
+  ],
+  "sections": {},
+  "metadata": {},
+  "filename": "prototype-driven-development"
+}
