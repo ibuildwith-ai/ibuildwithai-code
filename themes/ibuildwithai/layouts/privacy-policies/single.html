@@ -1,0 +1,39 @@
+{{ define "main" }}
+<main>
+
+  {{/* Build the small meta lines shown under the title:
+       "Effective <date> by <developer>" and a contact link. */}}
+  {{ $effectiveDate := index .Params "effective-date" }}
+  {{ $developer     := .Params.developer }}
+  {{ $contact       := .Params.contact }}
+  {{ $meta := slice }}
+
+  {{/* Line 1: effective date + developer, gracefully handling a missing field */}}
+  {{ $line := "" }}
+  {{ with $effectiveDate }}{{ $line = printf "Effective %s" . }}{{ end }}
+  {{ with $developer }}
+    {{ if $line }}{{ $line = printf "%s by %s" $line . }}{{ else }}{{ $line = . }}{{ end }}
+  {{ end }}
+  {{ with $line }}{{ $meta = $meta | append . }}{{ end }}
+
+  {{/* Line 2: contact link */}}
+  {{ with $contact }}{{ $meta = $meta | append (printf "Have questions? <a href=\"%s\">Contact us</a>." .) }}{{ end }}
+
+  {{ partial "sub-page-hero.html" (dict
+    "variant" "listing"
+    "title"   .Title
+    "meta"    $meta
+  ) }}
+
+  {{/* Policy body — 100% text. Reuses the blog post body wrapper so the
+       prose styling (.blog-single .content) matches the rest of the site. */}}
+  <article class="blog-single privacy-policy-single">
+    <div class="container">
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </div>
+  </article>
+
+</main>
+{{ end }}

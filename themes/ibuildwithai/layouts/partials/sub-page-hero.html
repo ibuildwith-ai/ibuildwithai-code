@@ -59,6 +59,9 @@
         {{ if $subtitle }}
           <p class="sub-page-hero__subtitle">{{ $subtitle }}</p>
         {{ end }}
+        {{ range $meta }}
+          <div class="sub-page-hero__meta">{{ . | safeHTML }}</div>
+        {{ end }}
       </div>
 
     {{ else }}

@@ -3309,6 +3309,29 @@ h2 + .podcast-embed-section {
   }
 }
 
+// Listing-variant header subtext matches the standard header subtitle
+// (.sub-page-hero__subtitle, used on /podcast/, /blog/, etc.) exactly —
+// same font (inherited), size, line-height, and "Secondary text" color —
+// rather than the dimmer, smaller detail-page meta styling.
+.sub-page-hero__listing .sub-page-hero__meta {
+  font-size: 1.05rem;
+  line-height: $line-height-base;
+  color: $neutral-400;
+}
+
+// Privacy policy pages reuse the .blog-single prose styling, but should match
+// the top spacing of the standard info sub-pages (.section-v2 = $spacing-2xl),
+// not blog posts. Drop the extra .content margin-top, and zero the first child's
+// top margin (these policies lead with an <h2>, whose 32px margin would otherwise
+// win the margin-collapse and push the body down ~32px past the standard.)
+.privacy-policy-single .content {
+  margin-top: 0;
+
+  > :first-child {
+    margin-top: 0;
+  }
+}
+
 // Responsive
 @include tablet-down {
   .sub-page-hero {

@@ -3,6 +3,7 @@
 This document lists new features, bug fixes and other changes implemented during a particular build, also known as a version.
 
 ## Table of Contents
+- [v2.1.2-privacy-policies-section (Patch) - June 4, 2026](#v212-privacy-policies-section-patch---june-4-2026)
 - [v2.1.1-presentations-rename-cleanup - May 4, 2026](#v211-presentations-rename-cleanup---may-4-2026)
 - [v2.1.0-sub-page-redesign - April 10, 2026](#v210-sub-page-redesign---april-10-2026)
 - [v2.0.0-home-page-and-nav-redesign - April 9, 2026](#v200-home-page-and-nav-redesign---april-9-2026)
@@ -23,6 +24,12 @@ This document lists new features, bug fixes and other changes implemented during
 - [v1.4.6-home-page-updates-part-1 - October 20, 2025](#v146-home-page-updates-part-1---october-20-2025)
 - [v1.4.5-consolidate-asset-folders](#v145-consolidate-asset-folders)
 - [v1.4.4-consolidate-images](#v144-consolidate-images)
+
+---
+
+# v2.1.2-privacy-policies-section (Patch) - June 4, 2026
+- **Type:** Small Enhancement
+- **Summary:** Added a new reusable `privacy-policies` content section for hosting per-app privacy policies used in iOS/Android app store submissions. The first policy, "Privacy Policy — Sagitta Chains," lives at `/privacy-policies/privacy-policy-sagitta-chains/`. Pages reuse the v2.0.0 gradient hero plus a single text body, are reachable only by direct URL (not linked in any nav or footer), and the section index page (`/privacy-policies/`) is intentionally suppressed (404). Future policies are added by dropping a new Markdown file into the section. Policy body is currently placeholder text pending final content.
 
 ---
 
