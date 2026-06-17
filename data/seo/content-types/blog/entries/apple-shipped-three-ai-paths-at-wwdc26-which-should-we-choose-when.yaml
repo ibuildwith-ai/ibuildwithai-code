@@ -1,0 +1,24 @@
+# Basic SEO - Custom content for this blog
+title: "Apple Shipped Three AI Paths at WWDC26: Which Should We Choose, When? | iBuildWith.ai"
+description: "A builder's decision map for Apple's WWDC26 AI stack. When to reach for the Foundation Models framework, Core AI, or MLX, where App Intents fits, and how it all works inside the newly agentic Xcode 27."
+author: "defaults.author"
+
+# Social Media - Use default image with custom alt text
+social_image: "images/seo/content-types/blog/wwdc26-ai-paths.png"
+social_image_alt: "Apple Shipped Three AI Paths at WWDC26: Which Should We Choose, When? | iBuildWith.ai"
+twitter_card_type: "defaults.twitter_card_type"
+twitter_site: "defaults.twitter_site"
+twitter_creator: "defaults.twitter_creator"
+
+# Open Graph Image Properties - inherit from defaults
+og_image_width: "defaults.og_image_width"
+og_image_height: "defaults.og_image_height"
+og_image_type: "defaults.og_image_type"
+
+# Technical SEO - inherit from defaults
+robots: "defaults.robots"
+canonical_base_url: "defaults.canonical_base_url"
+
+# Language/Locale - inherit from defaults
+language: "defaults.language"
+locale: "defaults.locale"
