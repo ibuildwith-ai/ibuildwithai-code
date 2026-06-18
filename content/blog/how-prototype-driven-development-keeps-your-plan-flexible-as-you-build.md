@@ -76,7 +76,7 @@ This is also why the most tempting mistake in prototyping is to reuse the protot
 Let me show you what this looks like in a real project instead of in theory. Sagitta Chains is a game I'm building. Here's a slice of how the project is actually organized:
 
 ```
-sagitta-escape/
+sagitta-chains/
   docs/
     build/
       v0.8.0-mechanic-validation/
