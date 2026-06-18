@@ -71,9 +71,9 @@ Those sentences are worth more than any code the prototype contained, and they'r
 
 This is also why the most tempting mistake in prototyping is to reuse the prototype's code in the real build. It feels efficient. You already wrote it, why waste it? But the moment you do that, the throwaway code stops being throwaway, and all the corners you were allowed to cut are now corners cut in your actual product. Worse, you start protecting the prototype's choices because you're attached to the code, instead of choosing what's actually best. Keep the learning. Throw away the code. Every time.
 
-## Prototype Driven Development in the wild: building Sagitta Escape
+## Prototype Driven Development in the wild: building Sagitta Chains
 
-Let me show you what this looks like in a real project instead of in theory. Sagitta Escape is a game I'm building. Here's a slice of how the project is actually organized:
+Let me show you what this looks like in a real project instead of in theory. Sagitta Chains is a game I'm building. Here's a slice of how the project is actually organized:
 
 ```
 sagitta-escape/
