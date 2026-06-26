@@ -1,0 +1,148 @@
+{
+  "id": "ai-not-the-main-tool-2026-06-26",
+  "created_at": "2026-06-26T00:00:00Z",
+  "updated_at": "2026-06-26T00:00:00Z",
+  "phase": "export",
+  "writing_mode": "section",
+  "metadata": {
+    "title": "The Best AI in Your App is Invisible",
+    "description": "The AI label is peaking. The companies winning are not selling AI as a destination. They are burying it inside the tools people already use. A case for builders.",
+    "keywords": ["invisible AI", "embedded AI", "AI integration", "AI product strategy", "ambient AI", "AI as infrastructure", "building with AI", "AI app", "Apple Intelligence", "Figma AI"]
+  },
+  "filename": "the-best-ai-in-your-app-is-invisible",
+  "editor_suggestions": {
+    "blockquotes_added": [],
+    "emphasis_added": [
+      "Section 2: bolded 'The technology does not disappear. The label does.'",
+      "Section 5: bolded the invisible-vs-hidden test",
+      "Section 5: bolded 'bury the controls, not the truth.'",
+      "Section 6: bolded 'Not the most AI. The least visible AI doing the most useful work.'"
+    ]
+  },
+  "topic": {
+    "initial_idea": "Why it's time for the AI market to move from emphasizing AI as the main thing to just integrating AI into every tool — AI is not the main tool, it's running underneath every tool to help us work faster, create more, etc.",
+    "refined_topic": "For builders: the era of 'AI' as the headline is ending. The next winners won't sell AI or slap the label on their product — they'll bury it inside tools that just work better, making the machinery invisible. This is a practical mandate to stop building 'an AI app' and start making the thing you already make dramatically better with AI running underneath. The 'why now' is AI-washing fatigue and the badge becoming a liability.",
+    "exploratory_research": {
+      "searches_performed": [
+        "AI as a feature not a product embedded AI in every tool 2026",
+        "AI ambient invisible AI integration disappearing into workflows 2026",
+        "AI fatigue AI-washing every product slapping AI label backlash 2026",
+        "\"electricity\" analogy AI becoming infrastructure utility not the product"
+      ],
+      "sources_reviewed": [
+        "https://www.salesforce.com/blog/ambient-intelligence/",
+        "https://www.digitalnative.tech/p/the-year-of-invisible-ai",
+        "https://builtin.com/articles/invisible-ai",
+        "https://easycontent.io/resources/why-ai-will-become-invisible-in-content-work/",
+        "https://www.newsweek.com/tech-hits-layoff-milestone-concerns-of-ai-washing-11807595",
+        "https://www.generativevalue.com/p/ai-as-electricity",
+        "https://moneywise.com/news/top-stories/ai-infrastructure-spending-data-centers-power-bottleneck"
+      ],
+      "date": "2026-06-26T00:00:00Z"
+    }
+  },
+  "research": {
+    "depth": "medium",
+    "include_citations_in_export": true,
+    "citation_style": "footnotes",
+    "approved_sources": [
+      {
+        "url": "https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/",
+        "title": "Apple Intelligence brings powerful AI capabilities into everyday experiences",
+        "author": "Apple Newsroom",
+        "date": "2026-06-08",
+        "domain": "apple.com",
+        "required": true,
+        "relevance": "Primary source: Apple frames AI as deeply embedded into everyday apps, not a standalone product",
+        "excerpt": "Truly helpful AI must be centered on our users' needs, deeply integrated into the products they rely on every day, grounded in personal context, and built with privacy at every step. This makes the apps and experiences users rely on every day across iPhone, iPad, Mac, Apple Watch, AirPods, and Apple Vision Pro more personal and helpful than ever.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://www.figma.com/blog/config-2026-recap/",
+        "title": "Config 2026: New Materials, New Tools and a More Expressive Canvas",
+        "author": "Figma Blog",
+        "date": "2026-06-24",
+        "domain": "figma.com",
+        "required": true,
+        "relevance": "Primary source: Figma embeds AI (Weave, shaders, agent) into the design canvas as native materials, not a separate AI app",
+        "excerpt": "Code should be treated like any other design material. So we are introducing code layers in Figma. Because all of this is built with the Figma agent, shader fills and effects are parameterized by default. This allows you to add controls directly on the canvas.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/",
+        "title": "Figma adds code layers, support for animations, more AI features in new update",
+        "author": "Ivan Mehta",
+        "date": "2026-06-24",
+        "domain": "techcrunch.com",
+        "required": false,
+        "relevance": "Third-party confirmation: Figma embeds AI into existing platform rather than launching standalone AI apps",
+        "excerpt": "Figma is embedding AI capabilities directly into its existing design platform rather than creating separate standalone products. The update reflects Figma's strategy of enhancing its collaborative canvas with AI-powered features rather than launching independent AI applications.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://www.notion.com/product/ai",
+        "title": "Notion AI",
+        "author": "Notion",
+        "date": "2026",
+        "domain": "notion.com",
+        "required": false,
+        "relevance": "Third builder example: AI embedded in the workspace, not a separate app to toggle to",
+        "excerpt": "Notion AI isn't a separate app you have to toggle over to—it's more like a built-in assistant that's ready to help you write, edit, brainstorm, and get your thoughts in order, all without leaving the Notion page you're on. It can understand context by pulling signals from adjacent pages, linked databases, and properties.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://www.newsweek.com/tech-hits-layoff-milestone-concerns-of-ai-washing-11807595",
+        "title": "What is 'AI washing'? New theory as tech industry hits scary layoff milestone",
+        "author": "Thomas Westerholm",
+        "date": "2026-04-10",
+        "domain": "newsweek.com",
+        "required": true,
+        "relevance": "The 'why now': names the AI-washing backlash, the label becoming a liability",
+        "excerpt": "AI washing is a deceptive marketing practice in which a company oversells the role of artificial intelligence in its product. Sam Altman confirmed the phenomenon exists: 'there's some AI washing where people are blaming AI for layoffs that they would otherwise do.' Nearly 80,000 tech workers were laid off from January-April 2026.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://www.digitalnative.tech/p/the-year-of-invisible-ai",
+        "title": "The Year of Invisible AI",
+        "author": "Rex Woodbury",
+        "date": "2026-01-13",
+        "domain": "digitalnative.tech",
+        "required": true,
+        "relevance": "Core trend framing for builders: change as little as possible about how people work; AI as connective tissue inside existing tools",
+        "excerpt": "If you're introducing people to a new technology, you should change as little as possible about how and where they work. The promise of invisible AI isn't creating a new way of working, but rather creating a better version of working in the ways that are familiar and comfortable to the user. UI becomes the differentiator.",
+        "accessed": "2026-06-26T00:00:00Z"
+      },
+      {
+        "url": "https://www.generativevalue.com/p/ai-as-electricity",
+        "title": "AI as Electricity",
+        "author": "Eric Flaningam",
+        "date": "2025-01-26",
+        "domain": "generativevalue.com",
+        "required": false,
+        "relevance": "The infrastructure/utility analogy: AI follows electricity's path to becoming the thing you build on, not the product",
+        "excerpt": "The price of intelligence is dropping rapidly like the price of electricity, unlocking more use cases for intelligence/electricity. AI is following electricity's historical trajectory as infrastructure—a 1917 Sears ad urged customers to 'use your electricity for more than light.'",
+        "accessed": "2026-06-26T00:00:00Z"
+      }
+    ],
+    "citations_used": [
+      { "source_url": "https://www.generativevalue.com/p/ai-as-electricity", "citation_count": 1, "cited_in_sections": ["we-stopped-saying-internet-app"] },
+      { "source_url": "https://www.apple.com/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences/", "citation_count": 1, "cited_in_sections": ["the-companies-winning-already-work-this-way"] },
+      { "source_url": "https://www.figma.com/blog/config-2026-recap/", "citation_count": 1, "cited_in_sections": ["the-companies-winning-already-work-this-way"] },
+      { "source_url": "https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/", "citation_count": 1, "cited_in_sections": ["the-companies-winning-already-work-this-way"] },
+      { "source_url": "https://www.notion.com/product/ai", "citation_count": 1, "cited_in_sections": ["the-companies-winning-already-work-this-way"] },
+      { "source_url": "https://www.digitalnative.tech/p/the-year-of-invisible-ai", "citation_count": 2, "cited_in_sections": ["the-companies-winning-already-work-this-way"] }
+    ]
+  },
+  "style_guide": "builder-peer.json",
+  "title": "The Best AI in Your App is Invisible",
+  "thesis": "The best AI in your product is the AI nobody notices. For two years we sold AI as the destination — the app you open, the chatbot you visit, the badge on the box. But the companies winning right now are doing the opposite: burying AI inside the tools people already use, so the work just gets better without anyone thinking about the machinery. Apple did it across iOS 27. Figma did it across the canvas at Config. The lesson for builders is uncomfortable but freeing: your job isn't to build an AI product — it's to make the thing you already build dramatically more powerful, then get out of the user's way.",
+  "outline": [
+    { "heading": "Right Now, Using AI Means Making a Special Trip", "type": "opening", "status": "complete" },
+    { "heading": "We Stopped Saying 'It's an Internet App.' We'll Stop Saying 'It's an AI App' Too.", "type": null, "status": "complete" },
+    { "heading": "The Label Was Never the Point", "type": null, "status": "complete" },
+    { "heading": "The Companies Winning Already Work This Way", "type": null, "status": "complete" },
+    { "heading": "Invisible Doesn't Mean Hidden", "type": null, "status": "complete" },
+    { "heading": "Our Job Is the Tool, Not the AI", "type": "closing", "status": "complete" }
+  ],
+  "sections": {}
+}
