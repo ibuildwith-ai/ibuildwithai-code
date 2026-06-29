@@ -1,0 +1,120 @@
++++
+title = "At Figma Config 2026 Materials Got the Headline but AI Is the Quiet Engine"
+date = "2026-06-29T09:09:47-07:00"
+author = "marcelo-lewin"
+draft = false
+summary = "At Figma Config 2026, new materials like motion, depth, texture, and code grabbed the spotlight. But AI is the quiet engine making them, and it never leaves the canvas."
+image = "/images/blog/figma-config-2026.jpg"
++++
+
+<!-- Blog Content Here -->
+
+## The Headline at Config 2026
+
+Figma Config 2026 just wrapped, and if you skimmed the recaps, they all said the same thing. New materials on the canvas. Motion. Depth. Texture. Code. Figma even put it in the title of its own announcement: new materials, new tools, and a more expressive canvas.[^1] The word everyone walked away repeating was materials.
+
+That headline is accurate. But to me, the real headline was sitting one layer down, quietly powering all of it.
+
+Because the materials are the part you see. The more interesting question is how you actually make any of this stuff. Where does the motion come from? Who writes the shader? How does code end up sitting on a designer's canvas? Ask that for each announcement and a second story shows up underneath the first one. The materials are what Figma is selling. AI is what builds them. And the decision I keep coming back to is where Figma chose to put that AI, not what they called it.
+
+## What Figma Means by "Materials"
+
+I am not a designer, so when Figma kept saying materials, I had to slow down and make sure I actually understood it. Here is what I worked out.
+
+Figma is borrowing the word from the physical world on purpose. A woodworker works with wood. A glassblower works with glass. A lighting designer works with light. The material is the raw substance you shape, and a big part of being good at a craft is knowing what your materials can do. For most of Figma's life, a designer's materials were pretty flat: shapes, color, type, and images sitting still on a 2D surface.
+
+At Config 2026, Figma widened that list. The canvas can now hold four things it really could not hold before:
+
+- **Motion**, so time and movement become something you shape directly, not an afterthought you fake in another app.
+- **Depth**, through 3D transforms, so a design can have dimension instead of being permanently flat.
+- **Texture**, through shaders, so surfaces can have light, grain, and richness baked right in.
+- **Code**, so a working, functioning thing can live on the canvas next to the picture of it.
+
+The first three are a natural stretch for a design tool. Motion, depth, and texture are all visual. They are the kind of thing a designer already thinks about, even if they previously had to leave Figma to produce them. Calling those materials is tidy, but it is not surprising.
+
+The fourth one is an interesting move. Saying code is a material is Figma redrawing the line between designing a thing and building it. Personally, I think this is one of the sharpest moves in the whole keynote, and it has almost nothing to do with technology.
+
+## Everything Announced at Config 2026
+
+Before we get to why, here is the full scope of what Figma actually shipped or previewed at Config 2026. I am listing all of it so you can see the pattern for yourself, not just take my word for it. Notice the last column. Every single one of these lives inside a surface Figma users already work in.
+
+| Announcement | What it does | Where it lives | Availability |
+|---|---|---|---|
+| **Figma Motion** | Build animations on a real timeline with keyframes, easing, and springs, then export to CSS, React, JSON, MP4, WebM, animated SVG, or GIF | Figma Design | Open beta[^2] |
+| **3D Transforms** | Add depth and dimension to designs and images, and combine it with motion | Figma Design | Coming soon[^2] |
+| **Custom Shader Effects and Fills** | Describe an effect (frosted glass, halftone, chrome, particles) and the agent generates an adjustable WebGPU shader | Figma Design, Draw, and Motion | Open beta[^2] |
+| **Code Layers** | Turn any design layer into a working, interactive code layer, starting from a design or a codebase | Figma Design canvas | Closed beta[^1] |
+| **Figma Agent updates** | Reusable Skills, Connectors to outside tools (Notion, Slack, GitHub, Atlassian, and more), web search, and file attachments, with agent chats visible to your team | Figma Design, expanding to FigJam and Slides | Rolling out[^1] |
+| **Generative Plugins** | Prompt the agent to build native, reusable plugins for chores like reordering layers or fixing spacing | Inside your design files | Open beta[^2] |
+| **Weave Tools in Figma Design** | Pre-built AI image workflows for common jobs like swapping backgrounds and adding logos, without leaving the file | Figma Design | Rolling out[^2] |
+| **Weave Workflows on Community** | Shareable node-based generative workflow templates | Figma Community | Generally available[^2] |
+| **Web search in the agent** | The agent pulls live web content into designs instead of leaving placeholder text | Figma Design | Rolling out[^1] |
+| **Chrome extension** | Bring a live website onto the canvas as structured, editable layers | Figma Design | Available[^1] |
+
+{{< space "1.5rem" >}}
+
+Ten announcements. Zero of them are a new app you have to go open. Keep that in mind, because it is the whole point.
+
+## The Genius of Calling Code a "Material"
+
+Now back to code as a material, because this is the part I keep thinking about.
+
+If you talk to enough designers, a certain unease comes up more often than you might expect. Something along the lines of, "AI already feels like it is circling my job, and now I am supposed to code too?" For plenty of designers, code is not just unfamiliar territory. It represents a path they deliberately chose not to take. So framing the future of their craft as "now you build software" can feel less like an opportunity and more like a quiet push to become someone else.
+
+Figma could have stood on stage and said exactly that. "With AI, designers can now ship production code." It would have been true. It also would have landed like a rock in a lot of stomachs.
+
+Instead, watch the language they actually used. They did not say you need to code. They said here is a new material for your canvas. Same capability. Completely different feeling. Wood does not threaten a carpenter. Light does not threaten a photographer. A material is something you reach for when you want it, on a surface you already own, at a pace you choose. By filing code under materials, Figma reframed the single scariest word in a designer's vocabulary into just another thing on the shelf next to color and type.
+
+> The capability did not change. The story around it did. And the story is what decides whether people lean in or freeze up.
+
+Notice what Figma did here. They used framing to lower someone's fear, not to show off the technology, and that is worth copying. Most of us, when we add something powerful to a product, describe it in terms of the power. We say what it can do. Figma understood that for a nervous audience, the message that matters more is what you do not have to become in order to use it. They lowered the bar with a noun, not a feature. That is the kind of move that never shows up in a changelog and matters more.
+
+## How the Materials Get Made
+
+This is the part where the two stories came together for me, and I suspect it might for you too. Go back through that list of materials and ask a simple question about each one. Who actually makes it?
+
+- You want a shader. You describe the texture you want, or hand it a reference image, and the Figma agent generates the effect with controls you can dial in.[^1] You did not write WebGPU. The AI did.
+- You want motion. You can build it by hand on the timeline, or you can ask the agent to generate a starting point and refine from there.[^2] The AI is right there in the loop.
+- You want code on the canvas. Code layers let you prompt your interaction idea and compare directions.[^1] The AI is the thing turning your intent into something that runs.
+- You want a custom plugin to sort some layers or fix your spacing. You describe it and the agent builds a native plugin for you, no plugin API knowledge required.[^2]
+- You want real content instead of lorem ipsum. The agent runs a web search and pulls it in.[^1]
+- You want the agent to reach into Notion or GitHub or Slack. Connectors let it do that and send updates back.[^1]
+
+Line them up and the pattern is hard to miss. The new materials are the part we see and talk about. AI is the engine quietly producing all of them, running underneath. Figma led with motion, depth, texture, and code because those are the things designers actually want. The agent exists underneath because that is what turns a description into a shader, a prompt into code, an intent into motion. The headline is the material. The engine is the AI. And the engine almost never asks you to look at it directly. You ask for the result, on the canvas, and the result appears.
+
+## What Figma Chose Not To Do
+
+The clearest way to understand a company's bet is to look at what it chose not to do. At Config 2026, Figma did not ship a single standalone AI product. There is no new "Figma AI" app sitting off to the side that you have to go open and learn. The agent does not live in a separate destination. It lives on the canvas you already use, and the news is that it is expanding into more of the surfaces you already use, FigJam and Slides.[^1] AI is being threaded through the places designers already work, not stood up as a place of its own.
+
+I wrote a whole piece arguing that [the best AI in your app is invisible](https://www.ibuildwith.ai/blog/the-best-ai-in-your-app-is-invisible/), that the companies winning right now are the ones burying AI inside the tools people already use instead of selling it as a destination. Config 2026 is that argument made concrete. You do not go to the AI. The AI comes to the canvas.
+
+And here is the detail that turns this from a nice observation into actual evidence. Figma already owns an AI-first tool. It is called Figma Make, and the pitch is exactly what you would expect: prompt it, and it builds the thing.[^3] That is AI as the tool, the whole product wrapped around the model. If Figma genuinely believed the future was a standalone AI destination, Config 2026 was the stage to make Make the star of the show.
+
+They didn't. Make sat quietly in the lineup while every headline went to AI poured into the canvas. When a company that owns both an AI-first product and an AI-enhanced one chooses, on its biggest stage of the year, to spotlight the enhanced one, that is not an accident. That is the bet, stated out loud by what they put in the spotlight.
+
+## What This Means for Builders
+
+So what do we take from this if we are building something of our own, whether it is a design tool, a writing app, a spreadsheet, or an internal dashboard nobody outside the company will ever see?
+
+The instinct most teams have right now is to build the AI thing. A new surface, a chat box, a copilot panel, a separate destination with the model at the center. It feels like progress because it looks like AI. Figma had every reason to do that, and the resources to do it well, and at its flagship event it pointed in the opposite direction.
+
+The lesson is not "hide your AI" and it is not "drop the label," which is a different argument for a different day. The lesson here is about location and framing. Find your canvas. Find the surface your users already understand, already trust, already spend their day inside, and make AI the engine that gives that surface new powers. Then describe those powers in the language of the work your users already do, not the language of the technology. Figma did not give designers "an AI coding assistant." It gave them a new material. Same engine, an invitation instead of a threat.
+
+That is two decisions, and they reinforce each other. Put the AI where the work already happens. Then talk about it in terms of what the work becomes, not what the user has to learn. Get both right and people adopt the new capability without ever feeling like they had to sign up for a new job.
+
+## What I Took Away from Config 2026
+
+This was my first Config, and I will be honest about the mood I walked in with. With so many AI design tools flooding the market, I half expected to come away thinking Figma was in trouble, about to be out-innovated on its own turf. I left a lot more optimistic about where they are headed, not because of any single feature, but because of how they are thinking. And the way they are thinking turned into a handful of lessons that apply to anyone building with AI right now.
+
+The first is that the best AI today is close to invisible. Not hidden, just not a place you go. Figma did not build a destination and ask designers to move in. It left the intelligence on the canvas and let the work get better. The more I look at the companies getting this right, the more that pattern holds. [Apple is doing the same thing](https://www.ibuildwith.ai/blog/apple-shipped-three-ai-paths-at-wwdc26-which-should-we-choose-when/), weaving AI through the apps people already use instead of shipping a separate place to go get it, which is what I wrote about after WWDC26.
+
+The second is about location. Put the power where your users already are. Figma did not make designers learn a new home for motion, texture, depth, and code. It added those things to the canvas they already live on, the surface they already trust. New capability, familiar ground. That is a much shorter walk than "here is a new tool, please start over."
+
+The third is about language. Name the feature in terms of the work, not the technology. Figma did not announce "an AI coding assistant." It handed designers a new material. Same capability, but framed as something to reach for rather than something to fear. How you name a thing decides whether people lean in or back away.
+
+And underneath all three is the quietest lesson of the conference. Where you place the AI is itself a statement about who it serves. Figma put the engine under the designer's own hand, on the canvas they control, not in a product that does the job for them. That is the difference between a tool that makes you better and faster and one that aims to replace you. Figma chose the tool. To me, that was the smartest move in the room.
+
+<!-- References Here (If any) -->
+[^1]: Figma. "Config 2026: New Materials, New Tools and a More Expressive Canvas." Figma Blog. https://www.figma.com/blog/config-2026-recap/
+[^2]: Figma. "What's new from Config 2026." Figma Learn / Help Center. https://help.figma.com/hc/en-us/articles/39582753756695-What-s-new-from-Config-2026
+[^3]: Ivan Mehta. "Figma adds code layers, support for animations, more AI features in new update." TechCrunch. https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/
